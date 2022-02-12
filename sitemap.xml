@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://a920604a.github.io/2022/02/12/hexo%20NeXt/</loc>
+    <loc>https://a920604a.github.io/blog/tags/index.html</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/tags/index.html</loc>
+    <loc>https://a920604a.github.io/blog/2022/02/12/hexo%20NeXt/</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/categories/index.html</loc>
+    <loc>https://a920604a.github.io/blog/categories/index.html</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/about/index.html</loc>
+    <loc>https://a920604a.github.io/blog/archives/index.html</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/archives/index.html</loc>
+    <loc>https://a920604a.github.io/blog/home/index.html</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -47,16 +47,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/home/index.html</loc>
-    
-    <lastmod>2022-02-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://a920604a.github.io/2022/02/12/hello-world/</loc>
+    <loc>https://a920604a.github.io/blog/2022/02/12/hello-world/</loc>
     
     <lastmod>2022-02-12</lastmod>
     
@@ -66,7 +57,7 @@
   
 
   <url>
-    <loc>https://a920604a.github.io/</loc>
+    <loc>https://a920604a.github.io/blog</loc>
     <lastmod>2022-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -74,7 +65,7 @@
 
   
   <url>
-    <loc>https://a920604a.github.io/tags/blog/</loc>
+    <loc>https://a920604a.github.io/blog/tags/blog/</loc>
     <lastmod>2022-02-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -83,7 +74,7 @@
 
   
   <url>
-    <loc>https://a920604a.github.io/categories/blog/</loc>
+    <loc>https://a920604a.github.io/blog/categories/blog/</loc>
     <lastmod>2022-02-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
