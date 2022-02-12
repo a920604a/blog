@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2022/02/12/hello-world/</url>
+    <url>/blog/2022/02/12/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -20,7 +20,7 @@
   </entry>
   <entry>
     <title>hexo NeXt的設置(持續更新)</title>
-    <url>/2022/02/12/hexo%20NeXt/</url>
+    <url>/blog/2022/02/12/hexo%20NeXt/</url>
     <content><![CDATA[<h1 id="hexo-網誌框架-github-Page"><a href="#hexo-網誌框架-github-Page" class="headerlink" title="hexo 網誌框架 + github Page"></a><a href="https://hexo.io/zh-cn/">hexo 網誌框架 + github Page</a></h1><h2 id="install-hexo"><a href="#install-hexo" class="headerlink" title="install hexo"></a>install hexo</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server # 啟動</span><br></pre></td></tr></table></figure>
 
 <h2 id="Choose-theme"><a href="#Choose-theme" class="headerlink" title="Choose theme"></a><a href="https://hexo.io/themes/">Choose theme</a></h2><ul>
