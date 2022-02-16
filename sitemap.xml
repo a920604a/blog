@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://a920604a.github.io/blog/2022/02/12/hexo%20NeXt/</loc>
+    
+    <lastmod>2022-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/02/16/leetcode/645_SetMismatch/</loc>
     
     <lastmod>2022-02-16</lastmod>
@@ -551,6 +560,42 @@
   </url>
   
   <url>
+    <loc>https://a920604a.github.io/blog/tags/index.html</loc>
+    
+    <lastmod>2022-02-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/categories/index.html</loc>
+    
+    <lastmod>2022-02-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/archives/index.html</loc>
+    
+    <lastmod>2022-02-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/home/index.html</loc>
+    
+    <lastmod>2022-02-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/02/12/hello-world/</loc>
     
     <lastmod>2022-02-12</lastmod>
@@ -652,10 +697,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://a920604a.github.io/blog/tags/blog/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/leetcode/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/categories/blog/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
