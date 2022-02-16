@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Two Pointers," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="287. Find the Duplicate Numbertags: leetcode Two pointersproblem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution 利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案  123456789101112131415161718192">
+<meta name="description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution 利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案  1234567891011121314151617181920212223242526class Solution &amp;#123;public:    int findDupl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="287. Find the Duplicate Number">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/287_FindtheDuplicateNumber/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="287. Find the Duplicate Numbertags: leetcode Two pointersproblem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution 利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案  123456789101112131415161718192">
+<meta property="og:description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution 利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案  1234567891011121314151617181920212223242526class Solution &amp;#123;public:    int findDupl">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:06.511Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:06.511Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:24:22.947Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>287. Find the Duplicate Number | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">287. Find the Duplicate Number</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:06+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="287-Find-the-Duplicate-Number"><a href="#287-Find-the-Duplicate-Number" class="headerlink" title="287. Find the Duplicate Number"></a>287. Find the Duplicate Number</h1><h6 id="tags-leetcode-Two-pointers"><a href="#tags-leetcode-Two-pointers" class="headerlink" title="tags: leetcode Two pointers"></a>tags: <code>leetcode</code> <code>Two pointers</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-duplicate-number/">problem</a></h2><p>給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。</p>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-duplicate-number/">problem</a></h2><p>給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。</p>
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
 <li>利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案</li>
 </ul>
@@ -395,6 +416,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
+          
+        </div>
+      
 
       
       
@@ -404,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/268_MissingNumber/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/322_CoinChange/" rel="next" title="322. Coin Change">
+                <i class="fa fa-chevron-left"></i> 322. Coin Change
               </a>
             
           </div>
@@ -414,8 +441,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/300_LongestIncreasingSubsequence/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/300_LongestIncreasingSubsequence/" rel="prev" title="300. Longest Increasing Subsequence">
+                300. Longest Increasing Subsequence <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -444,10 +471,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -515,7 +538,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -566,23 +589,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                    <a href="/blog/2022/02/16/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                    <a href="/blog/2022/02/16/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
+                    <a href="/blog/2022/02/16/338_CountingBits/" title="338. Counting Bits" target="_blank">338. Counting Bits</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                    <a href="/blog/2022/02/16/342_PowerofFour/" title="342. Power of Four" target="_blank">342. Power of Four</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
+                    <a href="/blog/2022/02/16/347_TopKFrequentElements/" title="347. Top K Frequent Elements" target="_blank">347. Top K Frequent Elements</a>
                   </li>
                 
               </ul>
@@ -609,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#287-Find-the-Duplicate-Number"><span class="nav-number">1.</span> <span class="nav-text">287. Find the Duplicate Number</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-Two-pointers"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode Two pointers</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>

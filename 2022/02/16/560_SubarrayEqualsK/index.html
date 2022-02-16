@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hash table," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="560. Subarray sum equals ktags: leetcode hash tableproblem找出連續子陣列，其總和為k 的數量 solution hash table 統計連續子陣列總和及相應數量1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    int">
+<meta name="description" content="problem找出連續子陣列，其總和為k 的數量 solution hash table 統計連續子陣列總和及相應數量1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    int subarraySum(vector&lt;int&gt;&amp; nums, int k) &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="560. Subarray sum equals k">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/560_SubarrayEqualsK/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="560. Subarray sum equals ktags: leetcode hash tableproblem找出連續子陣列，其總和為k 的數量 solution hash table 統計連續子陣列總和及相應數量1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    int">
+<meta property="og:description" content="problem找出連續子陣列，其總和為k 的數量 solution hash table 統計連續子陣列總和及相應數量1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    int subarraySum(vector&lt;int&gt;&amp; nums, int k) &amp;#">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:06.776Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:06.776Z">
+<meta property="article:published_time" content="2022-02-16T08:30:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:29:56.199Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="Hash table">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>560. Subarray sum equals k | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">560. Subarray sum equals k</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:06+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:30:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="560-Subarray-sum-equals-k"><a href="#560-Subarray-sum-equals-k" class="headerlink" title="560. Subarray sum equals k"></a>560. Subarray sum equals k</h1><h6 id="tags-leetcode-hash-table"><a href="#tags-leetcode-hash-table" class="headerlink" title="tags: leetcode hash table"></a>tags: <code>leetcode</code> <code>hash table</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sum-equals-k/">problem</a></h2><p>找出連續子陣列，其總和為k 的數量</p>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sum-equals-k/">problem</a></h2><p>找出連續子陣列，其總和為k 的數量</p>
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
 <li>hash table 統計連續子陣列總和及相應數量<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subarraySum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// unordered_map&lt;int,int&gt; mp;</span></span><br><span class="line">        <span class="comment">// int sum =0, ret = 0;</span></span><br><span class="line">        <span class="comment">// mp[0] = 1;</span></span><br><span class="line">        <span class="comment">// //  1   2   3</span></span><br><span class="line">        <span class="comment">// //  (0,1) -&gt; (0,1) (1,1) -&gt; (0,1) (1,1) (2,1) -&gt; (0,1) (1,1) (2,1) (3,1)</span></span><br><span class="line">        <span class="comment">// for(int i=0;i&lt;nums.size() ; ++i)&#123;</span></span><br><span class="line">        <span class="comment">//     sum+=nums[i];</span></span><br><span class="line">        <span class="comment">//     if(mp.count(sum-k) ) ret+=mp[sum-k];</span></span><br><span class="line">        <span class="comment">//     mp[sum]++;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// return ret;</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; sum = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//  1   1   1</span></span><br><span class="line">        <span class="comment">//  0   1   2   3</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i) sum[i] = sum[i<span class="number">-1</span>] + nums[i<span class="number">-1</span>];</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        mp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// (0,1) -&gt; (0,1) (1,1) -&gt; (0,1) (1,1) (2,1)</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> target = sum[i] - k;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">count</span>(target)) ret+=mp[target];</span><br><span class="line">            mp[sum[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analyze"><a href="#analyze" class="headerlink" title="analyze"></a>analyze</h2></li>
@@ -392,6 +413,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Hash-table/" rel="tag"># Hash table</a>
+          
+        </div>
+      
 
       
       
@@ -401,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/389_FindtheDifference/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/567_PermutationinString/" rel="next" title="567. Permutation in String">
+                <i class="fa fa-chevron-left"></i> 567. Permutation in String
               </a>
             
           </div>
@@ -411,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/567_PermutationinString/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/389_FindtheDifference/" rel="prev" title="389. Find the Difference">
+                389. Find the Difference <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -441,10 +468,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -512,7 +535,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -563,23 +586,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                    <a href="/blog/2022/02/16/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                    <a href="/blog/2022/02/16/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
+                    <a href="/blog/2022/02/16/338_CountingBits/" title="338. Counting Bits" target="_blank">338. Counting Bits</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                    <a href="/blog/2022/02/16/342_PowerofFour/" title="342. Power of Four" target="_blank">342. Power of Four</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
+                    <a href="/blog/2022/02/16/347_TopKFrequentElements/" title="347. Top K Frequent Elements" target="_blank">347. Top K Frequent Elements</a>
                   </li>
                 
               </ul>
@@ -606,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#560-Subarray-sum-equals-k"><span class="nav-number">1.</span> <span class="nav-text">560. Subarray sum equals k</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-hash-table"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode hash table</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analyze"><span class="nav-number">1.3.</span> <span class="nav-text">analyze</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analyze"><span class="nav-number">3.</span> <span class="nav-text">analyze</span></a></li></ol></div>
             
 
           </div>
