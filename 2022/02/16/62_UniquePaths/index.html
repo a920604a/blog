@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="dp," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="62. Unique Pathstags: leetcode dpproblemsolutionoption 1 - dp123456789101112131415class Solution &amp;#123;public:    int uniquePaths(int m, int n) &amp;#123;        &#x2F;&#x2F;  1   1   1   1   1   1   1           &#x2F;&#x2F;">
+<meta name="description" content="problemsolutionoption 1 - dp123456789101112131415class Solution &amp;#123;public:    int uniquePaths(int m, int n) &amp;#123;        &#x2F;&#x2F;  1   1   1   1   1   1   1           &#x2F;&#x2F;  1   2   3   4   5   6   7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="62. Unique Paths">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/62_UniquePaths/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="62. Unique Pathstags: leetcode dpproblemsolutionoption 1 - dp123456789101112131415class Solution &amp;#123;public:    int uniquePaths(int m, int n) &amp;#123;        &#x2F;&#x2F;  1   1   1   1   1   1   1           &#x2F;&#x2F;">
+<meta property="og:description" content="problemsolutionoption 1 - dp123456789101112131415class Solution &amp;#123;public:    int uniquePaths(int m, int n) &amp;#123;        &#x2F;&#x2F;  1   1   1   1   1   1   1           &#x2F;&#x2F;  1   2   3   4   5   6   7">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:05.870Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:05.871Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:13:26.959Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="dp">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>62. Unique Paths | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">62. Unique Paths</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:05+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62. Unique Paths"></a>62. Unique Paths</h1><h6 id="tags-leetcode-dp"><a href="#tags-leetcode-dp" class="headerlink" title="tags: leetcode dp"></a>tags: <code>leetcode</code> <code>dp</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/unique-paths/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-dp"><a href="#option-1-dp" class="headerlink" title="option 1 - dp"></a>option 1 - dp</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1   1   </span></span><br><span class="line">        <span class="comment">//  1   2   3   4   5   6   7   </span></span><br><span class="line">        <span class="comment">//  1   3   6   10  15  21  28</span></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(m,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;m;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">                dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/unique-paths/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-dp"><a href="#option-1-dp" class="headerlink" title="option 1 - dp"></a>option 1 - dp</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1   1   </span></span><br><span class="line">        <span class="comment">//  1   2   3   4   5   6   7   </span></span><br><span class="line">        <span class="comment">//  1   3   6   10  15  21  28</span></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(m,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;m;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">                dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="option-2-reduce-dp"><a href="#option-2-reduce-dp" class="headerlink" title="option 2 - reduce dp"></a>option 2 - reduce dp</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1   1   </span></span><br><span class="line">        <span class="comment">//  1   2   3   4   5   6   7   </span></span><br><span class="line">        <span class="comment">//  1   3   6   10  15  21  28</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n,<span class="number">1</span>)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;m;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">                dp[j] += dp[j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.<span class="built_in">back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -401,6 +422,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/dp/" rel="tag"># dp</a>
+          
+        </div>
+      
 
       
       
@@ -410,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/55_JumpGame/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/70_ClimbingStairs/" rel="next" title="70. Climbing Stairs">
+                <i class="fa fa-chevron-left"></i> 70. Climbing Stairs
               </a>
             
           </div>
@@ -420,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/70_ClimbingStairs/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/5_LongestPalindromicSubstring/" rel="prev" title="5. Longest Palindromic Substring">
+                5. Longest Palindromic Substring <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,10 +477,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -521,7 +544,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -572,23 +595,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
                   </li>
                 
                   <li>
+                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/19_RemoveNthNodeFromEndofList/" title="19. Remove Nth Node From End of List" target="_blank">19. Remove Nth Node From End of List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/20_ValidParentheses/" title="20. Valid Parentheses" target="_blank">20. Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -615,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#62-Unique-Paths"><span class="nav-number">1.</span> <span class="nav-text">62. Unique Paths</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-dp"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode dp</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-dp"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">option 1 - dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-reduce-dp"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">option 2 - reduce dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-use-math"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">option 3 use math</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-dp"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1 - dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-reduce-dp"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - reduce dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-use-math"><span class="nav-number">2.0.3.</span> <span class="nav-text">option 3 use math</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>

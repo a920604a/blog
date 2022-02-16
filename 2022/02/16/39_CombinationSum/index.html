@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="backtracking," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="39. Combination Sumtags: leetcode backtrackingproblem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], pa">
+<meta name="description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="39. Combination Sum">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/39_CombinationSum/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="39. Combination Sumtags: leetcode backtrackingproblem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], pa">
+<meta property="og:description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  12345678910111">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:05.738Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:05.739Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:11:24.195Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>39. Combination Sum | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">39. Combination Sum</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:05+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="39-Combination-Sum"><a href="#39-Combination-Sum" class="headerlink" title="39. Combination Sum"></a>39. Combination Sum</h1><h6 id="tags-leetcode-backtracking"><a href="#tags-leetcode-backtracking" class="headerlink" title="tags: leetcode backtracking"></a>tags: <code>leetcode</code> <code>backtracking</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/combination-sum/">problem</a></h2><p>找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。</p>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/combination-sum/">problem</a></h2><p>找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。</p>
 <h2 id="sloution"><a href="#sloution" class="headerlink" title="sloution"></a>sloution</h2><ul>
 <li><p>用遞迴暴力，遍歷每種可能，終止條件<code>target&lt;0</code> or </p>
 </li>
@@ -402,6 +423,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/backtracking/" rel="tag"># backtracking</a>
+          
+        </div>
+      
 
       
       
@@ -411,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/33_SearchinRotatedSortedArray/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/40_CombinationSumII/" rel="next" title="40. Combination Sum II">
+                <i class="fa fa-chevron-left"></i> 40. Combination Sum II
               </a>
             
           </div>
@@ -421,8 +448,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/40_CombinationSumII/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/33_SearchinRotatedSortedArray/" rel="prev" title="33. Search in Rotated Sorted Array">
+                33. Search in Rotated Sorted Array <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -451,10 +478,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -522,7 +545,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -573,23 +596,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
                   </li>
                 
                   <li>
+                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/19_RemoveNthNodeFromEndofList/" title="19. Remove Nth Node From End of List" target="_blank">19. Remove Nth Node From End of List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/20_ValidParentheses/" title="20. Valid Parentheses" target="_blank">20. Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -616,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#39-Combination-Sum"><span class="nav-number">1.</span> <span class="nav-text">39. Combination Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-backtracking"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode backtracking</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sloution"><span class="nav-number">1.2.</span> <span class="nav-text">sloution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sloution"><span class="nav-number">2.</span> <span class="nav-text">sloution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>

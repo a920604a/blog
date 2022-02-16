@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="bfs," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="121. Best Time to Buy and Sell Stocktags: leetcode dpproblem從股票價位陣列中找出，可以最大化淨利 Solutiondp 維護一個dp 紀錄歷史至今最低價位，在用當天股價減去至今最低點，並更新ret  12345678910111213141516class Solution &amp;#123;public:    int maxProfit(v">
+<meta name="description" content="problem從股票價位陣列中找出，可以最大化淨利 Solutiondp 維護一個dp 紀錄歷史至今最低價位，在用當天股價減去至今最低點，並更新ret  12345678910111213141516class Solution &amp;#123;public:    int maxProfit(vector&lt;int&gt;&amp; prices) &amp;#123;        &#x2F;&#x2F;      7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="121. Best Time to Buy and Sell Stock">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/121_BestTimetoBuyandSelIStock/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="121. Best Time to Buy and Sell Stocktags: leetcode dpproblem從股票價位陣列中找出，可以最大化淨利 Solutiondp 維護一個dp 紀錄歷史至今最低價位，在用當天股價減去至今最低點，並更新ret  12345678910111213141516class Solution &amp;#123;public:    int maxProfit(v">
+<meta property="og:description" content="problem從股票價位陣列中找出，可以最大化淨利 Solutiondp 維護一個dp 紀錄歷史至今最低價位，在用當天股價減去至今最低點，並更新ret  12345678910111213141516class Solution &amp;#123;public:    int maxProfit(vector&lt;int&gt;&amp; prices) &amp;#123;        &#x2F;&#x2F;      7">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:06.040Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:06.041Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:17:29.662Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="bfs">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>121. Best Time to Buy and Sell Stock | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">121. Best Time to Buy and Sell Stock</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:06+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121. Best Time to Buy and Sell Stock"></a>121. Best Time to Buy and Sell Stock</h1><h6 id="tags-leetcode-dp"><a href="#tags-leetcode-dp" class="headerlink" title="tags: leetcode dp"></a>tags: <code>leetcode</code> <code>dp</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">problem</a></h2><p>從股票價位陣列中找出，可以最大化淨利</p>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">problem</a></h2><p>從股票價位陣列中找出，可以最大化淨利</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h4 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h4><ul>
 <li>維護一個dp 紀錄歷史至今最低價位，在用當天股價減去至今最低點，並更新ret</li>
 </ul>
@@ -403,6 +424,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/bfs/" rel="tag"># bfs</a>
+          
+        </div>
+      
 
       
       
@@ -412,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/11_ContainerWithMostWater/" rel="next" title="11. Container With Most Water">
+                <i class="fa fa-chevron-left"></i> 11. Container With Most Water
               </a>
             
           </div>
@@ -422,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/125_ValidPalindrome/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" rel="prev" title="104. Maximum Depth of Binary Tree">
+                104. Maximum Depth of Binary Tree <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -452,10 +479,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -523,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -574,23 +597,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
                   </li>
                 
                   <li>
+                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/19_RemoveNthNodeFromEndofList/" title="19. Remove Nth Node From End of List" target="_blank">19. Remove Nth Node From End of List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/20_ValidParentheses/" title="20. Valid Parentheses" target="_blank">20. Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -617,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">1.</span> <span class="nav-text">121. Best Time to Buy and Sell Stock</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-dp"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode dp</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dp"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#algo"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">algo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dp"><span class="nav-number">2.0.1.</span> <span class="nav-text">dp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#algo"><span class="nav-number">2.0.2.</span> <span class="nav-text">algo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="bfs," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="125. Valid Palindrometags: leetcode Two Pointersproblemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(char &amp;c)&amp;#123;                if(c &gt;&#x3D; &amp;#x27;0&amp;">
+<meta name="description" content="tags: leetcode Two Pointersproblemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(char &amp;c)&amp;#123;                if(c &gt;&#x3D; &amp;#x27;0&amp;#x27; &amp;&amp; c&amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="125. Valid Palindrome">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/125_ValidPalindrome/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="125. Valid Palindrometags: leetcode Two Pointersproblemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(char &amp;c)&amp;#123;                if(c &gt;&#x3D; &amp;#x27;0&amp;">
+<meta property="og:description" content="tags: leetcode Two Pointersproblemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(char &amp;c)&amp;#123;                if(c &gt;&#x3D; &amp;#x27;0&amp;#x27; &amp;&amp; c&amp;lt">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:06.067Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:06.067Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:17:41.977Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="bfs">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>125. Valid Palindrome | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">125. Valid Palindrome</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:06+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="125-Valid-Palindrome"><a href="#125-Valid-Palindrome" class="headerlink" title="125. Valid Palindrome"></a>125. Valid Palindrome</h1><h6 id="tags-leetcode-Two-Pointers"><a href="#tags-leetcode-Two-Pointers" class="headerlink" title="tags: leetcode Two Pointers"></a>tags: <code>leetcode</code> <code>Two Pointers</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(<span class="type">char</span> &amp;c)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(c &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;z&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;A&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;Z&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="type">int</span> n= s.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>, r =n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r &amp;&amp; !<span class="built_in">isValid</span>(s[l])) l++;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r &amp;&amp; !<span class="built_in">isValid</span>(s[r])) r--;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">tolower</span>(s[l])!=<span class="built_in">tolower</span>(s[r])) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            l++;</span><br><span class="line">            r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h6 id="tags-leetcode-Two-Pointers"><a href="#tags-leetcode-Two-Pointers" class="headerlink" title="tags: leetcode Two Pointers"></a>tags: <code>leetcode</code> <code>Two Pointers</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(<span class="type">char</span> &amp;c)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(c &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;z&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;A&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;Z&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="type">int</span> n= s.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>, r =n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r &amp;&amp; !<span class="built_in">isValid</span>(s[l])) l++;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r &amp;&amp; !<span class="built_in">isValid</span>(s[r])) r--;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">tolower</span>(s[l])!=<span class="built_in">tolower</span>(s[r])) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            l++;</span><br><span class="line">            r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(1)</code></li>
@@ -390,6 +411,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/bfs/" rel="tag"># bfs</a>
+          
+        </div>
+      
 
       
       
@@ -399,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/15_3Sum/" rel="next" title="15. 3Sum">
+                <i class="fa fa-chevron-left"></i> 15. 3Sum
               </a>
             
           </div>
@@ -409,8 +436,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/136_SingleNumber/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/11_ContainerWithMostWater/" rel="prev" title="11. Container With Most Water">
+                11. Container With Most Water <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -439,10 +466,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -510,7 +533,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -561,23 +584,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/02/16/104_MaximumDepthofBinaryTree/" title="104. Maximum Depth of Binary Tree" target="_blank">104. Maximum Depth of Binary Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/16/121_BestTimetoBuyandSelIStock/" title="121. Best Time to Buy and Sell Stock" target="_blank">121. Best Time to Buy and Sell Stock</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
                   </li>
                 
                   <li>
+                    <a href="/blog/2022/02/16/125_ValidPalindrome/" title="125. Valid Palindrome" target="_blank">125. Valid Palindrome</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/15_3Sum/" title="15. 3Sum" target="_blank">15. 3Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/19_RemoveNthNodeFromEndofList/" title="19. Remove Nth Node From End of List" target="_blank">19. Remove Nth Node From End of List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/20_ValidParentheses/" title="20. Valid Parentheses" target="_blank">20. Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -604,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#125-Valid-Palindrome"><span class="nav-number">1.</span> <span class="nav-text">125. Valid Palindrome</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-Two-Pointers"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode Two Pointers</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-Two-Pointers"><span class="nav-number">1.</span> <span class="nav-text">tags: leetcode Two Pointers</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number"></span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number"></span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number"></span> <span class="nav-text">analysis</span></a></div>
             
 
           </div>
