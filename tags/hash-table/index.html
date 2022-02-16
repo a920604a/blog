@@ -304,7 +304,7 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/2022/02/16/560_SubarrayEqualsK/" itemprop="url">
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/560_SubarrayEqualsK/" itemprop="url">
               
                 <span itemprop="name">560. Subarray sum equals k</span>
               
@@ -332,7 +332,7 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/2022/02/16/49_GroupAnagrams/" itemprop="url">
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/49_GroupAnagrams/" itemprop="url">
               
                 <span itemprop="name">49. Group Anagrams</span>
               
@@ -360,7 +360,7 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/2022/02/16/76_MinimumWindowSubstring/" itemprop="url">
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/76_MinimumWindowSubstring/" itemprop="url">
               
                 <span itemprop="name">76. Minimum Window Substring</span>
               
@@ -505,23 +505,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
+                    <a href="/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
+                    <a href="/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/338_CountingBits/" title="338. Counting Bits" target="_blank">338. Counting Bits</a>
+                    <a href="/blog/2022/02/16/leetcode/338_CountingBits/" title="338. Counting Bits" target="_blank">338. Counting Bits</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/342_PowerofFour/" title="342. Power of Four" target="_blank">342. Power of Four</a>
+                    <a href="/blog/2022/02/16/leetcode/342_PowerofFour/" title="342. Power of Four" target="_blank">342. Power of Four</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/347_TopKFrequentElements/" title="347. Top K Frequent Elements" target="_blank">347. Top K Frequent Elements</a>
+                    <a href="/blog/2022/02/16/leetcode/347_TopKFrequentElements/" title="347. Top K Frequent Elements" target="_blank">347. Top K Frequent Elements</a>
                   </li>
                 
               </ul>
@@ -726,6 +726,26 @@
       isXml = false;
     }
     var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearrch_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -1009,50 +1029,6 @@
     }
 
     // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-   // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched === false) {
