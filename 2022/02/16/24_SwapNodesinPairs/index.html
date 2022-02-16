@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linked List," />
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="24. Swap Nodes in Pairstags: leetcode Linked Listproblemsolution cheatmodify value of the next node123456789101112131415class Solution &amp;#123;public:        ListNode* swapPairs(ListNode* head) &amp;#123;">
+<meta name="description" content="problemsolution cheatmodify value of the next node123456789101112131415class Solution &amp;#123;public:        ListNode* swapPairs(ListNode* head) &amp;#123;        if(!head ||!head-&gt;next) return head;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YuAn">
+<meta property="og:title" content="24. Swap Nodes in Pairs">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/24_SwapNodesinPairs/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="24. Swap Nodes in Pairstags: leetcode Linked Listproblemsolution cheatmodify value of the next node123456789101112131415class Solution &amp;#123;public:        ListNode* swapPairs(ListNode* head) &amp;#123;">
+<meta property="og:description" content="problemsolution cheatmodify value of the next node123456789101112131415class Solution &amp;#123;public:        ListNode* swapPairs(ListNode* head) &amp;#123;        if(!head ||!head-&gt;next) return head;">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:01:05.704Z">
-<meta property="article:modified_time" content="2022-02-16T08:01:05.704Z">
+<meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:05:45.260Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | YuAn</title>
+  <title>24. Swap Nodes in Pairs | YuAn</title>
   
 
 
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">24. Swap Nodes in Pairs</h1>
         
 
         <div class="post-meta">
@@ -332,7 +333,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:01:05+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:10:16+08:00">
                 2022-02-16
               </time>
             
@@ -343,9 +344,29 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
           
 
           
@@ -370,7 +391,7 @@
       
 
       
-        <h1 id="24-Swap-Nodes-in-Pairs"><a href="#24-Swap-Nodes-in-Pairs" class="headerlink" title="24. Swap Nodes in Pairs"></a>24. Swap Nodes in Pairs</h1><h6 id="tags-leetcode-Linked-List"><a href="#tags-leetcode-Linked-List" class="headerlink" title="tags: leetcode Linked List"></a>tags: <code>leetcode</code> <code>Linked List</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/swap-nodes-in-pairs/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/swap-nodes-in-pairs/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
 <li>cheat<br>modify value of the next node<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur &amp;&amp; cur-&gt;next)&#123;</span><br><span class="line">            <span class="type">int</span> val = cur-&gt;val;</span><br><span class="line">            cur-&gt;val = cur-&gt;next-&gt;val;</span><br><span class="line">            cur-&gt;next-&gt;val = val;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="option-1-merge-policy"><a href="#option-1-merge-policy" class="headerlink" title="option 1 - merge policy"></a>option 1 - merge policy</h5>可以看作一條奇數索引的list與偶數索引的list 從頭merge two list<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *odd = head, *even = head-&gt;next, *a = odd, *b = even, *newhead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *ret = newhead;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(odd &amp;&amp; even)&#123;</span><br><span class="line">            odd-&gt;next = even-&gt;next;</span><br><span class="line">            odd=odd-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(odd)&#123;</span><br><span class="line">                even-&gt;next = odd-&gt;next;</span><br><span class="line">                even = even-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// merge two lists</span></span><br><span class="line">        <span class="keyword">while</span>(a || b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b)&#123;</span><br><span class="line">                newhead-&gt;next = b;</span><br><span class="line">                b=b-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a)&#123;</span><br><span class="line">                newhead-&gt;next =a;</span><br><span class="line">                a=a-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -393,6 +414,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Linked-List/" rel="tag"># Linked List</a>
+          
+        </div>
+      
 
       
       
@@ -402,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2022/02/16/23_MergekSortedLists/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/blog/2022/02/16/3_LongestSubstringWithoutRepeatingCharacters/" rel="next" title="3. Longest Substring Without Repeating Characters">
+                <i class="fa fa-chevron-left"></i> 3. Longest Substring Without Repeating Characters
               </a>
             
           </div>
@@ -412,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2022/02/16/33_SearchinRotatedSortedArray/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2022/02/16/23_MergekSortedLists/" rel="prev" title="23. Merge k Sorted Lists">
+                23. Merge k Sorted Lists <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -442,10 +469,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -513,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -564,10 +587,6 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
-                  </li>
-                
-                  <li>
                     <a href="/blog/2022/02/16/11_ContainerWithMostWater/" title="11. Container With Most Water" target="_blank">11. Container With Most Water</a>
                   </li>
                 
@@ -576,11 +595,15 @@
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/3_LongestSubstringWithoutRepeatingCharacters/" title="3. Longest Substring Without Repeating Characters" target="_blank">3. Longest Substring Without Repeating Characters</a>
+                    <a href="/blog/2022/02/16/19_RemoveNthNodeFromEndofList/" title="19. Remove Nth Node From End of List" target="_blank">19. Remove Nth Node From End of List</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/5_LongestPalindromicSubstring/" title="5. Longest Palindromic Substring" target="_blank">5. Longest Palindromic Substring</a>
+                    <a href="/blog/2022/02/16/1_TwoSum/" title="1. Two Sum" target="_blank">1. Two Sum</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/16/20_ValidParentheses/" title="20. Valid Parentheses" target="_blank">20. Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -607,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#24-Swap-Nodes-in-Pairs"><span class="nav-number">1.</span> <span class="nav-text">24. Swap Nodes in Pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-leetcode-Linked-List"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: leetcode Linked List</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#option-1-merge-policy"><span class="nav-number">1.2.0.0.1.</span> <span class="nav-text">option 1 - merge policy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#option-2-swap"><span class="nav-number">1.2.0.0.2.</span> <span class="nav-text">option 2 - *swap</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">1.3.</span> <span class="nav-text">analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#option-1-merge-policy"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">option 1 - merge policy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#option-2-swap"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">option 2 - *swap</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>
