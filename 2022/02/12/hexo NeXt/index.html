@@ -94,7 +94,7 @@
 <meta property="og:description" content="hexo 網誌框架 + github Pageinstall hexo12345npm install hexo-cli -ghexo init blogcd blognpm installhexo server # 啟動  Choose theme 很多人使用NeXt  1git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;ne">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-12T14:00:16.000Z">
-<meta property="article:modified_time" content="2022-02-12T14:00:48.319Z">
+<meta property="article:modified_time" content="2022-02-16T15:06:01.961Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -430,6 +430,7 @@
 <ul>
 <li>側邊欄移至左邊<br>Muse 和 Mist 則需要深度修改source code才能實現改變側邊欄位置<br>修改themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_custom&#x2F;custom.styl<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.sidebar-toggle &#123;</span><br><span class="line">  left: 30px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  left: 0px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 修改themes&#x2F;next&#x2F;source&#x2F;js&#x2F;src&#x2F;motion.js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-     &#123;paddingRight: SIDEBAR_WIDTH&#125;,</span><br><span class="line">+     &#123;paddingLeft: SIDEBAR_WIDTH&#125;,</span><br><span class="line"></span><br><span class="line">-   NexT.utils.isDesktop() &amp;&amp; $(&#x27;body&#x27;).velocity(&#x27;stop&#x27;).velocity(&#123;paddingRight: 0&#125;);</span><br><span class="line">+   NexT.utils.isDesktop() &amp;&amp; $(&#x27;body&#x27;).velocity(&#x27;stop&#x27;).velocity(&#123;paddingLeft: 0&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><a target="_blank" rel="noopener" href="https://guiblogs.com/hexo30-18/">添加文章字數與所需閱讀時間</a></li>
 </ul>
 <h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><ul>
 <li><p><a target="_blank" rel="noopener" href="https://maoao530.github.io/2017/01/25/hexo-blog-seo/">更改背景顏色</a></p>

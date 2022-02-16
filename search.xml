@@ -60,6 +60,7 @@
 <ul>
 <li>側邊欄移至左邊<br>Muse 和 Mist 則需要深度修改source code才能實現改變側邊欄位置<br>修改themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_custom&#x2F;custom.styl<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.sidebar-toggle &#123;</span><br><span class="line">  left: 30px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  left: 0px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 修改themes&#x2F;next&#x2F;source&#x2F;js&#x2F;src&#x2F;motion.js<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-     &#123;paddingRight: SIDEBAR_WIDTH&#125;,</span><br><span class="line">+     &#123;paddingLeft: SIDEBAR_WIDTH&#125;,</span><br><span class="line"></span><br><span class="line">-   NexT.utils.isDesktop() &amp;&amp; $(&#x27;body&#x27;).velocity(&#x27;stop&#x27;).velocity(&#123;paddingRight: 0&#125;);</span><br><span class="line">+   NexT.utils.isDesktop() &amp;&amp; $(&#x27;body&#x27;).velocity(&#x27;stop&#x27;).velocity(&#123;paddingLeft: 0&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://guiblogs.com/hexo30-18/">添加文章字數與所需閱讀時間</a></li>
 </ul>
 <h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><ul>
 <li><p><a href="https://maoao530.github.io/2017/01/25/hexo-blog-seo/">更改背景顏色</a></p>
@@ -1461,7 +1462,17 @@
   <entry>
     <title>226. Invert Binary Tree</title>
     <url>/blog/2022/02/16/leetcode/226_InvertBinaryTree/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/invert-binary-tree/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2>]]></content>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/invert-binary-tree/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-backtracking"><a href="#option-1-backtracking" class="headerlink" title="option 1 - backtracking"></a>option 1 - backtracking</h4><ul>
+<li>inorder traverse version</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode* temp = root-&gt;left;</span><br><span class="line">        root-&gt;left = root-&gt;right;</span><br><span class="line">        root-&gt;right = temp;</span><br><span class="line">        </span><br><span class="line">        root-&gt;left = <span class="built_in">invertTree</span>(root-&gt;left);</span><br><span class="line">        root-&gt;right = <span class="built_in">invertTree</span>(root-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>postorder traverse version</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        root-&gt;left = <span class="built_in">invertTree</span>(root-&gt;left);</span><br><span class="line">        root-&gt;right = <span class="built_in">invertTree</span>(root-&gt;right);</span><br><span class="line">        </span><br><span class="line">        TreeNode* temp = root-&gt;left;</span><br><span class="line">        root-&gt;left = root-&gt;right;</span><br><span class="line">        root-&gt;right = temp;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2-bfs"><a href="#option-2-bfs" class="headerlink" title="option 2 - bfs"></a>option 2 - bfs</h4><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2>]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
