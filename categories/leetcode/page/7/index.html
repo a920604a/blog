@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="dp," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,17 +86,12 @@
 
 
 
-<meta name="description" content="problem給定兩字串，找出最長共同子序列(common subsequence)的長度 solution1234567891011121314151617181920212223class Solution &amp;#123;public:    int longestCommonSubsequence(string text1, string text2) &amp;#123;        int n">
-<meta property="og:type" content="article">
-<meta property="og:title" content="1143. Longest Common Subsequence">
-<meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YuAn">
+<meta property="og:url" content="https://a920604a.github.io/blog/categories/leetcode/page/7/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problem給定兩字串，找出最長共同子序列(common subsequence)的長度 solution1234567891011121314151617181920212223class Solution &amp;#123;public:    int longestCommonSubsequence(string text1, string text2) &amp;#123;        int n">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-16T08:30:16.000Z">
-<meta property="article:modified_time" content="2022-02-16T11:20:02.687Z">
 <meta property="article:author" content="YU-AN, Chen">
-<meta property="article:tag" content="dp">
 <meta name="twitter:card" content="summary">
 
 
@@ -127,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://a920604a.github.io/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/"/>
+  <link rel="canonical" href="https://a920604a.github.io/blog/categories/leetcode/page/7/"/>
 
 
 
 
 
-  <title>1143. Longest Common Subsequence | YuAn</title>
+  <title>分類: leetcode | YuAn</title>
   
 
 
@@ -152,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,177 +285,59 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>leetcode<small>分類</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://a920604a.github.io/blog/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YuAn">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/100_SameTree/" itemprop="url">
+              
+                <span itemprop="name">100. Same Tree</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">1143. Longest Common Subsequence</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-16T16:30:16+08:00">
-                2022-02-16
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2022-02-16T16:10:16+08:00"
+              content="2022-02-16" >
+          02-16
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-common-subsequence/">problem</a></h2><p>給定兩字串，找出最長共同子序列(common subsequence)的長度</p>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(string text1, string text2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = text1.<span class="built_in">size</span>(), m =text2.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;<span class="built_in">dp</span>(n+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m+<span class="number">1</span>,<span class="number">0</span>));</span><br><span class="line">        <span class="comment">//      a   c   e</span></span><br><span class="line">        <span class="comment">//  0   0   0   0   </span></span><br><span class="line">        <span class="comment">//a 0   1   1   1    </span></span><br><span class="line">        <span class="comment">//b 0   1   1   1</span></span><br><span class="line">        <span class="comment">//c 0   1   2   2</span></span><br><span class="line">        <span class="comment">//d 0   1   2   2</span></span><br><span class="line">        <span class="comment">//e 0   1   2   3</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;m+<span class="number">1</span>;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(text1[i<span class="number">-1</span>] == text2[j<span class="number">-1</span>]) dp[i][j] = <span class="number">1</span>+dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i][j<span class="number">-1</span>], dp[i<span class="number">-1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n][m];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n*m)</code></li>
-<li>space complexity <code>O(n*m)</code></li>
-</ul>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blog/tags/dp/" rel="tag"># dp</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/" rel="next" title="2119. A Number After a Double Reversal">
-                <i class="fa fa-chevron-left"></i> 2119. A Number After a Double Reversal
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2022/02/16/leetcode/226_InvertBinaryTree/" rel="prev" title="226. Invert Binary Tree">
-                226. Invert Binary Tree <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/categories/leetcode/page/6/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/blog/categories/leetcode/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/categories/leetcode/page/6/">6</a><span class="page-number current">7</span>
+  </nav>
+
+
 
 
           </div>
@@ -488,17 +365,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -619,22 +487,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -768,10 +620,6 @@
   
 
   
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

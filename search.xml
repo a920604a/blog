@@ -106,7 +106,7 @@
 <li><p>用bfs，用queue輔助，儲存拜訪當下節點的左右子節點，並將深度加一</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        queue&lt;TreeNode*&gt;q;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> depth = <span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> size = q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)&#123;</span><br><span class="line">                TreeNode *p = q.<span class="built_in">front</span>();</span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;left) q.<span class="built_in">push</span>(p-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;right) q.<span class="built_in">push</span>(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            depth++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
-<li><p>dfs<br>time complexity <code>O(n)</code><br>space complexity <code>O(logN)</code></p>
+<li><p>backtracking<br>time complexity <code>O(n)</code><br>space complexity <code>O(logN)</code></p>
 </li>
 <li><p>bfs<br>time complexity <code>O(n)</code><br>space complexity <code>O(n)</code> , N&#x2F;2 樹最底層的節點數量</p>
 </li>
@@ -1429,6 +1429,45 @@
       </categories>
       <tags>
         <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>100. Same Tree</title>
+    <url>/blog/2022/02/16/leetcode/100_SameTree/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/same-tree/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-backtracking"><a href="#option-1-backtracking" class="headerlink" title="option 1 - backtracking"></a>option 1 - backtracking</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!p &amp;&amp; !q) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(!p || !q) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;val != q-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">isSameTree</span>(p-&gt;left, q-&gt;left) &amp;&amp; <span class="built_in">isSameTree</span>(p-&gt;right, q-&gt;right);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-bfs"><a href="#option-2-bfs" class="headerlink" title="option 2 - bfs"></a>option 2 - bfs</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!q &amp;&amp; !p) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(!q ^ !p) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        queue&lt;TreeNode *&gt;q1, q2;</span><br><span class="line">        q1.<span class="built_in">push</span>(p);</span><br><span class="line">        q2.<span class="built_in">push</span>(q);</span><br><span class="line">        <span class="keyword">while</span>(!q1.<span class="built_in">empty</span>() &amp;&amp; !q2.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> size  = q1.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">if</span>(size !=q2.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">while</span>(size--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                TreeNode *t1 = q1.<span class="built_in">front</span>(), *t2 = q2.<span class="built_in">front</span>();</span><br><span class="line">                q1.<span class="built_in">pop</span>();</span><br><span class="line">                q2.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span>(t1-&gt;val !=t2-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(t1-&gt;left &amp;&amp; t2-&gt;left)&#123;</span><br><span class="line">                    q1.<span class="built_in">push</span>(t1-&gt;left);</span><br><span class="line">                    q2.<span class="built_in">push</span>(t2-&gt;left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(!t1-&gt;left ^ !t2-&gt;left) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(t1-&gt;right &amp;&amp; t2-&gt;right)&#123;</span><br><span class="line">                    q1.<span class="built_in">push</span>(t1-&gt;right);</span><br><span class="line">                    q2.<span class="built_in">push</span>(t2-&gt;right);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(!t1-&gt;right ^ !t2-&gt;right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!q1.<span class="built_in">empty</span>() || !q2.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1<ul>
+<li>time complexity <code>O(n)</code> n is node</li>
+<li>space complexity <code>O(h)</code> h is height or depth</li>
+</ul>
+</li>
+<li>option 2<ul>
+<li>time complexity <code>O(n)</code> n is node</li>
+<li>space complexity <code>O(n)</code> n is node</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>backtracking</tag>
+        <tag>bfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>226. Invert Binary Tree</title>
+    <url>/blog/2022/02/16/leetcode/226_InvertBinaryTree/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/invert-binary-tree/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>backtracking</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
 </search>

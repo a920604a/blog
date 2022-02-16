@@ -94,7 +94,7 @@
 <meta property="og:description" content="problem求二元樹的最大深度 solutiondfs 用遞迴方式，求二元樹的深度，終止條件為當節點不存在時return 0，否則1+max(maxDepth(root-&gt;left), maxDepth(root-&gt;right))1234567class Solution &amp;#123;public:    int maxDepth(TreeNode* root) &amp;#123;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:10:16.000Z">
-<meta property="article:modified_time" content="2022-02-16T11:20:02.009Z">
+<meta property="article:modified_time" content="2022-02-16T12:03:39.096Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta property="article:tag" content="bfs">
@@ -400,7 +400,7 @@
 <li><p>用bfs，用queue輔助，儲存拜訪當下節點的左右子節點，並將深度加一</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        queue&lt;TreeNode*&gt;q;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> depth = <span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> size = q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)&#123;</span><br><span class="line">                TreeNode *p = q.<span class="built_in">front</span>();</span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;left) q.<span class="built_in">push</span>(p-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;right) q.<span class="built_in">push</span>(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            depth++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
-<li><p>dfs<br>time complexity <code>O(n)</code><br>space complexity <code>O(logN)</code></p>
+<li><p>backtracking<br>time complexity <code>O(n)</code><br>space complexity <code>O(logN)</code></p>
 </li>
 <li><p>bfs<br>time complexity <code>O(n)</code><br>space complexity <code>O(n)</code> , N&#x2F;2 樹最底層的節點數量</p>
 </li>
@@ -522,7 +522,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -595,6 +595,10 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/02/16/leetcode/226_InvertBinaryTree/" title="226. Invert Binary Tree" target="_blank">226. Invert Binary Tree</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
                   </li>
                 
@@ -608,10 +612,6 @@
                 
                   <li>
                     <a href="/blog/2022/02/16/leetcode/342_PowerofFour/" title="342. Power of Four" target="_blank">342. Power of Four</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/02/16/leetcode/347_TopKFrequentElements/" title="347. Top K Frequent Elements" target="_blank">347. Top K Frequent Elements</a>
                   </li>
                 
               </ul>
