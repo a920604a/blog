@@ -95,4 +95,36 @@
         <tag>blog</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/blog/2022/02/16/1_TwoSum/</url>
+    <content><![CDATA[<h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><h6 id="tags-leetcode-hash-table"><a href="#tags-leetcode-hash-table" class="headerlink" title="tags: leetcode hash table"></a>tags: <code>leetcode</code> <code>hash table</code></h6><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/two-sum/">problem</a></h2><p>一維陣列中找出兩數相加等於target，並返回其索引</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h4 id="brute-force"><a href="#brute-force" class="headerlink" title="brute force"></a>brute force</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n =nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i+<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">                <span class="type">int</span> sum = nums[i] + nums[j];</span><br><span class="line">                <span class="keyword">if</span>(target == sum) <span class="keyword">return</span> &#123;i,j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="sorting"><a href="#sorting" class="headerlink" title="sorting"></a>sorting</h4><ul>
+<li>先排序，在用雙指標從排序後的陣列找出兩個元素其總和為target，再回原本陣列找出其索引。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr = nums;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(),arr.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> sum =arr[l] + arr[r] ;</span><br><span class="line">            <span class="keyword">if</span>(sum==target) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(sum&lt;target) l++;</span><br><span class="line">            <span class="keyword">else</span> r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> ret1 = arr[l], ret2 = arr[r];</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(<span class="number">2</span>,<span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==ret1 &amp;&amp; ret[<span class="number">0</span>]==<span class="number">-1</span>) ret[<span class="number">0</span>] = i;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] ==ret2) ret[<span class="number">1</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-table"><a href="#hash-table" class="headerlink" title="hash table"></a>hash table</h4><ul>
+<li>利用hash table 紀錄出現過元素及其索引，<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="type">int</span> n= nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">count</span>(target - nums[i])) <span class="keyword">return</span> &#123;mp[target-nums[i]], i&#125;;</span><br><span class="line">            mp[nums[i]] = i;                  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>brute force<ul>
+<li>time complexity <code>O(n^2)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>sorting<ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>hash table <ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
