@@ -278,6 +278,33 @@
       </tags>
   </entry>
   <entry>
+    <title>141. Linked List Cycle</title>
+    <url>/blog/2022/02/16/leetcode/141_LinkedListCycle/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/linked-list-cycle/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>two pointer ，slow fast pointers 用於linked list檢查是否包含環</p>
+<h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;ListNode *&gt; s;</span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">find</span>(cur)!=s.<span class="built_in">end</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            s.<span class="built_in">insert</span>(cur);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-Two-pointers"><a href="#option-2-Two-pointers" class="headerlink" title="option 2 - Two pointers"></a>option 2 - Two pointers</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = head, *fast =head;</span><br><span class="line">        <span class="keyword">while</span>(fast &amp;&amp; fast-&gt;next)&#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(slow==fast) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>option 2<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Two Pointers</tag>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>143. Reorder List</title>
     <url>/blog/2022/02/16/leetcode/143_ReorderList/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/reorder-list/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-reverse-Linked-Lists"><a href="#option-1-reverse-Linked-Lists" class="headerlink" title="option 1 - reverse Linked Lists"></a>option 1 - reverse Linked Lists</h4><ol>
@@ -298,33 +325,6 @@
 <li>option 2<ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(n)</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Two Pointers</tag>
-        <tag>Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>141. Linked List Cycle</title>
-    <url>/blog/2022/02/16/leetcode/141_LinkedListCycle/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/linked-list-cycle/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>two pointer ，slow fast pointers 用於linked list檢查是否包含環</p>
-<h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;ListNode *&gt; s;</span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">find</span>(cur)!=s.<span class="built_in">end</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            s.<span class="built_in">insert</span>(cur);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-2-Two-pointers"><a href="#option-2-Two-pointers" class="headerlink" title="option 2 - Two pointers"></a>option 2 - Two pointers</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = head, *fast =head;</span><br><span class="line">        <span class="keyword">while</span>(fast &amp;&amp; fast-&gt;next)&#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(slow==fast) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>option 1<ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(n)</code></li>
-</ul>
-</li>
-<li>option 2<ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
 </ul>
 </li>
 </ul>
@@ -366,6 +366,19 @@
       </tags>
   </entry>
   <entry>
+    <title>153. Find Minimum in Rotated Sorted Array</title>
+    <url>/blog/2022/02/16/leetcode/153_FindMinimuminRotatedSortedArray/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-brute-force"><a href="#option-1-brute-force" class="headerlink" title="option 1 - brute force"></a>option 1 - brute force</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> ret = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            ret = <span class="built_in">min</span>(nums[mid], ret);</span><br><span class="line">            <span class="comment">// 右半部遞增</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[r] ) r = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// 左半部遞增</span></span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="option-2-Binary-Search"><a href="#option-2-Binary-Search" class="headerlink" title="option 2 - Binary Search"></a>option 2 - Binary Search</h4><p>s</p>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>15. 3Sum</title>
     <url>/blog/2022/02/16/leetcode/15_3Sum/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/3sum/">problem</a></h2><p>從陣列中，找出所有三個元素總和為零。</p>
@@ -380,19 +393,6 @@
       </categories>
       <tags>
         <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>153. Find Minimum in Rotated Sorted Array</title>
-    <url>/blog/2022/02/16/leetcode/153_FindMinimuminRotatedSortedArray/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-brute-force"><a href="#option-1-brute-force" class="headerlink" title="option 1 - brute force"></a>option 1 - brute force</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> ret = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            ret = <span class="built_in">min</span>(nums[mid], ret);</span><br><span class="line">            <span class="comment">// 右半部遞增</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[r] ) r = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// 左半部遞增</span></span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="option-2-Binary-Search"><a href="#option-2-Binary-Search" class="headerlink" title="option 2 - Binary Search"></a>option 2 - Binary Search</h4><p>s</p>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2>]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Binary Search</tag>
       </tags>
   </entry>
   <entry>
@@ -432,29 +432,6 @@
       </tags>
   </entry>
   <entry>
-    <title>19. Remove Nth Node From End of List</title>
-    <url>/blog/2022/02/16/leetcode/19_RemoveNthNodeFromEndofList/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>利用快慢指標</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *fast = slow, *ret = slow;</span><br><span class="line">        slow-&gt;next = head;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(fast-&gt;next)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>recursive</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">helper</span><span class="params">(ListNode* node, <span class="type">int</span> n , <span class="type">int</span> &amp;cur)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">            cur = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node-&gt;next = <span class="built_in">helper</span>(node-&gt;next, n, cur);</span><br><span class="line">        <span class="keyword">if</span>(++cur == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cur = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">helper</span>(head, n, cur);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Two Pointers</tag>
-        <tag>Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>198. House Robber</title>
     <url>/blog/2022/02/16/leetcode/198_HouseRobber/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/house-robber/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>維護一個dp，<code>max(dp[i-1], dp[i-2]+nums[i])</code></p>
@@ -475,20 +452,26 @@
       </tags>
   </entry>
   <entry>
-    <title>20. Valid Parentheses</title>
-    <url>/blog/2022/02/16/leetcode/20_ValidParentheses/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/valid-parentheses/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">char</span>&gt; sta;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">&#x27;(&#x27;</span> || c==<span class="string">&#x27;[&#x27;</span> || c==<span class="string">&#x27;&#123;&#x27;</span>) sta.<span class="built_in">push</span>(c);</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(sta.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;)&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;(&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;]&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;[&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;&#125;&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;&#123;&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sta.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+    <title>19. Remove Nth Node From End of List</title>
+    <url>/blog/2022/02/16/leetcode/19_RemoveNthNodeFromEndofList/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>利用快慢指標</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *fast = slow, *ret = slow;</span><br><span class="line">        slow-&gt;next = head;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(fast-&gt;next)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>recursive</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">helper</span><span class="params">(ListNode* node, <span class="type">int</span> n , <span class="type">int</span> &amp;cur)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">            cur = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node-&gt;next = <span class="built_in">helper</span>(node-&gt;next, n, cur);</span><br><span class="line">        <span class="keyword">if</span>(++cur == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cur = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">helper</span>(head, n, cur);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
 </ul>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>stack</tag>
+        <tag>Two Pointers</tag>
+        <tag>Linked List</tag>
       </tags>
   </entry>
   <entry>
@@ -554,21 +537,36 @@
       </tags>
   </entry>
   <entry>
-    <title>216. Combination Sum III</title>
-    <url>/blog/2022/02/16/leetcode/216_CombinationSumIII/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/combination-sum-iii/">problem</a></h2><p>給定<code>k</code>、<code>n</code> 找出所有和為n，長度為k的有效組合，其元素只能落在1到9區間，且數字必須唯一，不能重複取。</p>
-<h2 id="sloution"><a href="#sloution" class="headerlink" title="sloution"></a>sloution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ret, <span class="type">int</span> l)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() &gt; k) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() ==k)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target==<span class="number">0</span>) ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=l;i&lt;=<span class="number">9</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target -i&lt;<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">            path.<span class="built_in">push_back</span>(i);</span><br><span class="line">            <span class="built_in">backtracking</span>(k, target-i, path, ret,i+<span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum3</span>(<span class="type">int</span> k, <span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">backtracking</span>(k, n, path, ret, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+    <title>20. Valid Parentheses</title>
+    <url>/blog/2022/02/16/leetcode/20_ValidParentheses/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/valid-parentheses/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">char</span>&gt; sta;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">&#x27;(&#x27;</span> || c==<span class="string">&#x27;[&#x27;</span> || c==<span class="string">&#x27;&#123;&#x27;</span>) sta.<span class="built_in">push</span>(c);</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(sta.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;)&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;(&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;]&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;[&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;&#125;&#x27;</span> &amp;&amp; sta.<span class="built_in">top</span>() == <span class="string">&#x27;&#123;&#x27;</span>) sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sta.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(len(nums)^M)</code>, M if theight of our recursive</li>
-<li>space complexity <code>L</code> , L is the longest combination</li>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
 </ul>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>backtracking</tag>
+        <tag>stack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2119. A Number After a Double Reversal</title>
+    <url>/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/a-number-after-a-double-reversal/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)&#123;</span><br><span class="line">            ret*=<span class="number">10</span>;</span><br><span class="line">            ret+=(num%<span class="number">10</span>);</span><br><span class="line">            num/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;ret&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSameAfterReversals</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">reverse</span>(<span class="built_in">reverse</span>(num)) == num;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analyze"><a href="#analyze" class="headerlink" title="analyze"></a>analyze</h2><ul>
+<li>time complexity <code>O(1)</code> </li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -589,19 +587,21 @@
       </tags>
   </entry>
   <entry>
-    <title>2119. A Number After a Double Reversal</title>
-    <url>/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/a-number-after-a-double-reversal/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)&#123;</span><br><span class="line">            ret*=<span class="number">10</span>;</span><br><span class="line">            ret+=(num%<span class="number">10</span>);</span><br><span class="line">            num/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;ret&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSameAfterReversals</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">reverse</span>(<span class="built_in">reverse</span>(num)) == num;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analyze"><a href="#analyze" class="headerlink" title="analyze"></a>analyze</h2><ul>
-<li>time complexity <code>O(1)</code> </li>
-<li>space complexity <code>O(1)</code></li>
+    <title>216. Combination Sum III</title>
+    <url>/blog/2022/02/16/leetcode/216_CombinationSumIII/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/combination-sum-iii/">problem</a></h2><p>給定<code>k</code>、<code>n</code> 找出所有和為n，長度為k的有效組合，其元素只能落在1到9區間，且數字必須唯一，不能重複取。</p>
+<h2 id="sloution"><a href="#sloution" class="headerlink" title="sloution"></a>sloution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ret, <span class="type">int</span> l)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() &gt; k) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() ==k)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target==<span class="number">0</span>) ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=l;i&lt;=<span class="number">9</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target -i&lt;<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">            path.<span class="built_in">push_back</span>(i);</span><br><span class="line">            <span class="built_in">backtracking</span>(k, target-i, path, ret,i+<span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum3</span>(<span class="type">int</span> k, <span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">backtracking</span>(k, n, path, ret, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(len(nums)^M)</code>, M if theight of our recursive</li>
+<li>space complexity <code>L</code> , L is the longest combination</li>
 </ul>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>Bit Manipulation</tag>
+        <tag>backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -718,78 +718,6 @@
       </tags>
   </entry>
   <entry>
-    <title>24. Swap Nodes in Pairs</title>
-    <url>/blog/2022/02/16/leetcode/24_SwapNodesinPairs/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
-<li>cheat<br>modify value of the next node<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur &amp;&amp; cur-&gt;next)&#123;</span><br><span class="line">            <span class="type">int</span> val = cur-&gt;val;</span><br><span class="line">            cur-&gt;val = cur-&gt;next-&gt;val;</span><br><span class="line">            cur-&gt;next-&gt;val = val;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="option-1-merge-policy"><a href="#option-1-merge-policy" class="headerlink" title="option 1 - merge policy"></a>option 1 - merge policy</h5>可以看作一條奇數索引的list與偶數索引的list 從頭merge two list<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *odd = head, *even = head-&gt;next, *a = odd, *b = even, *newhead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *ret = newhead;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(odd &amp;&amp; even)&#123;</span><br><span class="line">            odd-&gt;next = even-&gt;next;</span><br><span class="line">            odd=odd-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(odd)&#123;</span><br><span class="line">                even-&gt;next = odd-&gt;next;</span><br><span class="line">                even = even-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// merge two lists</span></span><br><span class="line">        <span class="keyword">while</span>(a || b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b)&#123;</span><br><span class="line">                newhead-&gt;next = b;</span><br><span class="line">                b=b-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a)&#123;</span><br><span class="line">                newhead-&gt;next =a;</span><br><span class="line">                a=a-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h5 id="option-2-swap"><a href="#option-2-swap" class="headerlink" title="option 2 - *swap"></a>option 2 - *swap</h5><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>242. Valid Anagram</title>
-    <url>/blog/2022/02/16/leetcode/242_ValidAnagram/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/valid-anagram/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-sorting"><a href="#option-1-sorting" class="headerlink" title="option 1 - sorting"></a>option 1 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(t.<span class="built_in">begin</span>(), t.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s==t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-2-hash-table"><a href="#option-2-hash-table" class="headerlink" title="option 2 - hash table"></a>option 2 - hash table</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s) vec[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:t) vec[c-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">        <span class="keyword">return</span> vec==<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>option 1<ul>
-<li>time complexity <code>O(nlogn)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-</li>
-<li>option 2<ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>hash table</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>268. Missing Number</title>
-    <url>/blog/2022/02/16/leetcode/268_MissingNumber/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/missing-number/">problem</a></h2><p>給定一維陣列，那一個數字遺失</p>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="math"><a href="#math" class="headerlink" title="math"></a>math</h4><p>三角形公式</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">missingNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> total = n*(n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) total-=n;</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>total變數，可能會有overflow 問題</li>
-</ul>
-<h4 id="Bit"><a href="#Bit" class="headerlink" title="Bit"></a>Bit</h4><ul>
-<li>善用 <code>x^x=0</code> 以及 XOR交換率</li>
-<li>因題目限制，陣列元素只會是正整數，利用陣列索引與元素做XOR</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">missingNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>(), ret = n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n; ++i) ret^= (i^nums[i]);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Bit Manipulation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>23. Merge k Sorted Lists</title>
     <url>/blog/2022/02/16/leetcode/23_MergekSortedLists/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/merge-k-sorted-lists/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-merge-lists"><a href="#option-1-merge-lists" class="headerlink" title="option 1 - merge lists"></a>option 1 - merge lists</h4><p>兩兩linked list 合併</p>
@@ -824,6 +752,51 @@
       </tags>
   </entry>
   <entry>
+    <title>242. Valid Anagram</title>
+    <url>/blog/2022/02/16/leetcode/242_ValidAnagram/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/valid-anagram/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-sorting"><a href="#option-1-sorting" class="headerlink" title="option 1 - sorting"></a>option 1 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(t.<span class="built_in">begin</span>(), t.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s==t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-hash-table"><a href="#option-2-hash-table" class="headerlink" title="option 2 - hash table"></a>option 2 - hash table</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s) vec[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:t) vec[c-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">        <span class="keyword">return</span> vec==<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1<ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 2<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>24. Swap Nodes in Pairs</title>
+    <url>/blog/2022/02/16/leetcode/24_SwapNodesinPairs/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+<li>cheat<br>modify value of the next node<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur &amp;&amp; cur-&gt;next)&#123;</span><br><span class="line">            <span class="type">int</span> val = cur-&gt;val;</span><br><span class="line">            cur-&gt;val = cur-&gt;next-&gt;val;</span><br><span class="line">            cur-&gt;next-&gt;val = val;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="option-1-merge-policy"><a href="#option-1-merge-policy" class="headerlink" title="option 1 - merge policy"></a>option 1 - merge policy</h5>可以看作一條奇數索引的list與偶數索引的list 從頭merge two list<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head ||!head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode *odd = head, *even = head-&gt;next, *a = odd, *b = even, *newhead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *ret = newhead;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(odd &amp;&amp; even)&#123;</span><br><span class="line">            odd-&gt;next = even-&gt;next;</span><br><span class="line">            odd=odd-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(odd)&#123;</span><br><span class="line">                even-&gt;next = odd-&gt;next;</span><br><span class="line">                even = even-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// merge two lists</span></span><br><span class="line">        <span class="keyword">while</span>(a || b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b)&#123;</span><br><span class="line">                newhead-&gt;next = b;</span><br><span class="line">                b=b-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a)&#123;</span><br><span class="line">                newhead-&gt;next =a;</span><br><span class="line">                a=a-&gt;next;</span><br><span class="line">                newhead = newhead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="option-2-swap"><a href="#option-2-swap" class="headerlink" title="option 2 - *swap"></a>option 2 - *swap</h5><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>287. Find the Duplicate Number</title>
     <url>/blog/2022/02/16/leetcode/287_FindtheDuplicateNumber/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-the-duplicate-number/">problem</a></h2><p>給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。</p>
@@ -845,6 +818,33 @@
       </tags>
   </entry>
   <entry>
+    <title>268. Missing Number</title>
+    <url>/blog/2022/02/16/leetcode/268_MissingNumber/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/missing-number/">problem</a></h2><p>給定一維陣列，那一個數字遺失</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="math"><a href="#math" class="headerlink" title="math"></a>math</h4><p>三角形公式</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">missingNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> total = n*(n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) total-=n;</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>total變數，可能會有overflow 問題</li>
+</ul>
+<h4 id="Bit"><a href="#Bit" class="headerlink" title="Bit"></a>Bit</h4><ul>
+<li>善用 <code>x^x=0</code> 以及 XOR交換率</li>
+<li>因題目限制，陣列元素只會是正整數，利用陣列索引與元素做XOR</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">missingNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>(), ret = n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n; ++i) ret^= (i^nums[i]);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>300. Longest Increasing Subsequence</title>
     <url>/blog/2022/02/16/leetcode/300_LongestIncreasingSubsequence/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-increasing-subsequence/">problem</a></h2><p>給定一個整數陣列，找出最遞增子序列。</p>
@@ -860,50 +860,6 @@
       </categories>
       <tags>
         <tag>dp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>326. Power of Three</title>
-    <url>/blog/2022/02/16/leetcode/326_PowerofThree/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/power-of-three/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(n%<span class="number">3</span>==<span class="number">0</span>) n/=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> n==<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(1)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>Bit Manipulation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>338. Counting Bits</title>
-    <url>/blog/2022/02/16/leetcode/338_CountingBits/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/counting-bits/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            ret++;</span><br><span class="line">            n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  0   1   2   3   4   5</span></span><br><span class="line">        <span class="comment">//  0   1   1   2   </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            ret[i] = <span class="built_in">count</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-2"><a href="#option-2" class="headerlink" title="option 2"></a>option 2</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  0   1   2   3   4   5</span></span><br><span class="line">        <span class="comment">//  0   1   </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            <span class="comment">// ret[i] = ret[ i&amp;(i-1)] +1;</span></span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) ret[i] = ret[i/<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">else</span> ret[i] = ret[i<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>option 1<ul>
-<li>time complexity <code>O(nlogn)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-</li>
-<li>option 2<ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>dp</tag>
-        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -944,6 +900,50 @@
       </categories>
       <tags>
         <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>338. Counting Bits</title>
+    <url>/blog/2022/02/16/leetcode/338_CountingBits/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/counting-bits/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            ret++;</span><br><span class="line">            n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  0   1   2   3   4   5</span></span><br><span class="line">        <span class="comment">//  0   1   1   2   </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            ret[i] = <span class="built_in">count</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2"><a href="#option-2" class="headerlink" title="option 2"></a>option 2</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  0   1   2   3   4   5</span></span><br><span class="line">        <span class="comment">//  0   1   </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            <span class="comment">// ret[i] = ret[ i&amp;(i-1)] +1;</span></span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) ret[i] = ret[i/<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">else</span> ret[i] = ret[i<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1<ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 2<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>326. Power of Three</title>
+    <url>/blog/2022/02/16/leetcode/326_PowerofThree/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/power-of-three/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(n%<span class="number">3</span>==<span class="number">0</span>) n/=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> n==<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(1)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1061,26 +1061,6 @@
       </tags>
   </entry>
   <entry>
-    <title>3. Longest Substring Without Repeating Characters</title>
-    <url>/blog/2022/02/16/leetcode/3_LongestSubstringWithoutRepeatingCharacters/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>,r = <span class="number">0</span>, n = s.<span class="built_in">size</span>(), ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n)&#123;</span><br><span class="line">            <span class="type">char</span> c = s[r++];</span><br><span class="line">            window[c]++;</span><br><span class="line">            <span class="keyword">while</span>(window[c]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">char</span> d = s[l++];</span><br><span class="line">                window[d]--;</span><br><span class="line">            &#125;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret, r-l);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>vector version <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">window</span><span class="params">(<span class="number">128</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r=<span class="number">0</span>, ret = <span class="number">0</span>, n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n)&#123;</span><br><span class="line">            <span class="type">char</span> c = s[r++];</span><br><span class="line">            window[c]++;</span><br><span class="line">            <span class="keyword">while</span>(window[c]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">char</span> d = s[l++];</span><br><span class="line">                window[d]--;</span><br><span class="line">            &#125;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret, r-l);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(n)</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>hash table</tag>
-        <tag>Sliding Window</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>39. Combination Sum</title>
     <url>/blog/2022/02/16/leetcode/39_CombinationSum/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/combination-sum/">problem</a></h2><p>找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。</p>
@@ -1106,6 +1086,26 @@
       </categories>
       <tags>
         <tag>backtracking</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3. Longest Substring Without Repeating Characters</title>
+    <url>/blog/2022/02/16/leetcode/3_LongestSubstringWithoutRepeatingCharacters/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>,r = <span class="number">0</span>, n = s.<span class="built_in">size</span>(), ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n)&#123;</span><br><span class="line">            <span class="type">char</span> c = s[r++];</span><br><span class="line">            window[c]++;</span><br><span class="line">            <span class="keyword">while</span>(window[c]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">char</span> d = s[l++];</span><br><span class="line">                window[d]--;</span><br><span class="line">            &#125;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret, r-l);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vector version <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">window</span><span class="params">(<span class="number">128</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r=<span class="number">0</span>, ret = <span class="number">0</span>, n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n)&#123;</span><br><span class="line">            <span class="type">char</span> c = s[r++];</span><br><span class="line">            window[c]++;</span><br><span class="line">            <span class="keyword">while</span>(window[c]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">char</span> d = s[l++];</span><br><span class="line">                window[d]--;</span><br><span class="line">            &#125;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret, r-l);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+        <tag>Sliding Window</tag>
       </tags>
   </entry>
   <entry>
@@ -1393,6 +1393,21 @@
       </tags>
   </entry>
   <entry>
+    <title>73. Set Matrix Zeroes</title>
+    <url>/blog/2022/02/16/leetcode/73_SetMatrixZeroes/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/set-matrix-zeroes/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ol>
+<li>將第一列與第一行是否有出現零，設置<code>flag = true;</code></li>
+<li>除了第一列第一行的其餘陣列，如果有0出現，則將對應的第一行或第一列設為0</li>
+<li>遍歷除了第一列第一行得其餘數陣列，如果當前第一行第一列為0，則該位置設置為0</li>
+<li>根據<code>flag</code> 更新第一行第一列為0</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setZeroes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = matrix.<span class="built_in">size</span>(), m = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">bool</span> isFirstCol = <span class="literal">false</span>, isFirstRow = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][<span class="number">0</span>] == <span class="number">0</span>) isFirstCol = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[<span class="number">0</span>][j] ==<span class="number">0</span> ) isFirstRow = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;m;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                    matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                    matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;m;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][<span class="number">0</span>] ==<span class="number">0</span> || matrix[<span class="number">0</span>][j] ==<span class="number">0</span>) matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(isFirstRow)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;m;++j) matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isFirstCol)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i) matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>76. Minimum Window Substring</title>
     <url>/blog/2022/02/16/leetcode/76_MinimumWindowSubstring/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/minimum-window-substring/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
@@ -1409,21 +1424,6 @@
         <tag>hash table</tag>
         <tag>Siliding Window</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>73. Set Matrix Zeroes</title>
-    <url>/blog/2022/02/16/leetcode/73_SetMatrixZeroes/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/set-matrix-zeroes/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ol>
-<li>將第一列與第一行是否有出現零，設置<code>flag = true;</code></li>
-<li>除了第一列第一行的其餘陣列，如果有0出現，則將對應的第一行或第一列設為0</li>
-<li>遍歷除了第一列第一行得其餘數陣列，如果當前第一行第一列為0，則該位置設置為0</li>
-<li>根據<code>flag</code> 更新第一行第一列為0</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setZeroes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = matrix.<span class="built_in">size</span>(), m = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">bool</span> isFirstCol = <span class="literal">false</span>, isFirstRow = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][<span class="number">0</span>] == <span class="number">0</span>) isFirstCol = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[<span class="number">0</span>][j] ==<span class="number">0</span> ) isFirstRow = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;m;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                    matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                    matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;m;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][<span class="number">0</span>] ==<span class="number">0</span> || matrix[<span class="number">0</span>][j] ==<span class="number">0</span>) matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(isFirstRow)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;m;++j) matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isFirstCol)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i) matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2>]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
   </entry>
   <entry>
     <title>78. Subsets</title>
