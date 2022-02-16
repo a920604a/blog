@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://a920604a.github.io/blog/2022/02/16/leetcode/226_InvertBinaryTree/</loc>
+    
+    <lastmod>2022-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/02/12/hexo%20NeXt/</loc>
     
     <lastmod>2022-02-16</lastmod>
@@ -543,15 +552,6 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/2022/02/16/leetcode/1_TwoSum/</loc>
-    
-    <lastmod>2022-02-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://a920604a.github.io/blog/2022/02/16/leetcode/226_InvertBinaryTree/</loc>
     
     <lastmod>2022-02-16</lastmod>
     
