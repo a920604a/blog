@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="tags: interview algorithm快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。 12345678910111213141516171819202122232425&#x2F;&#x2F; 快速排序void QuickSort(vector&lt;int&gt; &amp;nums, int l, int r)&amp;#123;    if (l &lt; r)    &amp;#123;">
+<meta name="description" content="快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。 12345678910111213141516171819202122232425&#x2F;&#x2F; 快速排序void QuickSort(vector&lt;int&gt; &amp;nums, int l, int r)&amp;#123;    if (l &lt; r)    &amp;#123;        int pivot &#x3D; Partition(num">
 <meta property="og:type" content="article">
 <meta property="og:title" content="廣度優先搜尋&#x2F;深度優先搜尋">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/%E6%A8%B9/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="tags: interview algorithm快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。 12345678910111213141516171819202122232425&#x2F;&#x2F; 快速排序void QuickSort(vector&lt;int&gt; &amp;nums, int l, int r)&amp;#123;    if (l &lt; r)    &amp;#123;">
+<meta property="og:description" content="快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。 12345678910111213141516171819202122232425&#x2F;&#x2F; 快速排序void QuickSort(vector&lt;int&gt; &amp;nums, int l, int r)&amp;#123;    if (l &lt; r)    &amp;#123;        int pivot &#x3D; Partition(num">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:37:39.936Z">
-<meta property="article:modified_time" content="2022-02-17T06:46:33.479Z">
+<meta property="article:modified_time" content="2022-02-17T07:14:58.694Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="bfs">
 <meta property="article:tag" content="backtracking">
@@ -357,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/blog/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
                   </a>
                 </span>
 
@@ -368,7 +368,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Algorithm/Data-Structure/" itemprop="url" rel="index">
+                  <a href="/blog/categories/CS/Data-Structure/" itemprop="url" rel="index">
                     <span itemprop="name">Data Structure</span>
                   </a>
                 </span>
@@ -403,7 +403,7 @@
       
 
       
-        <h6 id="tags-interview-algorithm"><a href="#tags-interview-algorithm" class="headerlink" title="tags: interview algorithm"></a>tags: <code>interview</code> <code>algorithm</code></h6><p><strong>快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。</strong></p>
+        <p><strong>快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快速排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">QuickSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> pivot = <span class="built_in">Partition</span>(nums, l, r);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, l, pivot - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, pivot + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 合併排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, l, mid);</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">        <span class="built_in">Merge</span>(nums, l, mid, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -748,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-interview-algorithm"><span class="nav-number">1.</span> <span class="nav-text">tags: interview algorithm</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E6%AD%B7%E6%A8%B9-%E6%A1%86%E6%9E%B6"><span class="nav-number"></span> <span class="nav-text">遍歷樹 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST-%E6%A1%86%E6%9E%B6"><span class="nav-number"></span> <span class="nav-text">BST 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-tree"><span class="nav-number"></span> <span class="nav-text">Binary tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Tree-BST-%E4%B8%AD%E5%BA%8F%E9%81%8D%E6%AD%B7%E6%98%AF%E6%9C%89%E5%BA%8F%E7%9A%84"><span class="nav-number"></span> <span class="nav-text">Binary Search Tree  BST 中序遍歷是有序的</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E6%AD%B7%E6%A8%B9-%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">遍歷樹 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST-%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">BST 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-tree"><span class="nav-number">3.</span> <span class="nav-text">Binary tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Tree-BST-%E4%B8%AD%E5%BA%8F%E9%81%8D%E6%AD%B7%E6%98%AF%E6%9C%89%E5%BA%8F%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">Binary Search Tree  BST 中序遍歷是有序的</span></a></li></ol></div>
             
 
           </div>
