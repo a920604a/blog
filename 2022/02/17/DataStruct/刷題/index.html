@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="目錄基礎linked list 206 Reverse Linked List(Easy)  92 Reverse Linked List II (Medium)  25* Reverse Nodes in k-Group (Hard)  234* Palindrome Linked List  19* Remove Nth Node From End of List (Medium)  21 M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刷題">
+<meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/%E5%88%B7%E9%A1%8C/index.html">
+<meta property="og:site_name" content="YuAn">
+<meta property="og:description" content="目錄基礎linked list 206 Reverse Linked List(Easy)  92 Reverse Linked List II (Medium)  25* Reverse Nodes in k-Group (Hard)  234* Palindrome Linked List  19* Remove Nth Node From End of List (Medium)  21 M">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-02-17T06:37:39.933Z">
+<meta property="article:modified_time" content="2022-02-17T06:42:32.480Z">
+<meta property="article:author" content="YU-AN, Chen">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a920604a.github.io/blog/2022/02/17/DataStruct/刷題/"/>
+
+
+
+
+
+  <title>刷題 | YuAn</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuAn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/home/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-目錄">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            目錄
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="https://a920604a.github.io/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://a920604a.github.io/blog/blog/2022/02/17/DataStruct/%E5%88%B7%E9%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuAn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">刷題</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-02-17T14:37:39+08:00">
+                2022-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Algorithm/Data-Structure/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="目錄"><a href="#目錄" class="headerlink" title="目錄"></a>目錄</h2><h2 id="基礎"><a href="#基礎" class="headerlink" title="基礎"></a>基礎</h2><h3 id="linked-list"><a href="#linked-list" class="headerlink" title="linked list"></a>linked list</h3><ul>
+<li><p>206 Reverse Linked List(Easy)</p>
+</li>
+<li><p>92 Reverse Linked List II (Medium)</p>
+</li>
+<li><p>25* Reverse Nodes in k-Group (Hard)</p>
+</li>
+<li><p>234* Palindrome Linked List</p>
+</li>
+<li><p>19* Remove Nth Node From End of List (Medium)</p>
+</li>
+<li><p>21 Merge Two Sorted Lists</p>
+</li>
+<li><p>23* Merge k Sorted Lists</p>
+</li>
+<li><p>141 Linked List Cycle (Easy)</p>
+</li>
+<li><p>142 Linked List Cycle II (Medium)</p>
+</li>
+<li><p>160 Intersection of Two Linked Lists</p>
+</li>
+<li><p>876 Middle of the Linked List (Easy)</p>
+</li>
+</ul>
+<h3 id="Binary-Tree"><a href="#Binary-Tree" class="headerlink" title="Binary Tree"></a>Binary Tree</h3><ul>
+<li>226* Invert Binary Tree (Easy)</li>
+<li>114* Flatten Binary Tree to Linked List (Medium)</li>
+<li>116 Populating Next Right Pointers in Each Node (Medium)</li>
+<li>654 Maximum Binary Tree (Medium)</li>
+<li>105 Construct Binary Tree from Preorder and Inorder Traversal (Medium)</li>
+<li>106 Construct Binary Tree from Inorder and Postorder Traversal (Medium)</li>
+<li>*652 Find Duplicate Subtrees (Medium)</li>
+</ul>
+<h3 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><ul>
+<li><p>230 Kth Smallest Element in a BST (Medium)</p>
+</li>
+<li><p>538 Convert BST to Greater Tree (Medium)</p>
+</li>
+<li><p>1038 Binary Search Tree to Greater Sum Tree (Medium)</p>
+</li>
+<li><p>450* Delete Node in a BST (Medium)</p>
+</li>
+<li><p>701 Insert into a Binary Search Tree (Medium)</p>
+</li>
+<li><p>700 Search in a Binary Search Tree (Easy)</p>
+</li>
+<li><p>98 Validate Binary Search Tree (Medium)</p>
+</li>
+<li><p>96* Unique Binary Search Trees (Medium)</p>
+</li>
+<li><p>95* Unique Binary Search Trees II (Medium)</p>
+</li>
+<li><p>*1373 Maximum Sum BST in Binary Tree (Hard)</p>
+</li>
+<li><p>*297 Serialize and Deserialize Binary Tree (Hard)</p>
+</li>
+<li><p>*341 Flatten Nested List Iterator (Medium)</p>
+</li>
+<li><p>235 Lowest Common Ancestor of a Binary Search Tree</p>
+</li>
+<li><p>236* Lowest Common Ancestor of a Binary Tree (Medium)</p>
+</li>
+<li><p>222 Count Complete Tree Nodes (Medium)</p>
+</li>
+</ul>
+<h3 id="Design-data-structure"><a href="#Design-data-structure" class="headerlink" title="*Design data structure"></a>*Design data structure</h3><ul>
+<li>130 Surrounded Regions (Medium)</li>
+<li>990 Satisfiability of Equality Equations (Medium)</li>
+<li>146 LRU Cache (Medium)</li>
+<li>*460 LFU Cache (Hard) </li>
+<li>895 Maximum Frequency Stack (Hard)</li>
+<li>295 Find Median from Data Stream (Hard)</li>
+<li>355 Design Twitter (Medium)</li>
+<li>496 Next Greater Element I (Easy)</li>
+<li>503 Next Greater Element II (Medium)</li>
+<li>739 Daily Temperatures (Medium)</li>
+<li>239 Sliding Window Maximum (Hard)</li>
+<li>232 Implement Queue using Stacks (Easy)</li>
+<li>225 Implement Stack using Queues (Easy)</li>
+</ul>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><ul>
+<li><p>870* Advantage Shuffle (Medium)</p>
+</li>
+<li><p>167 Two Sum II - Input array is sorted (Easy)</p>
+</li>
+<li><p>344 Reverse String (Easy)</p>
+</li>
+<li><p>380* Insert Delete GetRandom O(1) (Medium)</p>
+</li>
+<li><p>*710 Random Pick with Blacklist (Hard) </p>
+</li>
+<li><p>*316 Remove Duplicate Letters (Medium)</p>
+</li>
+<li><p>*1081 Smallest Subsequence of Distinct Characters (Medium)</p>
+</li>
+<li><p>26 Remove Duplicates from Sorted Array (Easy)</p>
+</li>
+<li><p>83 Remove Duplicates from Sorted List (Easy)</p>
+</li>
+<li><ol start="203">
+<li>Remove Linked List Elements</li>
+</ol>
+</li>
+<li><p>27 Remove Element (Easy) </p>
+</li>
+<li><p>283 Move Zeroes (Easy) </p>
+</li>
+<li><p>1 Two Sum (Easy)</p>
+</li>
+<li><p>**170 Two Sum III (Easy)</p>
+</li>
+<li><p>350 Intersection of Two Arrays II</p>
+</li>
+<li><ol start="349">
+<li>Intersection of Two Arrays</li>
+</ol>
+</li>
+<li><ol start="1002">
+<li>Find Common Characters</li>
+</ol>
+</li>
+</ul>
+<h3 id="Sliding-window"><a href="#Sliding-window" class="headerlink" title="Sliding window"></a>Sliding window</h3><ul>
+<li>76 Minimum Window Substring (Hard)</li>
+<li>567 Permutation in String (Medium)</li>
+<li>438 Find All Anagrams in a String (Medium)</li>
+<li>3 Longest Substring Without Repeating Characters (Medium)</li>
+<li>632 Smallest Range Covering Elements from K Lists (Hard)</li>
+</ul>
+<h3 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h3><ul>
+<li>704 Binary Search(Easy)</li>
+<li>34 Find First and Last Position of Element in Sorted Array(Medium)</li>
+<li>875 Koko Eating Bananas (Medium)</li>
+<li>1011* Capacity To Ship Packages Within D Days (Medium)</li>
+<li>410* Split Array Largest Sum (Hard)</li>
+</ul>
+<h3 id="區間問題"><a href="#區間問題" class="headerlink" title="區間問題"></a>區間問題</h3><ul>
+<li>56 Merge Intervals (Medium)</li>
+<li>986* Interval List Intersections (Medium)</li>
+<li>1288* Remove Covered Intervals (Medium)</li>
+</ul>
+<h3 id="nSum-問題"><a href="#nSum-問題" class="headerlink" title="nSum 問題"></a>nSum 問題</h3><ul>
+<li>15 3Sum (Medium)</li>
+<li>18 4Sum (Medium)</li>
+<li>454 4Sum (Medium)</li>
+</ul>
+<h3 id="動態規劃基本問題"><a href="#動態規劃基本問題" class="headerlink" title="動態規劃基本問題"></a>動態規劃基本問題</h3><ul>
+<li>509 Fibonacci Number (Easy 遞迴暴力求解、備忘錄優化、動態規劃求解)</li>
+<li>322 Coin Change (Medium)</li>
+<li>931 Minimum Falling Path Sum (Medium)</li>
+<li>494* Target Sum (Medium)</li>
+</ul>
+<h3 id="子序列問題"><a href="#子序列問題" class="headerlink" title="子序列問題"></a>子序列問題</h3><ul>
+<li>72* Edit Distance (Hard)</li>
+<li>300 Longest Increasing Subsequence (Medium) </li>
+<li>354* Russian Doll Envelopes (Hard)</li>
+<li>53 Maximum Subarray (Easy) </li>
+<li>1143 Longest Common Subsequence (Medium)</li>
+<li>583* Delete Operation for Two Strings (Medium)</li>
+<li>712 Minimum ASCII Delete Sum for Two Strings (Medium)</li>
+<li>516 Longest Palindromic Subsequence (Medium)</li>
+</ul>
+<h3 id="背包問題"><a href="#背包問題" class="headerlink" title="背包問題"></a>背包問題</h3><ul>
+<li>416* Partition Equal Subset Sum (Medium)</li>
+<li>518* Coin Change 2 (Medium)</li>
+</ul>
+<h3 id="貪心問題"><a href="#貪心問題" class="headerlink" title="貪心問題"></a>貪心問題</h3><ul>
+<li>453 Minimum Moves to Equal Array Elements (Easy)</li>
+<li>435* Non-overlapping Intervals (Medium)</li>
+<li>452* Minimum Number of Arrows to Burst Balloons (Medium)</li>
+<li>1024* Video Stitching (Medium)</li>
+<li>55 Jump Game (Medium)</li>
+<li>45 Jump Game II (Medium)</li>
+<li>134* Gas Station (Medium)</li>
+</ul>
+<h3 id="遊戲問題"><a href="#遊戲問題" class="headerlink" title="*遊戲問題"></a>*遊戲問題</h3><ul>
+<li>64 Minimum Path Sum (Medium)</li>
+<li>174 Dungeon Game (Hard)</li>
+<li>514 Freedom Trail (Hard)</li>
+<li>787 Cheapest Flights Within K Stops (Medium) </li>
+<li>*10 Regular Expression Matching (Hard)</li>
+<li>887 Super Egg Drop (Hard)</li>
+<li>312 Burst Balloons (Hard)</li>
+<li>877 Stone Game (Medium)</li>
+<li>651 4 Keys Keyboard (Medium)</li>
+<li>121 Best Time to Buy and Sell Stock (Easy)</li>
+<li>188 Best Time to Buy and Sell Stock IV (Hard)</li>
+</ul>
+<ul>
+<li>122 Best Time to Buy and Sell Stock II (Easy)</li>
+<li>123 Best Time to Buy and Sell Stock III (Hard)</li>
+<li>309 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
+<li>714 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
+<li>198 House Robber (Medium)</li>
+<li>213 House Robber II (Medium)</li>
+<li>337 House Robber III (Medium)</li>
+</ul>
+<ul>
+<li>28 Implement strStr() (Easy)</li>
+<li>1312 Minimum Insertion Steps to Make a String Palindrome (Hard)</li>
+</ul>
+<h3 id="DFS-x2F-BFS"><a href="#DFS-x2F-BFS" class="headerlink" title="DFS&#x2F;BFS"></a>DFS&#x2F;BFS</h3><ul>
+<li>46 Permutations (Medium)</li>
+<li>47 Permutations II (Medium)</li>
+<li>51 N-Queens (Hard)</li>
+<li>52 N-Queens (Hard) </li>
+<li>698* Partition to K Equal Sum Subsets (Medium)</li>
+<li>78 Subsets (Medium)</li>
+<li>45 Jump Game II (Medium)</li>
+<li>77 Combinations (Medium)</li>
+<li>37* Sudoku Solver (Hard)</li>
+<li>22 Generate Parentheses (Medium)</li>
+<li>111 Minimum Depth of Binary Tree (Easy)</li>
+<li>752* Open the Lock (Medium)</li>
+<li>773* Sliding Puzzle (Hard)</li>
+</ul>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><ul>
+<li>191 Number of 1 Bits (Easy)</li>
+<li>231 Power of Two (Easy)</li>
+<li>172 Factorial Trailing Zeroes (Easy)</li>
+<li>793* Preimage Size of Factorial Zeroes Function (Hard)</li>
+<li>204 Count Primes (Easy)</li>
+<li>372* Super Pow (Medium)</li>
+<li>448 Find All Numbers Disappeared in an Array (Easy)</li>
+<li>654 Maximum Binary Tree (Medium)</li>
+<li>382* Linked List Random Node (Medium)</li>
+<li>398 Random Pick Index (Medium)</li>
+<li>26 Remove Duplicates from Sorted Array (Easy)</li>
+<li>83 Remove Duplicates from Sorted List (Easy)</li>
+<li>27 Remove Element (Easy)</li>
+<li>283 Move Zeroes (Easy)</li>
+<li>292 Nim Game (Easy)</li>
+<li>877 Stone Game (Medium)</li>
+<li>319 Bulb Switcher (Medium)</li>
+</ul>
+<h3 id="Other-Algo"><a href="#Other-Algo" class="headerlink" title="Other Algo"></a>Other Algo</h3><ul>
+<li>560* Subarray Sum Equals K (Medium) </li>
+<li>1109 Corporate Flight Bookings (Medium) </li>
+<li>215 Kth Largest Element in an Array (Medium) </li>
+<li>*241 Different Ways to Add Parentheses (Medium)</li>
+</ul>
+<h3 id="高頻面試"><a href="#高頻面試" class="headerlink" title="高頻面試"></a>高頻面試</h3><ul>
+<li>659* Split Array into Consecutive Subsequences (Medium)</li>
+<li>969* Pancake Sorting (Medium)</li>
+<li>43 Multiply Strings (Medium)</li>
+<li>*224 Basic Calculator (Hard)</li>
+<li>*227 Basic Calculator II (Medium)</li>
+<li>**772 Basic Calculator III (Hard)</li>
+<li>42 Trapping Rain Water (Hard)</li>
+<li>5* Longest Palindromic Substring (Medium)</li>
+<li>20 Valid Parentheses (Easy)</li>
+<li>921* Minimum Add to Make Parentheses Valid (Medium)</li>
+<li>1541* Minimum Insertions to Balance a Parentheses String  (Medium)</li>
+<li>391* Perfect Rectangle (Hard)</li>
+<li>*855 Exam Room (Medium)</li>
+<li>392 Is Subsequence (Easy)</li>
+</ul>
+<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><ul>
+<li>207 Course Schedule (Medium)</li>
+<li>210 Course Schedule II (Medium)</li>
+<li>133 Clone Graph (Medium)</li>
+<li>787 Cheapest Flights Within K Stops (Medium) </li>
+<li>797 All Paths From Source to Target (Medium)</li>
+</ul>
+<h2 id="好用的框架-summary"><a href="#好用的框架-summary" class="headerlink" title="好用的框架 summary"></a>好用的框架 summary</h2><p>字串的子序列或是匹配問題直接就上<strong>動態規劃</strong><br>遇到需要求出所有可能況狀首先考慮用<strong>遞迴</strong>。<br>x^0 &#x3D; 0, x^x &#x3D; 0, xor滿足交換率<br>雙指針分為 <strong>快慢指針和左右指針</strong>，快慢指針主要解決linked list問題，比如linked list是否有環，左右指針主要解決數組或字串問題，例如二元搜尋<br>快慢指針 判斷linked list是否有環、鏈表的環的起點、鏈表中點、鏈表中特定位置元素<br>左右指針 二元搜尋、兩數之和、反轉數組、移動窗口、子字串問題</p>
+<h3 id="Dynamic-programming"><a href="#Dynamic-programming" class="headerlink" title="Dynamic programming"></a>Dynamic programming</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 初始化 base <span class="keyword">case</span></span><br><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>][...] = base</span><br><span class="line"># 进行状态转移</span><br><span class="line"><span class="keyword">for</span> 状态<span class="number">1</span> in 状态<span class="number">1</span>的所有取值：</span><br><span class="line">    <span class="keyword">for</span> 状态<span class="number">2</span> in 状态<span class="number">2</span>的所有取值：</span><br><span class="line">        <span class="keyword">for</span> ...</span><br><span class="line">            dp[状态<span class="number">1</span>][状态<span class="number">2</span>][...] = 求最值(选择<span class="number">1</span>，选择<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">result = []</span><br><span class="line">def <span class="built_in">backtrack</span>(路径, 选择列表):</span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.<span class="built_in">add</span>(路径)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> 选择 in 选择列表:</span><br><span class="line">        做选择</span><br><span class="line">        <span class="built_in">backtrack</span>(路径, 选择列表)</span><br><span class="line">        撤销选择</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回溯算法關注的不是節點，而是樹枝</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 计算从起点 start 到终点 target 的最近距离</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BFS</span><span class="params">(Node start, Node target)</span> </span>&#123;</span><br><span class="line">    Queue&lt;Node&gt; q; <span class="comment">// 核心数据结构</span></span><br><span class="line">    Set&lt;Node&gt; visited; <span class="comment">// 避免走回头路</span></span><br><span class="line"></span><br><span class="line">    q.<span class="built_in">offer</span>(start); <span class="comment">// 将起点加入队列</span></span><br><span class="line">    visited.<span class="built_in">add</span>(start);</span><br><span class="line">    <span class="type">int</span> step = <span class="number">0</span>; <span class="comment">// 记录扩散的步数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q <span class="keyword">not</span> empty) &#123;</span><br><span class="line">        <span class="type">int</span> sz = q.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">/* 将当前队列中的所有节点向四周扩散 */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sz; i++) &#123;</span><br><span class="line">            Node cur = q.<span class="built_in">poll</span>();</span><br><span class="line">            <span class="comment">/* 划重点：这里判断是否到达终点 */</span></span><br><span class="line">            <span class="keyword">if</span> (cur is target)</span><br><span class="line">                <span class="keyword">return</span> step;</span><br><span class="line">            <span class="comment">/* 将 cur 的相邻节点加入队列 */</span></span><br><span class="line">            <span class="keyword">for</span> (Node x : cur.<span class="built_in">adj</span>())</span><br><span class="line">                <span class="keyword">if</span> (x <span class="keyword">not</span> in visited) &#123;</span><br><span class="line">                    q.<span class="built_in">offer</span>(x);</span><br><span class="line">                    visited.<span class="built_in">add</span>(x);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* 划重点：更新步数在这里 */</span></span><br><span class="line">        step++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="樹的遍歷"><a href="#樹的遍歷" class="headerlink" title="樹的遍歷"></a>樹的遍歷</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 二叉树遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前序遍历</span></span><br><span class="line">    <span class="built_in">traverse</span>(root.left)</span><br><span class="line">    <span class="comment">// 中序遍历</span></span><br><span class="line">    <span class="built_in">traverse</span>(root.right)</span><br><span class="line">    <span class="comment">// 后序遍历</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Binary-search"><a href="#Binary-search" class="headerlink" title="Binary search"></a>Binary search</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>, right = ...;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(...) &#123;</span><br><span class="line">        <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = ...</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sliding-Window"><a href="#Sliding-Window" class="headerlink" title="Sliding Window"></a>Sliding Window</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;`</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.<span class="built_in">add</span>(s[right]);</span><br><span class="line">    right++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.<span class="built_in">remove</span>(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Binary-Search-Tree-1"><a href="#Binary-Search-Tree-1" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">BST</span><span class="params">(TreeNode root, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root.val == target)</span><br><span class="line">        <span class="comment">// 找到目标，做点什么</span></span><br><span class="line">    <span class="keyword">if</span> (root.val &lt; target) </span><br><span class="line">        <span class="built_in">BST</span>(root.right, target);</span><br><span class="line">    <span class="keyword">if</span> (root.val &gt; target)</span><br><span class="line">        <span class="built_in">BST</span>(root.left, target);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Graph-traverse"><a href="#Graph-traverse" class="headerlink" title="Graph traverse"></a>Graph traverse</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 多叉树遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (TreeNode child : root.children)</span><br><span class="line">        <span class="built_in">traverse</span>(child);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有環的圖</span></span><br><span class="line">Graph graph;</span><br><span class="line">boolean[] visited;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 图遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(Graph graph, <span class="type">int</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (visited[s]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 经过节点 s</span></span><br><span class="line">    visited[s] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode neighbor : graph.<span class="built_in">neighbors</span>(s))</span><br><span class="line">        <span class="built_in">traverse</span>(neighbor);</span><br><span class="line">    <span class="comment">// 离开节点 s</span></span><br><span class="line">    visited[s] = <span class="literal">false</span>;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 有向圖含有環的時候才需要 visited 數組輔助。</span></span><br><span class="line"><span class="comment">// 如果沒有環，連visited 都可以省略了，等同於樹的遍歷</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/labuladong/fucking-algorithm">算法中文手冊</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/geekxh/hello-algorithm">hello-algorithm</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.programcreek.com/2013/08/leetcode-problem-classification/">Algorithm Problem Classification</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2022/02/17/DataStruct/%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83/" rel="next" title="動態規劃">
+                <i class="fa fa-chevron-left"></i> 動態規劃
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2022/02/17/DataStruct/%E5%8D%80%E9%96%93%E5%95%8F%E9%A1%8C/" rel="prev" title="區間問題">
+                區間問題 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives">
+              
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/a920604a" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:a920604a@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yu.an.1800" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/yuan3509" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+           <!-- 添加近期文章 -->
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <!-- modify icon to fire by szw -->
+                <i class="fa fa-history fa-" aria-hidden="true"></i>
+                近期文章
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                
+                  <li>
+                    <a href="/blog/2022/02/17/DataStruct/LinkedList/" title="Linked List" target="_blank">Linked List</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/17/DataStruct/%E7%B5%84%E5%90%88%E3%80%81%E6%8E%92%E5%88%97%E3%80%81%E5%AD%90%E9%9B%86/" title="組合、排列、子集" target="_blank">組合、排列、子集</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/17/DataStruct/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%88%87%E8%A8%AD%E8%A8%88%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/" title="基本資料結構" target="_blank">基本資料結構</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/17/DataStruct/%E6%A8%B9/" title="廣度優先搜尋/深度優先搜尋" target="_blank">廣度優先搜尋/深度優先搜尋</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/02/17/DataStruct/%E7%A7%BB%E5%8B%95%E7%AA%97%E5%8F%A3/" title="Sliding Window" target="_blank">Sliding Window</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E9%8C%84"><span class="nav-number">1.</span> <span class="nav-text">目錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E"><span class="nav-number">2.</span> <span class="nav-text">基礎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list"><span class="nav-number">2.1.</span> <span class="nav-text">linked list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Tree"><span class="nav-number">2.2.</span> <span class="nav-text">Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">2.3.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-data-structure"><span class="nav-number">2.4.</span> <span class="nav-text">*Design data structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">2.5.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sliding-window"><span class="nav-number">2.6.</span> <span class="nav-text">Sliding window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Search"><span class="nav-number">2.7.</span> <span class="nav-text">Binary Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E9%96%93%E5%95%8F%E9%A1%8C"><span class="nav-number">2.8.</span> <span class="nav-text">區間問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nSum-%E5%95%8F%E9%A1%8C"><span class="nav-number">2.9.</span> <span class="nav-text">nSum 問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%E5%9F%BA%E6%9C%AC%E5%95%8F%E9%A1%8C"><span class="nav-number">2.10.</span> <span class="nav-text">動態規劃基本問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%BA%8F%E5%88%97%E5%95%8F%E9%A1%8C"><span class="nav-number">2.11.</span> <span class="nav-text">子序列問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E5%95%8F%E9%A1%8C"><span class="nav-number">2.12.</span> <span class="nav-text">背包問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B2%AA%E5%BF%83%E5%95%8F%E9%A1%8C"><span class="nav-number">2.13.</span> <span class="nav-text">貪心問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8A%E6%88%B2%E5%95%8F%E9%A1%8C"><span class="nav-number">2.14.</span> <span class="nav-text">*遊戲問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-x2F-BFS"><span class="nav-number">2.15.</span> <span class="nav-text">DFS&#x2F;BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-number">2.16.</span> <span class="nav-text">Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Algo"><span class="nav-number">2.17.</span> <span class="nav-text">Other Algo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%A0%BB%E9%9D%A2%E8%A9%A6"><span class="nav-number">2.18.</span> <span class="nav-text">高頻面試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph"><span class="nav-number">2.19.</span> <span class="nav-text">Graph</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%94%A8%E7%9A%84%E6%A1%86%E6%9E%B6-summary"><span class="nav-number">3.</span> <span class="nav-text">好用的框架 summary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-programming"><span class="nav-number">3.1.</span> <span class="nav-text">Dynamic programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtracking"><span class="nav-number">3.2.</span> <span class="nav-text">Backtracking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS"><span class="nav-number">3.3.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%B9%E7%9A%84%E9%81%8D%E6%AD%B7"><span class="nav-number">3.4.</span> <span class="nav-text">樹的遍歷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-search"><span class="nav-number">3.5.</span> <span class="nav-text">Binary search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sliding-Window"><span class="nav-number">3.6.</span> <span class="nav-text">Sliding Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Search-Tree-1"><span class="nav-number">3.7.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-traverse"><span class="nav-number">3.8.</span> <span class="nav-text">Graph traverse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YU-AN, Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
