@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolutionoption 1 - two pointers 利用雙索引從拜訪到的字元向所向右擴散123456789101112131415161718192021class Solution &amp;#123;public:    string longestPalindrome(string s) &amp;#123;        int l &#x3D;0,r &#x3D; 0, n &#x3D;s.size(),">
+<meta name="description" content="problem最長回文子字串 solutionoption 1 - two pointers 利用雙索引，從拜訪到的字元，當拜訪到字元，相鄰字元都一樣，則向左向右擴散123456789101112131415161718192021class Solution &amp;#123;public:    string longestPalindrome(string s) &amp;#123;        int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5. Longest Palindromic Substring">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/leetcode/5_LongestPalindromicSubstring/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolutionoption 1 - two pointers 利用雙索引從拜訪到的字元向所向右擴散123456789101112131415161718192021class Solution &amp;#123;public:    string longestPalindrome(string s) &amp;#123;        int l &#x3D;0,r &#x3D; 0, n &#x3D;s.size(),">
+<meta property="og:description" content="problem最長回文子字串 solutionoption 1 - two pointers 利用雙索引，從拜訪到的字元，當拜訪到字元，相鄰字元都一樣，則向左向右擴散123456789101112131415161718192021class Solution &amp;#123;public:    string longestPalindrome(string s) &amp;#123;        int">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:05.592Z">
-<meta property="article:modified_time" content="2022-02-16T15:12:38.394Z">
+<meta property="article:modified_time" content="2022-02-16T23:39:28.883Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="dp">
 <meta property="article:tag" content="Two Pointers">
@@ -392,13 +392,14 @@
       
 
       
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-palindromic-substring/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-two-pointers"><a href="#option-1-two-pointers" class="headerlink" title="option 1 - two pointers"></a>option 1 - two pointers</h4><ul>
-<li>利用雙索引從拜訪到的字元向所向右擴散<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>,r = <span class="number">0</span>, n =s.<span class="built_in">size</span>(),  start = <span class="number">0</span>, len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;)&#123;</span><br><span class="line">            l=r=i;</span><br><span class="line">            <span class="keyword">while</span>(r+<span class="number">1</span>&lt;n &amp;&amp; s[r] == s[r+<span class="number">1</span>]) r++;</span><br><span class="line">            i = r+<span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(l&gt;<span class="number">0</span> &amp;&amp; r&lt;n<span class="number">-1</span> &amp;&amp; s[l<span class="number">-1</span>] == s[r+<span class="number">1</span>])&#123;</span><br><span class="line">                l--;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(r-l+<span class="number">1</span>&gt;len)&#123;</span><br><span class="line">                len = r-l+<span class="number">1</span>;</span><br><span class="line">                start = l;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(start, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-palindromic-substring/">problem</a></h2><p>最長回文子字串</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-two-pointers"><a href="#option-1-two-pointers" class="headerlink" title="option 1 - two pointers"></a>option 1 - two pointers</h4><ul>
+<li>利用雙索引，從拜訪到的字元，當拜訪到字元，相鄰字元都一樣，則向左向右擴散<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>,r = <span class="number">0</span>, n =s.<span class="built_in">size</span>(),  start = <span class="number">0</span>, len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;)&#123;</span><br><span class="line">            l=r=i;</span><br><span class="line">            <span class="keyword">while</span>(r+<span class="number">1</span>&lt;n &amp;&amp; s[r] == s[r+<span class="number">1</span>]) r++;</span><br><span class="line">            i = r+<span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(l&gt;<span class="number">0</span> &amp;&amp; r&lt;n<span class="number">-1</span> &amp;&amp; s[l<span class="number">-1</span>] == s[r+<span class="number">1</span>])&#123;</span><br><span class="line">                l--;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(r-l+<span class="number">1</span>&gt;len)&#123;</span><br><span class="line">                len = r-l+<span class="number">1</span>;</span><br><span class="line">                start = l;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(start, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="option-2-dp"><a href="#option-2-dp" class="headerlink" title="option 2 - *dp"></a>option 2 - *dp</h4></li>
 </ul>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>option 1 <ul>
-<li>time complexity <code>O(n)</code></li>
+<li>option 1 - two pointers<ul>
+<li>time complexity <code>O(n^2)</code></li>
 <li>space complexity <code>O(1)</code></li>
 </ul>
 </li>
@@ -520,7 +521,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -593,23 +594,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/102_BinaryTreeLevelOrderTraversal/" title="102. Binary Tree Level Order Traversal" target="_blank">102. Binary Tree Level Order Traversal</a>
+                    <a href="/blog/2022/02/17/leetcode/236_LowestCommonAncestorofaBinaryTree/" title="236. Lowest Common Ancestor of a Binary Tree" target="_blank">236. Lowest Common Ancestor of a Binary Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/226_InvertBinaryTree/" title="226. Invert Binary Tree" target="_blank">226. Invert Binary Tree</a>
+                    <a href="/blog/2022/02/17/leetcode/235_LowestCommonAncestorofaBinarySearchTree/" title="235. Lowest Common Ancestor of a Binary Search Tree" target="_blank">235. Lowest Common Ancestor of a Binary Search Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/100_SameTree/" title="100. Same Tree" target="_blank">100. Same Tree</a>
+                    <a href="/blog/2022/02/17/leetcode/230_KthSmallestElementinaBST/" title="230. Kth Smallest Element in a BST" target="_blank">230. Kth Smallest Element in a BST</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
+                    <a href="/blog/2022/02/17/leetcode/98_ValidateBinarySearchTree/" title="98. Validate Binary Search Tree" target="_blank">98. Validate Binary Search Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
+                    <a href="/blog/2022/02/17/leetcode/106_ConstructBinaryTreefromInorderandPostorderTraversal/" title="106. Construct Binary Tree from Inorder and Postorder Traversal" target="_blank">106. Construct Binary Tree from Inorder and Postorder Traversal</a>
                   </li>
                 
               </ul>

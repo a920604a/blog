@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  12345678910111">
+<meta name="description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力求解，遍歷每種可能，終止條件target&lt;0  因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  1234567891011121">
 <meta property="og:type" content="article">
 <meta property="og:title" content="39. Combination Sum">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/leetcode/39_CombinationSum/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力，遍歷每種可能，終止條件target&lt;0 or   因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  12345678910111">
+<meta property="og:description" content="problem找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。 sloution 用遞迴暴力求解，遍歷每種可能，終止條件target&lt;0  因為可以重複，所以每次調用bracktracking(candidates, target - candidates[i], path, ret, i) 而不是l+1。  version 1  1234567891011121">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:05.738Z">
-<meta property="article:modified_time" content="2022-02-16T15:12:38.394Z">
+<meta property="article:modified_time" content="2022-02-17T00:43:56.461Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -393,7 +393,7 @@
       
         <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/combination-sum/">problem</a></h2><p>找出所有組合總和為target 的子序列，可以重複選取，但每組組合必須唯一。</p>
 <h2 id="sloution"><a href="#sloution" class="headerlink" title="sloution"></a>sloution</h2><ul>
-<li><p>用遞迴暴力，遍歷每種可能，終止條件<code>target&lt;0</code> or </p>
+<li><p>用遞迴暴力求解，遍歷每種可能，終止條件<code>target&lt;0</code></p>
 </li>
 <li><p>因為可以重複，所以每次調用<code>bracktracking(candidates, target - candidates[i], path, ret, i)</code> 而不是<code>l+1</code>。</p>
 </li>
@@ -403,7 +403,7 @@
 <li><p>version 2 sorting </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">bracktracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; candidates,<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt; &amp; path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ret, <span class="type">int</span> l )</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target&lt;<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(target ==<span class="number">0</span>)&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=l;i&lt;candidates.<span class="built_in">size</span>(); ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target - candidates[i]&lt;<span class="number">0</span>) <span class="keyword">return</span> ; <span class="comment">//sort</span></span><br><span class="line">            path.<span class="built_in">push_back</span>(candidates[i]);</span><br><span class="line">            <span class="built_in">bracktracking</span>(candidates, target - candidates[i], path, ret, i);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; candidates, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(candidates.<span class="built_in">begin</span>(), candidates.<span class="built_in">end</span>()); <span class="comment">//sort</span></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;  ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">bracktracking</span>(candidates, target, path, ret, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
-<li><p>time complexity <code>O(len(nums)^M)</code>, M if theight of our recursive</p>
+<li><p>time complexity <code>O(len(nums)^M)</code>, M is the height of our recursive</p>
 </li>
 <li><p>space complexity <code>L</code> , L is the longest combination</p>
 </li>
@@ -523,7 +523,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -596,23 +596,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/102_BinaryTreeLevelOrderTraversal/" title="102. Binary Tree Level Order Traversal" target="_blank">102. Binary Tree Level Order Traversal</a>
+                    <a href="/blog/2022/02/17/leetcode/236_LowestCommonAncestorofaBinaryTree/" title="236. Lowest Common Ancestor of a Binary Tree" target="_blank">236. Lowest Common Ancestor of a Binary Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/226_InvertBinaryTree/" title="226. Invert Binary Tree" target="_blank">226. Invert Binary Tree</a>
+                    <a href="/blog/2022/02/17/leetcode/235_LowestCommonAncestorofaBinarySearchTree/" title="235. Lowest Common Ancestor of a Binary Search Tree" target="_blank">235. Lowest Common Ancestor of a Binary Search Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/100_SameTree/" title="100. Same Tree" target="_blank">100. Same Tree</a>
+                    <a href="/blog/2022/02/17/leetcode/230_KthSmallestElementinaBST/" title="230. Kth Smallest Element in a BST" target="_blank">230. Kth Smallest Element in a BST</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/2119_ANumberAfteraDoubleReversal/" title="2119. A Number After a Double Reversal" target="_blank">2119. A Number After a Double Reversal</a>
+                    <a href="/blog/2022/02/17/leetcode/98_ValidateBinarySearchTree/" title="98. Validate Binary Search Tree" target="_blank">98. Validate Binary Search Tree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/16/leetcode/1143_LongestCommonSubsequence/" title="1143. Longest Common Subsequence" target="_blank">1143. Longest Common Subsequence</a>
+                    <a href="/blog/2022/02/17/leetcode/106_ConstructBinaryTreefromInorderandPostorderTraversal/" title="106. Construct Binary Tree from Inorder and Postorder Traversal" target="_blank">106. Construct Binary Tree from Inorder and Postorder Traversal</a>
                   </li>
                 
               </ul>
