@@ -94,7 +94,7 @@
 <meta property="og:description" content="problem找出陣列中是否一重複的數字 Solutionsorting可以先sort 是否有前後兩元素相同 123456789101112class Solution &amp;#123;public:    bool containsDuplicate(vector&lt;int&gt;&amp; nums) &amp;#123;        sort(nums.begin(), nums.end());">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:06.367Z">
-<meta property="article:modified_time" content="2022-02-16T15:12:38.394Z">
+<meta property="article:modified_time" content="2022-02-18T08:40:37.626Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="hash table">
 <meta name="twitter:card" content="summary">
@@ -395,7 +395,7 @@
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h4 id="sorting"><a href="#sorting" class="headerlink" title="sorting"></a>sorting</h4><p>可以先sort 是否有前後兩元素相同</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == nums[i<span class="number">-1</span>]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="hash-table"><a href="#hash-table" class="headerlink" title="hash table"></a>hash table</h4><p>set or map</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">count</span>(n)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            s.<span class="built_in">insert</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">count</span>(n)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            s.<span class="built_in">insert</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// unordered_set&lt;int&gt; s;</span></span><br><span class="line">        <span class="comment">// for(int n:nums) s.insert(n);</span></span><br><span class="line">        <span class="comment">// return !( nums.size() == s.size());</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>sorting<ul>
 <li>time complexity <code>O(nlogn)</code></li>
@@ -523,7 +523,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-count">116</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -596,23 +596,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/18/leetcode/793_PreimageSizeofFactorialZeroesFunction/" title="793. Preimage Size of Factorial Zeroes Function" target="_blank">793. Preimage Size of Factorial Zeroes Function</a>
+                    <a href="/blog/2022/02/18/leetcode/503_NextGreaterElementII/" title="503. Next Greater Element II" target="_blank">503. Next Greater Element II</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/18/leetcode/172_FactorialTrailingZeroes/" title="172. Factorial Trailing Zeroes" target="_blank">172. Factorial Trailing Zeroes</a>
+                    <a href="/blog/2022/02/18/leetcode/739_DailyTemperatures/" title="739. Daily Temperatures" target="_blank">739. Daily Temperatures</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/18/leetcode/354_RussianDollEnvelopes/" title="354. Russian Doll Envelopes" target="_blank">354. Russian Doll Envelopes</a>
+                    <a href="/blog/2022/02/18/leetcode/496_NextGreaterElementI/" title="496. Next Greater Element I" target="_blank">496. Next Greater Element I</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/18/leetcode/1011_CapacityToShipPackagesWithinDDays/" title="1011. Capacity To Ship Packages Within D Days" target="_blank">1011. Capacity To Ship Packages Within D Days</a>
+                    <a href="/blog/2022/02/18/leetcode/402_RemoveKDigits/" title="402. Remove K Digits" target="_blank">402. Remove K Digits</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/18/leetcode/875_KokoEatingBananas/" title="875. Koko Eating Bananas" target="_blank">875. Koko Eating Bananas</a>
+                    <a href="/blog/2022/02/18/leetcode/1137_N-thTribonacciNumber/" title="1137. N-th Tribonacci Number" target="_blank">1137. N-th Tribonacci Number</a>
                   </li>
                 
               </ul>
