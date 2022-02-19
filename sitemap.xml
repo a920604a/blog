@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://a920604a.github.io/blog/2022/02/20/leetcode/2178_MaximumSplitofPositiveEvenIntegers/</loc>
+    
+    <lastmod>2022-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/02/20/leetcode/2177_FindThreeConsecutiveIntegersThatSumtoaGivenNumber/</loc>
+    
+    <lastmod>2022-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/02/20/leetcode/2176_CountEqualandDivisiblePairsinanArray/</loc>
+    
+    <lastmod>2022-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/02/19/leetcode/876_MiddleoftheLinkedList/</loc>
     
     <lastmod>2022-02-19</lastmod>
@@ -1429,6 +1456,13 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/heap/</loc>
+    <lastmod>2022-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/tags/math/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
