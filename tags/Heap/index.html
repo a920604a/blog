@@ -88,7 +88,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="YuAn">
-<meta property="og:url" content="https://a920604a.github.io/blog/tags/heap/index.html">
+<meta property="og:url" content="https://a920604a.github.io/blog/tags/Heap/index.html">
 <meta property="og:site_name" content="YuAn">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:author" content="YU-AN, Chen">
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://a920604a.github.io/blog/tags/heap/"/>
+  <link rel="canonical" href="https://a920604a.github.io/blog/tags/Heap/"/>
 
 
 
 
 
-  <title>標籤: heap | YuAn</title>
+  <title>標籤: Heap | YuAn</title>
   
 
 
@@ -292,7 +292,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>heap<small>標籤</small>
+        <h1>Heap<small>標籤</small>
         </h1>
       </div>
 
@@ -304,9 +304,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/2022/02/19/DataStruct/heap/" itemprop="url">
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/347_TopKFrequentElements/" itemprop="url">
               
-                <span itemprop="name">Heap</span>
+                <span itemprop="name">347. Top K Frequent Elements</span>
               
             </a>
         
@@ -314,9 +314,37 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-19T09:11:23+08:00"
-              content="2022-02-19" >
-          02-19
+              datetime="2022-02-16T16:01:06+08:00"
+              content="2022-02-16" >
+          02-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/2022/02/16/leetcode/23_MergekSortedLists/" itemprop="url">
+              
+                <span itemprop="name">23. Merge k Sorted Lists</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2022-02-16T16:01:05+08:00"
+              content="2022-02-16" >
+          02-16
         </time>
       </div>
 
@@ -376,7 +404,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">150</span>
+                  <span class="site-state-item-count">182</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -387,7 +415,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -398,7 +426,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -449,23 +477,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/740_DeleteandEarn/" title="740. Delete and Earn" target="_blank">740. Delete and Earn</a>
+                    <a href="/blog/2022/02/21/codility/MinAvgTwoSlice/" title="MinAvgTwoSlice" target="_blank">MinAvgTwoSlice</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/337_HouseRobberIII/" title="337. House Robber III" target="_blank">337. House Robber III</a>
+                    <a href="/blog/2022/02/21/codility/GenomicRangeQuery/" title="GenomicRangeQuery" target="_blank">GenomicRangeQuery</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/653_TwoSumIV-InputisaBST/" title="653. Two Sum IV - Input is a BST" target="_blank">653. Two Sum IV - Input is a BST</a>
+                    <a href="/blog/2022/02/21/codility/CountDiv/" title="CountDiv" target="_blank">CountDiv</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/167_TwoSumII-InputArrayIsSorted/" title="167. Two Sum II - Input Array Is Sorted" target="_blank">167. Two Sum II - Input Array Is Sorted</a>
+                    <a href="/blog/2022/02/21/codility/PassingCars/" title="PassingCars" target="_blank">PassingCars</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/350_IntersectionofTwoArraysII/" title="350. Intersection of Two Arrays II" target="_blank">350. Intersection of Two Arrays II</a>
+                    <a href="/blog/2022/02/21/codility/MissingInteger/" title="MissingInteger" target="_blank">MissingInteger</a>
                   </li>
                 
               </ul>
@@ -715,24 +743,7 @@
           // get the contents from search data
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
+          var datas = isXmorm local searching
               datas.forEach(function(data) {
                 var isMatch = false;
                 var hitCount = 0;

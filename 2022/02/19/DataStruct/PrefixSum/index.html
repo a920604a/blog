@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="PrefixSum," />
+  <meta name="keywords" content="Prefix Sum," />
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="PrefixSum  303 Range Sum Query - Immutable (Easy) 304 Range Sum Query 2D - Immutable (Medium)  Subarray Sum Equals K (Medium)    Different Sum  1094 Car Pooling (Medium) 1109 Corporate Flight Bookings">
+<meta name="description" content="Prefix Sum 用於快速、频繁地計算一個索引區間内的元素之和。 12345678array &#x3D;         [-2    0   3   -5  2   -1]prefix sum &#x3D; [0  -2   -2   1   -4  -2  -3]preSum[i] &#x3D; preSum[i-1] + nums[i-1];   array &#x3D; [a, b,  c,  d,    e, f]pre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PrefixSum">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/19/DataStruct/PrefixSum/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="PrefixSum  303 Range Sum Query - Immutable (Easy) 304 Range Sum Query 2D - Immutable (Medium)  Subarray Sum Equals K (Medium)    Different Sum  1094 Car Pooling (Medium) 1109 Corporate Flight Bookings">
+<meta property="og:description" content="Prefix Sum 用於快速、频繁地計算一個索引區間内的元素之和。 12345678array &#x3D;         [-2    0   3   -5  2   -1]prefix sum &#x3D; [0  -2   -2   1   -4  -2  -3]preSum[i] &#x3D; preSum[i-1] + nums[i-1];   array &#x3D; [a, b,  c,  d,    e, f]pre">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-19T10:40:09.907Z">
-<meta property="article:modified_time" content="2022-02-19T10:41:59.507Z">
+<meta property="article:modified_time" content="2022-02-20T13:58:57.234Z">
 <meta property="article:author" content="YU-AN, Chen">
-<meta property="article:tag" content="PrefixSum">
+<meta property="article:tag" content="Prefix Sum">
 <meta name="twitter:card" content="summary">
 
 
@@ -402,7 +402,13 @@
       
 
       
-        <p>PrefixSum</p>
+        <p>Prefix Sum 用於快速、频繁地計算一個索引區間内的元素之和。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">array =         [-2    0   3   -5  2   -1]</span><br><span class="line">prefix sum = [0  -2   -2   1   -4  -2  -3]</span><br><span class="line">preSum[i] = preSum[i-1] + nums[i-1];   </span><br><span class="line"></span><br><span class="line">array = [a, b,  c,  d,    e, f]</span><br><span class="line">pre = [0,a, a+b, a+b+c, a+b+c+d, a+b+c+d+e, a+b+c+d+e+f]</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Prefix diff</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">array =      [8  2   6   3   1]</span><br><span class="line">diff =   [8  -6  4   -3  -2]</span><br><span class="line">diff[i] = nums[i] + nums[i-1];    </span><br><span class="line">// array[i..j] 的元素全部加 3，只需要diff[i]+=3</span><br><span class="line">array = [a, b,  c,  d,    e]</span><br><span class="line">diff = [a, (b-a), (c-b), (d-c), (e-d)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// array[1..3] 的元素全部加 3，只需要diff[i]+=3, diff[3+1]-=3</span><br><span class="line">array = [a, b+3, c+3, d+3, e]</span><br><span class="line">diff = [a, (b-a+3), (c-b), (d-c), (e-d-3)]]</span><br><span class="line"></span><br><span class="line">array[2...4] 的元素全部加 5</span><br><span class="line">array = [a, b, c+5, d+5, e+5]</span><br><span class="line">diff = [a, (b-a), (c-b+5), (d-c), (e-d)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Prefix Sum</p>
 <ul>
 <li>303 Range Sum Query - Immutable (Easy)</li>
 <li>304 Range Sum Query 2D - Immutable (Medium)</li>
@@ -433,7 +439,7 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/PrefixSum/" rel="tag"># PrefixSum</a>
+            <a href="/blog/tags/Prefix-Sum/" rel="tag"># Prefix Sum</a>
           
         </div>
       
@@ -522,7 +528,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">150</span>
+                  <span class="site-state-item-count">182</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -533,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -544,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -595,23 +601,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/740_DeleteandEarn/" title="740. Delete and Earn" target="_blank">740. Delete and Earn</a>
+                    <a href="/blog/2022/02/21/codility/MinAvgTwoSlice/" title="MinAvgTwoSlice" target="_blank">MinAvgTwoSlice</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/337_HouseRobberIII/" title="337. House Robber III" target="_blank">337. House Robber III</a>
+                    <a href="/blog/2022/02/21/codility/GenomicRangeQuery/" title="GenomicRangeQuery" target="_blank">GenomicRangeQuery</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/653_TwoSumIV-InputisaBST/" title="653. Two Sum IV - Input is a BST" target="_blank">653. Two Sum IV - Input is a BST</a>
+                    <a href="/blog/2022/02/21/codility/CountDiv/" title="CountDiv" target="_blank">CountDiv</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/167_TwoSumII-InputArrayIsSorted/" title="167. Two Sum II - Input Array Is Sorted" target="_blank">167. Two Sum II - Input Array Is Sorted</a>
+                    <a href="/blog/2022/02/21/codility/PassingCars/" title="PassingCars" target="_blank">PassingCars</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/20/leetcode/350_IntersectionofTwoArraysII/" title="350. Intersection of Two Arrays II" target="_blank">350. Intersection of Two Arrays II</a>
+                    <a href="/blog/2022/02/21/codility/MissingInteger/" title="MissingInteger" target="_blank">MissingInteger</a>
                   </li>
                 
               </ul>
