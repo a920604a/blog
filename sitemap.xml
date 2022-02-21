@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://a920604a.github.io/blog/2022/02/21/codility/MinAvgTwoSlice/</loc>
-    
-    <lastmod>2022-02-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://a920604a.github.io/blog/2022/02/21/codility/GenomicRangeQuery/</loc>
     
     <lastmod>2022-02-21</lastmod>
@@ -20,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/blog/2022/02/21/codility/CountDiv/</loc>
+    <loc>https://a920604a.github.io/blog/2022/02/21/codility/PassingCars/</loc>
     
     <lastmod>2022-02-21</lastmod>
     
@@ -29,7 +20,16 @@
   </url>
   
   <url>
-    <loc>https://a920604a.github.io/blog/2022/02/21/codility/PassingCars/</loc>
+    <loc>https://a920604a.github.io/blog/2022/02/21/codility/MinAvgTwoSlice/</loc>
+    
+    <lastmod>2022-02-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/02/21/codility/CountDiv/</loc>
     
     <lastmod>2022-02-21</lastmod>
     
