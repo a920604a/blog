@@ -376,7 +376,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">197</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -387,7 +387,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -398,7 +398,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -449,23 +449,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/232_ImplementQueueusingStacks/" title="232. Implement Queue using Stacks" target="_blank">232. Implement Queue using Stacks</a>
+                    <a href="/blog/2022/02/23/leetcode/133_CloneGraph/" title="133. Clone Graph" target="_blank">133. Clone Graph</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/225_ImplementStackusingQueues/" title="225. Implement Stack using Queues" target="_blank">225. Implement Stack using Queues</a>
+                    <a href="/blog/2022/02/22/codility/*NumberOfDiscIntersections/" title="NumberOfDiscIntersections" target="_blank">NumberOfDiscIntersections</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/37_SudokuSolver/" title="37. Sudoku Solver" target="_blank">37. Sudoku Solver</a>
+                    <a href="/blog/2022/02/22/codility/Triangle/" title="Triangle" target="_blank">Triangle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/36_ValidSudoku/" title="36. Valid Sudoku" target="_blank">36. Valid Sudoku</a>
+                    <a href="/blog/2022/02/22/codility/MaxProductOfThree/" title="MaxProductOfThree" target="_blank">MaxProductOfThree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/74_Searcha2DMatrix/" title="74. Search a 2D Matrix" target="_blank">74. Search a 2D Matrix</a>
+                    <a href="/blog/2022/02/22/codility/Distinct/" title="Distinct" target="_blank">Distinct</a>
                   </li>
                 
               </ul>
@@ -727,44 +727,6 @@
           var inputEventFunction = function() {
             var searchText = input.value.trim().toLowerCase();
             var keywords = searchText.split(/[\s\-]+/);
-               $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
             if (keywords.length > 1) {
               keywords.push(searchText);
             }
@@ -963,6 +925,78 @@
               });
               var searchResultList = '<ul class=\"search-result-list\">';
               resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+sult) {
                 searchResultList += result.item;
               })
               searchResultList += "</ul>";

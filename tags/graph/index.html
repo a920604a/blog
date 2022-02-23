@@ -88,7 +88,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="YuAn">
-<meta property="og:url" content="https://a920604a.github.io/blog/tags/graph/index.html">
+<meta property="og:url" content="https://a920604a.github.io/blog/tags/Graph/index.html">
 <meta property="og:site_name" content="YuAn">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:author" content="YU-AN, Chen">
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://a920604a.github.io/blog/tags/graph/"/>
+  <link rel="canonical" href="https://a920604a.github.io/blog/tags/Graph/"/>
 
 
 
 
 
-  <title>標籤: graph | YuAn</title>
+  <title>標籤: Graph | YuAn</title>
   
 
 
@@ -292,7 +292,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>graph<small>標籤</small>
+        <h1>Graph<small>標籤</small>
         </h1>
       </div>
 
@@ -304,37 +304,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/2022/02/17/DataStruct/Dijkstra/" itemprop="url">
+            <a class="post-title-link" href="/blog/2022/02/23/leetcode/133_CloneGraph/" itemprop="url">
               
-                <span itemprop="name">Dijkstra</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-17T14:37:39+08:00"
-              content="2022-02-17" >
-          02-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2022/02/17/DataStruct/Graph/" itemprop="url">
-              
-                <span itemprop="name">Graph</span>
+                <span itemprop="name">133. Clone Graph</span>
               
             </a>
         
@@ -342,9 +314,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-17T14:37:39+08:00"
-              content="2022-02-17" >
-          02-17
+              datetime="2022-02-23T08:59:31+08:00"
+              content="2022-02-23" >
+          02-23
         </time>
       </div>
 
@@ -404,7 +376,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">197</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -415,7 +387,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -426,7 +398,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -477,23 +449,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/232_ImplementQueueusingStacks/" title="232. Implement Queue using Stacks" target="_blank">232. Implement Queue using Stacks</a>
+                    <a href="/blog/2022/02/23/leetcode/133_CloneGraph/" title="133. Clone Graph" target="_blank">133. Clone Graph</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/225_ImplementStackusingQueues/" title="225. Implement Stack using Queues" target="_blank">225. Implement Stack using Queues</a>
+                    <a href="/blog/2022/02/22/codility/*NumberOfDiscIntersections/" title="NumberOfDiscIntersections" target="_blank">NumberOfDiscIntersections</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/37_SudokuSolver/" title="37. Sudoku Solver" target="_blank">37. Sudoku Solver</a>
+                    <a href="/blog/2022/02/22/codility/Triangle/" title="Triangle" target="_blank">Triangle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/36_ValidSudoku/" title="36. Valid Sudoku" target="_blank">36. Valid Sudoku</a>
+                    <a href="/blog/2022/02/22/codility/MaxProductOfThree/" title="MaxProductOfThree" target="_blank">MaxProductOfThree</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/leetcode/74_Searcha2DMatrix/" title="74. Search a 2D Matrix" target="_blank">74. Search a 2D Matrix</a>
+                    <a href="/blog/2022/02/22/codility/Distinct/" title="Distinct" target="_blank">Distinct</a>
                   </li>
                 
               </ul>
@@ -982,6 +954,49 @@
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+opup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
