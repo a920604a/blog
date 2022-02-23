@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="Backtracking &#x3D; DFS&#x3D; 運用遞迴依序窮舉各個維度的數值。暴力法BFS，BFS 找到的路徑一定是最短的，用空間換取時間。一般來說些奧queue支持 複雜度分析，以求樹的高度、或求最短路徑為例。DFS 需要O(logN) 空間，時間通常較多BFS 需要O(N) 空間，時間通常較少 Backtracking 框架12345678910result &#x3D; []def ba">
+<meta name="description" content="題目 46 Permutations (Medium) 47 Permutations II (Medium) 51 N-Queens (Hard) 52 N-Queens (Hard)  698 Partition to K Equal Sum Subsets (Medium) 78 Subsets (Medium) 77 Combinations (Medium) 37 Sudoku Solv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="廣度優先搜尋&amp;深度優先搜尋">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/%E5%BB%A3%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B%EF%BC%86%E6%B7%B1%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="Backtracking &#x3D; DFS&#x3D; 運用遞迴依序窮舉各個維度的數值。暴力法BFS，BFS 找到的路徑一定是最短的，用空間換取時間。一般來說些奧queue支持 複雜度分析，以求樹的高度、或求最短路徑為例。DFS 需要O(logN) 空間，時間通常較多BFS 需要O(N) 空間，時間通常較少 Backtracking 框架12345678910result &#x3D; []def ba">
+<meta property="og:description" content="題目 46 Permutations (Medium) 47 Permutations II (Medium) 51 N-Queens (Hard) 52 N-Queens (Hard)  698 Partition to K Equal Sum Subsets (Medium) 78 Subsets (Medium) 77 Combinations (Medium) 37 Sudoku Solv">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:37:39.935Z">
-<meta property="article:modified_time" content="2022-02-17T07:12:24.998Z">
+<meta property="article:modified_time" content="2022-02-23T10:42:18.220Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="bfs">
 <meta property="article:tag" content="backtracking">
@@ -403,35 +403,27 @@
       
 
       
-        <p>Backtracking &#x3D; DFS&#x3D; 運用遞迴依序窮舉各個維度的數值。暴力法<br>BFS，BFS 找到的路徑一定是最短的，用空間換取時間。一般來說些奧queue支持</p>
-<p>複雜度分析，以求樹的高度、或求最短路徑為例。<br>DFS 需要O(logN) 空間，時間通常較多<br>BFS 需要O(N) 空間，時間通常較少</p>
-<h2 id="Backtracking-框架"><a href="#Backtracking-框架" class="headerlink" title="Backtracking 框架"></a>Backtracking 框架</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">result = []</span><br><span class="line">def <span class="built_in">backtrack</span>(路径, 选择列表):</span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.<span class="built_in">add</span>(路径)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> 选择 in 选择列表:</span><br><span class="line">        做选择</span><br><span class="line">        <span class="built_in">backtrack</span>(路径, 选择列表)</span><br><span class="line">        撤销选择</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title function_">traversal</span><span class="params">(TreeNode root)</span> &#123;     List&lt;TreeNode&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(); </span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;(); </span><br><span class="line">    stack.add(root); </span><br><span class="line">    <span class="keyword">while</span> (!stack.empty()) &#123; </span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> stack.peek(); </span><br><span class="line">        res.add(node);         </span><br><span class="line">        stack.pop();                         </span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="literal">null</span>) &#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">           &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="literal">null</span>) &#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="BFS-框架"><a href="#BFS-框架" class="headerlink" title="BFS 框架"></a>BFS 框架</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 计算从起点 start 到终点 target 的最近距离</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BFS</span><span class="params">(Node start, Node target)</span> </span>&#123;</span><br><span class="line">    Queue&lt;Node&gt; q; <span class="comment">// 核心数据结构</span></span><br><span class="line">    Set&lt;Node&gt; visited; <span class="comment">// 避免走回头路</span></span><br><span class="line"></span><br><span class="line">    q.<span class="built_in">offer</span>(start); <span class="comment">// 将起点加入队列</span></span><br><span class="line">    visited.<span class="built_in">add</span>(start);</span><br><span class="line">    <span class="type">int</span> step = <span class="number">0</span>; <span class="comment">// 记录扩散的步数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q <span class="keyword">not</span> empty) &#123;</span><br><span class="line">        <span class="type">int</span> sz = q.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">/* 将当前队列中的所有节点向四周扩散 */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sz; i++) &#123;</span><br><span class="line">            Node cur = q.<span class="built_in">poll</span>();</span><br><span class="line">            <span class="comment">/* 划重点：这里判断是否到达终点 */</span></span><br><span class="line">            <span class="keyword">if</span> (cur is target)</span><br><span class="line">                <span class="keyword">return</span> step;</span><br><span class="line">            <span class="comment">/* 将 cur 的相邻节点加入队列 */</span></span><br><span class="line">            <span class="keyword">for</span> (Node x : cur.<span class="built_in">adj</span>())</span><br><span class="line">                <span class="keyword">if</span> (x <span class="keyword">not</span> in visited) &#123;</span><br><span class="line">                    q.<span class="built_in">offer</span>(x);</span><br><span class="line">                    visited.<span class="built_in">add</span>(x);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* 划重点：更新步数在这里 */</span></span><br><span class="line">        step++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h2><p>本質上是DFS 決策樹的遍歷過程。所以算是暴力求解。路徑、當前選擇、結束條件。O(logN)</p>
-<ul>
+        <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
 <li>46 Permutations (Medium)</li>
 <li>47 Permutations II (Medium)</li>
 <li>51 N-Queens (Hard)</li>
 <li>52 N-Queens (Hard) </li>
 <li>698 Partition to K Equal Sum Subsets (Medium)</li>
 <li>78 Subsets (Medium)</li>
-<li>45 Jump Game II (Medium)</li>
 <li>77 Combinations (Medium)</li>
 <li>37 Sudoku Solver (Hard)</li>
 <li>22 Generate Parentheses (Medium)</li>
 </ul>
-<p>[補充]</p>
+<p>islands</p>
 <ul>
-<li>112 Path Sum</li>
-<li>113 Path Sum II</li>
-<li>437 Path Sum III</li>
+<li>200 Number of Islands (Medium)</li>
+<li>1254 Number of Closed Islands (Medium)</li>
+<li>1020 Number of Enclaves (Medium)</li>
+<li>695 Max Area of Island (Medium)</li>
+<li>1905 Count Sub Islands (Medium)</li>
+<li>694 Number of Distinct Islands (Medium, Premium)</li>
 </ul>
-<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>找到路徑肯定是最短的，但代價就是空間複雜度比DFS大很多。用queue 輔助。O(N)。<strong>用空間換取時間</strong>。</p>
+<p>BFS</p>
 <ul>
 <li>111 Minimum Depth of Binary Tree (Easy)</li>
 <li>752 Open the Lock (Medium)</li>
@@ -439,9 +431,23 @@
 </ul>
 <p>[補充]</p>
 <ul>
+<li>112 Path Sum</li>
+<li>113 Path Sum II</li>
+<li>437 Path Sum III</li>
+</ul>
+<p>[補充]</p>
+<ul>
 <li>1091 Shortest Path in Binary Matrix</li>
 <li>797 All Paths From Source to Target</li>
 </ul>
+<h2 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h2><p>Backtracking &#x3D; DFS&#x3D; 運用遞迴依序窮舉各個維度的數值。暴力法<br>BFS，BFS 找到的路徑一定是最短的，用空間換取時間。一般來說些奧queue支持</p>
+<p>複雜度分析，以求樹的高度、或求最短路徑為例。<br>DFS 需要O(logN) 空間，時間通常較多<br>BFS 需要O(N) 空間，時間通常較少</p>
+<h2 id="Backtracking-觀念與框架"><a href="#Backtracking-觀念與框架" class="headerlink" title="Backtracking 觀念與框架"></a>Backtracking 觀念與框架</h2><p>本質上是DFS 決策樹的遍歷過程。所以算是暴力求解。路徑、當前選擇、結束條件。O(logN)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">result = []</span><br><span class="line">def <span class="built_in">backtrack</span>(路径, 选择列表):</span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.<span class="built_in">add</span>(路径)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> 选择 in 选择列表:</span><br><span class="line">        做选择</span><br><span class="line">        <span class="built_in">backtrack</span>(路径, 选择列表)</span><br><span class="line">        撤销选择</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title function_">traversal</span><span class="params">(TreeNode root)</span> &#123;     </span><br><span class="line">    List&lt;TreeNode&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(); </span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;(); </span><br><span class="line">    stack.add(root); </span><br><span class="line">    <span class="keyword">while</span> (!stack.empty()) &#123; </span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> stack.peek(); </span><br><span class="line">        res.add(node);         </span><br><span class="line">        stack.pop();                         </span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="literal">null</span>) &#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">           &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="literal">null</span>) &#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS-觀念與框架"><a href="#BFS-觀念與框架" class="headerlink" title="BFS 觀念與框架"></a>BFS 觀念與框架</h2><p>找到路徑肯定是最短的，但代價就是空間複雜度比DFS大很多。用queue 輔助。O(N)。<strong>用空間換取時間</strong>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算从起点 start 到终点 target 的最近距离</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BFS</span><span class="params">(Node start, Node target)</span> </span>&#123;</span><br><span class="line">    Queue&lt;Node&gt; q; <span class="comment">// 核心数据结构</span></span><br><span class="line">    Set&lt;Node&gt; visited; <span class="comment">// 避免走回头路</span></span><br><span class="line"></span><br><span class="line">    q.<span class="built_in">offer</span>(start); <span class="comment">// 将起点加入队列</span></span><br><span class="line">    visited.<span class="built_in">add</span>(start);</span><br><span class="line">    <span class="type">int</span> step = <span class="number">0</span>; <span class="comment">// 记录扩散的步数或是樹的深度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q <span class="keyword">not</span> empty) &#123;</span><br><span class="line">        <span class="type">int</span> sz = q.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">/* 将当前队列中的所有节点向四周扩散 */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sz; i++) &#123;</span><br><span class="line">            Node cur = q.<span class="built_in">poll</span>();</span><br><span class="line">            <span class="comment">/* 划重点：这里判断是否到达终点 */</span></span><br><span class="line">            <span class="keyword">if</span> (cur is target)</span><br><span class="line">                <span class="keyword">return</span> step;</span><br><span class="line">            <span class="comment">/* 将 cur 的相邻节点加入队列 */</span></span><br><span class="line">            <span class="keyword">for</span> (Node x : cur.<span class="built_in">adj</span>())</span><br><span class="line">                <span class="keyword">if</span> (x <span class="keyword">not</span> in visited) &#123;</span><br><span class="line">                    q.<span class="built_in">offer</span>(x);</span><br><span class="line">                    visited.<span class="built_in">add</span>(x);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* 划重点：更新步数在这里 */</span></span><br><span class="line">        step++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -560,7 +566,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">197</span>
+                  <span class="site-state-item-count">210</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -571,7 +577,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -633,23 +639,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/23/leetcode/133_CloneGraph/" title="133. Clone Graph" target="_blank">133. Clone Graph</a>
+                    <a href="/blog/2022/02/23/codility/%5B66%25%5DCountSemiprimes/" title="CountSemiprimes" target="_blank">CountSemiprimes</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/*NumberOfDiscIntersections/" title="NumberOfDiscIntersections" target="_blank">NumberOfDiscIntersections</a>
+                    <a href="/blog/2022/02/23/codility/%5B77%25%5DCountNonDivisible/" title="CountNonDivisible" target="_blank">CountNonDivisible</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Triangle/" title="Triangle" target="_blank">Triangle</a>
+                    <a href="/blog/2022/02/23/codility/MinPerimeterRectangle/" title="MinPerimeterRectangle" target="_blank">MinPerimeterRectangle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/MaxProductOfThree/" title="MaxProductOfThree" target="_blank">MaxProductOfThree</a>
+                    <a href="/blog/2022/02/23/codility/CountFactors/" title="CountFactors" target="_blank">CountFactors</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Distinct/" title="Distinct" target="_blank">Distinct</a>
+                    <a href="/blog/2022/02/23/codility/*MaxDoubleSliceSum/" title="MaxDoubleSliceSum" target="_blank">MaxDoubleSliceSum</a>
                   </li>
                 
               </ul>
@@ -676,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Backtracking-%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Backtracking 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">BFS 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backtracking"><span class="nav-number">3.</span> <span class="nav-text">Backtracking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS"><span class="nav-number">4.</span> <span class="nav-text">BFS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%80%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backtracking-%E8%A7%80%E5%BF%B5%E8%88%87%E6%A1%86%E6%9E%B6"><span class="nav-number">3.</span> <span class="nav-text">Backtracking 觀念與框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-%E8%A7%80%E5%BF%B5%E8%88%87%E6%A1%86%E6%9E%B6"><span class="nav-number">4.</span> <span class="nav-text">BFS 觀念與框架</span></a></li></ol></div>
             
 
           </div>

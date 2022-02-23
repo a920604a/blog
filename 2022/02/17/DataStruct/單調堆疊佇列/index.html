@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="monotonic stack這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。  496 Next Gre">
+<meta name="description" content="monotonic stack觀念這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。  monotonic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="單調堆疊佇列">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/%E5%96%AE%E8%AA%BF%E5%A0%86%E7%96%8A%E4%BD%87%E5%88%97/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="monotonic stack這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。  496 Next Gre">
+<meta property="og:description" content="monotonic stack觀念這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。  monotonic">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:37:39.935Z">
-<meta property="article:modified_time" content="2022-02-19T00:47:34.243Z">
+<meta property="article:modified_time" content="2022-02-23T11:03:52.835Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="monotonic stack">
 <meta property="article:tag" content="monotonic queue">
@@ -403,35 +403,33 @@
       
 
       
-        <h2 id="monotonic-stack"><a href="#monotonic-stack" class="headerlink" title="monotonic stack"></a>monotonic stack</h2><p>這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。</p>
+        <h2 id="monotonic-stack"><a href="#monotonic-stack" class="headerlink" title="monotonic stack"></a>monotonic stack</h2><h3 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h3><p>這個要用monotonic stack，我刷題目下來，這類monotonic stack 我覺得稍微困難，意思大概就是維護一個stack，每當number push into stack，會比較stack.top()，大於或小於(是大於還是小於看應用)，使得stack 裡面呈現monotonic ，所以稱之 monotonic stack。</p>
 <ul>
+<li>monotonic stack</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!s.<span class="built_in">empty</span>() &amp;&amp; s.<span class="built_in">top</span>() &lt;= nums[i]) &#123;</span><br><span class="line">    <span class="comment">// 将前面小于自己的元素都删除</span></span><br><span class="line">    <span class="comment">// 矮个起开，反正也被挡着了。。。</span></span><br><span class="line">    s.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><ul>
 <li>496 Next Greater Element I (Medium)</li>
 <li>503 Next Greater Element II (Medium)</li>
 <li>739 Daily Temperatures (Medium)</li>
+<li>316 Remove Duplicate Letters (Medium)</li>
+<li>1081 Smallest Subsequence of Distinct Characters (Medium)</li>
+<li>42 Trapping Rain Water (Hard)</li>
 </ul>
 <p>補充</p>
 <ul>
-<li><p>402 Remove K Digits</p>
-</li>
-<li><p>1019 Next Greater Node In Linked List (Medium)</p>
-</li>
-<li><p>901 Online Stock Span (Medium)</p>
-</li>
-<li><p>402 Remove K Digits (Medium)</p>
-</li>
-<li><p>84 Largest Rectangle in Histogram (Hard)</p>
-</li>
-<li><p>42 Trapping Rain Water (Hard)</p>
-</li>
-<li><p>monotonic stack</p>
-</li>
+<li>402 Remove K Digits</li>
+<li>1019 Next Greater Node In Linked List (Medium)</li>
+<li>901 Online Stock Span (Medium)</li>
+<li>402 Remove K Digits (Medium)</li>
+<li>84 Largest Rectangle in Histogram (Hard)</li>
+<li>42 Trapping Rain Water (Hard)</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!s.<span class="built_in">empty</span>() &amp;&amp; s.<span class="built_in">top</span>() &lt;= nums[i]) &#123;</span><br><span class="line">    <span class="comment">// 将前面小于自己的元素都删除</span></span><br><span class="line">    <span class="comment">// 矮个起开，反正也被挡着了。。。</span></span><br><span class="line">    s.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="monotonic-queue"><a href="#monotonic-queue" class="headerlink" title="monotonic queue"></a>monotonic queue</h2><ul>
-<li><p>239 Sliding Window Maximum (Hard)</p>
-</li>
-<li><p>遞減queue</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MonotonicQueue</span> &#123;</span><br><span class="line">    <span class="comment">// 双链表，支持头部和尾部增删元素</span></span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Integer&gt; q = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="comment">// 将前面小于自己的元素都删除</span></span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty() &amp;&amp; q.getLast() &lt; n) &#123;</span><br><span class="line">            q.pollLast();</span><br><span class="line">        &#125;</span><br><span class="line">        q.addLast(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">max</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// O(1)</span></span><br><span class="line">        <span class="keyword">return</span> q.getFirst();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pop</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == q.getFirst()) &#123;</span><br><span class="line">            q.pollFirst();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h2 id="monotonic-queue"><a href="#monotonic-queue" class="headerlink" title="monotonic queue"></a>monotonic queue</h2><h2 id="題目-1"><a href="#題目-1" class="headerlink" title="題目"></a>題目</h2><ul>
+<li>239 Sliding Window Maximum (Hard)</li>
+</ul>
+<h2 id="觀念-1"><a href="#觀念-1" class="headerlink" title="觀念"></a>觀念</h2><ul>
+<li>遞減queue<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MonotonicQueue</span> &#123;</span><br><span class="line">    <span class="comment">// 双链表，支持头部和尾部增删元素</span></span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Integer&gt; q = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="comment">// 将前面小于自己的元素都删除</span></span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty() &amp;&amp; q.getLast() &lt; n) &#123;</span><br><span class="line">            q.pollLast();</span><br><span class="line">        &#125;</span><br><span class="line">        q.addLast(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">max</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// O(1)</span></span><br><span class="line">        <span class="keyword">return</span> q.getFirst();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pop</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == q.getFirst()) &#123;</span><br><span class="line">            q.pollFirst();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -550,7 +548,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">197</span>
+                  <span class="site-state-item-count">210</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -561,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -623,23 +621,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/23/leetcode/133_CloneGraph/" title="133. Clone Graph" target="_blank">133. Clone Graph</a>
+                    <a href="/blog/2022/02/23/codility/%5B66%25%5DCountSemiprimes/" title="CountSemiprimes" target="_blank">CountSemiprimes</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/*NumberOfDiscIntersections/" title="NumberOfDiscIntersections" target="_blank">NumberOfDiscIntersections</a>
+                    <a href="/blog/2022/02/23/codility/%5B77%25%5DCountNonDivisible/" title="CountNonDivisible" target="_blank">CountNonDivisible</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Triangle/" title="Triangle" target="_blank">Triangle</a>
+                    <a href="/blog/2022/02/23/codility/MinPerimeterRectangle/" title="MinPerimeterRectangle" target="_blank">MinPerimeterRectangle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/MaxProductOfThree/" title="MaxProductOfThree" target="_blank">MaxProductOfThree</a>
+                    <a href="/blog/2022/02/23/codility/CountFactors/" title="CountFactors" target="_blank">CountFactors</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Distinct/" title="Distinct" target="_blank">Distinct</a>
+                    <a href="/blog/2022/02/23/codility/*MaxDoubleSliceSum/" title="MaxDoubleSliceSum" target="_blank">MaxDoubleSliceSum</a>
                   </li>
                 
               </ul>
@@ -666,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#monotonic-stack"><span class="nav-number">1.</span> <span class="nav-text">monotonic stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#monotonic-queue"><span class="nav-number">2.</span> <span class="nav-text">monotonic queue</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#monotonic-stack"><span class="nav-number">1.</span> <span class="nav-text">monotonic stack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%80%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">題目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#monotonic-queue"><span class="nav-number">2.</span> <span class="nav-text">monotonic queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE-1"><span class="nav-number">3.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%80%E5%BF%B5-1"><span class="nav-number">4.</span> <span class="nav-text">觀念</span></a></li></ol></div>
             
 
           </div>

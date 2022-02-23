@@ -94,7 +94,7 @@
 <meta property="og:description" content="一般形式就是求極值，核心思想是窮舉 + 重疊子問題。狀態、選擇、base case 動態規劃框架1234567# 初始化 base casedp[0][0][...] &#x3D; base# 进行状态转移for 状态1 in 状态1的所有取值：    for 状态2 in 状态2的所有取值：        for ...            dp[状态1][状态2][...] &#x3D; 求最值(选择1，选择2">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:37:39.933Z">
-<meta property="article:modified_time" content="2022-02-17T07:14:19.239Z">
+<meta property="article:modified_time" content="2022-02-23T12:51:10.164Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="dp">
 <meta name="twitter:card" content="summary">
@@ -405,17 +405,32 @@
         <p>一般形式就是求極值，核心思想是窮舉 + 重疊子問題。狀態、選擇、base case</p>
 <h2 id="動態規劃框架"><a href="#動態規劃框架" class="headerlink" title="動態規劃框架"></a>動態規劃框架</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 初始化 base <span class="keyword">case</span></span><br><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>][...] = base</span><br><span class="line"># 进行状态转移</span><br><span class="line"><span class="keyword">for</span> 状态<span class="number">1</span> in 状态<span class="number">1</span>的所有取值：</span><br><span class="line">    <span class="keyword">for</span> 状态<span class="number">2</span> in 状态<span class="number">2</span>的所有取值：</span><br><span class="line">        <span class="keyword">for</span> ...</span><br><span class="line">            dp[状态<span class="number">1</span>][状态<span class="number">2</span>][...] = 求最值(选择<span class="number">1</span>，选择<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
 
-<h2 id="動態規劃基本問題"><a href="#動態規劃基本問題" class="headerlink" title="動態規劃基本問題"></a>動態規劃基本問題</h2><p>動態規劃一般形式，求極值</p>
-<ul>
-<li>509 Fibonacci Number (Easy)</li>
-<li>322 Coin Change (Medium)</li>
-<li>931 Minimum Falling Path Sum (Medium)</li>
-<li>494 Target Sum (Medium)</li>
+<h2 id="壓縮動態規劃"><a href="#壓縮動態規劃" class="headerlink" title="壓縮動態規劃"></a>壓縮動態規劃</h2><p>注意到dp[i][j] 都是由 dp[i-1][..] 轉移過來的，之前的數據都不需要了，所以可以將二維壓縮成一維，節省空間複雜度。</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>動態規劃一般形式，求極值</p>
+<h3 id="動態規劃基本問題-10"><a href="#動態規劃基本問題-10" class="headerlink" title="動態規劃基本問題 [10]"></a>動態規劃基本問題 [10]</h3><ul>
+<li><p>509 Fibonacci Number  (Easy)</p>
+</li>
+<li><p>322 Coin Change (Medium)</p>
+</li>
+<li><p>931 Minimum Falling Path Sum (Medium)</p>
+</li>
+<li><p>354 Russian Doll Envelopes (Hard)</p>
+</li>
+<li><p>516 Longest Palindromic Subsequence (Medium)</p>
+</li>
+<li><p>1312 Minimum Insertion Steps to Make a String Palindrome (Hard)</p>
+</li>
+<li><p>64 Minimum Path Sum (Medium)</p>
+</li>
+<li><p>5 Longest Palindromic Substring (Medium)</p>
+</li>
+<li><p>70 Climbing Stairs (Easy)</p>
+</li>
+<li><p>62 Unique Paths (Easy)</p>
+</li>
 </ul>
 <p>補充</p>
 <ul>
-<li><p>70 Climbing Stairs</p>
-</li>
 <li><p>1137 N-th Tribonacci Number</p>
 </li>
 <li><p>746 Min Cost Climbing Stairs</p>
@@ -426,8 +441,6 @@
 </li>
 <li><p>120 Triangle</p>
 </li>
-<li><p>64 Minimum Path Sum</p>
-</li>
 <li><p>1014 Best Sightseeing Pair</p>
 </li>
 <li><p>397 Integer Replacement</p>
@@ -436,7 +449,9 @@
 </li>
 <li><p>377 Combination Sum IV</p>
 </li>
-<li><p>139 Word Break</p>
+<li><p>139 Word Break (Medium)</p>
+</li>
+<li><p>140 Word Break II (Hard)</p>
 </li>
 <li><p>413 Arithmetic Slices</p>
 </li>
@@ -451,60 +466,21 @@
 <li>152 Maximum Product Subarray</li>
 <li>42 Trapping Rain Water</li>
 </ul>
-<p>inverse traverse dp</p>
-<ul>
-<li>174 Dungeon Game</li>
-</ul>
-<h2 id="子序列問題"><a href="#子序列問題" class="headerlink" title="子序列問題"></a>子序列問題</h2><ul>
-<li>72 Edit Distance (Hard)</li>
+<h3 id="子序列問題-7"><a href="#子序列問題-7" class="headerlink" title="子序列問題  [7]"></a>子序列問題  [7]</h3><ul>
 <li>300 Longest Increasing Subsequence (Medium) </li>
-<li>354 Russian Doll Envelopes (Hard)</li>
 <li>53 Maximum Subarray (Easy) </li>
 <li>1143 Longest Common Subsequence (Medium)</li>
 <li>583 Delete Operation for Two Strings (Medium)</li>
 <li>712 Minimum ASCII Delete Sum for Two Strings (Medium)</li>
-<li>516 Longest Palindromic Subsequence (Medium)<h2 id="背包問題"><a href="#背包問題" class="headerlink" title="背包問題"></a>背包問題</h2></li>
-<li>416 Partition Equal Subset Sum (Medium)</li>
-<li>518 Coin Change 2 (Medium)</li>
-</ul>
-<h2 id="壓縮動態規劃"><a href="#壓縮動態規劃" class="headerlink" title="壓縮動態規劃"></a>壓縮動態規劃</h2><p>注意到dp[i][j] 都是由 dp[i-1][..] 轉移過來的，之前的數據都不需要了，所以可以將二維壓縮成一維，節省空間複雜度。</p>
-<ul>
-<li>416 Partition Equal Subset Sum (Medium)</li>
-</ul>
-<h2 id="貪心問題"><a href="#貪心問題" class="headerlink" title="貪心問題"></a>貪心問題</h2><ul>
-<li>453 Minimum Moves to Equal Array Elements (Easy)</li>
-<li>435 Non-overlapping Intervals (Medium)</li>
-<li>452 Minimum Number of Arrows to Burst Balloons (Medium)</li>
-<li>1024 Video Stitching (Medium)</li>
-<li>55 Jump Game (Medium)</li>
-<li>45 Jump Game II (Medium)</li>
-</ul>
-<h2 id="Leetcode-股票問題"><a href="#Leetcode-股票問題" class="headerlink" title="Leetcode 股票問題"></a>Leetcode 股票問題</h2><p>利用狀態機。實際上 DP table</p>
-<ul>
-<li>121 Best Time to Buy and Sell Stock (Easy)</li>
-<li>188 Best Time to Buy and Sell Stock IV (Hard)</li>
-</ul>
-<ul>
-<li>122 Best Time to Buy and Sell Stock II (Easy)</li>
-<li>123 Best Time to Buy and Sell Stock III (Hard)</li>
-<li>309 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
-<li>714 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
-</ul>
-<h2 id="Leetcode-打家劫舍問題"><a href="#Leetcode-打家劫舍問題" class="headerlink" title="Leetcode 打家劫舍問題"></a>Leetcode 打家劫舍問題</h2><ul>
-<li>198 House Robber (Medium)</li>
-<li>213 House Robber II (Medium)</li>
-<li>337 House Robber III (Medium)</li>
-</ul>
-<h2 id="遊戲問題"><a href="#遊戲問題" class="headerlink" title="遊戲問題"></a>遊戲問題</h2><ul>
-<li>64 Minimum Path Sum (Medium)</li>
-<li>174 Dungeon Game (Hard)</li>
-<li>514 Freedom Trail (Hard)</li>
-<li>787 Cheapest Flights Within K Stops (Medium)</li>
+<li>72 Edit Distance (Hard)</li>
 <li>10 Regular Expression Matching (Hard)</li>
-<li>887 Super Egg Drop (Hard)</li>
-<li>312 Burst Balloons (Hard)</li>
-<li>877 Stone Game (Medium)</li>
-<li>651 4 Keys Keyboard (Medium)</li>
+</ul>
+<h3 id="背包問題-3"><a href="#背包問題-3" class="headerlink" title="背包問題 [3]"></a>背包問題 [3]</h3><ul>
+<li>518 Coin Change 2 (Medium)</li>
+<li>416 Partition Equal Subset Sum (Medium)</li>
+<li>494 Target Sum (Medium)</li>
+</ul>
+<h3 id="股票問題-6"><a href="#股票問題-6" class="headerlink" title="股票問題 [6]"></a>股票問題 [6]</h3><ul>
 <li>121 Best Time to Buy and Sell Stock (Easy)</li>
 <li>188 Best Time to Buy and Sell Stock IV (Hard)</li>
 </ul>
@@ -513,13 +489,51 @@
 <li>123 Best Time to Buy and Sell Stock III (Hard)</li>
 <li>309 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
 <li>714 Best Time to Buy and Sell Stock with Cooldown (Medium)</li>
+</ul>
+<h3 id="搶劫問題-3"><a href="#搶劫問題-3" class="headerlink" title="搶劫問題 [3]"></a>搶劫問題 [3]</h3><ul>
 <li>198 House Robber (Medium)</li>
 <li>213 House Robber II (Medium)</li>
 <li>337 House Robber III (Medium)</li>
 </ul>
-<ul>
-<li>28 Implement strStr() (Easy)</li>
-<li>1312 Minimum Insertion Steps to Make a String Palindrome (Hard)</li>
+<h3 id="貪心問題-8"><a href="#貪心問題-8" class="headerlink" title="貪心問題 [8]"></a>貪心問題 [8]</h3><ul>
+<li><p>134 Gas Station (Medium)</p>
+</li>
+<li><p>1024 Video Stitching (Medium)</p>
+</li>
+<li><p>453 Minimum Moves to Equal Array Elements (Easy)</p>
+</li>
+<li><p>435 Non-overlapping Intervals (Medium)</p>
+</li>
+<li><p>452 Minimum Number of Arrows to Burst Balloons (Medium)</p>
+</li>
+<li><p>55 Jump Game (Medium)</p>
+</li>
+<li><p>45 Jump Game II (Medium)</p>
+</li>
+<li><p>870 Advantage Shuffle (Medium)</p>
+</li>
+</ul>
+<h3 id="遊戲問題-10"><a href="#遊戲問題-10" class="headerlink" title="遊戲問題 [10]"></a>遊戲問題 [10]</h3><ul>
+<li><p>174 Dungeon Game (Hard)</p>
+</li>
+<li><p>514 Freedom Trail (Hard)</p>
+</li>
+<li><p>787 Cheapest Flights Within K Stops (Medium) </p>
+</li>
+<li><p>887 Super Egg Drop (Hard)</p>
+</li>
+<li><p>312 Burst Balloons (Hard)</p>
+</li>
+<li><p>877 Stone Game (Medium)</p>
+</li>
+<li><p>651 4 Keys Keyboard (Medium)</p>
+</li>
+<li><p>292 Nim Game (Easy)</p>
+</li>
+<li><p>877 Stone Game (Medium)</p>
+</li>
+<li><p>319 Bulb Switcher (Medium)</p>
+</li>
 </ul>
 
       
@@ -636,7 +650,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">197</span>
+                  <span class="site-state-item-count">210</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -647,7 +661,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -709,23 +723,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/23/leetcode/133_CloneGraph/" title="133. Clone Graph" target="_blank">133. Clone Graph</a>
+                    <a href="/blog/2022/02/23/codility/%5B66%25%5DCountSemiprimes/" title="CountSemiprimes" target="_blank">CountSemiprimes</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/*NumberOfDiscIntersections/" title="NumberOfDiscIntersections" target="_blank">NumberOfDiscIntersections</a>
+                    <a href="/blog/2022/02/23/codility/%5B77%25%5DCountNonDivisible/" title="CountNonDivisible" target="_blank">CountNonDivisible</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Triangle/" title="Triangle" target="_blank">Triangle</a>
+                    <a href="/blog/2022/02/23/codility/MinPerimeterRectangle/" title="MinPerimeterRectangle" target="_blank">MinPerimeterRectangle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/MaxProductOfThree/" title="MaxProductOfThree" target="_blank">MaxProductOfThree</a>
+                    <a href="/blog/2022/02/23/codility/CountFactors/" title="CountFactors" target="_blank">CountFactors</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/22/codility/Distinct/" title="Distinct" target="_blank">Distinct</a>
+                    <a href="/blog/2022/02/23/codility/*MaxDoubleSliceSum/" title="MaxDoubleSliceSum" target="_blank">MaxDoubleSliceSum</a>
                   </li>
                 
               </ul>
@@ -752,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">動態規劃框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%E5%9F%BA%E6%9C%AC%E5%95%8F%E9%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">動態規劃基本問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E5%BA%8F%E5%88%97%E5%95%8F%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">子序列問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E5%95%8F%E9%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">背包問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%93%E7%B8%AE%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83"><span class="nav-number">5.</span> <span class="nav-text">壓縮動態規劃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B2%AA%E5%BF%83%E5%95%8F%E9%A1%8C"><span class="nav-number">6.</span> <span class="nav-text">貪心問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-%E8%82%A1%E7%A5%A8%E5%95%8F%E9%A1%8C"><span class="nav-number">7.</span> <span class="nav-text">Leetcode 股票問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E5%95%8F%E9%A1%8C"><span class="nav-number">8.</span> <span class="nav-text">Leetcode 打家劫舍問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8A%E6%88%B2%E5%95%8F%E9%A1%8C"><span class="nav-number">9.</span> <span class="nav-text">遊戲問題</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">動態規劃框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%93%E7%B8%AE%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83"><span class="nav-number">2.</span> <span class="nav-text">壓縮動態規劃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">題目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%E5%9F%BA%E6%9C%AC%E5%95%8F%E9%A1%8C-10"><span class="nav-number">3.1.</span> <span class="nav-text">動態規劃基本問題 [10]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%BA%8F%E5%88%97%E5%95%8F%E9%A1%8C-7"><span class="nav-number">3.2.</span> <span class="nav-text">子序列問題  [7]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E5%95%8F%E9%A1%8C-3"><span class="nav-number">3.3.</span> <span class="nav-text">背包問題 [3]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%82%A1%E7%A5%A8%E5%95%8F%E9%A1%8C-6"><span class="nav-number">3.4.</span> <span class="nav-text">股票問題 [6]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%B6%E5%8A%AB%E5%95%8F%E9%A1%8C-3"><span class="nav-number">3.5.</span> <span class="nav-text">搶劫問題 [3]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B2%AA%E5%BF%83%E5%95%8F%E9%A1%8C-8"><span class="nav-number">3.6.</span> <span class="nav-text">貪心問題 [8]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8A%E6%88%B2%E5%95%8F%E9%A1%8C-10"><span class="nav-number">3.7.</span> <span class="nav-text">遊戲問題 [10]</span></a></li></ol></li></ol></div>
             
 
           </div>
