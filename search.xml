@@ -601,10 +601,7 @@
   <entry>
     <title>位元操作</title>
     <url>/blog/2022/02/17/DataStruct/%E4%BD%8D%E5%85%83%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>基本題<br>89 136 190 191 201 231 268 342 387<br>389  405 461 476 868 1009 1342 1356 1486 1720</p>
-<p>repeat<br>29 67 137 260 287 318 338 371 397 401 645 693  762<br>1684  1763 1863 </p>
-<p>not relatied<br>78 90 698</p>
-<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
 <li><p>136 Single Number (Easy) </p>
 </li>
 <li><p>137 Single Number II (Medium)</p>
@@ -621,9 +618,17 @@
 </li>
 <li><p>231 Power of Two (Easy)</p>
 </li>
+<li><p>405 Convert a Number to Hexadecimal (Easy)</p>
+</li>
 <li><p>342 Power of Four (Easy)</p>
 </li>
 <li><p>326 Power of Three (Easy)</p>
+</li>
+<li><p>1009 Complement of Base 10 Integer (Easy)</p>
+</li>
+<li><p>371 Sum of Two Integers (Medium)</p>
+</li>
+<li><p>397 Integer Replacement (Medium)</p>
 </li>
 <li><p>89 Gray Code</p>
 </li>
@@ -644,9 +649,24 @@
 </ul>
 <p>[補充]</p>
 <ul>
-<li>2119 A Number After a Double Reversal</li>
-<li>338 Counting Bits</li>
-<li>7 Reverse Integer</li>
+<li><p>2119 A Number After a Double Reversal</p>
+</li>
+<li><p>338 Counting Bits</p>
+</li>
+<li><p>7 Reverse Integer</p>
+</li>
+<li><p>29 Divide Two Integers (Medium)</p>
+</li>
+<li><p>67 Add Binary (Easy)</p>
+</li>
+<li><p>387 First Unique Character in a String (Easy)</p>
+</li>
+<li><p>1356 Sort Integers by The Number of 1 Bits (Easy)</p>
+</li>
+<li><p>693 Binary Number with Alternating Bits (Easy)</p>
+</li>
+<li><p>762 Prime Number of Set Bits in Binary Representation (Easy)</p>
+</li>
 </ul>
 <h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><ul>
 <li>善用xor a^a&#x3D;0 a^0 &#x3D; a，且滿足交換率。1720</li>
@@ -839,7 +859,7 @@
 </li>
 <li><p>234 Palindrome Linked List (Easy)</p>
 </li>
-<li><p>203 Remove Linked List Elements</p>
+<li><p>203 Remove Linked List Elements (Easy)</p>
 <h3 id="Stack-and-Queue-2"><a href="#Stack-and-Queue-2" class="headerlink" title="Stack and Queue [2]"></a>Stack and Queue [2]</h3></li>
 <li><p>232 Implement Queue using Stacks (Easy)</p>
 </li>
@@ -851,9 +871,9 @@
 </li>
 <li><p>921 Minimum Add to Make Parentheses Valid (Medium)</p>
 </li>
-<li><p>1541 Minimum Insertions to Balance a Parentheses String  (Medium)</p>
+<li><p>*1541 Minimum Insertions to Balance a Parentheses String  (Medium)</p>
 </li>
-<li><p>32 Longest Valid Parentheses (Hard)</p>
+<li><p>*32 Longest Valid Parentheses (Hard)</p>
 <h3 id="Monotonic-stack-and-Monotonic-queue-7"><a href="#Monotonic-stack-and-Monotonic-queue-7" class="headerlink" title="Monotonic stack and Monotonic queue [7]"></a>Monotonic stack and Monotonic queue [7]</h3></li>
 <li><p>496 Next Greater Element I (Easy)</p>
 </li>
@@ -861,9 +881,9 @@
 </li>
 <li><p>739 Daily Temperatures (Medium)</p>
 </li>
-<li><p>316 Remove Duplicate Letters (Medium)</p>
+<li><p>*316 Remove Duplicate Letters (Medium)</p>
 </li>
-<li><p>1081 Smallest Subsequence of Distinct Characters (Medium)</p>
+<li><p>*1081 Smallest Subsequence of Distinct Characters (Medium)</p>
 </li>
 <li><p>42 Trapping Rain Water (Hard)</p>
 </li>
@@ -997,7 +1017,7 @@
 <li><p>235 Lowest Common Ancestor of a Binary Search Tree (Easy)</p>
 </li>
 </ul>
-<h2 id="DFS-x2F-BFS-19"><a href="#DFS-x2F-BFS-19" class="headerlink" title="DFS&#x2F;BFS [19]"></a>DFS&#x2F;BFS [19]</h2><ul>
+<h2 id="DFS-x2F-BFS-20"><a href="#DFS-x2F-BFS-20" class="headerlink" title="DFS&#x2F;BFS [20]"></a>DFS&#x2F;BFS [20]</h2><ul>
 <li>46 Permutations (Medium)</li>
 <li>47 Permutations II (Medium)</li>
 <li>51 N-Queens (Hard)</li>
@@ -1008,6 +1028,7 @@
 <li>37 Sudoku Solver (Hard)</li>
 <li>22 Generate Parentheses (Medium)</li>
 <li>17 Letter Combinations of a Phone Number (Medium)</li>
+<li>401 Binary Watch (Easy)</li>
 </ul>
 <p>islands</p>
 <ul>
@@ -1211,7 +1232,7 @@
 <li>134 Gas Station (Medium)</li>
 <li>28 Implement strStr() (Easy)</li>
 </ul>
-<h3 id="Bit-Manipulation-8"><a href="#Bit-Manipulation-8" class="headerlink" title="Bit Manipulation [8]"></a>Bit Manipulation [8]</h3><ul>
+<h3 id="Bit-Manipulation-9"><a href="#Bit-Manipulation-9" class="headerlink" title="Bit Manipulation [9]"></a>Bit Manipulation [9]</h3><ul>
 <li><p>136 Single Number (Easy) </p>
 </li>
 <li><p>137 Single Number II (Medium)</p>
@@ -1227,7 +1248,9 @@
 <li><p>191 Number of 1 Bits (Easy)</p>
 </li>
 <li><p>231 Power of Two (Easy)</p>
-<h3 id="Array-18"><a href="#Array-18" class="headerlink" title="Array [18]"></a>Array [18]</h3></li>
+</li>
+<li><p>405 Convert a Number to Hexadecimal (Easy)</p>
+<h3 id="Array-19"><a href="#Array-19" class="headerlink" title="Array [19]"></a>Array [19]</h3></li>
 <li><p>448 Find All Numbers Disappeared in an Array (Easy)</p>
 </li>
 <li><p>26 Remove Duplicates from Sorted Array (Easy)</p>
@@ -1263,6 +1286,8 @@
 <li><p>1002 Find Common Characters (Easy)</p>
 </li>
 <li><p>170 Two Sum III (Easy, Premium)</p>
+</li>
+<li><p>318 Maximum Product of Word Lengths (Medium)</p>
 </li>
 </ul>
 <h2 id="好用的框架-summary"><a href="#好用的框架-summary" class="headerlink" title="好用的框架 summary"></a>好用的框架 summary</h2><p>字串的子序列或是匹配問題直接就上<strong>動態規劃</strong><br>遇到需要求出所有可能況狀首先考慮用<strong>遞迴</strong>。<br>x^0 &#x3D; 0, x^x &#x3D; 0, xor滿足交換率<br>雙指針分為 <strong>快慢指針和左右指針</strong>，快慢指針主要解決linked list問題，比如linked list是否有環，左右指針主要解決數組或字串問題，例如二元搜尋<br>快慢指針 判斷linked list是否有環、鏈表的環的起點、鏈表中點、鏈表中特定位置元素<br>左右指針 二元搜尋、兩數之和、反轉數組、移動窗口、子字串問題</p>
@@ -1342,7 +1367,7 @@
 </li>
 <li><p>397 Integer Replacement</p>
 </li>
-<li><p>1567 Maximum Length of Subarray With Positive Product</p>
+<li><p>1567 Maximum Length of Subarray With Positive Product (Medium)</p>
 </li>
 <li><p>377 Combination Sum IV</p>
 </li>
@@ -1360,7 +1385,7 @@
 <p>two dp</p>
 <ul>
 <li>918 Maximum Sum Circular Subarray</li>
-<li>152 Maximum Product Subarray</li>
+<li>152 Maximum Product Subarray (Medium)</li>
 <li>42 Trapping Rain Water</li>
 </ul>
 <h3 id="子序列問題-7"><a href="#子序列問題-7" class="headerlink" title="子序列問題  [7]"></a>子序列問題  [7]</h3><ul>
@@ -6421,5 +6446,58 @@
         <category>codility</category>
         <category>Sieve of Eratosthenes</category>
       </categories>
+  </entry>
+  <entry>
+    <title>203. Remove Linked List Elements</title>
+    <url>/blog/2022/02/23/leetcode/203_RemoveLinkedListElements/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/remove-linked-list-elements/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode *cur = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *ret = cur;</span><br><span class="line">        cur-&gt;next = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;next &amp;&amp; cur-&gt;next-&gt;val == val) cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            <span class="keyword">else</span> cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>387. First Unique Character in a String</title>
+    <url>/blog/2022/02/23/leetcode/387_FirstUniqueCharacterinaString/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/first-unique-character-in-a-string/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstUniqChar</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s) mp[c]++;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp[s[i]] == <span class="number">1</span>) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vector<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstUniqChar</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s) vec[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(vec[s[i] - <span class="string">&#x27;a&#x27;</span>] ==<span class="number">1</span>) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code> 最多26字母</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>383. Ransom Note</title>
+    <url>/blog/2022/02/23/leetcode/383_RansomNote/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/ransom-note/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canConstruct</span><span class="params">(string ransomNote, string magazine)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = ransomNote.<span class="built_in">size</span>(), m = magazine.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n&gt;m) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:magazine) vec[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:ransomNote)&#123;</span><br><span class="line">            vec[c-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span>(vec[c-<span class="string">&#x27;a&#x27;</span>]&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
   </entry>
 </search>
