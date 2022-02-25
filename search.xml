@@ -917,9 +917,9 @@
 </li>
 <li><p>239 Sliding Window Maximum (Hard)</p>
 </li>
-<li><p>316 Remove Duplicate Letters (Medium)</p>
+<li><p>*316 Remove Duplicate Letters (Medium)</p>
 </li>
-<li><p>1081 Smallest Subsequence of Distinct Characters (Medium)</p>
+<li><p>*1081 Smallest Subsequence of Distinct Characters (Medium)</p>
 </li>
 </ul>
 <h3 id="Design-data-structure-8"><a href="#Design-data-structure-8" class="headerlink" title="Design data structure [8]"></a>Design data structure [8]</h3><ul>
@@ -933,11 +933,11 @@
 </li>
 <li><p>295 Find Median from Data Stream (Hard)</p>
 </li>
-<li><p>355 Design Twitter (Medium)</p>
+<li><p>*355 Design Twitter (Medium)</p>
 </li>
-<li><p>341 Flatten Nested List Iterator (Medium)</p>
+<li><p>*341 Flatten Nested List Iterator (Medium)</p>
 </li>
-<li><p>895 Maximum Frequency Stack (Hard)</p>
+<li><p>*895 Maximum Frequency Stack (Hard)</p>
 </li>
 </ul>
 <h3 id="Heap-4"><a href="#Heap-4" class="headerlink" title="Heap [4]"></a>Heap [4]</h3><ul>
@@ -1860,6 +1860,7 @@
 <li>209 Minimum Size Subarray Sum</li>
 <li>713 Subarray Product Less Than K</li>
 <li>632 Smallest Range Covering Elements from K Lists (Hard)</li>
+<li>1004 Max Consecutive Ones III (Medium)</li>
 </ul>
 <h2 id="移動窗口框架"><a href="#移動窗口框架" class="headerlink" title="移動窗口框架"></a>移動窗口框架</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;`</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.<span class="built_in">add</span>(s[right]);</span><br><span class="line">    right++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 縮小窗口</span></span><br><span class="line">        window.<span class="built_in">remove</span>(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4099,7 +4100,7 @@
 <td>Recursion</td>
 </tr>
 <tr>
-<td>Heaps</td>
+<td>Heap</td>
 <td>Merge Sort</td>
 <td>Dynamic Programming</td>
 </tr>
@@ -4113,12 +4114,16 @@
 <td>Prefix Sum</td>
 <td></td>
 </tr>
-<tr>
-<td>skip list</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<ul>
+<li>Union Find </li>
+<li>monotonic stack&#x2F;queue</li>
+<li>Trie</li>
+<li>Rolling Hash</li>
+<li>skip list</li>
+<li>Ordered Set</li>
+<li>Graph</li>
+</ul>
 ]]></content>
       <categories>
         <category>CS</category>
@@ -6838,6 +6843,102 @@
 <li><code>addNum</code> time complexity <code>O(logn)</code></li>
 <li><code>findMedian</code> time complexity <code>O(1)</code></li>
 </ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>heap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1446. Consecutive Characters</title>
+    <url>/blog/2022/02/25/leetcode/1446_ConsecutiveCharacters/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/consecutive-characters/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxPower</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">1</span>, ret= <span class="number">1</span>, n =s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">char</span> val = s[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val == s[i])&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ret = <span class="built_in">max</span>(ret,count);</span><br><span class="line">                count =<span class="number">1</span>;</span><br><span class="line">                val = s[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ret = <span class="built_in">max</span>(ret,count);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>1295. Find Numbers with Even Number of Digits</title>
+    <url>/blog/2022/02/25/leetcode/1295_FindNumberswithEvenNumberofDigits/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-numbers-with-even-number-of-digits/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">digits</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span>  d= <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            d++;</span><br><span class="line">            n/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findNumbers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) count+=(<span class="built_in">digits</span>(n)%<span class="number">2</span>==<span class="number">0</span>?<span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2-math"><a href="#option-2-math" class="headerlink" title="option 2 - math"></a>option 2 - math</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findNumbers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="type">int</span> temp = <span class="built_in">floor</span>(<span class="built_in">log10</span>(n))+<span class="number">1</span>;</span><br><span class="line">            count+=(temp%<span class="number">2</span>==<span class="number">0</span>?<span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1 <ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 2 <ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>1869. Longer Contiguous Segments of Ones than Zeros</title>
+    <url>/blog/2022/02/25/leetcode/1869_LongerContiguousSegmentsofOnesthanZeros/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkZeroOnes</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ones = <span class="number">0</span>, zeros = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> count0 = <span class="number">0</span>, count1= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                count1++;</span><br><span class="line">                </span><br><span class="line">                zeros = <span class="built_in">max</span>(zeros, count0);</span><br><span class="line">                count0 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                count0++;</span><br><span class="line">                </span><br><span class="line">                ones = <span class="built_in">max</span>(ones, count1);</span><br><span class="line">                count1 = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ones = <span class="built_in">max</span>(ones, count1);</span><br><span class="line">        zeros = <span class="built_in">max</span>(zeros, count0);</span><br><span class="line">        <span class="keyword">return</span> ones&gt;zeros?<span class="literal">true</span>:<span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>215. Kth Largest Element in an Array</title>
+    <url>/blog/2022/02/25/leetcode/215_KthLargestElementinanArray/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+<li>version 1<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>&gt; pq;    </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) pq.<span class="built_in">push</span>(n);</span><br><span class="line">        <span class="type">int</span> ret ;</span><br><span class="line">        <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">            ret = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>version 2<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(n);</span><br><span class="line">            <span class="keyword">if</span>(pq.<span class="built_in">size</span>() &gt; k) pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>heap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>485. Max Consecutive Ones</title>
+    <url>/blog/2022/02/25/leetcode/485_MaxConsecutiveOnes/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/max-consecutive-ones/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>, ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">1</span>) count++;</span><br><span class="line">            <span class="keyword">else</span> &#123;ret=  <span class="built_in">max</span>(ret, count); count= <span class="number">0</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(ret, count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>703. Kth Largest Element in a Stream</title>
+    <url>/blog/2022/02/25/leetcode/703_KthLargestElementinaStream/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/kth-largest-element-in-a-stream/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">KthLargest</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line">    <span class="type">int</span> size ;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">KthLargest</span>(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        size = k;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(n);</span><br><span class="line">            <span class="keyword">if</span>(pq.<span class="built_in">size</span>() &gt; k) pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        pq.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span>(pq.<span class="built_in">size</span>() &gt; size) pq.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> pq.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your KthLargest object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * KthLargest* obj = new KthLargest(k, nums);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;add(val);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>leetcode</category>
