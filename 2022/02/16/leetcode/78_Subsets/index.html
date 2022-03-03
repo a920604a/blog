@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problem給定一個陣列，假設其元素都唯一，返回所有的子集。可以是任何順序 solution 先new 一個vector&lt;vector&lt;int&gt;&gt;，然後用backtracking方式搜尋所有子集，直到長度超過陣列長度為止。 樹的每個節點的拜訪  12345678910111213141516171819class Solution &amp;#123;public:    voi">
+<meta name="description" content="problem給定一個陣列，假設其元素都唯一，返回所有的子集。可以是任何順序 solution 先new 一個vector&lt;vector&lt;int&gt;&gt;，然後用backtracking方式搜尋所有子集，直到長度超過陣列長度為止。 樹的每個節點的拜訪  12345678910111213141516171819202122class Solution &amp;#123;public:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="78. Subsets">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/leetcode/78_Subsets/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problem給定一個陣列，假設其元素都唯一，返回所有的子集。可以是任何順序 solution 先new 一個vector&lt;vector&lt;int&gt;&gt;，然後用backtracking方式搜尋所有子集，直到長度超過陣列長度為止。 樹的每個節點的拜訪  12345678910111213141516171819class Solution &amp;#123;public:    voi">
+<meta property="og:description" content="problem給定一個陣列，假設其元素都唯一，返回所有的子集。可以是任何順序 solution 先new 一個vector&lt;vector&lt;int&gt;&gt;，然後用backtracking方式搜尋所有子集，直到長度超過陣列長度為止。 樹的每個節點的拜訪  12345678910111213141516171819202122class Solution &amp;#123;public:">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:05.974Z">
-<meta property="article:modified_time" content="2022-02-16T15:12:38.395Z">
+<meta property="article:modified_time" content="2022-03-02T00:43:13.478Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -396,7 +396,7 @@
 <li>先new 一個<code>vector&lt;vector&lt;int&gt;&gt;</code>，然後用backtracking方式搜尋所有子集，直到長度超過陣列長度為止。</li>
 <li>樹的每個節點的拜訪</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;<span class="type">int</span>&gt;&amp;path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ret, <span class="type">int</span> l)</span></span>&#123;</span><br><span class="line">        ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=l ; i&lt;n;i++)&#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">backtracking</span>(nums, path, ret, i+<span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">backtracking</span>(nums, path, ret, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;<span class="type">int</span>&gt;&amp; path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ret, <span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 關鍵</span></span><br><span class="line">        ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="comment">// 終止條件，s==nums.size()</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 因為不可以重複元素需要有索引</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=s;i&lt;nums.<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">traverse</span>(nums, path, ret, i+<span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        </span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">traverse</span>(nums, path, ret, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><p>time complexity <code>O(2^n)</code><br>space complexity <code>O(n)</code></p>
 
       
@@ -513,7 +513,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">273</span>
+                  <span class="site-state-item-count">310</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -586,23 +586,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/652_FindDuplicateSubtrees/" title="652. Find Duplicate Subtrees" target="_blank">652. Find Duplicate Subtrees</a>
+                    <a href="/blog/2022/03/03/leetcode/773_SlidingPuzzle/" title="773. Sliding Puzzle" target="_blank">773. Sliding Puzzle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/889_ConstructBinaryTreefromPreorderandPostorderTraversal/" title="889. Construct Binary Tree from Preorder and Postorder Traversal" target="_blank">889. Construct Binary Tree from Preorder and Postorder Traversal</a>
+                    <a href="/blog/2022/03/03/leetcode/752_OpentheLock/" title="752. Open the Lock" target="_blank">752. Open the Lock</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/430_FlattenaMultilevelDoublyLinkedList/" title="430. Flatten a Multilevel Doubly Linked List" target="_blank">430. Flatten a Multilevel Doubly Linked List</a>
+                    <a href="/blog/2022/03/03/leetcode/413_ArithmeticSlices/" title="413. Arithmetic Slices" target="_blank">413. Arithmetic Slices</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/114_FlattenBinaryTreetoLinked%20List/" title="114. Flatten Binary Tree to Linked List" target="_blank">114. Flatten Binary Tree to Linked List</a>
+                    <a href="/blog/2022/03/02/leetcode/17_LetterCombinationsofaPhoneNumber/" title="17. Letter Combinations of a Phone Number" target="_blank">17. Letter Combinations of a Phone Number</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/27/leetcode/429_N-aryTreeLevelOrderTraversal/" title="429. N-ary Tree Level Order Traversal" target="_blank">429. N-ary Tree Level Order Traversal</a>
+                    <a href="/blog/2022/03/02/leetcode/22_GenerateParentheses/" title="22. Generate Parentheses" target="_blank">22. Generate Parentheses</a>
                   </li>
                 
               </ul>

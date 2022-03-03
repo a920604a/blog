@@ -94,7 +94,7 @@
 <meta property="og:description" content="problem Follow up 236. Lowest Common Ancestor of a Binary Tree  solution 比較root p q 三個節點的值 如果root-&gt;val 是其他兩個節點的值，則return root 如果root-&gt;val 小於其他兩節點的值，則向root-&gt;right 搜尋 如果root-&gt;val 大於其他兩節點的值，則">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T02:52:23.654Z">
-<meta property="article:modified_time" content="2022-02-17T03:05:08.902Z">
+<meta property="article:modified_time" content="2022-03-01T08:21:34.541Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -406,7 +406,10 @@
 <blockquote>
 <p><code>if(root-&gt;val &gt; p-&gt;val &amp;&amp; root-&gt;val &gt; q-&gt;val)</code> 可改成<br><code>if(root-&gt;val &gt; max(p-&gt;val, q-&gt;val) )</code></p>
 </blockquote>
-<h4 id="option-2-iterative"><a href="#option-2-iterative" class="headerlink" title="option 2 - iterative"></a>option 2 - iterative</h4><p>不斷更新root 節點</p>
+<ul>
+<li>postorder<br>沒用到BST特性<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(root ==p || root==q) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode *l = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode *r = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>( l &amp;&amp; r) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!l) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-iterative"><a href="#option-2-iterative" class="headerlink" title="option 2 - iterative"></a>option 2 - iterative</h4>不斷更新root 節點</li>
+</ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(root)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root ==p || root==q) <span class="keyword">return</span> root;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(root-&gt;val &gt; p-&gt;val &amp;&amp; root-&gt;val &gt; q-&gt;val) root = root-&gt;left;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(root-&gt;val &lt; p-&gt;val &amp;&amp; root-&gt;val &lt; q-&gt;val) root = root-&gt;right;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code> n is node number of tree</li>
@@ -527,7 +530,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">273</span>
+                  <span class="site-state-item-count">310</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -600,23 +603,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/652_FindDuplicateSubtrees/" title="652. Find Duplicate Subtrees" target="_blank">652. Find Duplicate Subtrees</a>
+                    <a href="/blog/2022/03/03/leetcode/773_SlidingPuzzle/" title="773. Sliding Puzzle" target="_blank">773. Sliding Puzzle</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/889_ConstructBinaryTreefromPreorderandPostorderTraversal/" title="889. Construct Binary Tree from Preorder and Postorder Traversal" target="_blank">889. Construct Binary Tree from Preorder and Postorder Traversal</a>
+                    <a href="/blog/2022/03/03/leetcode/752_OpentheLock/" title="752. Open the Lock" target="_blank">752. Open the Lock</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/430_FlattenaMultilevelDoublyLinkedList/" title="430. Flatten a Multilevel Doubly Linked List" target="_blank">430. Flatten a Multilevel Doubly Linked List</a>
+                    <a href="/blog/2022/03/03/leetcode/413_ArithmeticSlices/" title="413. Arithmetic Slices" target="_blank">413. Arithmetic Slices</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/28/leetcode/114_FlattenBinaryTreetoLinked%20List/" title="114. Flatten Binary Tree to Linked List" target="_blank">114. Flatten Binary Tree to Linked List</a>
+                    <a href="/blog/2022/03/02/leetcode/17_LetterCombinationsofaPhoneNumber/" title="17. Letter Combinations of a Phone Number" target="_blank">17. Letter Combinations of a Phone Number</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/02/27/leetcode/429_N-aryTreeLevelOrderTraversal/" title="429. N-ary Tree Level Order Traversal" target="_blank">429. N-ary Tree Level Order Traversal</a>
+                    <a href="/blog/2022/03/02/leetcode/22_GenerateParentheses/" title="22. Generate Parentheses" target="_blank">22. Generate Parentheses</a>
                   </li>
                 
               </ul>
