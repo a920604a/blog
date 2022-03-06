@@ -8489,4 +8489,37 @@
         <tag>dp</tag>
       </tags>
   </entry>
+  <entry>
+    <title>1290. Convert Binary Number in a Linked List to Integer</title>
+    <url>/blog/2022/03/06/leetcode/1290_ConvertBinaryNumberinaLinkedListtoInteger/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-recursive"><a href="#option-1-recursive" class="headerlink" title="option 1 - recursive"></a>option 1 - recursive</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(ListNode * head)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head) <span class="keyword">return</span> ;</span><br><span class="line">        ret&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        ret+=head-&gt;val;</span><br><span class="line">        <span class="built_in">preorder</span>(head-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getDecimalValue</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">preorder</span>(head);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="option-2-iterative"><a href="#option-2-iterative" class="headerlink" title="option 2 - iterative"></a>option 2 - iterative</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getDecimalValue</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;head;head=head-&gt;next)&#123;</span><br><span class="line">            sum&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">            sum+=head-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2194. Cells in a Range on an Excel Sheet</title>
+    <url>/blog/2022/03/06/leetcode/2194_CellsinaRangeonanExcelSheet/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/cells-in-a-range-on-an-excel-sheet/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">cellsInRange</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> a = s[<span class="number">0</span>]+<span class="number">1</span>, b = s[<span class="number">3</span>];</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c = s[<span class="number">0</span>] ;c&lt;=s[<span class="number">3</span>] ; ++c)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="built_in">int</span>(s[<span class="number">1</span>]);i&lt;=<span class="built_in">int</span>(s[<span class="number">4</span>]) ; ++i)&#123;</span><br><span class="line">                string temp ;</span><br><span class="line">                temp+=c;</span><br><span class="line">                temp+= <span class="built_in">char</span>(i);</span><br><span class="line">                ret.<span class="built_in">push_back</span>(temp);</span><br><span class="line">            </span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nm)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
 </search>
