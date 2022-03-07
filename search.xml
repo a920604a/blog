@@ -366,12 +366,18 @@
 </ul>
 <p>[補充]</p>
 <ul>
-<li>139 Word Break (Medium)</li>
-<li>140 Word Break II (Hard)</li>
-<li>212 Word Search II (Hard)</li>
-<li>336 Palindrome Pairs (Hard)</li>
-</ul>
-<h2 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h2><ul>
+<li><p>139 Word Break (Medium)</p>
+</li>
+<li><p>140 Word Break II (Hard)</p>
+</li>
+<li><p>212 Word Search II (Hard)</p>
+</li>
+<li><p>336 Palindrome Pairs (Hard)</p>
+</li>
+<li><p>676 Implement Magic Dictionary (Medium)</p>
+</li>
+<li><p>720 Longest Word in Dictionary (Medium)</p>
+<h2 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h2></li>
 <li><p>Binary Tree </p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span>&#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    TreeNode left, right;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li><p>N-ary Tree </p>
@@ -1160,7 +1166,7 @@
 </li>
 <li><p>*5 Longest Palindromic Substring (Medium)</p>
 </li>
-<li><p>647 Palindromic Substrings</p>
+<li><p>*647 Palindromic Substrings</p>
 </li>
 <li><p>*10 Regular Expression Matching (Hard)</p>
 </li>
@@ -1252,6 +1258,9 @@
 </ul>
 <h3 id="區間問題-6"><a href="#區間問題-6" class="headerlink" title="區間問題 [6]"></a>區間問題 [6]</h3><ul>
 <li><p>56 Merge Intervals (Medium)</p>
+<blockquote>
+<p>57 Insert Interval (Medium)</p>
+</blockquote>
 </li>
 <li><p>986 Interval List Intersections (Medium)</p>
 </li>
@@ -1618,8 +1627,11 @@
     <title>區間問題</title>
     <url>/blog/2022/02/17/DataStruct/%E5%8D%80%E9%96%93%E5%95%8F%E9%A1%8C/</url>
     <content><![CDATA[<p>本質上 就是線段問題，合併所有線段、找出線段的交集。可以用<strong>排序、畫圖技巧</strong></p>
-<ul>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
 <li>56 Merge Intervals (Medium)</li>
+<li>57 Insert Interval (Medium)</li>
+</ul>
+<ul>
 <li>986 Interval List Intersections (Medium)</li>
 <li>1288 Remove Covered Intervals (Medium)</li>
 </ul>
@@ -1918,6 +1930,7 @@
 <li>438 Find All Anagrams in a String (Medium)</li>
 <li>567 Permutation in String (Medium)</li>
 <li>239 Sliding Window Maximum (Hard)</li>
+<li>424 Longest Repeating Character Replacement (Medium)</li>
 </ul>
 <p>補充</p>
 <ul>
@@ -2844,7 +2857,7 @@
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">cover</span><span class="params">(TreeNode * node, TreeNode * p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(node==p) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">cover</span>(node-&gt;left, p) || <span class="built_in">cover</span>(node-&gt;right,p); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==p || root==q) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="type">bool</span> pchild = <span class="built_in">cover</span>(root-&gt;left, p);</span><br><span class="line">        <span class="type">bool</span> qchild = <span class="built_in">cover</span>(root-&gt;left, q);</span><br><span class="line">        <span class="keyword">if</span>(pchild &amp;&amp; qchild) <span class="keyword">return</span> <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!pchild &amp;&amp; !qchild) <span class="keyword">return</span> <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">return</span> root;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id="option-2-dfs-postorder-traverse"><a href="#option-2-dfs-postorder-traverse" class="headerlink" title="option 2 - dfs + postorder traverse"></a>option 2 - dfs + postorder traverse</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(root == p || root == q) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode *l = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode *r = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">if</span>(l &amp;&amp; !r) <span class="keyword">return</span> l;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(r &amp;&amp; !l) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l &amp;&amp; r) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-dfs-postorder-traverse"><a href="#option-2-dfs-postorder-traverse" class="headerlink" title="option 2 - dfs + postorder traverse"></a>option 2 - dfs + postorder traverse</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(root == p || root == q) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="comment">// post-order</span></span><br><span class="line">        TreeNode *l = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode *r = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">if</span>(l &amp;&amp; !r) <span class="keyword">return</span> l;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(r &amp;&amp; !l) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l &amp;&amp; r) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>option 1 <ul>
@@ -3004,11 +3017,12 @@
     <title>287. Find the Duplicate Number</title>
     <url>/blog/2022/02/16/leetcode/287_FindtheDuplicateNumber/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-the-duplicate-number/">problem</a></h2><p>給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。</p>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-Two-Pointers"><a href="#option-1-Two-Pointers" class="headerlink" title="option 1 - Two Pointers"></a>option 1 - Two Pointers</h4><ul>
 <li>利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//  1   3   4   2   2   </span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slow 0 -&gt; 1 -&gt; 3 -&gt; 2 -&gt; 4 -&gt; 2 -&gt; 4</span></span><br><span class="line">        <span class="comment">//fast 0 -&gt; 3 -&gt; 4 -&gt; 4 -&gt; 4</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slow 4 -&gt; 2 -&gt; 4 -&gt; 2 </span></span><br><span class="line">        <span class="comment">//fast 0 -&gt; 1 -&gt; 3 -&gt; 2 </span></span><br><span class="line">        <span class="type">int</span> slow =<span class="number">0</span>, fast = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">            fast = nums[nums[fast]];</span><br><span class="line">            <span class="keyword">if</span>(slow==fast) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        slow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">            fast = nums[fast];</span><br><span class="line">            <span class="keyword">if</span>(slow==fast) <span class="keyword">return</span> slow;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h4 id="option-2-index"><a href="#option-2-index" class="headerlink" title="option 2 - index"></a>option 2 - index</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> idx = <span class="built_in">abs</span>(nums[i])<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// number has visited</span></span><br><span class="line">            <span class="keyword">if</span>(nums[idx]&lt;<span class="number">0</span>) <span class="keyword">return</span> idx+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> nums[idx] *=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(1)</code></li>
@@ -3025,7 +3039,7 @@
     <title>300. Longest Increasing Subsequence</title>
     <url>/blog/2022/02/16/leetcode/300_LongestIncreasingSubsequence/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-increasing-subsequence/">problem</a></h2><p>給定一個整數陣列，找出最遞增子序列。</p>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-dp"><a href="#option-1-dp" class="headerlink" title="option 1 - dp"></a>option 1 - dp</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n,<span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  10  9   2   5   3   7   101 18</span></span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1   1   1</span></span><br><span class="line">        <span class="comment">//  1   1   1   2   2   3   4   4</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="comment">// 每次確定第 ith 最長子序列</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;i;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] &gt; nums[j] ) dp[i] = <span class="built_in">max</span>(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">                ret = <span class="built_in">max</span>(ret,dp[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-dp"><a href="#option-1-dp" class="headerlink" title="option 1 - dp"></a>option 1 - dp</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n,<span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="comment">//  10  9   2   5   3   7   101 18</span></span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1   1   1</span></span><br><span class="line">        <span class="comment">//  1   1   1   2   2   3   4   4</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="comment">// 每次確定第 ith 最長子序列</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;i;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] &gt; nums[j] ) dp[i] = <span class="built_in">max</span>(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret,dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="option-2-Binary-Search"><a href="#option-2-Binary-Search" class="headerlink" title="option 2 - *Binary Search"></a>option 2 - *Binary Search</h4><p>更多可以參考<code>patience sorting</code></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//      10  9   2   5   3   7   101 18</span></span><br><span class="line">        <span class="comment">//top   0   0   0   0   0   0   0   0  </span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">top</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> piles = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> poker = nums[i];</span><br><span class="line">            <span class="type">int</span> l =<span class="number">0</span>, r = piles;</span><br><span class="line">            <span class="comment">// 從top 陣列可視範圍 l-r 區間找到poker放入的位置，使得top 是單調遞增陣列</span></span><br><span class="line">            <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">                <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(top[mid] == poker ) r= mid;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(top[mid] &lt; poker) l = mid+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> r = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 插入的位置不在陣列可視範圍內</span></span><br><span class="line">            <span class="keyword">if</span>(l==piles) piles++;</span><br><span class="line">            <span class="comment">// 將poker 放進陣列top</span></span><br><span class="line">            top[l] = poker;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> piles;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -8521,5 +8535,198 @@
       <categories>
         <category>leetcode</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Blind-Curated-75</title>
+    <url>/blog/2022/03/06/Blind-Curated-75/</url>
+    <content><![CDATA[<h2 id="Blind-Curated-75-list"><a href="#Blind-Curated-75-list" class="headerlink" title="Blind Curated 75 list"></a>Blind Curated 75 list</h2><ul>
+<li><p>*647 Palindromic Substrings (Medium)</p>
+</li>
+<li><p>*572 Subtree of Another Tree (Easy)</p>
+</li>
+<li><p>*435 Non-overlapping Intervals (Medium)</p>
+</li>
+<li><p>*424 Longest Repeating Character Replacement (Medium)</p>
+</li>
+<li><p>*417 Pacific Atlantic Water Flow (Medium)</p>
+</li>
+<li><p>371 Sum of Two Integers (Medium)</p>
+<blockquote>
+<ol start="2">
+<li>Add Two Numbers</li>
+</ol>
+</blockquote>
+</li>
+<li><p>347 Top K Frequent Elements (Medium)</p>
+<blockquote>
+<ol start="215">
+<li>Kth Largest Element in an Array</li>
+<li>Top K Frequent Words</li>
+</ol>
+</blockquote>
+</li>
+<li><p>*338 Counting Bits (Easy)</p>
+<blockquote>
+<ol start="191">
+<li>Number of 1 Bits</li>
+</ol>
+</blockquote>
+</li>
+<li><p>322 Coin Change (Medium)</p>
+<blockquote>
+<p>*983. Minimum Cost For Tickets</p>
+</blockquote>
+</li>
+<li><p>*300 Longest Increasing Subsequence (Medium)</p>
+</li>
+<li><p>*297 Serialize and Deserialize Binary Tree (Hard)</p>
+</li>
+<li><p>295 Find Median from Data Stream (Hard)</p>
+<blockquote>
+<p>*480. Sliding Window Median</p>
+</blockquote>
+</li>
+<li><p>268 Missing Number (Easy)</p>
+<blockquote>
+<ol start="136">
+<li>Single Number</li>
+<li>Find the Duplicate Number</li>
+</ol>
+<p>*41. First Missing Positive<br>645. Set Mismatch<br>448. Find All Numbers Disappeared in an Array</p>
+</blockquote>
+</li>
+<li><p>242 Valid Anagram</p>
+<blockquote>
+<ol start="49">
+<li>Group Anagrams</li>
+<li>Find All Anagrams in a String</li>
+</ol>
+</blockquote>
+</li>
+<li><p>238 Product of Array Except Self (Medium)</p>
+<blockquote>
+<ol start="42">
+<li>Trapping Rain Water</li>
+<li>Maximum Product Subarray</li>
+</ol>
+</blockquote>
+</li>
+<li><ol start="235">
+<li>Lowest Common Ancestor of a Binary Search Tree (Medium)<blockquote>
+<ol start="236">
+<li>Lowest Common Ancestor of a Binary Tree</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>230 Kth Smallest Element in a BST (Medium)</p>
+<blockquote>
+<ol start="94">
+<li>Binary Tree Inorder Traversal</li>
+</ol>
+<p>*671. Second Minimum Node In a Binary Tree</p>
+</blockquote>
+</li>
+<li><p>226 Invert Binary Tree (Easy)</p>
+</li>
+<li><p>217 Contains Duplicate (Easy)</p>
+<blockquote>
+<p>219 Contains Duplicate II<br>220 Contains Duplicate III<br>*220. Contains Duplicate III</p>
+</blockquote>
+</li>
+<li><p>213 House Robber II (Hard)</p>
+<blockquote>
+<ol start="198">
+<li>House Robber</li>
+</ol>
+<p>*337. House Robber III</p>
+</blockquote>
+</li>
+<li><p>*212 Word Search II (Hard)</p>
+<blockquote>
+<p>*980. Unique Paths III</p>
+</blockquote>
+</li>
+<li><p>*211 Design Add and Search Words Data Structure (Medium)</p>
+</li>
+<li><p>208 Implement Trie (Prefix Tree)</p>
+<blockquote>
+<p>*211 Design Add and Search Words Data Structure (Medium)<br>*648. Replace Words<br>*676. Implement Magic Dictionary</p>
+</blockquote>
+</li>
+<li><p>79 Word Search (Medium)</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CS</category>
+        <category>Data Structure</category>
+        <category>Algorithm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>219. Contains Duplicate II</title>
+    <url>/blog/2022/03/07/leetcode/219_ContainsDuplicateII/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/contains-duplicate-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsNearbyDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">count</span>(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">if</span>(( i - mp[nums[i]])&lt;=k) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            mp[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>speed complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>41. First Missing Positive</title>
+    <url>/blog/2022/03/07/leetcode/41_FirstMissingPositive/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-cheat"><a href="#option-1-cheat" class="headerlink" title="option 1 - cheat"></a>option 1 - cheat</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstMissingPositive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> cur = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n==cur) cur++;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2-histogram-or-hash-table"><a href="#option-2-histogram-or-hash-table" class="headerlink" title="option 2 - histogram or hash table"></a>option 2 - histogram or hash table</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="option-3-swap"><a href="#option-3-swap" class="headerlink" title="option 3 - swap"></a>option 3 - swap</h4><p>不斷地交換</p>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1<ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 2 <ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>option 3 <ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>692. Top K Frequent Words</title>
+    <url>/blog/2022/03/07/leetcode/692_TopKFrequentWords/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/top-k-frequent-elements/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">topKFrequent</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; freq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) freq[n]++;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](vector&lt;<span class="type">int</span>&gt;&amp; a, vector&lt;<span class="type">int</span>&gt;&amp;b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">1</span>]&lt;b[<span class="number">1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">int</span>&gt;, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> m:freq) pq.<span class="built_in">push</span>(&#123;m.first, m.second&#125;);</span><br><span class="line">        <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; p = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            ret.<span class="built_in">push_back</span>(p[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Heap</tag>
+      </tags>
   </entry>
 </search>

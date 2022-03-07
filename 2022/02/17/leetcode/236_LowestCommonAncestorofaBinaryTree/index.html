@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolutionoption 1 先遞迴檢查 p和q 是否在root的左子樹 如果都在左子樹，則往左子樹搜尋 如果都不在，則往右子樹搜尋 其餘狀況，則return root  12345678910111213141516class Solution &amp;#123;public:    bool cover(TreeNode * node, TreeNode * p)&amp;#123;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T03:06:18.248Z">
-<meta property="article:modified_time" content="2022-02-17T03:46:05.225Z">
+<meta property="article:modified_time" content="2022-03-07T07:10:43.598Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -399,7 +399,7 @@
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">cover</span><span class="params">(TreeNode * node, TreeNode * p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(node==p) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">cover</span>(node-&gt;left, p) || <span class="built_in">cover</span>(node-&gt;right,p); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==p || root==q) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="type">bool</span> pchild = <span class="built_in">cover</span>(root-&gt;left, p);</span><br><span class="line">        <span class="type">bool</span> qchild = <span class="built_in">cover</span>(root-&gt;left, q);</span><br><span class="line">        <span class="keyword">if</span>(pchild &amp;&amp; qchild) <span class="keyword">return</span> <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!pchild &amp;&amp; !qchild) <span class="keyword">return</span> <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">return</span> root;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id="option-2-dfs-postorder-traverse"><a href="#option-2-dfs-postorder-traverse" class="headerlink" title="option 2 - dfs + postorder traverse"></a>option 2 - dfs + postorder traverse</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(root == p || root == q) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode *l = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode *r = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">if</span>(l &amp;&amp; !r) <span class="keyword">return</span> l;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(r &amp;&amp; !l) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l &amp;&amp; r) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-dfs-postorder-traverse"><a href="#option-2-dfs-postorder-traverse" class="headerlink" title="option 2 - dfs + postorder traverse"></a>option 2 - dfs + postorder traverse</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(root == p || root == q) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="comment">// post-order</span></span><br><span class="line">        TreeNode *l = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode *r = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line">        <span class="keyword">if</span>(l &amp;&amp; !r) <span class="keyword">return</span> l;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(r &amp;&amp; !l) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l &amp;&amp; r) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>option 1 <ul>
@@ -528,7 +528,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">340</span>
+                  <span class="site-state-item-count">344</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -601,23 +601,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/07/leetcode/219_ContainsDuplicateII/" title="219. Contains Duplicate II" target="_blank">219. Contains Duplicate II</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/07/leetcode/41_FirstMissingPositive/" title="41. First Missing Positive" target="_blank">41. First Missing Positive</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/07/leetcode/692_TopKFrequentWords/" title="692. Top K Frequent Words" target="_blank">692. Top K Frequent Words</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/06/Blind-Curated-75/" title="Blind-Curated-75" target="_blank">Blind-Curated-75</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/06/leetcode/2194_CellsinaRangeonanExcelSheet/" title="2194. Cells in a Range on an Excel Sheet" target="_blank">2194. Cells in a Range on an Excel Sheet</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/06/leetcode/1290_ConvertBinaryNumberinaLinkedListtoInteger/" title="1290. Convert Binary Number in a Linked List to Integer" target="_blank">1290. Convert Binary Number in a Linked List to Integer</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/06/leetcode/2191_SorttheJumbledNumbers/" title="2191. Sort the Jumbled Numbers" target="_blank">2191. Sort the Jumbled Numbers</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/06/leetcode/2190_MostFrequentNumberFollowingKeyInanArray/" title="2190. Most Frequent Number Following Key In an Array" target="_blank">2190. Most Frequent Number Following Key In an Array</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/05/leetcode/709_ToLowerCase/" title="709. To Lower Case" target="_blank">709. To Lower Case</a>
                   </li>
                 
               </ul>
