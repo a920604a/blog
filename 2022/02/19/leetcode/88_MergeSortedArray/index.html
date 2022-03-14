@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolutionoption 1 - insert sort123456789101112131415class Solution &amp;#123;public:    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &amp;#123;        &#x2F;&#x2F; insert s">
+<meta name="description" content="problemsolutionoption 1 - insert sort12345678910111213141516class Solution &amp;#123;public:    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &amp;#123;                f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="88. Merge Sorted Array">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/19/leetcode/88_MergeSortedArray/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolutionoption 1 - insert sort123456789101112131415class Solution &amp;#123;public:    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &amp;#123;        &#x2F;&#x2F; insert s">
+<meta property="og:description" content="problemsolutionoption 1 - insert sort12345678910111213141516class Solution &amp;#123;public:    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &amp;#123;                f">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-19T08:04:04.786Z">
-<meta property="article:modified_time" content="2022-02-19T08:09:59.607Z">
+<meta property="article:modified_time" content="2022-03-14T02:18:44.057Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="sorting">
 <meta name="twitter:card" content="summary">
@@ -391,8 +391,7 @@
       
 
       
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-insert-sort"><a href="#option-1-insert-sort" class="headerlink" title="option 1 - insert sort"></a>option 1 - insert sort</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// insert sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i= m;i&lt;nums1.<span class="built_in">size</span>() ; ++i)&#123;</span><br><span class="line">            <span class="type">int</span> val = nums2[i-m];</span><br><span class="line">            <span class="type">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;<span class="number">-1</span> &amp;&amp; nums1[j] &gt; val)&#123;</span><br><span class="line">                nums1[j+<span class="number">1</span>] = nums1[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums1[j+<span class="number">1</span>] = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-insert-sort"><a href="#option-1-insert-sort" class="headerlink" title="option 1 - insert sort"></a>option 1 - insert sort</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=m , j=<span class="number">0</span>; i&lt;m+n &amp;&amp; j&lt;n;++i, j++)&#123;</span><br><span class="line">            <span class="comment">// insert sort</span></span><br><span class="line">            <span class="type">int</span> key = nums2[j];</span><br><span class="line">            <span class="type">int</span> k = i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(k&gt;<span class="number">-1</span> &amp;&amp; nums1[k]&gt;key)&#123;</span><br><span class="line">                nums1[k+<span class="number">1</span>] = nums1[k];</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums1[k+<span class="number">1</span>] = key;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="option-2-merge-sort"><a href="#option-2-merge-sort" class="headerlink" title="option 2 - merge sort"></a>option 2 - merge sort</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// merge sort</span></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, i=<span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">nums</span><span class="params">(m+n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;m &amp;&amp; r&lt;n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] &lt; nums2[r]) nums[i] = nums1[l++];</span><br><span class="line">            <span class="keyword">else</span> nums[i] = nums2[r++];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;m) nums[i++] = nums1[l++];</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n) nums[i++] = nums2[r++];</span><br><span class="line">        nums1 = nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
@@ -522,7 +521,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">379</span>
+                  <span class="site-state-item-count">391</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -544,7 +543,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -595,23 +594,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/03/13/leetcode/763_PartitionLabels/" title="763. Partition Labels" target="_blank">763. Partition Labels</a>
+                    <a href="/blog/2022/03/14/leetcode/205_IsomorphicStrings/" title="205. Isomorphic Strings" target="_blank">205. Isomorphic Strings</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/13/leetcode/2202_MaximizetheTopmostElementAfterKMoves/" title="2202. Maximize the Topmost Element After K Moves" target="_blank">2202. Maximize the Topmost Element After K Moves</a>
+                    <a href="/blog/2022/03/14/leetcode/275_H-IndexII/" title="275. H-Index II" target="_blank">275. H-Index II</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/13/leetcode/2201_CountArtifactsThatCanBeExtracted/" title="2201. Count Artifacts That Can Be Extracted" target="_blank">2201. Count Artifacts That Can Be Extracted</a>
+                    <a href="/blog/2022/03/14/leetcode/274_H-Index/" title="274. H-Index" target="_blank">274. H-Index</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/13/leetcode/2200_FindAllK-DistantIndicesinanArray/" title="2200. Find All K-Distant Indices in an Array" target="_blank">2200. Find All K-Distant Indices in an Array</a>
+                    <a href="/blog/2022/03/14/leetcode/315_CountofSmallerNumbersAfterSelf/" title="315. Count of Smaller Numbers After Self" target="_blank">315. Count of Smaller Numbers After Self</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/12/leetcode/80_RemoveDuplicatesfromSortedArrayII/" title="80. Remove Duplicates from Sorted Array II" target="_blank">80. Remove Duplicates from Sorted Array II</a>
+                    <a href="/blog/2022/03/14/leetcode/374_GuessNumberHigherorLower/" title="374. Guess Number Higher or Lower" target="_blank">374. Guess Number Higher or Lower</a>
                   </li>
                 
               </ul>

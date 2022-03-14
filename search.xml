@@ -568,32 +568,30 @@
     <url>/blog/2022/02/17/DataStruct/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B/</url>
     <content><![CDATA[<h2 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h2><p>O(logN)，想法簡單，細節是魔鬼。溢位、mid是加一減一、while()用&lt;&#x3D; 還是&lt;。<br>注意搜尋區間和while終止條件<br>搜尋左右邊界，只要修改<code>nums[mid] ==target</code> 條件處</p>
 <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
-<li><p>704 Binary Search (Easy)</p>
-</li>
-<li><p>34 Find First and Last Position of Element in Sorted Array (Medium)</p>
-</li>
-<li><p>875 Koko Eating Bananas (Medium)</p>
-</li>
-<li><p>1011 Capacity To Ship Packages Within D Days (Medium)</p>
-</li>
-<li><p>35 Search Insert Position (Easy)</p>
-</li>
-<li><p>354 Russian Doll Envelopes (Hard)</p>
-</li>
-<li><p>392 Is Subsequence (Easy)</p>
-</li>
-<li><p>793 Preimage Size of Factorial Zeroes Function (Hard)</p>
-</li>
+<li>34 Find First and Last Position of Element in Sorted Array (Medium)</li>
+<li>35 Search Insert Position (Easy)</li>
+<li>*354 Russian Doll Envelopes (Hard)</li>
+<li>392 Is Subsequence (Easy)</li>
+<li>704 Binary Search (Easy)</li>
+<li>793 Preimage Size of Factorial Zeroes Function (Hard)</li>
+<li>875 Koko Eating Bananas (Medium)</li>
+<li>1011 Capacity To Ship Packages Within D Days (Medium)</li>
 </ul>
 <p>補充</p>
 <ul>
+<li>*4 Median of Two Sorted Arrays</li>
 <li>33 Search in Rotated Sorted Array</li>
 <li>81 Search in Rotated Sorted Array II</li>
 <li>69 Sqrt(x)</li>
-<li>278 First Bad Version</li>
 <li>153 Find Minimum in Rotated Sorted Array</li>
 <li>154 Find Minimum in Rotated Sorted Array II</li>
 <li>167 Two Sum II - Input Array Is Sorted</li>
+<li>274 H-Index</li>
+<li>275 H-Index II</li>
+<li>278 First Bad Version</li>
+<li>*300 Longest Increasing Subsequence</li>
+<li>*315 Count of Smaller Numbers After Self (Hard)</li>
+<li>374 Guess Number Higher or Lower</li>
 <li>410 Split Array Largest Sum (Hard)</li>
 <li>475 Heaters</li>
 <li>633 Sum of Square Numbers</li>
@@ -1965,6 +1963,7 @@
 <li>*30 Substring with Concatenation of All Words (Hard)</li>
 <li>209 Minimum Size Subarray Sum</li>
 <li>*632. Smallest Range Covering Elements from K Lists</li>
+<li>395 Longest Substring with At Least K Repeating Characters</li>
 </ul>
 <h2 id="移動窗口框架"><a href="#移動窗口框架" class="headerlink" title="移動窗口框架"></a>移動窗口框架</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;`</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.<span class="built_in">add</span>(s[right]);</span><br><span class="line">    right++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 縮小窗口</span></span><br><span class="line">        window.<span class="built_in">remove</span>(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2415,7 +2414,8 @@
   <entry>
     <title>153. Find Minimum in Rotated Sorted Array</title>
     <url>/blog/2022/02/16/leetcode/153_FindMinimuminRotatedSortedArray/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-Binary-Search"><a href="#option-1-Binary-Search" class="headerlink" title="option 1 - Binary Search"></a>option 1 - Binary Search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> ret = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            ret = <span class="built_in">min</span>(nums[mid], ret);</span><br><span class="line">            <span class="comment">// 右半部遞增</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[r] ) r = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// 左半部遞增</span></span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">problem</a></h2><p>各元素唯一</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-Binary-Search"><a href="#option-1-Binary-Search" class="headerlink" title="option 1 - Binary Search"></a>option 1 - Binary Search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">// 代表最小值會在 [mid+1, r] 之間</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[r]) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 右半部遞增，下次搜尋區間 [l, mid]</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[r]) r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(logn)</code></li>
@@ -3191,7 +3191,7 @@
   <entry>
     <title>33. Search in Rotated Sorted Array</title>
     <url>/blog/2022/02/16/leetcode/33_SearchinRotatedSortedArray/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">problem</a></h2><p>在有序陣列，旋轉後，搜尋target的index</p>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">problem</a></h2><p>在有序陣列，旋轉後，搜尋target的index<br>各元素唯一</p>
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
 <li>因為是原先是有順序的，要嘛左半部遞增，要嘛右半部遞增</li>
 <li>假如右半部遞增，target剛好落在右半部，則向右搜尋，反之向左搜尋</li>
@@ -3457,6 +3457,7 @@
       </categories>
       <tags>
         <tag>dp</tag>
+        <tag>Kadane&#39;s Algo</tag>
       </tags>
   </entry>
   <entry>
@@ -4326,12 +4327,30 @@
   <entry>
     <title>34. Find First and Last Position of Element in Sorted Array</title>
     <url>/blog/2022/02/17/leetcode/34_FindFirstandLastPositionofElementinSortedArray/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(<span class="number">2</span>,<span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="comment">// avoid empty array</span></span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">empty</span>()) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r =n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target) r = mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&gt;target ) r=mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;n<span class="number">-1</span> || nums[l] != target ) <span class="keyword">return</span> ret;</span><br><span class="line">        ret[<span class="number">0</span>] = l;</span><br><span class="line">        r = l;</span><br><span class="line">        <span class="keyword">while</span>(r+<span class="number">1</span>&lt;n &amp;&amp; nums[r] == nums[r+<span class="number">1</span>]) r++;</span><br><span class="line">        ret[<span class="number">1</span>] =r;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(logn)</code></li>
-<li>space complexity <code>O(1)</code></li>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r= mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;<span class="number">0</span> || l&gt;n<span class="number">-1</span> || nums[l]!=target) <span class="keyword">return</span> &#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="type">int</span> j = l;</span><br><span class="line">        <span class="keyword">while</span>(j+<span class="number">1</span>&lt;n &amp;&amp; nums[j] == nums[j+<span class="number">1</span>]) j++;</span><br><span class="line">        <span class="keyword">return</span> &#123;l,j&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>lower bound</li>
 </ul>
+<pre><code class="c++">class Solution &#123;
+public:
+    vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) &#123;
+        int n = nums.size();
+        int l = 0, r = n;
+        while(l&lt;r)&#123;
+            int mid = l + (r-l)/2;
+            if(nums[mid] &lt; target) l = mid+1;
+            else r= mid;
+        &#125;
+        if(l&lt;0 || l&gt;n-1 || nums[l]!=target) return &#123;-1,-1&#125;;
+        int j = l;
+        while(j+1&lt;n &amp;&amp; nums[j] == nums[j+1]) j++;
+        return &#123;l,j&#125;;
+    &#125;
+&#125;;
+```## analysis
+- time complexity `O(logn)`
+- space complexity `O(1)`
+</code></pre>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -4571,7 +4590,10 @@
     <title>278. First Bad Version</title>
     <url>/blog/2022/02/18/leetcode/278_FirstBadVersion/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/first-bad-version/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The API isBadVersion is defined for you.</span></span><br><span class="line"><span class="comment">// bool isBadVersion(int version);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">1</span>, r = n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isBadVersion</span>(mid))  r= mid<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(!<span class="built_in">isBadVersion</span>(mid)) l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+
+<ul>
+<li>lower bound<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The API isBadVersion is defined for you.</span></span><br><span class="line"><span class="comment">// bool isBadVersion(int version);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">1</span>, r = n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isBadVersion</span>(mid) ) r = mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
 <li>time complexity <code>O(logn)</code></li>
 <li>space complexity <code>O(1)</code></li>
 </ul>
@@ -5027,8 +5049,7 @@
   <entry>
     <title>88. Merge Sorted Array</title>
     <url>/blog/2022/02/19/leetcode/88_MergeSortedArray/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/merge-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-insert-sort"><a href="#option-1-insert-sort" class="headerlink" title="option 1 - insert sort"></a>option 1 - insert sort</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// insert sort</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i= m;i&lt;nums1.<span class="built_in">size</span>() ; ++i)&#123;</span><br><span class="line">            <span class="type">int</span> val = nums2[i-m];</span><br><span class="line">            <span class="type">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;<span class="number">-1</span> &amp;&amp; nums1[j] &gt; val)&#123;</span><br><span class="line">                nums1[j+<span class="number">1</span>] = nums1[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums1[j+<span class="number">1</span>] = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/merge-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-insert-sort"><a href="#option-1-insert-sort" class="headerlink" title="option 1 - insert sort"></a>option 1 - insert sort</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=m , j=<span class="number">0</span>; i&lt;m+n &amp;&amp; j&lt;n;++i, j++)&#123;</span><br><span class="line">            <span class="comment">// insert sort</span></span><br><span class="line">            <span class="type">int</span> key = nums2[j];</span><br><span class="line">            <span class="type">int</span> k = i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(k&gt;<span class="number">-1</span> &amp;&amp; nums1[k]&gt;key)&#123;</span><br><span class="line">                nums1[k+<span class="number">1</span>] = nums1[k];</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums1[k+<span class="number">1</span>] = key;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="option-2-merge-sort"><a href="#option-2-merge-sort" class="headerlink" title="option 2 - merge sort"></a>option 2 - merge sort</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// merge sort</span></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, i=<span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">nums</span><span class="params">(m+n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;m &amp;&amp; r&lt;n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] &lt; nums2[r]) nums[i] = nums1[l++];</span><br><span class="line">            <span class="keyword">else</span> nums[i] = nums2[r++];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;m) nums[i++] = nums1[l++];</span><br><span class="line">        <span class="keyword">while</span>(r&lt;n) nums[i++] = nums2[r++];</span><br><span class="line">        nums1 = nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
@@ -5322,7 +5343,7 @@
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-hash-table"><a href="#option-1-hash-table" class="headerlink" title="option 1 - hash table"></a>option 1 - hash table</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersect</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;mp;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums1) mp[n]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">find</span>(n)!=mp.<span class="built_in">end</span>() &amp;&amp; mp[n]!=<span class="number">0</span>)&#123;</span><br><span class="line">                mp[n]--;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(n);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="option-2-improve-hash-table"><a href="#option-2-improve-hash-table" class="headerlink" title="option 2 - improve hash table"></a>option 2 - improve hash table</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersect</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">10001</span>,<span class="number">0</span>)</span>, ret</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums1) freq[n]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(freq[n]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(n);</span><br><span class="line">                freq[n]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-3-sorting"><a href="#option-3-sorting" class="headerlink" title="option 3 - sorting"></a>option 3 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersect</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// sorting</span></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums2.<span class="built_in">begin</span>(), nums2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>,r = <span class="number">0</span>, n = nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>( l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] == nums2[r])&#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(nums1[l++]);</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums1[l] &lt; nums2[r]) l++;</span><br><span class="line">            <span class="keyword">else</span> r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-3-sorting"><a href="#option-3-sorting" class="headerlink" title="option 3 - sorting"></a>option 3 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersect</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums2.<span class="built_in">begin</span>(), nums2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>, n=nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] == nums2[r]) &#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(nums1[l]);</span><br><span class="line">                <span class="comment">// while(l+1&lt;n &amp;&amp; nums1[l] == nums1[l+1]) l++;</span></span><br><span class="line">                <span class="comment">// while(r+1&lt;m &amp;&amp; nums2[r] == nums2[r+1]) r++;</span></span><br><span class="line">                l++;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums1[l]&lt;nums2[r]) l++;</span><br><span class="line">                <span class="keyword">else</span> r++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>option 1<ul>
@@ -5418,7 +5439,7 @@
     <url>/blog/2022/02/20/leetcode/349_IntersectionofTwoArrays/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-set"><a href="#option-1-set" class="headerlink" title="option 1 - set"></a>option 1 - set</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// set</span></span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s, ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n :nums1) s.<span class="built_in">insert</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n :nums2) &#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">find</span>(n)!=s.<span class="built_in">end</span>()) ret.<span class="built_in">insert</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(ret.<span class="built_in">begin</span>(), ret.<span class="built_in">end</span>());   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="option-2-improve-set"><a href="#option-2-improve-set" class="headerlink" title="option 2 - improve set"></a>option 2 - improve set</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">10001</span>,<span class="number">0</span>)</span>, ret</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums1) freq[n]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(freq[n]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(n);</span><br><span class="line">                freq[n]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-3-sorting"><a href="#option-3-sorting" class="headerlink" title="option 3 - sorting"></a>option 3 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// sorting</span></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums2.<span class="built_in">begin</span>(), nums2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>,r= <span class="number">0</span>, n = nums1.<span class="built_in">size</span>(), m=nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] == nums2[r])&#123;</span><br><span class="line">                <span class="keyword">if</span>(ret.<span class="built_in">empty</span>()) ret.<span class="built_in">push_back</span>(nums1[l]);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(ret.<span class="built_in">back</span>()!=nums1[l]) ret.<span class="built_in">push_back</span>(nums1[l]);</span><br><span class="line">                l++;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums1[l] &lt; nums2[r]) l++;</span><br><span class="line">            <span class="keyword">else</span> r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-3-sorting"><a href="#option-3-sorting" class="headerlink" title="option 3 - sorting"></a>option 3 - sorting</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums2.<span class="built_in">begin</span>(), nums2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>, n=nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] == nums2[r]) &#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(nums1[l]);</span><br><span class="line">                <span class="comment">// de duplicate</span></span><br><span class="line">                <span class="keyword">while</span>(l+<span class="number">1</span>&lt;n &amp;&amp; nums1[l] == nums1[l+<span class="number">1</span>]) l++;</span><br><span class="line">                <span class="keyword">while</span>(r+<span class="number">1</span>&lt;m &amp;&amp; nums2[r] == nums2[r+<span class="number">1</span>]) r++;</span><br><span class="line">                l++;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums1[l]&lt;nums2[r]) l++;</span><br><span class="line">                <span class="keyword">else</span> r++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="option-4-binary-search"><a href="#option-4-binary-search" class="headerlink" title="option 4 - binary search"></a>option 4 - binary search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">BinarySearch</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l +(r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">BinarySearch</span>(nums1, n)) s.<span class="built_in">insert</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
@@ -9033,9 +9054,8 @@
   <entry>
     <title>154. Find Minimum in Rotated Sorted Array II</title>
     <url>/blog/2022/03/08/leetcode/154_FindMinimuminRotatedSortedArrayII/</url>
-    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>, r = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">// 左半部遞增</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;  nums[r]) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 右半部遞增</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[r]) r = mid;</span><br><span class="line">            <span class="keyword">else</span> r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/">problem</a></h2><p>元素可能重複</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">// 代表最小值會在 [mid+1, r] 之間</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[r]) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 下次搜尋區間</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[r] ) r = mid;          </span><br><span class="line">            <span class="keyword">else</span> r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(logn)</code></li>
 <li>space complexity <code>O(1)</code></li>
@@ -9217,9 +9237,10 @@
     <content><![CDATA[<ul>
 <li>4 Median of Two Sorted Arrays</li>
 <li>23 Merge k Sorted Lists</li>
-<li>25 Reverse Nodes in k-Group</li>
+<li>25 Reverse Nodes in k-Group </li>
+<li>*30 Substring with Concatenation of All Words</li>
 <li>41 First Missing Positive</li>
-<li>42 Trapping Rain Water</li>
+<li>42 Trapping Rain Water </li>
 <li>72 Edit Distance</li>
 <li>76 Minimum Window Substring</li>
 <li>124 Binary Tree Maximum Path Sum</li>
@@ -9230,6 +9251,8 @@
 <li>239 Sliding Window Maximum</li>
 <li>295 Find Median from Data Stream</li>
 <li>297 Serialize and Deserialize Binary Tree </li>
+<li>*315 Count of Smaller Numbers After Self</li>
+<li>*336 Palindrome Pairs</li>
 <li>354 Russian Doll Envelopes</li>
 <li>793 Preimage Size of Factorial Zeroes Function</li>
 <li>1373 Maximum Sum BST in Binary Tree</li>
@@ -9295,7 +9318,7 @@
     <title>81. Search in Rotated Sorted Array II</title>
     <url>/blog/2022/03/09/leetcode/81_SearchinRotatedSortedArrayII/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>如果最左邊或最右邊與中間一樣，就往將左右索引各移動一個</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target ) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[r])&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &lt; target &amp;&amp; target&lt;=nums[r]) l = mid+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> r = mid <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[l])&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[l]&lt;=target &amp;&amp; target&lt;nums[mid]) r = mid<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] == nums[l]) l++;</span><br><span class="line">                <span class="keyword">else</span> r--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l+ (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">// 右半部遞增</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[r])&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &lt; target &amp;&amp; target&lt;= nums[r]) l = mid+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> r = mid<span class="number">-1</span>;w</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[r])&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[l] &lt;= target &amp;&amp; target &lt; nums[mid]) r = mid<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(logn)</code></li>
@@ -9579,7 +9602,7 @@
   <entry>
     <title>Algorithm Problem Classification</title>
     <url>/blog/2022/03/12/Algorithm-Problem-Classification/</url>
-    <content><![CDATA[<h2 id="Array-x2F-String"><a href="#Array-x2F-String" class="headerlink" title="Array&#x2F;String"></a>Array&#x2F;String</h2><ul>
+    <content><![CDATA[<h2 id="Array-x2F-String"><a href="#Array-x2F-String" class="headerlink" title="Array&#x2F;String"></a>Array&#x2F;String</h2><h4 id="Simple-Pointers"><a href="#Simple-Pointers" class="headerlink" title="Simple Pointers"></a>Simple Pointers</h4><ul>
 <li><p>26 Remove Duplicates from Sorted Array</p>
 </li>
 <li><p>80 Remove Duplicates from Sorted Array II</p>
@@ -9608,6 +9631,112 @@
 </li>
 <li><p>*833. Find And Replace in String</p>
 </li>
+<li><p>*731 My Calendar II</p>
+</li>
+<li><p>161 One Edit Distance (Premium)</p>
+</li>
+<li><p>88 Merge Sorted Array</p>
+</li>
+<li><p>392 Is Subsequence</p>
+</li>
+<li><p>844 Backspace String Compare</p>
+</li>
+<li><p>*686 Repeated String Match</p>
+</li>
+<li><p>11 Container With Most Water</p>
+</li>
+<li><p>345 Reverse Vowels of a String</p>
+</li>
+<li><p>125 Valid Palindrome</p>
+</li>
+<li><p>*680 Valid Palindrome II</p>
+</li>
+<li><p>243 Shortest Word Distance (Premium)</p>
+</li>
+<li><p>244 Shortest Word Distance II (Premium)</p>
+</li>
+<li><p>245 Shortest Word Distance III (Premium)</p>
+</li>
+<li><p>349 Intersection of Two Arrays</p>
+</li>
+<li><p>350 Intersection of Two Arrays II</p>
+</li>
+<li><p>15 3Sum</p>
+</li>
+<li><p>16 3Sum Closest</p>
+</li>
+<li><p>18 4Sum</p>
+</li>
+<li><p>167 Two Sum II - Input Array Is Sorted</p>
+</li>
+<li><p>170 Two Sum III - Data structure design (Premium)</p>
+</li>
+<li><p>280 Wiggle Sort (Premium)</p>
+<blockquote>
+<p>*281 Wiggle Sort</p>
+</blockquote>
+</li>
+<li><p>*376 Wiggle Subsequence</p>
+</li>
+<li><p>14 Longest Common Prefix</p>
+</li>
+<li><p>*31 Next Permutation</p>
+</li>
+<li><p>418 Sentence Screen Fitting (Premium)</p>
+</li>
+</ul>
+<h4 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h4><ul>
+<li><p>35 Search Insert Position</p>
+</li>
+<li><p>*4 Median of Two Sorted Arrays</p>
+</li>
+<li><p>153 Find Minimum in Rotated Sorted Array</p>
+</li>
+<li><p>154 Find Minimum in Rotated Sorted Array II</p>
+</li>
+<li><p>34 Find First and Last Position of Element in Sorted Array</p>
+</li>
+<li><p>374 Guess Number Higher or Lower</p>
+</li>
+<li><p>278 First Bad Version</p>
+</li>
+<li><p>33 Search in Rotated Sorted Array</p>
+</li>
+<li><p>81 Search in Rotated Sorted Array II</p>
+</li>
+<li><p>*300 Longest Increasing Subsequence</p>
+</li>
+<li><p>*315 Count of Smaller Numbers After Self</p>
+</li>
+<li><p>*354 Russian Doll Envelopes</p>
+</li>
+<li><p>274 H-Index</p>
+</li>
+<li><p>275 H-Index II</p>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4></li>
+<li><p>242 Valid Anagram</p>
+</li>
+<li><p>249 Group Shifted Strings (Premium)</p>
+</li>
+<li><p>*336 Palindrome Pairs</p>
+</li>
+<li><p>356 Line Reflection (Premium)</p>
+</li>
+<li><p>*205 Isomorphic Strings</p>
+</li>
+</ul>
+<h4 id="Sum-subarray-related-problems"><a href="#Sum-subarray-related-problems" class="headerlink" title="Sum subarray related problems"></a>Sum subarray related problems</h4><ul>
+<li>1 Two Sum</li>
+<li>325 Maximum Size Subarray Sum Equals k (Premium)</li>
+<li>560 Subarray Sum Equals K</li>
+</ul>
+<h4 id="HashMap–Tracking"><a href="#HashMap–Tracking" class="headerlink" title="HashMap–Tracking"></a>HashMap–Tracking</h4><ul>
+<li>3 Longest Substring Without Repeating Characters</li>
+<li>Longest Substring with At Most K Distinct Characters (Google)</li>
+<li>*30 Substring with Concatenation of All Words</li>
+<li>76 Minimum Window Substring</li>
+<li>*395 Longest Substring with At Least K Repeating Characters</li>
+<li>567 Permutation in String</li>
 </ul>
 ]]></content>
       <categories>
@@ -9632,6 +9761,206 @@
 <h2 id="Sorting-Comparator"><a href="#Sorting-Comparator" class="headerlink" title="Sorting: Comparator"></a>Sorting: Comparator</h2><h3 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> cmp_to_key</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Player</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, score</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.score = score</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;name is <span class="subst">&#123;self.name&#125;</span>, score is <span class="subst">&#123;self.score&#125;</span>\n&quot;</span>            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">comparator</span>(<span class="params">a, b</span>):</span><br><span class="line">        <span class="keyword">if</span> a.score &gt; b.score:</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> a.score &lt; b.score:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span>(a.score == b.score):</span><br><span class="line">            <span class="keyword">if</span> a.name&gt; b.name:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>HackerRank</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>14. Longest Common Prefix</title>
+    <url>/blog/2022/03/14/leetcode/14_LongestCommonPrefix/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-common-prefix/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestCommonPrefix</span><span class="params">(vector&lt;string&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        string ret ;</span><br><span class="line">        <span class="type">int</span> n = strs.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;strs[<span class="number">0</span>].<span class="built_in">size</span>(); ++i)&#123;</span><br><span class="line">            <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(strs[<span class="number">0</span>][i] == strs[j][i]) count++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(count==n) ret+=strs[<span class="number">0</span>][i];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nm)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>274. H-Index</title>
+    <url>/blog/2022/03/14/leetcode/274_H-Index/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/h-index/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">hIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; citations)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= citations.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">sort</span>(citations.<span class="built_in">begin</span>(), citations.<span class="built_in">end</span>(), greater&lt;&gt;()) ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(citations[i] &lt;= i) <span class="keyword">return</span> i;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2-binary-search"><a href="#option-2-binary-search" class="headerlink" title="option 2 - binary search"></a>option 2 - binary search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">hIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; citations)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= citations.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">sort</span>(citations.<span class="built_in">begin</span>(), citations.<span class="built_in">end</span>(), greater&lt;&gt;()) ;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r= n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(citations[mid] &gt; mid ) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>205. Isomorphic Strings</title>
+    <url>/blog/2022/03/14/leetcode/205_IsomorphicStrings/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/isomorphic-strings/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isIsomorphic</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; mpa, mpb;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>(), m=t.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(m!=n) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mpa[s[i]]!=mpb[t[i]]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            mpa[s[i]] = i+<span class="number">1</span>;</span><br><span class="line">            mpb[t[i]] = i+<span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>275. H-Index II</title>
+    <url>/blog/2022/03/14/leetcode/275_H-IndexII/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/h-index-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">hIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; citations)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n= citations.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">sort</span>(citations.<span class="built_in">begin</span>(), citations.<span class="built_in">end</span>(), greater&lt;&gt;()) ;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r= n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(citations[mid] &gt; mid ) l = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(logn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>315. Count of Smaller Numbers After Self</title>
+    <url>/blog/2022/03/14/leetcode/315_CountofSmallerNumbersAfterSelf/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/count-of-smaller-numbers-after-self/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countSmaller</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; t, <span class="built_in">ret</span>(n,<span class="number">0</span>);</span><br><span class="line">        <span class="comment">// insert sort + binary search</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;<span class="number">-1</span> ; --i)&#123;</span><br><span class="line">            <span class="type">int</span> target = nums[i];</span><br><span class="line">            <span class="type">int</span> l =<span class="number">0</span>, r = t.<span class="built_in">size</span>();</span><br><span class="line">            <span class="comment">// 要插入的數字為target </span></span><br><span class="line">            <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">                <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(t[mid] &lt; target)  l = mid +<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> r = mid ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// r 說明有多少數字在後面且比 nums[i]大</span></span><br><span class="line">            ret[i] = r;</span><br><span class="line">            t.<span class="built_in">insert</span>(t.<span class="built_in">begin</span>()+r, nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+        <tag>Segment Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>324. Wiggle Sort II</title>
+    <url>/blog/2022/03/14/leetcode/324_WiggleSortII/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/wiggle-sort-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">wiggleSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = (n<span class="number">-1</span>)/<span class="number">2</span>,  r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) ret[i] = nums[l--];</span><br><span class="line">            <span class="keyword">else</span> ret[i] = nums[r--];</span><br><span class="line">        &#125;</span><br><span class="line">        nums = ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>31. Next Permutation</title>
+    <url>/blog/2022/03/14/leetcode/31_NextPermutation/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/next-permutation/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a><a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">solution</a></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 給定陣列如果是 降序，說明是全排列的最後一種情況，下一個排序則是初始排序</span><br><span class="line">//  1   2   7   4   3   1</span><br><span class="line">//  1   3   1   2   4   7 下一排列</span><br><span class="line">//  step 1. 從右往左看，數字逐漸變大，直到2時才變小，</span><br><span class="line">//  step 2. 然後在從右往前找第一個比 2 大的數字，是3</span><br><span class="line">//  step 3. 將 2 3 交換，</span><br><span class="line">//  step 4. 把3後面的數字反轉，讓其保持升序</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">nextPermutation</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 先從右往左找到，非遞增的位置</span></span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> j = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; nums[j<span class="number">-1</span>] &gt;= nums[j] ) j--;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> pivot=j<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> bigger = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(bigger &gt; pivot &amp;&amp; nums[bigger] &lt;= nums[pivot]) bigger--;</span><br><span class="line">        <span class="built_in">swap</span>(nums[pivot], nums[bigger]);</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>()+pivot+<span class="number">1</span>, nums.<span class="built_in">end</span>());</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>374. Guess Number Higher or Lower</title>
+    <url>/blog/2022/03/14/leetcode/374_GuessNumberHigherorLower/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/guess-number-higher-or-lower/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * Forward declaration of guess API.</span></span><br><span class="line"><span class="comment"> * @param  num   your guess</span></span><br><span class="line"><span class="comment"> * @return 	     -1 if num is higher than the picked number</span></span><br><span class="line"><span class="comment"> *			      1 if num is lower than the picked number</span></span><br><span class="line"><span class="comment"> *               otherwise return 0</span></span><br><span class="line"><span class="comment"> * int guess(int num);</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">guessNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">1</span>, r = n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> ans = <span class="built_in">guess</span>(mid);</span><br><span class="line">            <span class="keyword">if</span>( ans == <span class="number">0</span>) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ans == <span class="number">-1</span>) r = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(logn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>71. Simplify Path</title>
+    <url>/blog/2022/03/14/leetcode/71_SimplifyPath/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/simplify-path/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>先用split 切分成個字串，在判斷字串是否為”.” 或是 “..”</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">split</span><span class="params">(string str , <span class="type">char</span> del )</span></span>&#123;</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        string path ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:str)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==del)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!path.<span class="built_in">empty</span>()) ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">                path=<span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> path+=c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!path.<span class="built_in">empty</span>()) ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">string <span class="title">simplifyPath</span><span class="params">(string path)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; str = <span class="built_in">split</span>(path, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(string tmp : str)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp.<span class="built_in">empty</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(tmp == <span class="string">&quot;.&quot;</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tmp ==<span class="string">&quot;..&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!ans.<span class="built_in">empty</span>()) ans.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> ans.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        string ret;</span><br><span class="line">        <span class="keyword">for</span>(string c:ans) ret+=<span class="string">&quot;/&quot;</span>+c;</span><br><span class="line">        <span class="keyword">return</span> ret.<span class="built_in">empty</span>()?<span class="string">&quot;/&quot;</span>:ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>686. Repeated String Match</title>
+    <url>/blog/2022/03/14/leetcode/686_RepeatedStringMatch/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/repeated-string-match/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>先重複a多次，直到達到b長度，在遍歷aa尋找是否有字串相符</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">repeatedStringMatch</span><span class="params">(string a, string b)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> m = b.<span class="built_in">size</span>(), repeat = <span class="number">1</span>;</span><br><span class="line">        string aa = a;</span><br><span class="line">        <span class="keyword">while</span>(aa.<span class="built_in">size</span>() &lt;m)&#123;</span><br><span class="line">            aa+=a;</span><br><span class="line">            repeat++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = aa.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (aa.<span class="built_in">find</span>(b) != string::npos) <span class="keyword">return</span> repeat;</span><br><span class="line">        aa += a;</span><br><span class="line">        <span class="keyword">return</span> (aa.<span class="built_in">find</span>(b) != string::npos) ? repeat + <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>4. Median of Two Sorted Arrays</title>
+    <url>/blog/2022/03/14/leetcode/4_MedianofTwoSortedArrays/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-cheat-merge-sort"><a href="#option-1-cheat-merge-sort" class="headerlink" title="option 1 - cheat merge sort"></a>option 1 - cheat merge sort</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(n+m,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[l] &lt; nums2[r]) ret[i++] = nums1[l++];</span><br><span class="line">            <span class="keyword">else</span> ret[i++] = nums2[r++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n) ret[i++] = nums1[l++];</span><br><span class="line">        <span class="keyword">while</span>(r&lt;m) ret[i++] = nums2[r++];</span><br><span class="line">        <span class="keyword">if</span>((n+m)%<span class="number">2</span>==<span class="number">1</span>) <span class="keyword">return</span> ret[(n+m)/<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">return</span> (<span class="type">double</span>)(ret[(n+m)/<span class="number">2</span>]+ret[(n+m)/<span class="number">2</span><span class="number">-1</span>])/<span class="number">2.0</span>;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-Binary-Search"><a href="#option-2-Binary-Search" class="headerlink" title="option 2 - *Binary Search"></a>option 2 - *Binary Search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums1.<span class="built_in">size</span>(),  m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> len = n+m;</span><br><span class="line">        <span class="keyword">if</span>(n&gt;m) <span class="keyword">return</span> <span class="built_in">findMedianSortedArrays</span>(nums2, nums1);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> (nums2[(m<span class="number">-1</span>)/<span class="number">2</span>] + nums2[m/<span class="number">2</span>]) / <span class="number">2.0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="comment">// i 指向nums1 中間的索引，j 指向nums2 中間的索引</span></span><br><span class="line">            <span class="type">int</span> i = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> j = len/<span class="number">2</span>-i;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 設定搜尋區間</span></span><br><span class="line">            <span class="type">int</span> L1 = (i==<span class="number">0</span>)?INT_MIN:nums1[i<span class="number">-1</span>];</span><br><span class="line">            <span class="type">int</span> R1 = (i==n)?INT_MAX:nums1[i];</span><br><span class="line">            <span class="type">int</span> L2 = (j==<span class="number">0</span>)?INT_MIN:nums2[j<span class="number">-1</span>];</span><br><span class="line">            <span class="type">int</span> R2 = (j==m)?INT_MAX:nums2[j];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(L1 &gt; R2) r = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(L2 &gt; R1) l = i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(len%<span class="number">2</span>==<span class="number">1</span>) <span class="keyword">return</span> <span class="built_in">min</span>(R1, R2);</span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">return</span> (<span class="built_in">max</span>(L1, L2) + <span class="built_in">min</span>(R1, R2)) / <span class="number">2.0</span>; </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1 <ul>
+<li>time complexity <code>O(n+m)</code></li>
+<li>space complexity <code>O(n+m)</code></li>
+</ul>
+</li>
+<li>option 2 <ul>
+<li>time complexity <code>O(log(m+n))</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>844. Backspace String Compare</title>
+    <url>/blog/2022/03/14/leetcode/844_BackspaceStringCompare/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/backspace-string-compare/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">backspaceCompare</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        string a,b;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c!=<span class="string">&#x27;#&#x27;</span>) a+=c;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(!a.<span class="built_in">empty</span>()) a.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:t)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c!=<span class="string">&#x27;#&#x27;</span>) b+=c;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(!b.<span class="built_in">empty</span>()) b.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
       </categories>
   </entry>
 </search>
