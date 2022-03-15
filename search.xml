@@ -901,33 +901,23 @@
 <li><p>225 Implement Stack using Queues (Easy)</p>
 </li>
 </ul>
-<h3 id="括號問題-4"><a href="#括號問題-4" class="headerlink" title="括號問題 [4]"></a>括號問題 [4]</h3><ul>
-<li><p>20 Valid Parentheses (Easy)</p>
-</li>
-<li><p>*921 Minimum Add to Make Parentheses Valid (Medium)</p>
-</li>
-<li><p>*1541 Minimum Insertions to Balance a Parentheses String  (Medium)</p>
-</li>
-<li><p>*32 Longest Valid Parentheses (Hard)</p>
-<h3 id="Monotonic-stack-and-Monotonic-queue-9"><a href="#Monotonic-stack-and-Monotonic-queue-9" class="headerlink" title="Monotonic stack and Monotonic queue [9]"></a>Monotonic stack and Monotonic queue [9]</h3></li>
-<li><p>496 Next Greater Element I (Easy)</p>
-</li>
-<li><p>503 Next Greater Element II (Medium)</p>
-</li>
-<li><p>739 Daily Temperatures (Medium)</p>
-</li>
-<li><p>*316 Remove Duplicate Letters (Medium)</p>
-</li>
-<li><p>*1081 Smallest Subsequence of Distinct Characters (Medium)</p>
-</li>
-<li><p>42 Trapping Rain Water (Hard)</p>
-</li>
-<li><p>*239 Sliding Window Maximum (Hard)</p>
-</li>
-<li><p>*316 Remove Duplicate Letters (Medium)</p>
-</li>
-<li><p>*1081 Smallest Subsequence of Distinct Characters (Medium)</p>
-</li>
+<h3 id="括號問題-5"><a href="#括號問題-5" class="headerlink" title="括號問題 [5]"></a>括號問題 [5]</h3><ul>
+<li>20 Valid Parentheses (Easy)</li>
+<li>*921 Minimum Add to Make Parentheses Valid (Medium)</li>
+<li>*1541 Minimum Insertions to Balance a Parentheses String  (Medium)</li>
+<li>*32 Longest Valid Parentheses (Hard)</li>
+<li>1249 Minimum Remove to Make Valid Parentheses (Medium)</li>
+</ul>
+<h3 id="Monotonic-stack-and-Monotonic-queue-9"><a href="#Monotonic-stack-and-Monotonic-queue-9" class="headerlink" title="Monotonic stack and Monotonic queue [9]"></a>Monotonic stack and Monotonic queue [9]</h3><ul>
+<li>496 Next Greater Element I (Easy)</li>
+<li>503 Next Greater Element II (Medium)</li>
+<li>739 Daily Temperatures (Medium)</li>
+<li>*316 Remove Duplicate Letters (Medium)</li>
+<li>*1081 Smallest Subsequence of Distinct Characters (Medium)</li>
+<li>42 Trapping Rain Water (Hard)</li>
+<li>*239 Sliding Window Maximum (Hard)</li>
+<li>*316 Remove Duplicate Letters (Medium)</li>
+<li>*1081 Smallest Subsequence of Distinct Characters (Medium)</li>
 </ul>
 <h3 id="Design-data-structure-8"><a href="#Design-data-structure-8" class="headerlink" title="Design data structure [8]"></a>Design data structure [8]</h3><ul>
 <li><p>*146 LRU Cache (Medium)</p>
@@ -1571,6 +1561,7 @@
 <li>918 Maximum Sum Circular Subarray</li>
 <li>152 Maximum Product Subarray (Medium)</li>
 <li>42 Trapping Rain Water</li>
+<li>334 Increasing Triplet Subsequence</li>
 </ul>
 <h3 id="背包問題-3"><a href="#背包問題-3" class="headerlink" title="背包問題 [3]"></a>背包問題 [3]</h3><ul>
 <li>518 Coin Change 2 (Medium)</li>
@@ -5898,7 +5889,8 @@ public:
     <url>/blog/2022/02/21/leetcode/229_MajorityElementII/</url>
     <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/majority-element-ii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-hash-tables"><a href="#option-1-hash-tables" class="headerlink" title="option 1 - hash tables"></a>option 1 - hash tables</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; freq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) freq[n]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> m:freq)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m.second &gt; n/<span class="number">3</span>) ret.<span class="built_in">push_back</span>(m.first);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="option-2-vote"><a href="#option-2-vote" class="headerlink" title="option 2  - vote"></a>option 2  - vote</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 多數投票算法 O(n) time and O(1) space</span></span><br><span class="line">        <span class="comment">// from hint: 任意一數組出現次數大於 n/3 的數最多有兩個</span></span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> &#123;nums[<span class="number">0</span>]&#125;;</span><br><span class="line">        <span class="type">int</span> freq1 = <span class="number">0</span>, cand1 = <span class="number">0</span>, freq2 = <span class="number">0</span>, cand2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == cand1) freq1++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == cand2) freq2++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(freq1==<span class="number">0</span>)&#123; cand1 = nums[i];freq1=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(freq2==<span class="number">0</span>) &#123;cand2 = nums[i];freq2=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span>&#123; freq1--; freq2--; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// check </span></span><br><span class="line">        freq1 = freq2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n == cand1) freq1++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n== cand2) freq2++;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">if</span>(freq1&gt;n/<span class="number">3</span>) ret.<span class="built_in">push_back</span>(cand1);</span><br><span class="line">        <span class="keyword">if</span>(freq2&gt;n/<span class="number">3</span>) ret.<span class="built_in">push_back</span>(cand2);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-vote"><a href="#option-2-vote" class="headerlink" title="option 2  - vote"></a>option 2  - vote</h4><p>最多兩個數字出現頻率超過 n&#x2F;3</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 多數投票算法 O(n) time and O(1) space</span></span><br><span class="line">        <span class="comment">// from hint: 任意一數組出現次數大於 n/3 的數最多有兩個</span></span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> &#123;nums[<span class="number">0</span>]&#125;;</span><br><span class="line">        <span class="type">int</span> freq1 = <span class="number">0</span>, cand1 = <span class="number">0</span>, freq2 = <span class="number">0</span>, cand2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == cand1) freq1++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == cand2) freq2++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(freq1==<span class="number">0</span>)&#123; cand1 = nums[i];freq1=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(freq2==<span class="number">0</span>) &#123;cand2 = nums[i];freq2=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span>&#123; freq1--; freq2--; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// check </span></span><br><span class="line">        freq1 = freq2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n == cand1) freq1++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n== cand2) freq2++;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">if</span>(freq1&gt;n/<span class="number">3</span>) ret.<span class="built_in">push_back</span>(cand1);</span><br><span class="line">        <span class="keyword">if</span>(freq2&gt;n/<span class="number">3</span>) ret.<span class="built_in">push_back</span>(cand2);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>option 1 - hash table <ul>
@@ -9244,6 +9236,7 @@ public:
 <li>72 Edit Distance</li>
 <li>76 Minimum Window Substring</li>
 <li>124 Binary Tree Maximum Path Sum</li>
+<li>126 Word Ladder II</li>
 <li>127 Word Ladder</li>
 <li>140 Word Break II</li>
 <li>154 Find Minimum in Rotated Sorted Array II</li>
@@ -9738,6 +9731,24 @@ public:
 <li>*395 Longest Substring with At Least K Repeating Characters</li>
 <li>567 Permutation in String</li>
 </ul>
+<h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><ul>
+<li>*128 Longest Consecutive Sequence</li>
+</ul>
+<h4 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h4><ul>
+<li>169 Majority Element</li>
+<li>*229 Majority Element II</li>
+<li>*334 Increasing Triplet Subsequence</li>
+<li>Find the 2nd Largest Elements in an array<blockquote>
+<ol start="215">
+<li>Kth Largest Element in an Array</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><ul>
+<li>127 Word Ladder</li>
+<li>126 Word Ladder II</li>
+</ul>
 ]]></content>
       <categories>
         <category>CS</category>
@@ -9962,5 +9973,122 @@ public:
       <categories>
         <category>leetcode</category>
       </categories>
+  </entry>
+  <entry>
+    <title>1249. Minimum Remove to Make Valid Parentheses</title>
+    <url>/blog/2022/03/15/leetcode/1249_MinimumRemovetoMakeValidParentheses/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>遍歷字串，遇到字母加進字串<code>ret</code>，遇到左括號push stack，遇到右括號且如果stack為空，則不加入字串<code>ret</code>，代表目前為止右括號出現次數多餘左括號，遇到右括號且stack 不為空則加入字串<code>ret</code>並pop stack。</p>
+<p>最後檢查是否有左括號在字串<code>ret</code>後方且沒有對應的右括號，並將他移除。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minRemoveToMakeValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">char</span>&gt; sta;</span><br><span class="line">        string ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;z&#x27;</span>) ret+=c;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                sta.<span class="built_in">push</span>(c);</span><br><span class="line">                ret+=c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// )</span></span><br><span class="line">                <span class="keyword">if</span>(sta.<span class="built_in">empty</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sta.<span class="built_in">pop</span>();</span><br><span class="line">                    ret+=c;</span><br><span class="line">                &#125;        </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// &quot;())()(((&quot;</span></span><br><span class="line">        <span class="comment">// 從後面移除多餘的左括號</span></span><br><span class="line">        string ans;</span><br><span class="line">        <span class="type">int</span> n= ret.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;<span class="number">-1</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ret[i]==<span class="string">&#x27;(&#x27;</span> &amp;&amp; !sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans+=ret[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>128. Longest Consecutive Sequence</title>
+    <url>/blog/2022/03/15/leetcode/128_LongestConsecutiveSequence/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-consecutive-sequence/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestConsecutive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// hash table 紀錄數字與包含該數字的最長區間長度</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n :nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">find</span>(n)!=mp.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> l = (mp.<span class="built_in">count</span>(n<span class="number">-1</span>))?mp[n<span class="number">-1</span>]:<span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> r = (mp.<span class="built_in">count</span>(n+<span class="number">1</span>))?mp[n+<span class="number">1</span>]:<span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> sum = r+l+<span class="number">1</span>;</span><br><span class="line">            mp[n] = sum;</span><br><span class="line">            mp[n-l] = sum;</span><br><span class="line">            mp[n+r] = sum;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret,sum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>30 Substring with Concatenation of All Words</title>
+    <url>/blog/2022/03/15/leetcode/30_SubstringwithConcatenationofAllWords/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;x</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findSubstring</span><span class="params">(string s, vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">empty</span>() || words.<span class="built_in">empty</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        unordered_map&lt;string,<span class="type">int</span>&gt; wordCnt;</span><br><span class="line">        <span class="comment">// words 中每個詞彙長度一致</span></span><br><span class="line">        <span class="type">int</span> n= words.<span class="built_in">size</span>(), len = words[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;word:words) wordCnt[word]++;</span><br><span class="line">        <span class="comment">// s.size() 需轉為int data type</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=(<span class="type">int</span>)s.<span class="built_in">size</span>()-n*len ; ++i)&#123;</span><br><span class="line">            unordered_map&lt;string, <span class="type">int</span>&gt; strCnt;</span><br><span class="line">            <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;++j)&#123;</span><br><span class="line">                string t = s.<span class="built_in">substr</span>(i+j*len, len);</span><br><span class="line">                <span class="comment">// 如果不在詞彙表裡就break</span></span><br><span class="line">                <span class="keyword">if</span>(!wordCnt.<span class="built_in">count</span>(t)) <span class="keyword">break</span>;</span><br><span class="line">                strCnt[t]++;</span><br><span class="line">                <span class="comment">// 相同詞彙出現兩次以上</span></span><br><span class="line">                <span class="keyword">if</span>(strCnt[t]&gt; wordCnt[t]) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// words 每個詞彙都有在以i為索引開頭的字串</span></span><br><span class="line">            <span class="keyword">if</span>(j==n) ret.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nm)</code></li>
+<li>space complexity <code>O(m)</code> m is words</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+        <tag>sliding window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>334. Increasing Triplet Subsequence</title>
+    <url>/blog/2022/03/15/leetcode/334_IncreasingTripletSubsequence/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/increasing-triplet-subsequence/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+<li>dp and TLE<blockquote>
+<ol start="300">
+<li>Longest Increasing Subsequence</li>
+</ol>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">increasingTriplet</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">3</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// subsequence ，未必連續</span></span><br><span class="line">        <span class="comment">// 最長遞增子序列</span></span><br><span class="line">        <span class="comment">//  20  100 10  12  5   13</span></span><br><span class="line">        <span class="comment">//  1   1   1   1   1   1</span></span><br><span class="line">        <span class="comment">//  1   2   1   2   1   3</span></span><br><span class="line">        </span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n,<span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;i;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] &gt; nums[j]) dp[i] = <span class="built_in">max</span>(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(dp[i] == <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Binary search<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">increasingTriplet</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> piles = <span class="number">0</span>, n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">top</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> poker = nums[i];</span><br><span class="line">            <span class="type">int</span> l=<span class="number">0</span>, r = piles;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">                <span class="type">int</span> mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(top[mid] &gt; poker) r = mid ;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(top[mid] == poker) r  = mid;</span><br><span class="line">                <span class="keyword">else</span> l = mid +<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l==piles) piles++;</span><br><span class="line">            top[l] = poker;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> piles&gt;=<span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="option-1-dp"><a href="#option-1-dp" class="headerlink" title="option 1 - dp"></a>option 1 - dp</h4><p>維護兩陣列</p>
+<blockquote>
+<p>152 Maximum Product Subarray<br>42 Trapping Rain Water</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">increasingTriplet</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">mx</span><span class="params">(n, INT_MIN)</span>, <span class="title">mn</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">        <span class="comment">//      2   1   5   0   4   6</span></span><br><span class="line">        <span class="comment">//mn    +   2   1   1   0   0</span></span><br><span class="line">        <span class="comment">//mx    6   6   6   6   6   -</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i) mn[i] = <span class="built_in">min</span>(mn[i<span class="number">-1</span>], nums[i<span class="number">-1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-2</span>;i&gt;<span class="number">-1</span>;i--) mx[i] = <span class="built_in">max</span>(mx[i+<span class="number">1</span>], nums[i+<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 夾擠</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; mn[i] &amp;&amp; nums[i] &lt; mx[i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-reduce-dp"><a href="#option-2-reduce-dp" class="headerlink" title="option 2 - reduce dp"></a>option 2 - reduce dp</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">increasingTriplet</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//      2   1   5   0   4   6</span></span><br><span class="line">        <span class="comment">//m1    2   1   1   0   0   </span></span><br><span class="line">        <span class="comment">//m2    +   +   5   5   4   </span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> m1 = INT_MAX, m2 = INT_MAX, n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt;=m1) m1= nums[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i]&gt;m1 &amp;&amp; nums[i]&lt;= m2) m2 = nums[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>TLE<ul>
+<li>time complexity <code>O(n^2)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>Binary search<ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>option 1<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>option 2<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Two Pointers</tag>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>395. Longest Substring with At Least K Repeating Characters</title>
+    <url>/blog/2022/03/15/leetcode/395_LongestSubstringwithAtLeastKRepeatingCharacters/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// O(26n)</span></span><br><span class="line">        <span class="type">int</span> ret =  <span class="number">0</span> , n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 子字串不同字母數介於 [1,26] </span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> cnt = <span class="number">1</span>; cnt &lt;= <span class="number">26</span>; ++cnt) &#123;</span><br><span class="line">            <span class="comment">// uniqueCnt 窗口有多少字母唯一</span></span><br><span class="line">            <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, uniqueCnt = <span class="number">0</span>;</span><br><span class="line">            unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">            <span class="keyword">while</span>(r &lt; n)&#123;</span><br><span class="line">                <span class="type">bool</span> valid = <span class="literal">true</span>;</span><br><span class="line">                <span class="type">char</span> c = s[r++];</span><br><span class="line">                <span class="keyword">if</span>(window[c] == <span class="number">0</span>) uniqueCnt++;</span><br><span class="line">                window[c]++;</span><br><span class="line">                <span class="comment">// 不同字母數 超過cnt</span></span><br><span class="line">                <span class="keyword">while</span>(uniqueCnt &gt; cnt)&#123;</span><br><span class="line">                    <span class="type">char</span> d = s[l++];</span><br><span class="line">                    window[d]--;</span><br><span class="line">                    <span class="keyword">if</span>(window[d] == <span class="number">0</span>) uniqueCnt--;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 檢查window 各個字母數量 是否少於 k </span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> w:window)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(w.second&gt;<span class="number">0</span> &amp;&amp; w.second&lt;k) valid = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 更新解答</span></span><br><span class="line">                <span class="keyword">if</span>(valid) ret = <span class="built_in">max</span>(ret, r-l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;s</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(26n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>sliding window</tag>
+      </tags>
   </entry>
 </search>
