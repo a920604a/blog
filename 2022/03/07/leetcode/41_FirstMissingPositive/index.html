@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sorting,heap,math," />
 
 
 
@@ -94,8 +94,11 @@
 <meta property="og:description" content="problemsolutionoption 1 - cheat12345678910111213class Solution &amp;#123;public:    int firstMissingPositive(vector&lt;int&gt;&amp; nums) &amp;#123;            sort(nums.begin(),nums.end());        int cur &#x3D;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-03-07T05:39:12.267Z">
-<meta property="article:modified_time" content="2022-03-07T05:45:56.839Z">
+<meta property="article:modified_time" content="2022-03-17T08:53:43.370Z">
 <meta property="article:author" content="YU-AN, Chen">
+<meta property="article:tag" content="sorting">
+<meta property="article:tag" content="heap">
+<meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
 
 
@@ -392,9 +395,12 @@
       
         <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-cheat"><a href="#option-1-cheat" class="headerlink" title="option 1 - cheat"></a>option 1 - cheat</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstMissingPositive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> cur = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n==cur) cur++;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id="option-2-histogram-or-hash-table"><a href="#option-2-histogram-or-hash-table" class="headerlink" title="option 2 - histogram or hash table"></a>option 2 - histogram or hash table</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="option-3-swap"><a href="#option-3-swap" class="headerlink" title="option 3 - swap"></a>option 3 - swap</h4><p>不斷地交換</p>
+<h4 id="option-2-heap"><a href="#option-2-heap" class="headerlink" title="option 2 - heap"></a>option 2 - heap</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstMissingPositive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n&gt;<span class="number">0</span>) pq.<span class="built_in">push</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!pq.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> t = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">while</span>(!pq.<span class="built_in">empty</span>() &amp;&amp; t==pq.<span class="built_in">top</span>()) pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span>(ret==t) ret++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-3-histogram-or-hash-table"><a href="#option-3-histogram-or-hash-table" class="headerlink" title="option 3 - histogram or hash table"></a>option 3 - histogram or hash table</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstMissingPositive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(n+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a:nums)&#123;</span><br><span class="line">             <span class="keyword">if</span> (a &gt; <span class="number">0</span> &amp;&amp; a &lt; n + <span class="number">1</span>) vec[a]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n+<span class="number">1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(vec[i] == <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-4-swap"><a href="#option-4-swap" class="headerlink" title="option 4 - swap"></a>option 4 - swap</h4><p>不斷地交換，直到放到對的位置</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstMissingPositive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i]&gt;=<span class="number">1</span> &amp;&amp; nums[i]&lt;=n &amp;&amp; nums[i]!=nums[nums[i]<span class="number">-1</span>] ) <span class="built_in">swap</span>(nums[i], nums[nums[i]<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]!=i+<span class="number">1</span>) <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> n+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>option 1<ul>
 <li>time complexity <code>O(nlogn)</code></li>
@@ -403,10 +409,15 @@
 </li>
 <li>option 2 <ul>
 <li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(n)</code></li>
+<li>space complexity <code>O(k)</code></li>
 </ul>
 </li>
-<li>option 3 <ul>
+<li>option 3<ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 4<ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(1)</code></li>
 </ul>
@@ -426,6 +437,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/sorting/" rel="tag"># sorting</a>
+          
+            <a href="/blog/tags/heap/" rel="tag"># heap</a>
+          
+            <a href="/blog/tags/math/" rel="tag"># math</a>
+          
+        </div>
       
 
       
@@ -521,7 +542,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">401</span>
+                  <span class="site-state-item-count">405</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -594,23 +615,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/17/leetcode/378_KthSmallestElementinaSortedMatrix/" title="378. Kth Smallest Element in a Sorted Matrix" target="_blank">378. Kth Smallest Element in a Sorted Matrix</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/240_Searcha2DMatrixII/" title="240. Search a 2D Matrix II" target="_blank">240. Search a 2D Matrix II</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/401_BinaryWatch/" title="401. Binary Watch" target="_blank">401. Binary Watch</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/151_ReverseWordsinaString/" title="151. Reverse Words in a String" target="_blank">151. Reverse Words in a String</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/16/leetcode/75_SortColors/" title="75. Sort Colors" target="_blank">75. Sort Colors</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/868_BinaryGap/" title="868. Binary Gap" target="_blank">868. Binary Gap</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/382_LinkedListRandomNode/" title="382. Linked List Random Node" target="_blank">382. Linked List Random Node</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/946_ValidateStackSequences/" title="946. Validate Stack Sequences" target="_blank">946. Validate Stack Sequences</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/127_WordLadder/" title="127. Word Ladder" target="_blank">127. Word Ladder</a>
                   </li>
                 
               </ul>
@@ -637,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-cheat"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1 - cheat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-histogram-or-hash-table"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - histogram or hash table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-swap"><span class="nav-number">2.0.3.</span> <span class="nav-text">option 3 - swap</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-cheat"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1 - cheat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-heap"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - heap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-histogram-or-hash-table"><span class="nav-number">2.0.3.</span> <span class="nav-text">option 3 - histogram or hash table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-4-swap"><span class="nav-number">2.0.4.</span> <span class="nav-text">option 4 - swap</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>

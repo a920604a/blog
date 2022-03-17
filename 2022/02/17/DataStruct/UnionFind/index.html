@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="method : connect、find、unionSet  130 Surrounded Regions  990 Satisfiability of Equality Equations  547 Number of Provinces   框架 1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta name="description" content="method : connect、find、unionSet  130 Surrounded Regions  990 Satisfiability of Equality Equations  547 Number of Provinces  947 Most Stones Removed with Same Row or Column   框架1234567891011121314151617">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UnionFind">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/UnionFind/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="method : connect、find、unionSet  130 Surrounded Regions  990 Satisfiability of Equality Equations  547 Number of Provinces   框架 1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:description" content="method : connect、find、unionSet  130 Surrounded Regions  990 Satisfiability of Equality Equations  547 Number of Provinces  947 Most Stones Removed with Same Row or Column   框架1234567891011121314151617">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:37:39.929Z">
-<meta property="article:modified_time" content="2022-02-17T07:15:29.892Z">
+<meta property="article:modified_time" content="2022-03-17T13:11:53.713Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="Union Find">
 <meta name="twitter:card" content="summary">
@@ -410,9 +410,10 @@
 </li>
 <li><p>547 Number of Provinces</p>
 </li>
+<li><p>947 Most Stones Removed with Same Row or Column</p>
+</li>
 </ul>
-<p>框架</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UF</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; size, parent;</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">UF</span>(<span class="type">int</span> n)&#123;</span><br><span class="line">        size = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n);</span><br><span class="line">        parent = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n);</span><br><span class="line">        <span class="type">int</span> count = n;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p , <span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pRoot = <span class="built_in">find</span>(p);</span><br><span class="line">        <span class="type">int</span> qRoot = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">return</span>  pRoot == qRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(x != parent[x])&#123;</span><br><span class="line">            parent[x] = parent[parent[x]];</span><br><span class="line">            x = parent[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unionSet</span><span class="params">(<span class="type">int</span> p , <span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pRoot = <span class="built_in">find</span>(p);</span><br><span class="line">        <span class="type">int</span> qRoot = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">if</span>(pRoot == qRoot ) <span class="keyword">return</span> ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(size[pRoot] &gt;= size[qRoot])&#123;</span><br><span class="line">            parent[qRoot] = pRoot;</span><br><span class="line">            size[pRoot] += size[qRoot];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            parent[pRoot] = qRoot;</span><br><span class="line">            size[qRoot] += size[pRoot];            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UF</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; size, parent;</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">UF</span>(<span class="type">int</span> n)&#123;</span><br><span class="line">        size = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n);</span><br><span class="line">        parent = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n);</span><br><span class="line">        <span class="type">int</span> count = n;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p , <span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pRoot = <span class="built_in">find</span>(p);</span><br><span class="line">        <span class="type">int</span> qRoot = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">return</span>  pRoot == qRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(x != parent[x])&#123;</span><br><span class="line">            parent[x] = parent[parent[x]];</span><br><span class="line">            x = parent[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unionSet</span><span class="params">(<span class="type">int</span> p , <span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pRoot = <span class="built_in">find</span>(p);</span><br><span class="line">        <span class="type">int</span> qRoot = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">if</span>(pRoot == qRoot ) <span class="keyword">return</span> ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(size[pRoot] &gt;= size[qRoot])&#123;</span><br><span class="line">            parent[qRoot] = pRoot;</span><br><span class="line">            size[pRoot] += size[qRoot];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            parent[pRoot] = qRoot;</span><br><span class="line">            size[qRoot] += size[pRoot];            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -503,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -519,7 +529,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">401</span>
+                  <span class="site-state-item-count">405</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -592,23 +602,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/17/leetcode/378_KthSmallestElementinaSortedMatrix/" title="378. Kth Smallest Element in a Sorted Matrix" target="_blank">378. Kth Smallest Element in a Sorted Matrix</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/240_Searcha2DMatrixII/" title="240. Search a 2D Matrix II" target="_blank">240. Search a 2D Matrix II</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/401_BinaryWatch/" title="401. Binary Watch" target="_blank">401. Binary Watch</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/151_ReverseWordsinaString/" title="151. Reverse Words in a String" target="_blank">151. Reverse Words in a String</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/16/leetcode/75_SortColors/" title="75. Sort Colors" target="_blank">75. Sort Colors</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/868_BinaryGap/" title="868. Binary Gap" target="_blank">868. Binary Gap</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/382_LinkedListRandomNode/" title="382. Linked List Random Node" target="_blank">382. Linked List Random Node</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/946_ValidateStackSequences/" title="946. Validate Stack Sequences" target="_blank">946. Validate Stack Sequences</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/127_WordLadder/" title="127. Word Ladder" target="_blank">127. Word Ladder</a>
                   </li>
                 
               </ul>
@@ -625,6 +635,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">框架</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

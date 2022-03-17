@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolutionoption 11234567891011class Solution &amp;#123;public:    void rotate(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        int n &#x3D; nums.size();        &#x2F;&#x2F; copy vector        vector&lt;int&gt; te">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-19T07:24:48.560Z">
-<meta property="article:modified_time" content="2022-02-19T07:58:13.641Z">
+<meta property="article:modified_time" content="2022-03-17T07:47:04.601Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta name="twitter:card" content="summary">
 
@@ -395,7 +395,9 @@
 <h4 id="option-2-reverse"><a href="#option-2-reverse" class="headerlink" title="option 2 - *reverse"></a>option 2 - *reverse</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        k%=n;</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">begin</span>()+(n-k) );</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>()+(n-k), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<h4 id="option-3-bubble-rotate"><a href="#option-3-bubble-rotate" class="headerlink" title="option 3 - bubble rotate"></a>option 3 - bubble rotate</h4><ul>
+<li>TLE<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// bubble rotate</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;k;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = nums.<span class="built_in">size</span>()<span class="number">-1</span>;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="built_in">swap</span>(nums[j], nums[j<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
 <li>option 1  <ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(n)</code></li>
@@ -403,6 +405,11 @@
 </li>
 <li>option 2<ul>
 <li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+</li>
+<li>option 3<ul>
+<li>time complexity <code>O(n*k)</code></li>
 <li>space complexity <code>O(1)</code></li>
 </ul>
 </li>
@@ -516,7 +523,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">401</span>
+                  <span class="site-state-item-count">405</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -589,23 +596,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/17/leetcode/378_KthSmallestElementinaSortedMatrix/" title="378. Kth Smallest Element in a Sorted Matrix" target="_blank">378. Kth Smallest Element in a Sorted Matrix</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/240_Searcha2DMatrixII/" title="240. Search a 2D Matrix II" target="_blank">240. Search a 2D Matrix II</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/401_BinaryWatch/" title="401. Binary Watch" target="_blank">401. Binary Watch</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/17/leetcode/151_ReverseWordsinaString/" title="151. Reverse Words in a String" target="_blank">151. Reverse Words in a String</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/16/leetcode/75_SortColors/" title="75. Sort Colors" target="_blank">75. Sort Colors</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/868_BinaryGap/" title="868. Binary Gap" target="_blank">868. Binary Gap</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/382_LinkedListRandomNode/" title="382. Linked List Random Node" target="_blank">382. Linked List Random Node</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/16/leetcode/946_ValidateStackSequences/" title="946. Validate Stack Sequences" target="_blank">946. Validate Stack Sequences</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/127_WordLadder/" title="127. Word Ladder" target="_blank">127. Word Ladder</a>
                   </li>
                 
               </ul>
@@ -632,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-reverse"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - *reverse</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-reverse"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - *reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-bubble-rotate"><span class="nav-number">2.0.3.</span> <span class="nav-text">option 3 - bubble rotate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>
