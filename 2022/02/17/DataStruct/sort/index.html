@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="complexity   case Bubble sort insertion sort selection sort merge sort quick sort Radix Sort    best case $N$ $N$ $N^2$ $NlogN$ $NlogN$ kN   average case $N^2$ $N^2$ $N^2$ $NlogN$ $NlogN$    worst cas">
+<meta name="description" content="complexity   Complexity Best case Average case Worst case Memory space Stable    Bubble O(N) O(N^2) O(N^2) 1 stable   Insertion O(N) O(N^2) O(N^2) 1 stable   Selection O(N^2) O(N^2) O(N^2) 1 non-stabl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sort">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/DataStruct/sort/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="complexity   case Bubble sort insertion sort selection sort merge sort quick sort Radix Sort    best case $N$ $N$ $N^2$ $NlogN$ $NlogN$ kN   average case $N^2$ $N^2$ $N^2$ $NlogN$ $NlogN$    worst cas">
+<meta property="og:description" content="complexity   Complexity Best case Average case Worst case Memory space Stable    Bubble O(N) O(N^2) O(N^2) 1 stable   Insertion O(N) O(N^2) O(N^2) 1 stable   Selection O(N^2) O(N^2) O(N^2) 1 non-stabl">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T06:33:54.608Z">
-<meta property="article:modified_time" content="2022-02-17T07:15:36.103Z">
+<meta property="article:modified_time" content="2022-03-17T00:44:36.209Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="sorting">
 <meta property="article:tag" content="Binary Search">
@@ -406,52 +406,96 @@
         <h2 id="complexity"><a href="#complexity" class="headerlink" title="complexity"></a>complexity</h2><table>
 <thead>
 <tr>
-<th>case</th>
-<th>Bubble sort</th>
-<th>insertion sort</th>
-<th>selection sort</th>
-<th>merge sort</th>
-<th>quick sort</th>
-<th>Radix Sort</th>
+<th>Complexity</th>
+<th>Best case</th>
+<th>Average case</th>
+<th>Worst case</th>
+<th>Memory space</th>
+<th>Stable</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>best case</td>
-<td>$N$</td>
-<td>$N$</td>
-<td>$N^2$</td>
-<td>$NlogN$</td>
-<td>$NlogN$</td>
-<td>kN</td>
+<td>Bubble</td>
+<td><code>O(N)</code></td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N^2)</code></td>
+<td>1</td>
+<td>stable</td>
 </tr>
 <tr>
-<td>average case</td>
-<td>$N^2$</td>
-<td>$N^2$</td>
-<td>$N^2$</td>
-<td>$NlogN$</td>
-<td>$NlogN$</td>
+<td>Insertion</td>
+<td><code>O(N)</code></td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N^2)</code></td>
+<td>1</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>Selection</td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N^2)</code></td>
+<td>1</td>
+<td>non-stable</td>
+</tr>
+<tr>
+<td>Merge</td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(N)</code></td>
 <td></td>
 </tr>
 <tr>
-<td>worst case</td>
-<td>$N^2$</td>
-<td>$N^2$</td>
-<td>$N^2$</td>
-<td>$NlogN$</td>
-<td>$N^2$</td>
+<td>Quick</td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N)</code> or <code>O(logN)</code></td>
+<td>non-stable</td>
+</tr>
+<tr>
+<td>Radix</td>
+<td><code>O(KN)</code></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>Memory</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>Depends</td>
-<td>logN</td>
+<td>Count</td>
+<td><code>O(N+K)</code></td>
+<td><code>O(N+K)</code></td>
+<td><code>O(N+K)</code></td>
+<td><code>O(N+K)</code></td>
 <td></td>
+</tr>
+<tr>
+<td>Bucket</td>
+<td><code>O(N+K)</code></td>
+<td><code>O(N+K)</code></td>
+<td><code>O(N^2)</code></td>
+<td><code>O(N+K)</code></td>
+<td>stable</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td><code>O(NlogN)</code></td>
+<td></td>
+<td><code>O(N^2)</code>~&#96;O(nlog^2 N)&#96;</td>
+<td>1</td>
+<td>non-stable</td>
+</tr>
+<tr>
+<td>Heap</td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(NlogN)</code></td>
+<td><code>O(NlogN)</code></td>
+<td>1</td>
+<td>non-stable</td>
 </tr>
 </tbody></table>
+<p>Count sort 計算每個鍵值的出現次數，並用額外的陣列保存</p>
 <h2 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #include &lt;stdlib&gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// void swap(int *a, int *b)</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     int temp = *a;</span></span><br><span class="line"><span class="comment">//     *a = *b;</span></span><br><span class="line"><span class="comment">//     *b = temp;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SelectSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//每輪確保最小值在前面 best case O(n^2)   可以是 stable</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> min_idx = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nums[min_idx] &gt; nums[j])</span><br><span class="line">            &#123;</span><br><span class="line">                min_idx = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(nums[min_idx], nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InsertSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 前i 個元素是已排序過的，插入第i+1 個元素 best case O(n) stable</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); ++i)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> key = nums[i];</span><br><span class="line">        <span class="type">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">-1</span> &amp;&amp; nums[j] &gt; key)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[j + <span class="number">1</span>] = nums[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        nums[j + <span class="number">1</span>] = key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BubbleSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每輪確保最大值在最後 best case O(n) stable</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); ++i)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>() - i - <span class="number">1</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j + <span class="number">1</span>] &lt; nums[j])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> temp = nums[j];</span><br><span class="line">                nums[j] = nums[j + <span class="number">1</span>];</span><br><span class="line">                nums[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Partition</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = nums[r];</span><br><span class="line">    <span class="type">int</span> i = l - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = l; j &lt; r; j++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nums[j] &lt; pivot)</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[i], nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="built_in">swap</span>(nums[r], nums[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">QuickSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// O(nlogn) avg case, worse case O(n^2)</span></span><br><span class="line">    <span class="comment">// internal sortting , in-place</span></span><br><span class="line">    <span class="comment">// unstable</span></span><br><span class="line">    <span class="comment">// preferred for arrays</span></span><br><span class="line">    <span class="comment">// preorder</span></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> pivot = <span class="built_in">Partition</span>(nums, l, r);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, l, pivot - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, pivot + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> mid, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">left</span><span class="params">(nums.begin() + l, nums.begin() + mid+<span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">right</span><span class="params">(nums.begin() + mid+<span class="number">1</span>, nums.begin() + r + <span class="number">1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = l;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; left.<span class="built_in">size</span>() &amp;&amp; j &lt; right.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (left[i] &lt;= right[j])</span><br><span class="line">            nums[k++] = left[i++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            nums[k++] = right[j++];</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; left.<span class="built_in">size</span>())</span><br><span class="line">        nums[k++] = left[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt; right.<span class="built_in">size</span>())</span><br><span class="line">        nums[k++] = right[j++];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// option 2</span></span><br><span class="line">    <span class="comment">// left.push_back(INT_MAX);</span></span><br><span class="line">    <span class="comment">// right.push_back(INT_MAX);</span></span><br><span class="line">    <span class="comment">// int j=0, k=0;</span></span><br><span class="line">    <span class="comment">// for(int i=l ;i&lt;=r ;++i)&#123;</span></span><br><span class="line">    <span class="comment">//     if(left[j]&lt;right[k])  nums[i] = left[j++];</span></span><br><span class="line">    <span class="comment">//     else nums[i] = right[k++];</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// external sort , worse cse and avg case O(nlogn)</span></span><br><span class="line">    <span class="comment">// not in place , need eatra space</span></span><br><span class="line">    <span class="comment">// stable</span></span><br><span class="line">    <span class="comment">// preferred for linked list</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, l, mid);</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">        <span class="built_in">Merge</span>(nums, l, mid, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// void (*f[3])(vector&lt;int&gt; &amp;) = &#123;SelectSort, InsertSort, BubbleSort&#125;;</span></span><br><span class="line">    <span class="built_in">void</span> (*f[<span class="number">1</span>])(vector&lt;<span class="type">int</span>&gt; &amp;) = &#123;SelectSort&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; test = &#123;<span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">32</span>, <span class="number">4</span>&#125;;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; test1 = &#123;<span class="number">10</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>&#125;;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; test2 = &#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : test1)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        (*f[i])(test1);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : test1)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">void</span> (*fp[<span class="number">1</span>])(vector&lt;<span class="type">int</span>&gt; &amp;, <span class="type">int</span>, <span class="type">int</span>) = &#123;MergeSort&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; test3 = &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : test3)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">        (*fp[i])(test3, <span class="number">0</span>, test3.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : test3)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -569,7 +613,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">398</span>
+                  <span class="site-state-item-count">401</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -591,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -642,23 +686,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/16/leetcode/75_SortColors/" title="75. Sort Colors" target="_blank">75. Sort Colors</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/16/leetcode/868_BinaryGap/" title="868. Binary Gap" target="_blank">868. Binary Gap</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/16/leetcode/382_LinkedListRandomNode/" title="382. Linked List Random Node" target="_blank">382. Linked List Random Node</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/16/leetcode/946_ValidateStackSequences/" title="946. Validate Stack Sequences" target="_blank">946. Validate Stack Sequences</a>
                   </li>
                 
                   <li>
                     <a href="/blog/2022/03/15/leetcode/127_WordLadder/" title="127. Word Ladder" target="_blank">127. Word Ladder</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/334_IncreasingTripletSubsequence/" title="334. Increasing Triplet Subsequence" target="_blank">334. Increasing Triplet Subsequence</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/128_LongestConsecutiveSequence/" title="128. Longest Consecutive Sequence" target="_blank">128. Longest Consecutive Sequence</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/1249_MinimumRemovetoMakeValidParentheses/" title="1249. Minimum Remove to Make Valid Parentheses" target="_blank">1249. Minimum Remove to Make Valid Parentheses</a>
                   </li>
                 
               </ul>

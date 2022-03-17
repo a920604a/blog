@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolution version 112345678910111213class Solution &amp;#123;public:    int findKthLargest(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        priority_queue&lt;int&gt; pq;            for(int n:nums)">
+<meta name="description" content="problemsolutionoption 1 - sort1234567class Solution &amp;#123;public:    int findKthLargest(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        sort(nums.begin(), nums.end());        return nums[nums.size()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="215. Kth Largest Element in an Array">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/25/leetcode/215_KthLargestElementinanArray/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolution version 112345678910111213class Solution &amp;#123;public:    int findKthLargest(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        priority_queue&lt;int&gt; pq;            for(int n:nums)">
+<meta property="og:description" content="problemsolutionoption 1 - sort1234567class Solution &amp;#123;public:    int findKthLargest(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        sort(nums.begin(), nums.end());        return nums[nums.size()">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-25T14:10:50.536Z">
-<meta property="article:modified_time" content="2022-02-25T14:18:50.531Z">
+<meta property="article:modified_time" content="2022-03-16T13:32:39.867Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="heap">
 <meta name="twitter:card" content="summary">
@@ -391,12 +391,28 @@
       
 
       
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/kth-largest-element-in-an-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-sort"><a href="#option-1-sort" class="headerlink" title="option 1 - sort"></a>option 1 - sort</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums[nums.<span class="built_in">size</span>()-k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-heap"><a href="#option-2-heap" class="headerlink" title="option 2 - heap"></a>option 2 - heap</h4><ul>
 <li>version 1<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>&gt; pq;    </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums) pq.<span class="built_in">push</span>(n);</span><br><span class="line">        <span class="type">int</span> ret ;</span><br><span class="line">        <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">            ret = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>version 2<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(n);</span><br><span class="line">            <span class="keyword">if</span>(pq.<span class="built_in">size</span>() &gt; k) pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2></li>
+<li>version 2<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(n);</span><br><span class="line">            <span class="keyword">if</span>(pq.<span class="built_in">size</span>() &gt; k) pq.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="option-3-quick-sort"><a href="#option-3-quick-sort" class="headerlink" title="option 3 - quick sort"></a>option 3 - quick sort</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getKth</span><span class="params">(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> start, <span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pivot = nums[end];</span><br><span class="line">        <span class="type">int</span> left = start, right = end;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">while</span>(left&lt; right &amp;&amp; nums[left]&lt;pivot) left++;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right &amp;&amp; nums[right]&gt;=pivot) right--;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// found it </span></span><br><span class="line">            <span class="keyword">if</span>(left==right) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">swap</span>(nums[left], nums[right]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(nums[left], nums[end]);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(left+<span class="number">1</span> == k) <span class="keyword">return</span> pivot;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(left+<span class="number">1</span> &gt; k) <span class="keyword">return</span> <span class="built_in">getKth</span>(k, nums, start, left<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">getKth</span>(k, nums, left+<span class="number">1</span>, end);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(k&lt; <span class="number">1</span> || nums.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getKth</span>(nums.<span class="built_in">size</span>()-k+<span class="number">1</span>, nums, <span class="number">0</span>, nums.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>option 1 - sort <ul>
 <li>time complexity <code>O(nlogn)</code></li>
 <li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
+<li>option 2 - heap<ul>
+<li>time complexity <code>O(nlogk)</code></li>
+<li>space complexity <code>O(k)</code></li>
+</ul>
+</li>
+<li>option 3 - quick sort<ul>
+<li>time complexity <code>O(nlogn)</code> on average,<code>O(n^2)</code> on worse case</li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
+</li>
 </ul>
 
       
@@ -513,7 +529,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">398</span>
+                  <span class="site-state-item-count">401</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -535,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -586,23 +602,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/16/leetcode/75_SortColors/" title="75. Sort Colors" target="_blank">75. Sort Colors</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/16/leetcode/868_BinaryGap/" title="868. Binary Gap" target="_blank">868. Binary Gap</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/16/leetcode/382_LinkedListRandomNode/" title="382. Linked List Random Node" target="_blank">382. Linked List Random Node</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/16/leetcode/946_ValidateStackSequences/" title="946. Validate Stack Sequences" target="_blank">946. Validate Stack Sequences</a>
                   </li>
                 
                   <li>
                     <a href="/blog/2022/03/15/leetcode/127_WordLadder/" title="127. Word Ladder" target="_blank">127. Word Ladder</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/334_IncreasingTripletSubsequence/" title="334. Increasing Triplet Subsequence" target="_blank">334. Increasing Triplet Subsequence</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/128_LongestConsecutiveSequence/" title="128. Longest Consecutive Sequence" target="_blank">128. Longest Consecutive Sequence</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/15/leetcode/1249_MinimumRemovetoMakeValidParentheses/" title="1249. Minimum Remove to Make Valid Parentheses" target="_blank">1249. Minimum Remove to Make Valid Parentheses</a>
                   </li>
                 
               </ul>
@@ -629,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-sort"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1 - sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2-heap"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2 - heap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-3-quick-sort"><span class="nav-number">2.0.3.</span> <span class="nav-text">option 3 - quick sort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>
