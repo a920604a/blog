@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolutionpostorder[r]為根節點，並從inorder[l:r]找到該節點，並用此節點切割，左半部為此節點的左子樹，右半部為此節點的右子樹，並遞迴下去。 123456789101112131415161718192021222324252627282930313233&#x2F;** * Definition for a binary tree node. * struct Tr">
+<meta name="description" content="problemsolutionpostorder[r]為根節點，並從inorder[l:r]找到該節點，並用此節點切割，左半部為此節點的左子樹，右半部為此節點的右子樹，並遞迴下去。 1234567891011121314151617181920class Solution &amp;#123;public:    TreeNode *build(vector&lt;int&gt; &amp; inorde">
 <meta property="og:type" content="article">
 <meta property="og:title" content="106. Construct Binary Tree from Inorder and Postorder Traversal">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/17/leetcode/106_ConstructBinaryTreefromInorderandPostorderTraversal/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolutionpostorder[r]為根節點，並從inorder[l:r]找到該節點，並用此節點切割，左半部為此節點的左子樹，右半部為此節點的右子樹，並遞迴下去。 123456789101112131415161718192021222324252627282930313233&#x2F;** * Definition for a binary tree node. * struct Tr">
+<meta property="og:description" content="problemsolutionpostorder[r]為根節點，並從inorder[l:r]找到該節點，並用此節點切割，左半部為此節點的左子樹，右半部為此節點的右子樹，並遞迴下去。 1234567891011121314151617181920class Solution &amp;#123;public:    TreeNode *build(vector&lt;int&gt; &amp; inorde">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T01:36:37.894Z">
-<meta property="article:modified_time" content="2022-02-28T09:22:32.097Z">
+<meta property="article:modified_time" content="2022-03-18T13:25:43.483Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -392,7 +392,7 @@
 
       
         <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p><code>postorder[r]</code>為根節點，並從<code>inorder[l:r]</code>找到該節點，並用此節點切割，左半部為此節點的左子樹，右半部為此節點的右子樹，並遞迴下去。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> il, <span class="type">int</span> ir, <span class="type">int</span> pl, <span class="type">int</span> pr)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(il&gt;ir || pl&gt;pr) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">-1</span>, val = postorder[pr];</span><br><span class="line">        TreeNode *root= <span class="keyword">new</span> <span class="built_in">TreeNode</span>(val);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=il;i&lt;=ir;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val==inorder[i])&#123;</span><br><span class="line">                idx = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, postorder, il, idx<span class="number">-1</span>, pl, pl+idx-il<span class="number">-1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, postorder, idx+<span class="number">1</span>, ir, pl+idx-il, pr<span class="number">-1</span>);;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, postorder, <span class="number">0</span>, inorder.<span class="built_in">size</span>()<span class="number">-1</span>, <span class="number">0</span>, postorder.<span class="built_in">size</span>()<span class="number">-1</span>);    </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode *<span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp; inorder, <span class="type">int</span> il, <span class="type">int</span> ir, vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> pl, <span class="type">int</span> pr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(il&gt;ir) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        TreeNode *root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(postorder[pr]);</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i= il;i&lt;=ir;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(inorder[i] == root-&gt;val)&#123;</span><br><span class="line">                idx = i ;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, il, idx<span class="number">-1</span>, postorder, pl, pl+idx-il<span class="number">-1</span>) ;</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, idx+<span class="number">1</span>, ir, postorder, pl+idx-il, pr<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, <span class="number">0</span>, inorder.<span class="built_in">size</span>()<span class="number">-1</span>, postorder, <span class="number">0</span>, postorder.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n^2)</code></li>
@@ -513,7 +513,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">411</span>
+                  <span class="site-state-item-count">415</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -586,23 +586,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/18/leetcode/101_SymmetricTree/" title="101. Symmetric Tree" target="_blank">101. Symmetric Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/109_ConvertSortedListtoBinarySearchTree/" title="109. Convert Sorted List to Binary Search Tree" target="_blank">109. Convert Sorted List to Binary Search Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/108_ConvertSortedArraytoBinarySearchTree/" title="108. Convert Sorted Array to Binary Search Tree" target="_blank">108. Convert Sorted Array to Binary Search Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/987_VerticalOrderTraversalofaBinaryTree/" title="987. Vertical Order Traversal of a Binary Tree" target="_blank">987. Vertical Order Traversal of a Binary Tree</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/18/leetcode/328_OddEvenLinkedList/" title="328. Odd Even Linked List" target="_blank">328. Odd Even Linked List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/237_DeleteNodeinaLinkedList/" title="237. Delete Node in a Linked List" target="_blank">237. Delete Node in a Linked List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/86_PartitionList/" title="86. Partition List" target="_blank">86. Partition List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/130_SurroundedRegions/" title="130. Surrounded Regions" target="_blank">130. Surrounded Regions</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/329_LongestIncreasingPathinaMatrix/" title="329. Longest Increasing Path in a Matrix" target="_blank">329. Longest Increasing Path in a Matrix</a>
                   </li>
                 
               </ul>

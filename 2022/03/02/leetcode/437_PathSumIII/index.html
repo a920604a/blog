@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolution123456789101112131415161718192021222324252627282930313233343536373839&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNod">
+<meta name="description" content="problemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    int traverse(TreeNode * root, int targetSum)&amp;#123;                if(!root) return 0;                targetSum -&#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="437. Path Sum III">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/03/02/leetcode/437_PathSumIII/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolution123456789101112131415161718192021222324252627282930313233343536373839&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNod">
+<meta property="og:description" content="problemsolution123456789101112131415161718192021222324class Solution &amp;#123;public:    int traverse(TreeNode * root, int targetSum)&amp;#123;                if(!root) return 0;                targetSum -&#x3D;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-03-02T02:24:20.549Z">
-<meta property="article:modified_time" content="2022-03-02T02:24:55.657Z">
+<meta property="article:modified_time" content="2022-03-18T13:14:08.785Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -391,7 +391,7 @@
       
 
       
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/path-sum-iii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">traverse</span><span class="params">(TreeNode * root, <span class="type">int</span> targetSum)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        targetSum -= root-&gt;val;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(targetSum==<span class="number">0</span>) &#123;</span><br><span class="line">            ret++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ret+=<span class="built_in">traverse</span>(root-&gt;left, targetSum)+<span class="built_in">traverse</span>(root-&gt;right, targetSum);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pathSum</span><span class="params">(TreeNode* root, <span class="type">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 路徑包含當下的節點</span></span><br><span class="line">        <span class="type">int</span> ret = <span class="built_in">traverse</span>(root, targetSum);</span><br><span class="line">        </span><br><span class="line">        ret += <span class="built_in">pathSum</span>(root-&gt;left, targetSum);</span><br><span class="line">        ret += <span class="built_in">pathSum</span>(root-&gt;right, targetSum);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/path-sum-iii/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">traverse</span><span class="params">(TreeNode * root, <span class="type">int</span> targetSum)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        targetSum -= root-&gt;val;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(targetSum==<span class="number">0</span>) ret++;</span><br><span class="line">        ret+=<span class="built_in">traverse</span>(root-&gt;left, targetSum)+<span class="built_in">traverse</span>(root-&gt;right, targetSum);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pathSum</span><span class="params">(TreeNode* root, <span class="type">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!root ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 路徑包含當下的節點</span></span><br><span class="line">        <span class="type">int</span> ret = <span class="built_in">traverse</span>(root, targetSum);</span><br><span class="line">        </span><br><span class="line">        ret += <span class="built_in">pathSum</span>(root-&gt;left, targetSum);</span><br><span class="line">        ret += <span class="built_in">pathSum</span>(root-&gt;right, targetSum);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -506,7 +506,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">411</span>
+                  <span class="site-state-item-count">415</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -579,23 +579,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/03/18/leetcode/101_SymmetricTree/" title="101. Symmetric Tree" target="_blank">101. Symmetric Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/109_ConvertSortedListtoBinarySearchTree/" title="109. Convert Sorted List to Binary Search Tree" target="_blank">109. Convert Sorted List to Binary Search Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/108_ConvertSortedArraytoBinarySearchTree/" title="108. Convert Sorted Array to Binary Search Tree" target="_blank">108. Convert Sorted Array to Binary Search Tree</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/03/18/leetcode/987_VerticalOrderTraversalofaBinaryTree/" title="987. Vertical Order Traversal of a Binary Tree" target="_blank">987. Vertical Order Traversal of a Binary Tree</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/03/18/leetcode/328_OddEvenLinkedList/" title="328. Odd Even Linked List" target="_blank">328. Odd Even Linked List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/237_DeleteNodeinaLinkedList/" title="237. Delete Node in a Linked List" target="_blank">237. Delete Node in a Linked List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/86_PartitionList/" title="86. Partition List" target="_blank">86. Partition List</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/130_SurroundedRegions/" title="130. Surrounded Regions" target="_blank">130. Surrounded Regions</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/03/18/leetcode/329_LongestIncreasingPathinaMatrix/" title="329. Longest Increasing Path in a Matrix" target="_blank">329. Longest Increasing Path in a Matrix</a>
                   </li>
                 
               </ul>
