@@ -10721,9 +10721,17 @@ public:
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>Segment Tree</title>
     <url>/blog/2022/03/20/DataStruct/SegmentTree/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>CS</category>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>sorting</tag>
+        <tag>Binary Search</tag>
+      </tags>
   </entry>
   <entry>
     <title>2207. Maximize Number of Subsequences in a String</title>
@@ -10821,6 +10829,20 @@ public:
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
 <li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>1007. Minimum Domino Rotations For Equal Row</title>
+    <url>/blog/2022/03/20/leetcode/1007_MinimumDominoRotationsForEqualRow/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minDominoRotations</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; tops, vector&lt;<span class="type">int</span>&gt;&amp; bottoms)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = tops.<span class="built_in">size</span>() , count  = <span class="number">0</span>, cand = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">6</span> ; ++i)&#123;</span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;n;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(tops[j] == i || bottoms[j] == i) count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(count == n)&#123;</span><br><span class="line">                cand = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cand == <span class="number">-1</span>) <span class="keyword">return</span> cand;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> top_n = <span class="number">0</span>, bottom_n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tops[i] == cand) top_n++;</span><br><span class="line">            <span class="keyword">if</span>(bottoms[i] == cand) bottom_n++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">min</span>(n-top_n, n-bottom_n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2"><a href="#option-2" class="headerlink" title="option 2"></a>option 2</h4><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(6n)</code></li>
+<li>space complecity <code>O(1)</code></li>
 </ul>
 ]]></content>
       <categories>

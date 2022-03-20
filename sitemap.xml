@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/DataStruct/SegmentTree/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/1007_MinimumDominoRotationsForEqualRow/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2208_MinimumOperationstoHalveArraySum/</loc>
     
     <lastmod>2022-03-20</lastmod>
@@ -12,15 +30,6 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2211_CountCollisionsonaRoad/</loc>
-    
-    <lastmod>2022-03-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://a920604a.github.io/blog/2022/03/20/DataStruct/SegmentTree/</loc>
     
     <lastmod>2022-03-20</lastmod>
     
