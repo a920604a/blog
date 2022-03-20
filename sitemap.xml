@@ -2,6 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2208_MinimumOperationstoHalveArraySum/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2211_CountCollisionsonaRoad/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/DataStruct/SegmentTree/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2212_MaximumPointsinanArcheryCompetition/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2210_CountHillsandValleysinanArray/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2207_MaximizeNumberofSubsequencesinaString/</loc>
+    
+    <lastmod>2022-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/20/leetcode/2206_DivideArrayIntoEqualPairs/</loc>
+    
+    <lastmod>2022-03-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/19/leetcode/895_MaximumFrequencyStack/</loc>
+    
+    <lastmod>2022-03-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/09/Hard/</loc>
+    
+    <lastmod>2022-03-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://a920604a.github.io/blog/2022/03/12/Algorithm-Problem-Classification/</loc>
     
     <lastmod>2022-03-18</lastmod>
@@ -39,15 +120,6 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/2022/03/09/leetcode/110_BalancedBinaryTree/</loc>
-    
-    <lastmod>2022-03-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://a920604a.github.io/blog/2022/03/09/Hard/</loc>
     
     <lastmod>2022-03-18</lastmod>
     
@@ -3775,7 +3847,7 @@
 
   <url>
     <loc>https://a920604a.github.io/blog</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -3783,280 +3855,280 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/blog/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/graph/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/bfs/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Linked-List/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/queue/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Trie/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Union-Find/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Two-Pointers/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/sorting/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Binary-Search/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Search/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/stack/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Bit-Manipulation/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/dp/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/monotonic-stack/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/monotonic-queue/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/backtracking/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Sliding-Window/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/hash-table/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/trie/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Heap/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Stack/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Queue/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Interval/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/heap/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/math/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Prefix-Sum/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/greedy/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Matrix/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Graph/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/dfs/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/sort/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Math/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Greedy/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Sliding-window/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Hash-table/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Segment-Tree/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Kadane-s-Algo/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/sliding-window/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/tags/Randomized/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -4065,140 +4137,140 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/blog/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/CS/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/CS/Data-Structure/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/CS/Algorithm/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/leetcode/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Counting-Elements/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/iteration/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Prefix-Sum/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Time-Complexity/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Array/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/sorting/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Stacks-and-Queues/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Mamimum-Slice-problem/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Prime-and-composite-numbers/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Leader/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Sieve-of-Eratosthenes/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/codility/Euclidean-algorithm/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/CS/Data-Structure/Algorithm/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://a920604a.github.io/blog/categories/HackerRank/</loc>
-    <lastmod>2022-03-18</lastmod>
+    <lastmod>2022-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
