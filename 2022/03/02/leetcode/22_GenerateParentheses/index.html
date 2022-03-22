@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problemsolution123456789101112131415161718192021class Solution &amp;#123;public:    vector&lt;string&gt; ret;    void backtracking(int l, int r, string  path)&amp;#123;        &#x2F;&#x2F; 目前為止右括號用的比左括號多        if(l&amp;gt">
+<meta name="description" content="problemsolutionoption 1 - dfs123456789101112131415161718192021class Solution &amp;#123;public:    vector&lt;string&gt; ret;    void backtracking(int l, int r, string  path)&amp;#123;        &#x2F;&#x2F; 目前為止右括號用的比左括號多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="22. Generate Parentheses">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/03/02/leetcode/22_GenerateParentheses/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemsolution123456789101112131415161718192021class Solution &amp;#123;public:    vector&lt;string&gt; ret;    void backtracking(int l, int r, string  path)&amp;#123;        &#x2F;&#x2F; 目前為止右括號用的比左括號多        if(l&amp;gt">
+<meta property="og:description" content="problemsolutionoption 1 - dfs123456789101112131415161718192021class Solution &amp;#123;public:    vector&lt;string&gt; ret;    void backtracking(int l, int r, string  path)&amp;#123;        &#x2F;&#x2F; 目前為止右括號用的比左括號多">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-03-02T03:41:55.772Z">
-<meta property="article:modified_time" content="2022-03-02T03:42:34.694Z">
+<meta property="article:modified_time" content="2022-03-22T03:08:57.739Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta name="twitter:card" content="summary">
@@ -391,7 +391,9 @@
       
 
       
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/generate-parentheses/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; ret;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, string  path)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 目前為止右括號用的比左括號多</span></span><br><span class="line">        <span class="keyword">if</span>(l&gt;r) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">0</span> &amp;&amp; r==<span class="number">0</span>)&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l&lt; <span class="number">0</span> || r&lt;<span class="number">0</span> ) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="built_in">backtracking</span>(l<span class="number">-1</span>, r,path+<span class="string">&#x27;(&#x27;</span> );</span><br><span class="line">        <span class="built_in">backtracking</span>(l, r<span class="number">-1</span>, path+<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string path;</span><br><span class="line">        <span class="built_in">backtracking</span>(n,n, path);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/generate-parentheses/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-dfs"><a href="#option-1-dfs" class="headerlink" title="option 1 - dfs"></a>option 1 - dfs</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; ret;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, string  path)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 目前為止右括號用的比左括號多</span></span><br><span class="line">        <span class="keyword">if</span>(l&gt;r) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">0</span> &amp;&amp; r==<span class="number">0</span>)&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l&lt; <span class="number">0</span> || r&lt;<span class="number">0</span> ) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="built_in">backtracking</span>(l<span class="number">-1</span>, r,path+<span class="string">&#x27;(&#x27;</span> );</span><br><span class="line">        <span class="built_in">backtracking</span>(l, r<span class="number">-1</span>, path+<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string path;</span><br><span class="line">        <span class="built_in">backtracking</span>(n,n, path);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="option-2"><a href="#option-2" class="headerlink" title="option 2"></a>option 2</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; diff;</span><br><span class="line">        ret.<span class="built_in">push_back</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        diff.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n*<span class="number">2</span>;++i)&#123;</span><br><span class="line">            vector&lt;string&gt; temp1;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; temp2;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;ret.<span class="built_in">size</span>() ;++j)&#123;</span><br><span class="line">                string s = ret[j];</span><br><span class="line">                <span class="type">int</span> k = diff[j];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(i&lt;<span class="number">2</span>*n<span class="number">-1</span>)&#123;</span><br><span class="line">                    temp1.<span class="built_in">push_back</span>(s+<span class="string">&quot;(&quot;</span>);</span><br><span class="line">                    temp2.<span class="built_in">push_back</span>(k+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(k&gt;<span class="number">0</span> &amp;&amp; i&lt;<span class="number">2</span>*n<span class="number">-1</span> || k==<span class="number">1</span> &amp;&amp; i==<span class="number">2</span>*n<span class="number">-1</span>)&#123;</span><br><span class="line">                    temp1.<span class="built_in">push_back</span>(s+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">                    temp2.<span class="built_in">push_back</span>(k<span class="number">-1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ret= temp1;</span><br><span class="line">            diff = temp2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -506,7 +508,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-count">441</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -528,7 +530,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -579,23 +581,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/03/20/leetcode/1007_MinimumDominoRotationsForEqualRow/" title="1007. Minimum Domino Rotations For Equal Row" target="_blank">1007. Minimum Domino Rotations For Equal Row</a>
+                    <a href="/blog/2022/03/22/leetcode/93_RestoreIPAddresses/" title="93. Restore IP Addresses" target="_blank">93. Restore IP Addresses</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/20/leetcode/2208_MinimumOperationstoHalveArraySum/" title="2208. Minimum Operations to Halve Array Sum" target="_blank">2208. Minimum Operations to Halve Array Sum</a>
+                    <a href="/blog/2022/03/22/leetcode/809_ExpressiveWords/" title="809. Expressive Words" target="_blank">809. Expressive Words</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/20/DataStruct/SegmentTree/" title="Segment Tree" target="_blank">Segment Tree</a>
+                    <a href="/blog/2022/03/22/leetcode/290_WordPattern/" title="290. Word Pattern" target="_blank">290. Word Pattern</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/20/leetcode/2211_CountCollisionsonaRoad/" title="2211. Count Collisions on a Road" target="_blank">2211. Count Collisions on a Road</a>
+                    <a href="/blog/2022/03/22/leetcode/386_LexicographicalNumbers/" title="386. Lexicographical Numbers" target="_blank">386. Lexicographical Numbers</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/20/leetcode/2212_MaximumPointsinanArcheryCompetition/" title="2212. Maximum Points in an Archery Competition" target="_blank">2212. Maximum Points in an Archery Competition</a>
+                    <a href="/blog/2022/03/22/leetcode/996_NumberofSquarefulArrays/" title="996. Number of Squareful Arrays" target="_blank">996. Number of Squareful Arrays</a>
                   </li>
                 
               </ul>
@@ -622,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-1-dfs"><span class="nav-number">2.0.1.</span> <span class="nav-text">option 1 - dfs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-2"><span class="nav-number">2.0.2.</span> <span class="nav-text">option 2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
