@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemrefer to &amp; 通常用於二進位的取位操作，例如一個數(x) x &amp; 1 的結果就是取二進位的最末位，可以用來判斷奇偶。另外，相同位的兩個數字都為 1，則為 1，若有一個不為 1，則為0 ^ 異或運算，如果某位不同則為1，否則為0。另外，還有a^b &#x3D; b^a，a^0&#x3D;a 加法可以用&amp;、^ 實現12345678910111213a &#x3D; 5b &#x3D; 17int">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:06.721Z">
-<meta property="article:modified_time" content="2022-02-16T15:13:43.083Z">
+<meta property="article:modified_time" content="2022-03-23T08:56:01.353Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="Bit Manipulation">
 <meta name="twitter:card" content="summary">
@@ -398,8 +398,8 @@
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2></li>
 </ul>
 <h4 id="option-1-iterative"><a href="#option-1-iterative" class="headerlink" title="option 1 - iterative"></a>option 1 - iterative</h4><ul>
-<li>加入<code> 0x7fffffff</code> 以防overflow <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, count =<span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">while</span>(b!=<span class="number">0</span>)&#123;</span><br><span class="line">            sum = a^b;</span><br><span class="line">            count = (a&amp;b &amp; <span class="number">0x7fffffff</span>)&lt;&lt;<span class="number">1</span>;</span><br><span class="line">            a=sum;</span><br><span class="line">            b=count;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="option-2-recursive"><a href="#option-2-recursive" class="headerlink" title="option 2 - recursive"></a>option 2 - recursive</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="type">int</span> sum = a^b;</span><br><span class="line">        <span class="type">int</span> count = (a&amp;b&amp; <span class="number">0x7fffffff</span>)&lt;&lt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getSum</span>(sum, count);        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>加入<code> 0x7fffffff</code> 以防overflow <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(a)&#123;</span><br><span class="line">            <span class="type">int</span> carry = (a&amp;b&amp;<span class="number">0x7fffffff</span>)&lt;&lt;<span class="number">1</span>, sum = a^b;</span><br><span class="line">            a = carry, b = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-recursive"><a href="#option-2-recursive" class="headerlink" title="option 2 - recursive"></a>option 2 - recursive</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">0</span>) <span class="keyword">return</span> b;</span><br><span class="line">        <span class="type">int</span> carry = (a&amp;b&amp;<span class="number">0x7fffffff</span>)&lt;&lt;<span class="number">1</span>, sum = a^b;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getSum</span>(carry, sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(1)</code></li>
@@ -520,7 +520,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">446</span>
+                  <span class="site-state-item-count">460</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -593,23 +593,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/03/22/leetcode/188_BestTimetoBuyandSellStockIV/" title="188. Best Time to Buy and Sell Stock IV" target="_blank">188. Best Time to Buy and Sell Stock IV</a>
+                    <a href="/blog/2022/03/23/leetcode/393_UTF-8Validation/" title="393 UTF-8 Validation" target="_blank">393 UTF-8 Validation</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/22/leetcode/123_BestTimetoBuyandSellStockIII/" title="123. Best Time to Buy and Sell Stock III" target="_blank">123. Best Time to Buy and Sell Stock III</a>
+                    <a href="/blog/2022/03/23/leetcode/89_GrayCode/" title="89. Gray Code" target="_blank">89. Gray Code</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/22/leetcode/714_BestTimetoBuyandSellStockwithTransactionFee/" title="714. Best Time to Buy and Sell Stock with Transaction Fee" target="_blank">714. Best Time to Buy and Sell Stock with Transaction Fee</a>
+                    <a href="/blog/2022/03/23/leetcode/201_BitwiseANDofNumbersRange/" title="201. Bitwise AND of Numbers Range" target="_blank">201. Bitwise AND of Numbers Range</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/22/leetcode/309_BestTimetoBuyandSellStockwithCooldown/" title="309. Best Time to Buy and Sell Stock with Cooldown" target="_blank">309. Best Time to Buy and Sell Stock with Cooldown</a>
+                    <a href="/blog/2022/03/23/leetcode/187_RepeatedDNASequences/" title="187. Repeated DNA Sequences" target="_blank">187. Repeated DNA Sequences</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/03/22/leetcode/131_PalindromePartitioning/" title="131. Palindrome Partitioning" target="_blank">131. Palindrome Partitioning</a>
+                    <a href="/blog/2022/03/23/leetcode/260_SingleNumberIII/" title="260. Single Number III" target="_blank">260. Single Number III</a>
                   </li>
                 
               </ul>
