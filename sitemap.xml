@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://a920604a.github.io/blog/2022/03/25/leetcode/299_BullsandCows/</loc>
-    
-    <lastmod>2022-03-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://a920604a.github.io/blog/2022/03/12/Algorithm-Problem-Classification/</loc>
     
     <lastmod>2022-03-25</lastmod>
@@ -21,6 +12,15 @@
   
   <url>
     <loc>https://a920604a.github.io/blog/2022/03/25/leetcode/6_ZigzagConversion/</loc>
+    
+    <lastmod>2022-03-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a920604a.github.io/blog/2022/03/25/leetcode/299_BullsandCows/</loc>
     
     <lastmod>2022-03-25</lastmod>
     
