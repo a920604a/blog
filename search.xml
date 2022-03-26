@@ -5935,7 +5935,7 @@ public:
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
+<li>space complexity <code>O(nm)</code></li>
 </ul>
 ]]></content>
       <categories>
@@ -5943,6 +5943,7 @@ public:
       </categories>
       <tags>
         <tag>dp</tag>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -5952,7 +5953,7 @@ public:
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
-<li>space complexity <code>O(1)</code></li>
+<li>space complexity <code>O(n)</code></li>
 </ul>
 ]]></content>
       <categories>
@@ -5960,6 +5961,7 @@ public:
       </categories>
       <tags>
         <tag>dp</tag>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -10395,7 +10397,10 @@ public:
 <li>58 Length of Last Word</li>
 <li>299 Bulls and Cows</li>
 <li>*71 Simplify Path</li>
-<li>*165 Compare Version Numbers<br>Pascal’s Triangle: I, II<br>Count and Say<br>Basic Calculator, Basic Calculator II<br>Rectangle Area<br>Find Peak Element<br>Integer to English Words<br>Text Justification<br>Gas Station<br>Self Crossing<br>Patching Array</li>
+<li>*165 Compare Version Numbers</li>
+<li>118 Pascal’s Triangle</li>
+<li>119 Pascal’s Triangle II</li>
+<li>38 Count and Say<br>Basic Calculator<br>Basic Calculator II<br>Rectangle Area<br>Find Peak Element<br>Integer to English Words<br>Text Justification<br>Gas Station<br>Self Crossing<br>Patching Array</li>
 <li>292 Nim Game</li>
 <li>319 Bulb Switcher</li>
 <li>276 Paint Fence (Premium)</li>
@@ -12269,6 +12274,41 @@ public:
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code> </li>
 <li>space compleity <code>O(n)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>38. Count and Say</title>
+    <url>/blog/2022/03/26/leetcode/38_CountandSay/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/count-and-say/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h4 id="option-1-iterative"><a href="#option-1-iterative" class="headerlink" title="option 1 iterative"></a>option 1 iterative</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">countAndSay</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string ret = <span class="string">&quot;1&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            string path ;</span><br><span class="line">            <span class="type">int</span> count = <span class="number">1</span>, val = ret[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;ret.<span class="built_in">size</span>() ; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(ret[j] == val) count++;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    path+=<span class="built_in">to_string</span>(count);</span><br><span class="line">                    path+=val;</span><br><span class="line">                    count = <span class="number">1</span>;</span><br><span class="line">                    val = ret[j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(count &gt; <span class="number">0</span>) &#123;path+=<span class="built_in">to_string</span>(count);path+=val;&#125;</span><br><span class="line">            ret = path;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-recursive"><a href="#option-2-recursive" class="headerlink" title="option 2 recursive"></a>option 2 recursive</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(nlogn)</code></li>
+<li>space complexity <code>O(nm)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>backtracking</tag>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>165. Compare Version Numbers</title>
+    <url>/blog/2022/03/26/leetcode/165_CompareVersionNumbers/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/compare-version-numbers/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">split</span><span class="params">(string version)</span></span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ver;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>, ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;version.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(version[l] ==<span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                ver.<span class="built_in">push_back</span>(ret);</span><br><span class="line">                ret=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ret = <span class="number">10</span>*ret + (version[l]-<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            l++;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ret!=<span class="number">0</span>)  ver.<span class="built_in">push_back</span>(ret);</span><br><span class="line">        <span class="keyword">return</span> ver;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">compareVersion</span><span class="params">(string version1, string version2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ver1 = <span class="built_in">split</span>(version1), ver2 = <span class="built_in">split</span>(version2);</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>,r = <span class="number">0</span>, n = ver1.<span class="built_in">size</span>(), m = ver2.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//&quot;01&quot;</span></span><br><span class="line">        <span class="comment">// &quot;1&quot;</span></span><br><span class="line">        <span class="keyword">while</span>(l&lt;n &amp;&amp; r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ver1[l] == ver2[r])&#123;</span><br><span class="line">                l++;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ver1[l] &gt; ver2[r]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ver1[l] &lt; ver2[r]) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;n )&#123;</span><br><span class="line">            <span class="keyword">if</span>(ver1[l] &gt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            l++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(r&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ver2[r] &gt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
 </ul>
 ]]></content>
       <categories>
