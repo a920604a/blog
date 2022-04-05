@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolution12345678910111213141516class Solution &amp;#123;public:    vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) &amp;#123;        int n &#x3D; nums.size();        int l &#x3D; 0, r &#x3D; n-">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-17T09:10:51.956Z">
-<meta property="article:modified_time" content="2022-03-14T06:57:08.722Z">
+<meta property="article:modified_time" content="2022-04-03T13:37:01.393Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="Binary Search">
 <meta name="twitter:card" content="summary">
@@ -398,17 +398,17 @@
 <pre><code class="c++">class Solution &#123;
 public:
     vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) &#123;
-        int n = nums.size();
-        int l = 0, r = n;
+        if(nums.empty()) return &#123;-1,-1&#125;;
+        int l = 0 , r = nums.size();
         while(l&lt;r)&#123;
-            int mid = l + (r-l)/2;
-            if(nums[mid] &lt; target) l = mid+1;
-            else r= mid;
+            int mid = l +(r-l)/2;
+            if(nums[mid]&gt;=target) r= mid;
+            else l = mid+1;
         &#125;
-        if(l&lt;0 || l&gt;n-1 || nums[l]!=target) return &#123;-1,-1&#125;;
-        int j = l;
-        while(j+1&lt;n &amp;&amp; nums[j] == nums[j+1]) j++;
-        return &#123;l,j&#125;;
+        if(l&lt;0 || l&gt;nums.size()-1 || nums[l]!=target) return &#123;-1,-1&#125;;
+        r = l;
+        while(r&lt;nums.size()-1 &amp;&amp; nums[r+1] == nums[l] ) r++;
+        return &#123;l,r&#125;;
     &#125;
 &#125;;
 ```## analysis
@@ -530,7 +530,7 @@ public:
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">504</span>
+                  <span class="site-state-item-count">513</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -552,7 +552,7 @@ public:
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -603,23 +603,23 @@ public:
                 
                 
                   <li>
-                    <a href="/blog/2022/04/03/leetcode/2226_MaximumCandiesAllocatedtoKChildren/" title="2226. Maximum Candies Allocated to K Children" target="_blank">2226. Maximum Candies Allocated to K Children</a>
+                    <a href="/blog/2022/04/05/leetcode/1894_FindtheStudentthatWillReplacetheChalk/" title="1894. Find the Student that Will Replace the Chalk" target="_blank">1894. Find the Student that Will Replace the Chalk</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/03/leetcode/2225_FindPlayersWithZeroorOneLosses/" title="2225. Find Players With Zero or One Losses" target="_blank">2225. Find Players With Zero or One Losses</a>
+                    <a href="/blog/2022/04/05/leetcode/658_FindKClosestElements/" title="658. Find K Closest Elements" target="_blank">658. Find K Closest Elements</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/03/leetcode/2224_MinimumNumberofOperationstoConvertTime/" title="2224. Minimum Number of Operations to Convert Time" target="_blank">2224. Minimum Number of Operations to Convert Time</a>
+                    <a href="/blog/2022/04/05/leetcode/641_DesignCircularDeque/" title="641. Design Circular Deque" target="_blank">641. Design Circular Deque</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/03/leetcode/2222_NumberofWaystoSelectBuildings/" title="2222. Number of Ways to Select Buildings" target="_blank">2222. Number of Ways to Select Buildings</a>
+                    <a href="/blog/2022/04/05/leetcode/622_DesignCircularQueue/" title="622. Design Circular Queue" target="_blank">622. Design Circular Queue</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/03/leetcode/2221_FindTriangularSumofanArray/" title="2221. Find Triangular Sum of an Array" target="_blank">2221. Find Triangular Sum of an Array</a>
+                    <a href="/blog/2022/04/05/leetcode/707_DesignLinkedList/" title="707. Design Linked List" target="_blank">707. Design Linked List</a>
                   </li>
                 
               </ul>
