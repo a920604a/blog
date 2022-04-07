@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution option 012345678910111213class Solution &amp;#123;public:    int findDuplicate(vector&lt;int&gt;&amp; nums) &amp;#123;        int n &#x3D; nums.size();        fo">
+<meta name="description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution set stl12345678910111213class Solution &amp;#123;public:    int findDuplicate(vector&lt;int&gt;&amp; nums) &amp;#123;        unordered_set&lt;int&gt; s;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="287. Find the Duplicate Number">
 <meta property="og:url" content="https://a920604a.github.io/blog/2022/02/16/leetcode/287_FindtheDuplicateNumber/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution option 012345678910111213class Solution &amp;#123;public:    int findDuplicate(vector&lt;int&gt;&amp; nums) &amp;#123;        int n &#x3D; nums.size();        fo">
+<meta property="og:description" content="problem給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。 solution set stl12345678910111213class Solution &amp;#123;public:    int findDuplicate(vector&lt;int&gt;&amp; nums) &amp;#123;        unordered_set&lt;int&gt; s;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-16T08:01:06.511Z">
-<meta property="article:modified_time" content="2022-03-29T01:12:04.550Z">
+<meta property="article:modified_time" content="2022-04-07T04:00:16.270Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
@@ -393,7 +393,8 @@
       
         <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-duplicate-number/">problem</a></h2><p>給定一維陣列，找出重複一遍的數字，其餘數字皆為不重複。不能修改原陣列。</p>
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
-<li>option 0<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> idx = <span class="built_in">abs</span>(nums[i])<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// number has visited/ modified</span></span><br><span class="line">            <span class="keyword">if</span>(nums[idx]&lt;<span class="number">0</span>) <span class="keyword">return</span> idx+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> nums[idx] *=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>set stl<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">count</span>(n)) <span class="keyword">return</span> n;</span><br><span class="line">            s.<span class="built_in">insert</span>(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>modify value<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> idx = <span class="built_in">abs</span>(nums[i])<span class="number">-1</span>;</span><br><span class="line">            <span class="comment">// number has visited/ modified</span></span><br><span class="line">            <span class="keyword">if</span>(nums[idx]&lt;<span class="number">0</span>) <span class="keyword">return</span> idx+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> nums[idx] *=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li>sorting<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;nums.<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == nums[i<span class="number">-1</span>]) <span class="keyword">return</span> nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="option-1-Two-Pointers"><a href="#option-1-Two-Pointers" class="headerlink" title="option 1 - Two Pointers"></a>option 1 - Two Pointers</h4></li>
 <li>利用兩個索引，一個跑的慢，一個跑得快，並找出相交位置。找到後一個從原點開始再跑，另一個從相遇地點開始跑。在遇到則為答案</li>
@@ -520,7 +521,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">513</span>
+                  <span class="site-state-item-count">515</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -593,6 +594,14 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/04/07/leetcode/1283_FindtheSmallestDivisorGivenaThreshold/" title="1283. Find the Smallest Divisor Given a Threshold" target="_blank">1283. Find the Smallest Divisor Given a Threshold</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/04/07/leetcode/1046_LastStoneWeight/" title="1046. Last Stone Weight" target="_blank">1046. Last Stone Weight</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/04/05/leetcode/1894_FindtheStudentthatWillReplacetheChalk/" title="1894. Find the Student that Will Replace the Chalk" target="_blank">1894. Find the Student that Will Replace the Chalk</a>
                   </li>
                 
@@ -602,14 +611,6 @@
                 
                   <li>
                     <a href="/blog/2022/04/05/leetcode/641_DesignCircularDeque/" title="641. Design Circular Deque" target="_blank">641. Design Circular Deque</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/05/leetcode/622_DesignCircularQueue/" title="622. Design Circular Queue" target="_blank">622. Design Circular Queue</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/05/leetcode/707_DesignLinkedList/" title="707. Design Linked List" target="_blank">707. Design Linked List</a>
                   </li>
                 
               </ul>

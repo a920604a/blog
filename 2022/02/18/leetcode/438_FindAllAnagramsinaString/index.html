@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolution當 window、need 兩個窗口一樣時，且兩個索引等於p字串的長度，此時可以確保s[l:r] 子字串等於字串p 1234567891011121314151617181920212223242526class Solution &amp;#123;public:    vector&lt;int&gt; findAnagrams(string s, string p) &amp;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-18T07:13:40.288Z">
-<meta property="article:modified_time" content="2022-02-18T07:33:34.079Z">
+<meta property="article:modified_time" content="2022-04-07T01:23:00.321Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="Sliding Window">
 <meta property="article:tag" content="hash table">
@@ -397,7 +397,7 @@
 <ul>
 <li>可以用固定大小的vector 代替hash table</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">need</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span>, <span class="title">window</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span>, ret</span>;</span><br><span class="line">        <span class="type">int</span> l =<span class="number">0</span>, r = <span class="number">0</span>, m =p.<span class="built_in">size</span>(), n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:p) need[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            window[s[i]-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=m) window[s[i-m]-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span>(need == window) ret.<span class="built_in">push_back</span>(i-m+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">need</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span>, <span class="title">window</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span>, ret</span>;</span><br><span class="line">        <span class="type">int</span> m =p.<span class="built_in">size</span>(), n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:p) need[c-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            window[s[i]-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=m) window[s[i-m]-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span>(need == window) ret.<span class="built_in">push_back</span>(i-m+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
@@ -520,7 +520,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">513</span>
+                  <span class="site-state-item-count">515</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -593,6 +593,14 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/04/07/leetcode/1283_FindtheSmallestDivisorGivenaThreshold/" title="1283. Find the Smallest Divisor Given a Threshold" target="_blank">1283. Find the Smallest Divisor Given a Threshold</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/04/07/leetcode/1046_LastStoneWeight/" title="1046. Last Stone Weight" target="_blank">1046. Last Stone Weight</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/04/05/leetcode/1894_FindtheStudentthatWillReplacetheChalk/" title="1894. Find the Student that Will Replace the Chalk" target="_blank">1894. Find the Student that Will Replace the Chalk</a>
                   </li>
                 
@@ -602,14 +610,6 @@
                 
                   <li>
                     <a href="/blog/2022/04/05/leetcode/641_DesignCircularDeque/" title="641. Design Circular Deque" target="_blank">641. Design Circular Deque</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/05/leetcode/622_DesignCircularQueue/" title="622. Design Circular Queue" target="_blank">622. Design Circular Queue</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/05/leetcode/707_DesignLinkedList/" title="707. Design Linked List" target="_blank">707. Design Linked List</a>
                   </li>
                 
               </ul>
