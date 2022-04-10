@@ -86,11 +86,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="YuAn">
-<meta property="og:url" content="https://a920604a.github.io/blog/tags/sort/index.html">
+<meta name="description" content="problemsolution12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    int Convert(string str)&amp;#123;        int pos &#x3D; 1;        int i &#x3D;0;        if(str[i] &#x3D;&#x3D; &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="682. Baseball Game">
+<meta property="og:url" content="https://a920604a.github.io/blog/2022/04/10/leetcode/682_BaseballGame/index.html">
 <meta property="og:site_name" content="YuAn">
+<meta property="og:description" content="problemsolution12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    int Convert(string str)&amp;#123;        int pos &#x3D; 1;        int i &#x3D;0;        if(str[i] &#x3D;&#x3D; &amp;">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-04-10T04:01:39.962Z">
+<meta property="article:modified_time" content="2022-04-10T04:02:34.261Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta name="twitter:card" content="summary">
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://a920604a.github.io/blog/tags/sort/"/>
+  <link rel="canonical" href="https://a920604a.github.io/blog/2022/04/10/leetcode/682_BaseballGame/"/>
 
 
 
 
 
-  <title>標籤: sort | YuAn</title>
+  <title>682. Baseball Game | YuAn</title>
   
 
 
@@ -147,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,54 +289,169 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>sort<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://a920604a.github.io/blog/blog/2022/04/10/leetcode/682_BaseballGame/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuAn">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2022/02/25/leetcode/1491_AverageSalaryExcludingtheMinimumandMaximumSalary/" itemprop="url">
-              
-                <span itemprop="name">1491. Average Salary Excluding the Minimum and Maximum Salary</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">682. Baseball Game</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-25T18:27:46+08:00"
-              content="2022-02-25" >
-          02-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2022-04-10T12:01:39+08:00">
+                2022-04-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/baseball-game/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">Convert</span><span class="params">(string str)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> pos = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> i =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(str[i] == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">            pos = <span class="number">-1</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i;i&lt;str.<span class="built_in">size</span>();++i) num = <span class="number">10</span>*num+str[i] -<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> pos*num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">calPoints</span><span class="params">(vector&lt;string&gt;&amp; ops)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; cur;</span><br><span class="line">        <span class="keyword">for</span>(string str:ops)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str == <span class="string">&quot;C&quot;</span>)&#123;</span><br><span class="line">                cur.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str==<span class="string">&quot;D&quot;</span>)&#123;</span><br><span class="line">                cur.<span class="built_in">push_back</span>(cur.<span class="built_in">back</span>()*<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str==<span class="string">&quot;+&quot;</span>)&#123;</span><br><span class="line">                <span class="type">int</span> size = cur.<span class="built_in">size</span>();</span><br><span class="line">                cur.<span class="built_in">push_back</span>(cur[size<span class="number">-1</span>]+cur[size<span class="number">-2</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//conver to int</span></span><br><span class="line">                <span class="type">int</span> num = <span class="built_in">Convert</span>(str);</span><br><span class="line">                cur.<span class="built_in">push_back</span>(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> total = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a:cur) total+=a;</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(n)</code></li>
+<li>space complexity <code>O(n)</code></li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2022/04/09/leetcode/1898_MaximumNumberofRemovableCharacters/" rel="next" title="1898. Maximum Number of Removable Characters">
+                <i class="fa fa-chevron-left"></i> 1898. Maximum Number of Removable Characters
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2022/04/10/leetcode/2231_LargestNumberAfterDigitSwapsbyParity/" rel="prev" title="2231. Largest Number After Digit Swaps by Parity">
+                2231. Largest Number After Digit Swaps by Parity <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -360,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -376,7 +504,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">519</span>
+                  <span class="site-state-item-count">521</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -398,7 +526,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -449,6 +577,14 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/04/10/leetcode/2231_LargestNumberAfterDigitSwapsbyParity/" title="2231. Largest Number After Digit Swaps by Parity" target="_blank">2231. Largest Number After Digit Swaps by Parity</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/04/10/leetcode/682_BaseballGame/" title="682. Baseball Game" target="_blank">682. Baseball Game</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/04/09/leetcode/1898_MaximumNumberofRemovableCharacters/" title="1898. Maximum Number of Removable Characters" target="_blank">1898. Maximum Number of Removable Characters</a>
                   </li>
                 
@@ -458,14 +594,6 @@
                 
                   <li>
                     <a href="/blog/2022/04/08/leetcode/547_NumberofProvinces/" title="547. Number of Provinces" target="_blank">547. Number of Provinces</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/08/leetcode/415_AddStrings/" title="415. Add Strings" target="_blank">415. Add Strings</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/07/leetcode/1283_FindtheSmallestDivisorGivenaThreshold/" title="1283. Find the Smallest Divisor Given a Threshold" target="_blank">1283. Find the Smallest Divisor Given a Threshold</a>
                   </li>
                 
               </ul>
@@ -482,6 +610,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -615,6 +759,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
