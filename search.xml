@@ -13008,4 +13008,40 @@ public:
         <category>leetcode</category>
       </categories>
   </entry>
+  <entry>
+    <title>1260. Shift 2D Grid</title>
+    <url>/blog/2022/04/11/leetcode/1260_Shift2DGrid/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/shift-2d-grid/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h3 id="option-1"><a href="#option-1" class="headerlink" title="option 1"></a>option 1</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">shiftGrid</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid, <span class="type">int</span> k) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">        <span class="type">int</span> n =grid.<span class="built_in">size</span>(), m=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">                vec.<span class="built_in">push_back</span>(grid[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        k%= m*n;</span><br><span class="line">        k = m*n-k;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">                grid[i][j] = vec[k%(m*n)];</span><br><span class="line">                k++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> grid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="option-2-O-1"><a href="#option-2-O-1" class="headerlink" title="option 2 - O(1)"></a>option 2 - <code>O(1)</code></h4><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(mn)</code></li>
+<li>space complexity <code>O(nm)</code> <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>hash table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>540. Single Element in a Sorted Array</title>
+    <url>/blog/2022/04/11/leetcode/540_SingleElementinaSortedArray/</url>
+    <content><![CDATA[<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a href="https://leetcode.com/problems/single-element-in-a-sorted-array/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
+<li>cheat<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> a:nums) ret^=a;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="option-1-Binary-Search"><a href="#option-1-Binary-Search" class="headerlink" title="option 1 - *Binary Search"></a>option 1 - *Binary Search</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">singleNonDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 一定是奇數長度</span></span><br><span class="line">        <span class="comment">// 如果mid索引是偶數代表索引前面的數字應該都是兩兩一對，如果不是mid索引的值會與前一索引值相同，則落單的數必定在前面，反之相反。</span></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l +(r-l)/<span class="number">2</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (( mid % <span class="number">2</span> == <span class="number">1</span> &amp;&amp; nums[mid] != nums[mid + <span class="number">1</span>]) || ( mid % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; nums[mid] == nums[mid + <span class="number">1</span>])) l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r= mid;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
+<li>time complexity <code>O(logn)</code></li>
+<li>space complexity <code>O(1)</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
 </search>
