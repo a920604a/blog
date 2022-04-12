@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolution1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    void traverse(vector&lt;vector&lt;int&gt;&gt;&amp; graph, int cur, vector&lt;int&gt;&amp; path, vector&amp;l">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-26T12:17:23.690Z">
-<meta property="article:modified_time" content="2022-03-03T02:00:05.416Z">
+<meta property="article:modified_time" content="2022-04-12T12:08:51.795Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta property="article:tag" content="backtracking">
 <meta property="article:tag" content="Graph">
@@ -396,7 +396,7 @@
 
 
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;  ret;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph, vector&lt;<span class="type">int</span>&gt; &amp; path, <span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">        path.<span class="built_in">push_back</span>(cur);</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">back</span>() == graph.<span class="built_in">size</span>()<span class="number">-1</span>)&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> nei : graph[cur])&#123;</span><br><span class="line">            <span class="built_in">backtracking</span>(graph, path, nei);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">allPathsSourceTarget</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">backtracking</span>(graph, path, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;graph, vector&lt;<span class="type">int</span>&gt; &amp;path, <span class="type">int</span> start)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        path.<span class="built_in">push_back</span>(start);</span><br><span class="line">        <span class="keyword">if</span>(!path.<span class="built_in">empty</span>() &amp;&amp; path.<span class="built_in">back</span>() == graph.<span class="built_in">size</span>()<span class="number">-1</span>)&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(path);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> a:graph[start])&#123;</span><br><span class="line">            <span class="built_in">dfs</span>(graph, path, a);</span><br><span class="line">        &#125;</span><br><span class="line">        path.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">allPathsSourceTarget</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">dfs</span>(graph, path, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(V+E)</code></li>
 <li>space complexity <code>O(V)</code></li>
@@ -518,7 +518,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">523</span>
+                  <span class="site-state-item-count">526</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -591,23 +591,23 @@
                 
                 
                   <li>
+                    <a href="/blog/2022/04/12/leetcode/611_ValidTriangleNumber/" title="611. Valid Triangle Number" target="_blank">611. Valid Triangle Number</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/04/12/leetcode/1091_ShortestPathinBinaryMatrix/" title="1091. Shortest Path in Binary Matrix" target="_blank">1091. Shortest Path in Binary Matrix</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2022/04/12/leetcode/289_GameofLife/" title="289. Game of Life" target="_blank">289. Game of Life</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2022/04/11/leetcode/540_SingleElementinaSortedArray/" title="540. Single Element in a Sorted Array" target="_blank">540. Single Element in a Sorted Array</a>
                   </li>
                 
                   <li>
                     <a href="/blog/2022/04/11/leetcode/1260_Shift2DGrid/" title="1260. Shift 2D Grid" target="_blank">1260. Shift 2D Grid</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/10/leetcode/2231_LargestNumberAfterDigitSwapsbyParity/" title="2231. Largest Number After Digit Swaps by Parity" target="_blank">2231. Largest Number After Digit Swaps by Parity</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/10/leetcode/682_BaseballGame/" title="682. Baseball Game" target="_blank">682. Baseball Game</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2022/04/09/leetcode/1898_MaximumNumberofRemovableCharacters/" title="1898. Maximum Number of Removable Characters" target="_blank">1898. Maximum Number of Removable Characters</a>
                   </li>
                 
               </ul>
