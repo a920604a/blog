@@ -94,7 +94,7 @@
 <meta property="og:description" content="problemsolution 遍歷字串，遇到字母加進字串ret，遇到左括號push stack，遇到右括號且如果stack為空，則不加入字串ret，代表目前為止右括號出現次數多餘左括號，遇到右括號且stack 不為空則加入字串ret並pop stack。  最後檢查是否有左括號在字串ret後方且沒有對應的右括號，並將他移除。   123456789101112131415161718192021">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-03-15T01:09:45.233Z">
-<meta property="article:modified_time" content="2022-03-15T02:42:00.855Z">
+<meta property="article:modified_time" content="2022-04-20T00:44:33.780Z">
 <meta property="article:author" content="YU-AN, Chen">
 <meta name="twitter:card" content="summary">
 
@@ -396,7 +396,7 @@
 <li><p>最後檢查是否有左括號在字串<code>ret</code>後方且沒有對應的右括號，並將他移除。</p>
 </li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minRemoveToMakeValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">char</span>&gt; sta;</span><br><span class="line">        string ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;z&#x27;</span>) ret+=c;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                sta.<span class="built_in">push</span>(c);</span><br><span class="line">                ret+=c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// )</span></span><br><span class="line">                <span class="keyword">if</span>(sta.<span class="built_in">empty</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sta.<span class="built_in">pop</span>();</span><br><span class="line">                    ret+=c;</span><br><span class="line">                &#125;        </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// &quot;())()(((&quot;</span></span><br><span class="line">        <span class="comment">// 從後面移除多餘的左括號</span></span><br><span class="line">        string ans;</span><br><span class="line">        <span class="type">int</span> n= ret.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;<span class="number">-1</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ret[i]==<span class="string">&#x27;(&#x27;</span> &amp;&amp; !sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans+=ret[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minRemoveToMakeValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">char</span>&gt; sta;</span><br><span class="line">        string ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c&gt;=<span class="string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;z&#x27;</span>) ret+=c;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                sta.<span class="built_in">push</span>(c);</span><br><span class="line">                ret+=c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// )</span></span><br><span class="line">                <span class="keyword">if</span>(sta.<span class="built_in">empty</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sta.<span class="built_in">pop</span>();</span><br><span class="line">                    ret+=c;</span><br><span class="line">                &#125;        </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// &quot;())()(((&quot;</span></span><br><span class="line">        <span class="comment">// 從後面移除多餘的左括號</span></span><br><span class="line">        string ans;</span><br><span class="line">        <span class="type">int</span> n= ret.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;<span class="number">-1</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ret[i]==<span class="string">&#x27;(&#x27;</span> &amp;&amp; !sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                sta.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=ret[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
 <li>time complexity <code>O(n)</code></li>
@@ -511,7 +511,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">535</span>
+                  <span class="site-state-item-count">543</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -533,7 +533,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -584,23 +584,23 @@
                 
                 
                   <li>
-                    <a href="/blog/2022/04/17/leetcode/2244_MinimumRoundstoCompleteAllTasks/" title="2244. Minimum Rounds to Complete All Tasks" target="_blank">2244. Minimum Rounds to Complete All Tasks</a>
+                    <a href="/blog/2022/04/24/leetcode/535_EncodeandDecodeTinyURL/" title="535. Encode and Decode TinyURL" target="_blank">535. Encode and Decode TinyURL</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/17/leetcode/2243_CalculateDigitSumofaString/" title="2243. Calculate Digit Sum of a String" target="_blank">2243. Calculate Digit Sum of a String</a>
+                    <a href="/blog/2022/04/24/leetcode/1396_DesignUndergroundSystem/" title="1396 Design Underground System" target="_blank">1396 Design Underground System</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/17/leetcode/897_IncreasingOrderSearchTree/" title="897. Increasing Order Search Tree" target="_blank">897. Increasing Order Search Tree</a>
+                    <a href="/blog/2022/04/24/leetcode/2251_NumberofFlowersinFullBloom/" title="2251. Number of Flowers in Full Bloom" target="_blank">2251. Number of Flowers in Full Bloom</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/17/leetcode/2236_RootEqualsSumofChildren/" title="2236. Root Equals Sum of Children" target="_blank">2236. Root Equals Sum of Children</a>
+                    <a href="/blog/2022/04/24/leetcode/2250_CountNumberofRectanglesContainingEachPoint/" title="2250. Count Number of Rectangles Containing Each Point" target="_blank">2250. Count Number of Rectangles Containing Each Point</a>
                   </li>
                 
                   <li>
-                    <a href="/blog/2022/04/17/leetcode/2240_NumberofWaystoBuyPensandPencils/" title="2240. Number of Ways to Buy Pens and Pencils" target="_blank">2240. Number of Ways to Buy Pens and Pencils</a>
+                    <a href="/blog/2022/04/24/leetcode/2249_CountLatticePointsInsideaCircle/" title="2249. Count Lattice Points Inside a Circle" target="_blank">2249. Count Lattice Points Inside a Circle</a>
                   </li>
                 
               </ul>
