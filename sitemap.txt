@@ -1,3 +1,32 @@
+https://a920604a.github.io/blog/2023/12/21/leetcode/752_OpentheLock/
+https://a920604a.github.io/blog/2023/12/21/leetcode/724_FindPivotIndex/
+https://a920604a.github.io/blog/2023/12/21/leetcode/867_TransposeMatrix/
+https://a920604a.github.io/blog/2023/12/21/leetcode/345_ReverseVowelsofaString/
+https://a920604a.github.io/blog/2023/12/21/leetcode/647_PalindromicSubstrings/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2605_FormSmallestNumberFromTwoDigitArrays/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2606_FindtheSubstringWithMaximumCost/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2609_FindtheLongestBalancedSubstringofaBinaryString/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2611_MiceandCheese/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2833_FurthestPointFromOrigin/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2834_FindtheMinimumPossibleSumofaBeautifulArray/
+https://a920604a.github.io/blog/2023/12/21/leetcode/605_CanPlaceFlowers/
+https://a920604a.github.io/blog/2023/12/21/leetcode/643_MaximumAverageSubarrayI/
+https://a920604a.github.io/blog/2023/12/21/leetcode/646_MaximumLengthofPairChain/
+https://a920604a.github.io/blog/2023/12/21/leetcode/151_ReverseWordsinaString/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1768_MergeStringsAlternately/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2215_FindtheDifferenceofTwoArrays/
+https://a920604a.github.io/blog/2023/12/21/leetcode/238_ProductofArrayExceptSelf/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2482_DifferenceBetweenOnesandZerosinRowandColumn/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2597_TheNumberofBeautifulSubsets/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1436_DestinationCity/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1456_MaximumNumberofVowelsinaSubstringofGivenLength/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1493_LongestSubarrayof1'sAfterDeletingOneElement/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1732_FindtheHighestAltitude/
+https://a920604a.github.io/blog/2023/12/21/leetcode/2600_KItemsWiththeMaximumSum/
+https://a920604a.github.io/blog/2023/12/21/DataStruct/%E7%A7%BB%E5%8B%95%E7%AA%97%E5%8F%A3/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1004_MaxConsecutiveOnesIII/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1207_UniqueNumberofOccurrences/
+https://a920604a.github.io/blog/2023/12/21/leetcode/1431_KidsWiththeGreatestNumberofCandies/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E7%B5%84%E5%90%88%E3%80%81%E6%8E%92%E5%88%97%E3%80%81%E5%AD%90%E9%9B%86/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2593_FindScoreofanArrayAfterMarkingAllElements/
@@ -6,7 +35,6 @@ https://a920604a.github.io/blog/2023/02/12/DataStruct/%E5%88%B7%E9%A1%8C/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2587_RearrangeArraytoMaximizePrefixScore/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2586_CounttheNumberofVowelStringsinRange/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2596_CheckKnightTourConfiguration/
-https://a920604a.github.io/blog/2023/03/19/leetcode/2597_TheNumberofBeautifulSubsets/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2595_NumberofEvenandOddBits/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2583_KthLargestSuminaBinaryTree/
 https://a920604a.github.io/blog/2023/03/19/leetcode/2582_PassthePillow/
@@ -60,7 +88,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/73_SetMatrixZeroes/
 https://a920604a.github.io/blog/2023/02/12/leetcode/740_DeleteandEarn/
 https://a920604a.github.io/blog/2023/02/12/leetcode/746_MinCostClimbingStairs/
 https://a920604a.github.io/blog/2023/02/12/leetcode/74_Searcha2DMatrix/
-https://a920604a.github.io/blog/2023/02/12/leetcode/752_OpentheLock/
 https://a920604a.github.io/blog/2023/02/12/leetcode/75_SortColors/
 https://a920604a.github.io/blog/2023/02/12/leetcode/763_PartitionLabels/
 https://a920604a.github.io/blog/2023/02/12/leetcode/769_MaxChunksToMakeSorted/
@@ -109,7 +136,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/637_AverageofLevelsinBinaryT
 https://a920604a.github.io/blog/2023/02/12/leetcode/63_UniquePathsII/
 https://a920604a.github.io/blog/2023/02/12/leetcode/641_DesignCircularDeque/
 https://a920604a.github.io/blog/2023/02/12/leetcode/645_SetMismatch/
-https://a920604a.github.io/blog/2023/02/12/leetcode/647_PalindromicSubstrings/
 https://a920604a.github.io/blog/2023/02/12/leetcode/648_ReplaceWords/
 https://a920604a.github.io/blog/2023/02/12/leetcode/64_MinimumPathSum/
 https://a920604a.github.io/blog/2023/02/12/leetcode/652_FindDuplicateSubtrees/
@@ -191,7 +217,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/57_InsertInterval/
 https://a920604a.github.io/blog/2023/02/12/leetcode/342_PowerofFour/
 https://a920604a.github.io/blog/2023/02/12/leetcode/343_IntegerBreak/
 https://a920604a.github.io/blog/2023/02/12/leetcode/344_ReverseString/
-https://a920604a.github.io/blog/2023/02/12/leetcode/345_ReverseVowelsofaString/
 https://a920604a.github.io/blog/2023/02/12/leetcode/347_TopKFrequentElements/
 https://a920604a.github.io/blog/2023/02/12/leetcode/349_IntersectionofTwoArrays/
 https://a920604a.github.io/blog/2023/02/12/leetcode/34_FindFirstandLastPositionofElementinSortedArray/
@@ -307,7 +332,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/234_PalindromeLinkedList/
 https://a920604a.github.io/blog/2023/02/12/leetcode/235_LowestCommonAncestorofaBinarySearchTree/
 https://a920604a.github.io/blog/2023/02/12/leetcode/236_LowestCommonAncestorofaBinaryTree/
 https://a920604a.github.io/blog/2023/02/12/leetcode/237_DeleteNodeinaLinkedList/
-https://a920604a.github.io/blog/2023/02/12/leetcode/238_ProductofArrayExceptSelf/
 https://a920604a.github.io/blog/2023/02/12/leetcode/239_SlidingWindowMaximum/
 https://a920604a.github.io/blog/2023/02/12/leetcode/23_MergekSortedLists/
 https://a920604a.github.io/blog/2023/02/12/leetcode/240_Searcha2DMatrixII/
@@ -321,7 +345,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/2471_Minimum%20NumberofOpera
 https://a920604a.github.io/blog/2023/02/12/leetcode/2475_NumberofUnequalTripletsinArray/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2476_ClosestNodesQueriesinaBinarySearchTree/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2481_MinimumCutstoDivideaCircle/
-https://a920604a.github.io/blog/2023/02/12/leetcode/2482_DifferenceBetweenOnesandZerosinRowandColumn/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2483_MinimumPenaltyforaShop/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2485_FindthePivotInteger/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2486_AppendCharacterstoStringtoMakeSubsequence/
@@ -347,7 +370,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/2208_MinimumOperationstoHalv
 https://a920604a.github.io/blog/2023/02/12/leetcode/2210_CountHillsandValleysinanArray/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2211_CountCollisionsonaRoad/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2212_MaximumPointsinanArcheryCompetition/
-https://a920604a.github.io/blog/2023/02/12/leetcode/2215_FindtheDifferenceofTwoArrays/
 https://a920604a.github.io/blog/2023/02/12/leetcode/221_MaximalSquare/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2220_MinimumBitFlipstoConvertNumber/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2221_FindTriangularSumofanArray/
@@ -437,7 +459,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/149_MaxPointsonaLine/
 https://a920604a.github.io/blog/2023/02/12/leetcode/14_LongestCommonPrefix/
 https://a920604a.github.io/blog/2023/02/12/leetcode/1502_CanMakeArithmeticProgressionFromSequence/
 https://a920604a.github.io/blog/2023/02/12/leetcode/150_EvaluateReversePolishNotation/
-https://a920604a.github.io/blog/2023/02/12/leetcode/151_ReverseWordsinaString/
 https://a920604a.github.io/blog/2023/02/12/leetcode/1523_CountOddNumbersinanIntervalRange/
 https://a920604a.github.io/blog/2023/02/12/leetcode/152_MaximumProductSubarray/
 https://a920604a.github.io/blog/2023/02/12/leetcode/1539_KthMissingPositiveNumber/
@@ -467,7 +488,6 @@ https://a920604a.github.io/blog/2023/02/12/leetcode/172_FactorialTrailingZeroes/
 https://a920604a.github.io/blog/2023/02/12/leetcode/173_BinarySearchTreeIterator/
 https://a920604a.github.io/blog/2023/02/12/leetcode/174_DungeonGame/
 https://a920604a.github.io/blog/2023/02/12/leetcode/175_CombineTwoTables/
-https://a920604a.github.io/blog/2023/02/12/leetcode/1768_MergeStringsAlternately/
 https://a920604a.github.io/blog/2023/02/12/leetcode/1779_Find%20NearestPointThatHastheSameXorYCoordinate/
 https://a920604a.github.io/blog/2023/02/12/leetcode/1790_CheckifOneStringSwapCanMakeStringsEqual/
 https://a920604a.github.io/blog/2023/02/12/leetcode/179_LargestNumber/
@@ -578,7 +598,6 @@ https://a920604a.github.io/blog/2023/02/12/DataStruct/%E5%8D%80%E9%96%93%E5%95%8
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E5%96%AE%E8%AA%BF%E5%A0%86%E7%96%8A%E4%BD%87%E5%88%97/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E5%BB%A3%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B%EF%BC%86%E6%B7%B1%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E6%A8%B9/
-https://a920604a.github.io/blog/2023/02/12/DataStruct/%E7%A7%BB%E5%8B%95%E7%AA%97%E5%8F%A3/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%88%87%E8%A8%AD%E8%A8%88%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/
 https://a920604a.github.io/blog/2023/02/12/codility/*Fish/
 https://a920604a.github.io/blog/2023/02/12/codility/*MaxDoubleSliceSum/
@@ -670,6 +689,9 @@ https://a920604a.github.io/blog/tags/Randomized/
 https://a920604a.github.io/blog/tags/Kadane-s-Algo/
 https://a920604a.github.io/blog/tags/Uniod-Find/
 https://a920604a.github.io/blog/tags/Interval/
+https://a920604a.github.io/blog/tags/matrix/
+https://a920604a.github.io/blog/tags/string/
+https://a920604a.github.io/blog/tags/bi-bfs/
 https://a920604a.github.io/blog/categories/CS/
 https://a920604a.github.io/blog/categories/CS/Data-Structure/
 https://a920604a.github.io/blog/categories/blog/
