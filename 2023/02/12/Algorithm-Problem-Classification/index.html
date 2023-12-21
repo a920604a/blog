@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Array&#x2F;String [112]Simple Pointers [39] 26 Remove Duplicates from Sorted Array  80 Remove Duplicates from Sorted Array II  27 Remove Element  283 Move Zeroes  42 Trapping Rain Water  238 Product o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm Problem Classification">
+<meta property="og:url" content="https://a920604a.github.io/blog/2023/02/12/Algorithm-Problem-Classification/index.html">
+<meta property="og:site_name" content="YuAn">
+<meta property="og:description" content="Array&#x2F;String [112]Simple Pointers [39] 26 Remove Duplicates from Sorted Array  80 Remove Duplicates from Sorted Array II  27 Remove Element  283 Move Zeroes  42 Trapping Rain Water  238 Product o">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-02-12T23:56:43.485Z">
+<meta property="article:modified_time" content="2023-02-12T23:56:43.485Z">
+<meta property="article:author" content="YU-AN, Chen">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a920604a.github.io/blog/2023/02/12/Algorithm-Problem-Classification/"/>
+
+
+
+
+
+  <title>Algorithm Problem Classification | YuAn</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuAn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/home/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-目錄">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            目錄
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="https://a920604a.github.io/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://a920604a.github.io/blog/blog/2023/02/12/Algorithm-Problem-Classification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuAn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Algorithm Problem Classification</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2023-02-12T23:56:43+00:00">
+                2023-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CS/Data-Structure/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structure</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CS/Data-Structure/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Array-x2F-String-112"><a href="#Array-x2F-String-112" class="headerlink" title="Array&#x2F;String [112]"></a>Array&#x2F;String [112]</h2><h4 id="Simple-Pointers-39"><a href="#Simple-Pointers-39" class="headerlink" title="Simple Pointers [39]"></a>Simple Pointers [39]</h4><ul>
+<li><p>26 Remove Duplicates from Sorted Array</p>
+</li>
+<li><p>80 Remove Duplicates from Sorted Array II</p>
+</li>
+<li><p>27 Remove Element</p>
+</li>
+<li><p>283 Move Zeroes</p>
+</li>
+<li><p>42 Trapping Rain Water</p>
+</li>
+<li><p>238 Product of Array Except Self</p>
+</li>
+<li><p>*135 Candy</p>
+</li>
+<li><p>209 Minimum Size Subarray Sum</p>
+</li>
+<li><p>*228 Summary Ranges</p>
+</li>
+<li><p>163 Missing Ranges (Premium)</p>
+</li>
+<li><p>56 Merge Intervals</p>
+</li>
+<li><p>57 Insert Interval</p>
+</li>
+<li><p>763 Partition Labels</p>
+</li>
+<li><p>*833. Find And Replace in String</p>
+</li>
+<li><p>*731 My Calendar II</p>
+</li>
+<li><p>161 One Edit Distance (Premium)</p>
+</li>
+<li><p>88 Merge Sorted Array</p>
+</li>
+<li><p>392 Is Subsequence</p>
+</li>
+<li><p>844 Backspace String Compare</p>
+</li>
+<li><p>*686 Repeated String Match</p>
+</li>
+<li><p>11 Container With Most Water</p>
+</li>
+<li><p>345 Reverse Vowels of a String</p>
+</li>
+<li><p>125 Valid Palindrome</p>
+</li>
+<li><p>*680 Valid Palindrome II</p>
+</li>
+<li><p>243 Shortest Word Distance (Premium)</p>
+</li>
+<li><p>244 Shortest Word Distance II (Premium)</p>
+</li>
+<li><p>245 Shortest Word Distance III (Premium)</p>
+</li>
+<li><p>349 Intersection of Two Arrays</p>
+</li>
+<li><p>350 Intersection of Two Arrays II</p>
+</li>
+<li><p>15 3Sum</p>
+</li>
+<li><p>16 3Sum Closest</p>
+</li>
+<li><p>18 4Sum</p>
+</li>
+<li><p>167 Two Sum II - Input Array Is Sorted</p>
+</li>
+<li><p>170 Two Sum III - Data structure design (Premium)</p>
+</li>
+<li><p>280 Wiggle Sort (Premium)</p>
+<blockquote>
+<p>*281 Wiggle Sort</p>
+</blockquote>
+</li>
+<li><p>*376 Wiggle Subsequence</p>
+</li>
+<li><p>14 Longest Common Prefix</p>
+</li>
+<li><p>*31 Next Permutation</p>
+</li>
+<li><p>418 Sentence Screen Fitting (Premium)</p>
+</li>
+</ul>
+<h4 id="Binary-Search-14"><a href="#Binary-Search-14" class="headerlink" title="Binary Search [14]"></a>Binary Search [14]</h4><ul>
+<li><p>35 Search Insert Position</p>
+</li>
+<li><p>*4 Median of Two Sorted Arrays</p>
+</li>
+<li><p>153 Find Minimum in Rotated Sorted Array</p>
+</li>
+<li><p>154 Find Minimum in Rotated Sorted Array II</p>
+</li>
+<li><p>34 Find First and Last Position of Element in Sorted Array</p>
+</li>
+<li><p>374 Guess Number Higher or Lower</p>
+</li>
+<li><p>278 First Bad Version</p>
+</li>
+<li><p>33 Search in Rotated Sorted Array</p>
+</li>
+<li><p>81 Search in Rotated Sorted Array II</p>
+</li>
+<li><p>*300 Longest Increasing Subsequence</p>
+</li>
+<li><p>*315 Count of Smaller Numbers After Self</p>
+</li>
+<li><p>*354 Russian Doll Envelopes</p>
+</li>
+<li><p>274 H-Index</p>
+</li>
+<li><p>275 H-Index II</p>
+<h4 id="HashMap-5"><a href="#HashMap-5" class="headerlink" title="HashMap [5]"></a>HashMap [5]</h4></li>
+<li><p>242 Valid Anagram</p>
+</li>
+<li><p>249 Group Shifted Strings (Premium)</p>
+</li>
+<li><p>*336 Palindrome Pairs</p>
+</li>
+<li><p>356 Line Reflection (Premium)</p>
+</li>
+<li><p>*205 Isomorphic Strings</p>
+<blockquote>
+<ol start="290">
+<li>Word Pattern</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="Sum-subarray-related-problems-3"><a href="#Sum-subarray-related-problems-3" class="headerlink" title="Sum subarray related problems [3]"></a>Sum subarray related problems [3]</h4><ul>
+<li>1 Two Sum</li>
+<li>325 Maximum Size Subarray Sum Equals k (Premium)</li>
+<li>560 Subarray Sum Equals K</li>
+</ul>
+<h4 id="HashMap–Tracking-6"><a href="#HashMap–Tracking-6" class="headerlink" title="HashMap–Tracking [6]"></a>HashMap–Tracking [6]</h4><ul>
+<li>3 Longest Substring Without Repeating Characters</li>
+<li>Longest Substring with At Most K Distinct Characters (Google)</li>
+<li>*30 Substring with Concatenation of All Words</li>
+<li>76 Minimum Window Substring</li>
+<li>*395 Longest Substring with At Least K Repeating Characters</li>
+<li>567 Permutation in String</li>
+</ul>
+<h4 id="HashSet-1"><a href="#HashSet-1" class="headerlink" title="HashSet [1]"></a>HashSet [1]</h4><ul>
+<li>*128 Longest Consecutive Sequence</li>
+</ul>
+<h4 id="Caching-4"><a href="#Caching-4" class="headerlink" title="Caching [4]"></a>Caching [4]</h4><ul>
+<li>169 Majority Element</li>
+<li>*229 Majority Element II</li>
+<li>*334 Increasing Triplet Subsequence</li>
+<li>Find the 2nd Largest Elements in an array<blockquote>
+<ol start="215">
+<li>Kth Largest Element in an Array</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="BFS-2"><a href="#BFS-2" class="headerlink" title="BFS [2]"></a>BFS [2]</h4><ul>
+<li>127 Word Ladder</li>
+<li>*126 Word Ladder I</li>
+</ul>
+<h4 id="Heap-8"><a href="#Heap-8" class="headerlink" title="Heap [8]"></a>Heap [8]</h4><ul>
+<li>347 Top K Frequent Elements<blockquote>
+<ol start="692">
+<li>Top K Frequent Words</li>
+</ol>
+</blockquote>
+</li>
+<li>252 Meeting Rooms (Premium)</li>
+<li>253 Meeting Rooms II (Premium)</li>
+<li>370 Range Addition (Premium)</li>
+<li>Merge k sorted arrays</li>
+<li>23 Merge k Sorted Lists</li>
+<li>358 Rearrange String k Distance Apart (Premium)</li>
+<li>*857 Minimum Cost to Hire K Workers</li>
+</ul>
+<h4 id="TreeSet-6"><a href="#TreeSet-6" class="headerlink" title="TreeSet [6]"></a>TreeSet [6]</h4><ul>
+<li>217 Contains Duplicate</li>
+<li>219 Contains Duplicate II</li>
+<li>*220 Contains Duplicate III</li>
+<li>*363 Max Sum of Rectangle No Larger Than K</li>
+<li>Maximum Sum Of Subarray Close To K</li>
+<li>683 K Empty Slots (Premium)</li>
+</ul>
+<h4 id="Stream-deque-x2F-caching-x2F-heap-x2F-treeset-6"><a href="#Stream-deque-x2F-caching-x2F-heap-x2F-treeset-6" class="headerlink" title="Stream (deque&#x2F;caching&#x2F;heap&#x2F;treeset) [6]"></a>Stream (deque&#x2F;caching&#x2F;heap&#x2F;treeset) [6]</h4><ul>
+<li>239 Sliding Window Maximum</li>
+<li>295 Find Median from Data Stream</li>
+<li>346 Moving Average from Data Stream (Premium)</li>
+<li>*352 Data Stream as Disjoint Intervals</li>
+<li>*382 Linked List Random Node<blockquote>
+<p>*398. Random Pick Index</p>
+</blockquote>
+</li>
+<li>*384 Shuffle an Array</li>
+</ul>
+<h4 id="Sort-6"><a href="#Sort-6" class="headerlink" title="Sort [6]"></a>Sort [6]</h4><ul>
+<li>*148 Sort List (Merge Sort)</li>
+<li>Quick sort</li>
+<li>*215 Kth Largest Element in an Array (Quick Sort)</li>
+<li>75 Sort Colors</li>
+<li>*164 Maximum Gap</li>
+<li>49 Group Anagrams</li>
+</ul>
+<h4 id="tracking-index-using-an-array-4"><a href="#tracking-index-using-an-array-4" class="headerlink" title="tracking index using an array [4]"></a>tracking index using an array [4]</h4><ul>
+<li>263 Ugly Number</li>
+<li>*264 Ugly Number II</li>
+<li>*313 Super Ugly Number</li>
+<li>*373 Find K Pairs with Smallest Sums</li>
+</ul>
+<h4 id="Rotate-2"><a href="#Rotate-2" class="headerlink" title="Rotate [2]"></a>Rotate [2]</h4><ul>
+<li>*189 Rotate Array</li>
+<li>151 Reverse Words in a String<h4 id="Finding-a-Number-3"><a href="#Finding-a-Number-3" class="headerlink" title="Finding a Number [3]"></a>Finding a Number [3]</h4></li>
+<li>268 Missing Number</li>
+<li>287 Find the Duplicate Number</li>
+<li>*41 First Missing Positive<h4 id="using-index-to-add-elements-to-a-list-1"><a href="#using-index-to-add-elements-to-a-list-1" class="headerlink" title="using index to add elements to a list [1]"></a>using index to add elements to a list [1]</h4></li>
+<li>*406 Queue Reconstruction by Height</li>
+</ul>
+<h4 id="Iterate-within-a-boundary-if-the-boundary-is-fixed-2"><a href="#Iterate-within-a-boundary-if-the-boundary-is-fixed-2" class="headerlink" title="Iterate within a boundary if the boundary is fixed [2]"></a>Iterate within a boundary if the boundary is fixed [2]</h4><ul>
+<li>*401 Binary Watch</li>
+<li>681 Next Closest Time (Premium)</li>
+</ul>
+<h2 id="Matrix-26"><a href="#Matrix-26" class="headerlink" title="Matrix [26]"></a>Matrix [26]</h2><h4 id="sorted-matrix-3"><a href="#sorted-matrix-3" class="headerlink" title="sorted matrix [3]"></a>sorted matrix [3]</h4><ul>
+<li>74 Search a 2D Matrix</li>
+<li>240 Search a 2D Matrix II</li>
+<li>*378 Kth Smallest Element in a Sorted Matrix</li>
+</ul>
+<h4 id="queue-1"><a href="#queue-1" class="headerlink" title="queue [1]"></a>queue [1]</h4><ul>
+<li>353 Design Snake Game (Premium)</li>
+</ul>
+<h4 id="union-find-disjoint-set-3"><a href="#union-find-disjoint-set-3" class="headerlink" title="union-find (disjoint set) [3]"></a>union-find (disjoint set) [3]</h4><ul>
+<li>305 Number of Islands II (Premium)</li>
+<li>323 Number of Connected Components in an Undirected Graph (Premium)</li>
+<li>*947 Most Stones Removed with Same Row or Column</li>
+</ul>
+<h4 id="DFS-8"><a href="#DFS-8" class="headerlink" title="DFS [8]"></a>DFS [8]</h4><ul>
+<li>*329 Longest Increasing Path in a Matrix</li>
+<li>79 Word Search</li>
+<li>*212 Word Search II</li>
+<li>200 Number of Islands</li>
+<li>Find a Path in a Matrix</li>
+<li>*37 Sudoku Solver</li>
+<li>36 Valid Sudoku</li>
+<li>286 Walls and Gates (Premium)</li>
+</ul>
+<h4 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS [1]"></a>BFS [1]</h4><ul>
+<li>*130 Surrounded Regions</li>
+</ul>
+<h4 id="Others-9"><a href="#Others-9" class="headerlink" title="Others [9]"></a>Others [9]</h4><ul>
+<li>73 Set Matrix Zeroes</li>
+<li>54 Spiral Matrix</li>
+<li>59 Spiral Matrix II</li>
+<li>48 Rotate Image</li>
+<li>*304 Range Sum Query 2D - Immutable</li>
+<li>317 Shortest Distance from All Buildings (Premium)</li>
+<li>296 Best Meeting Point (Premium)</li>
+<li>*289 Game of Life</li>
+<li>348 Design Tic-Tac-Toe (Premium)</li>
+</ul>
+<h4 id="matrix-multiplication-1"><a href="#matrix-multiplication-1" class="headerlink" title="matrix multiplication [1]"></a>matrix multiplication [1]</h4><ul>
+<li>311 Sparse Matrix Multiplication (Premium)</li>
+</ul>
+<h2 id="Linked-List-22"><a href="#Linked-List-22" class="headerlink" title="Linked List [22]"></a>Linked List [22]</h2><ul>
+<li>2 Add Two Numbers</li>
+<li>143 Reorder List</li>
+<li>141 Linked List Cycle</li>
+<li>138 Copy List with Random Pointer</li>
+<li>21 Merge Two Sorted Lists</li>
+<li>328 Odd Even Linked List</li>
+<li>83 Remove Duplicates from Sorted List</li>
+<li>82 Remove Duplicates from Sorted List II</li>
+<li>86 Partition List</li>
+<li>160 Intersection of Two Linked Lists</li>
+<li>203 Remove Linked List Elements</li>
+<li>24 Swap Nodes in Pairs</li>
+<li>206 Reverse Linked List</li>
+<li>92 Reverse Linked List II</li>
+<li>19 Remove Nth Node From End of List</li>
+<li>234 Palindrome Linked List</li>
+<li>237 Delete Node in a Linked List</li>
+<li>25 Reverse Nodes in k-Group</li>
+<li>*148 Sort List</li>
+<li>Reverse Double Linked List</li>
+<li>Print Linked List in Reversed Order</li>
+<li>369 Plus One Linked List (Premium)</li>
+</ul>
+<h2 id="Tree-47"><a href="#Tree-47" class="headerlink" title="Tree [47]"></a>Tree [47]</h2><h4 id="travel-6"><a href="#travel-6" class="headerlink" title="travel [6]"></a>travel [6]</h4><ul>
+<li>94 Binary Tree Inorder Traversal</li>
+<li>144 Binary Tree Preorder Traversal</li>
+<li>145 Binary Tree Postorder Traversal</li>
+<li>102 Binary Tree Level Order Traversal</li>
+<li>107 Binary Tree Level Order Traversal II</li>
+<li>314 Binary Tree Vertical Order Traversal<blockquote>
+<ul>
+<li>*987 Vertical Order Traversal of a Binary Tree</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="dfs-x2F-bfs-37"><a href="#dfs-x2F-bfs-37" class="headerlink" title="dfs&#x2F;bfs [37]"></a>dfs&#x2F;bfs [37]</h4><ul>
+<li>226 Invert Binary Tree</li>
+<li>230 Kth Smallest Element in a BST</li>
+<li>298 Binary Tree Longest Consecutive Sequence (Premium)</li>
+<li>98 Validate Binary Search Tree</li>
+<li>114 Flatten Binary Tree to Linked List</li>
+<li>112 Path Sum</li>
+<li>113 Path Sum II<blockquote>
+<ul>
+<li>437 Path Sum III</li>
+</ul>
+</blockquote>
+</li>
+<li>106 Construct Binary Tree from Inorder and Postorder Traversal</li>
+<li>105 Construct Binary Tree from Preorder and Inorder Traversal</li>
+<li>108 Convert Sorted Array to Binary Search Tree</li>
+<li>109 Convert Sorted List to Binary Search Tree</li>
+<li>111 Minimum Depth of Binary Tree</li>
+<li>124 Binary Tree Maximum Path Sum </li>
+<li>110 Balanced Binary Tree</li>
+<li>101 Symmetric Tree</li>
+<li>173 Binary Search Tree Iterator</li>
+<li>199 Binary Tree Right Side View</li>
+<li>235 Lowest Common Ancestor of a Binary Search Tree</li>
+<li>236 Lowest Common Ancestor of a Binary Tree</li>
+<li>*1026. Maximum Difference Between Node and Ancestor</li>
+<li>508 Most Frequent Subtree Sum</li>
+<li>*331 Verify Preorder Serialization of a Binary Tree</li>
+<li>116 Populating Next Right Pointers in Each Node</li>
+<li>117 Populating Next Right Pointers in Each Node II</li>
+<li>96 Unique Binary Search Trees</li>
+<li>95 Unique Binary Search Trees II </li>
+<li>129 Sum Root to Leaf Numbers</li>
+<li>222 Count Complete Tree Nodes</li>
+<li>270 Closest Binary Search Tree Value (Premium)</li>
+<li>257 Binary Tree Paths</li>
+<li>104 Maximum Depth of Binary Tree</li>
+<li>*99 Recover Binary Search Tree</li>
+<li>100 Same Tree</li>
+<li>*297 Serialize and Deserialize Binary Tree</li>
+<li>285 Inorder Successor in BST (Premium)</li>
+<li>510 Inorder Successor in BST II (Premium)</li>
+<li>366 Find Leaves of Binary Tree (Premium)</li>
+<li>333 Largest BST Subtree (Premium)</li>
+<li>426 Convert Binary Search Tree to Sorted Doubly Linked List (Premium)</li>
+</ul>
+<h4 id="Trie-2"><a href="#Trie-2" class="headerlink" title="Trie [2]"></a>Trie [2]</h4><ul>
+<li>208 Implement Trie (Prefix Tree)</li>
+<li>*211 Design Add and Search Words Data Structure</li>
+</ul>
+<h4 id="Segment-Tree-amp-Binary-Index-Tree-2"><a href="#Segment-Tree-amp-Binary-Index-Tree-2" class="headerlink" title="Segment Tree &amp; Binary Index Tree [2]"></a>Segment Tree &amp; Binary Index Tree [2]</h4><ul>
+<li>*307 Range Sum Query - Mutable</li>
+<li>*218 The Skyline Problem</li>
+</ul>
+<h2 id="Stack-18"><a href="#Stack-18" class="headerlink" title="Stack [18]"></a>Stack [18]</h2><h4 id="Stack-and-Queue-data-structure-implementation-get-familiar-with-stack-and-queue-4"><a href="#Stack-and-Queue-data-structure-implementation-get-familiar-with-stack-and-queue-4" class="headerlink" title="Stack and Queue data structure implementation (get familiar with stack and queue) [4]"></a>Stack and Queue data structure implementation (get familiar with stack and queue) [4]</h4><ul>
+<li>225 Implement Stack using Queues</li>
+<li>232 Implement Queue using Stacks</li>
+<li>Implement a Stack Using an Array</li>
+<li>Implement a Queue using an Array</li>
+</ul>
+<h4 id="Stack-5"><a href="#Stack-5" class="headerlink" title="Stack [5]"></a>Stack [5]</h4><ul>
+<li>150 Evaluate Reverse Polish Notation</li>
+<li>20 Valid Parentheses</li>
+<li>*32 Longest Valid Parentheses</li>
+<li>155 Min Stack</li>
+<li>*769 Max Chunks To Make Sorted</li>
+</ul>
+<h4 id="Stack–Largest-Rectangle-2"><a href="#Stack–Largest-Rectangle-2" class="headerlink" title="Stack–Largest Rectangle [2]"></a>Stack–Largest Rectangle [2]</h4><ul>
+<li>*84 Largest Rectangle in Histogram</li>
+<li>*85 Maximal Rectangle</li>
+</ul>
+<h4 id="Stack–Nested-Object-7"><a href="#Stack–Nested-Object-7" class="headerlink" title="Stack–Nested Object [7]"></a>Stack–Nested Object [7]</h4><ul>
+<li>*385 Mini Parser</li>
+<li>341 Flatten Nested List Iterator</li>
+<li>339 Nested List Weight Sum (Premium)</li>
+<li>364 Nested List Weight Sum II (Premium)</li>
+<li>*388 Longest Absolute File Path</li>
+<li>*394 Decode String</li>
+<li>Evaluate Math Expression<h2 id="DFS-28"><a href="#DFS-28" class="headerlink" title="DFS [28]"></a>DFS [28]</h2></li>
+<li>698 Partition to K Equal Sum Subsets</li>
+<li>46 Permutations</li>
+<li>47 Permutations II</li>
+<li>*60 Permutation Sequence<blockquote>
+<p>*31 Next Permutation</p>
+</blockquote>
+</li>
+<li>*996 Number of Squareful Arrays</li>
+<li>*22 Generate Parentheses</li>
+<li>39 Combination Sum</li>
+<li>40 Combination Sum II</li>
+<li>216 Combination Sum III</li>
+<li>*377 Combination Sum IV</li>
+<li>*44 Wildcard Matching</li>
+<li>*10 Regular Expression Matching</li>
+<li>*809 Expressive Words</li>
+<li>Get Target Using Number List And Arithmetic Operations</li>
+<li>293 Flip Game (Premium)</li>
+<li>294 Flip Game II (Premium)</li>
+<li>290 Word Pattern</li>
+<li>291 Word Pattern II (Premium)</li>
+<li>87 Scramble String</li>
+<li>*301 Remove Invalid Parentheses</li>
+<li>*214 Shortest Palindrome</li>
+<li>*386 Lexicographical Numbers</li>
+<li>77 Combinations</li>
+<li>17 Letter Combinations of a Phone Number</li>
+<li>*93 Restore IP Addresses</li>
+<li>254 Factor Combinations (Premium)</li>
+<li>78 Subsets</li>
+<li>90 Subsets II</li>
+</ul>
+<h2 id="Dynamic-Programming-31"><a href="#Dynamic-Programming-31" class="headerlink" title="Dynamic Programming [31]"></a>Dynamic Programming [31]</h2><ul>
+<li>322 Coin Change</li>
+<li>*131 Palindrome Partitioning</li>
+<li>*132 Palindrome Partitioning II</li>
+<li>198 House Robber</li>
+<li>213 House Robber II</li>
+<li>337 House Robber III</li>
+<li>55 Jump Game</li>
+<li>45 Jump Game II</li>
+<li>121 Best Time to Buy and Sell Stock</li>
+<li>122 Best Time to Buy and Sell Stock II<blockquote>
+<ol start="309">
+<li>Best Time to Buy and Sell Stock with Cooldown</li>
+<li>Best Time to Buy and Sell Stock with Transaction Fee</li>
+</ol>
+</blockquote>
+</li>
+<li>*123 Best Time to Buy and Sell Stock III</li>
+<li>*188 Best Time to Buy and Sell Stock IV</li>
+<li>*174 Dungeon Game</li>
+<li>*91 Decode Ways</li>
+<li>*279 Perfect Squares</li>
+<li>*139 Word Break</li>
+<li>*140 Word Break II</li>
+<li>727 Minimum Window Subsequence (Premium)</li>
+<li>*221 Maximal Square</li>
+<li>64 Minimum Path Sum</li>
+<li>62 Unique Paths</li>
+<li>*63 Unique Paths II</li>
+<li>256 Paint House (Premium)</li>
+<li>265 Paint House II (Premium)</li>
+<li>53 Maximum Subarray</li>
+<li>152 Maximum Product Subarray</li>
+</ul>
+<h4 id="DP–2D"><a href="#DP–2D" class="headerlink" title="DP–2D"></a>DP–2D</h4><ul>
+<li>72 Edit Distance<blockquote>
+<ol start="583">
+<li>Delete Operation for Two Strings</li>
+<li>Minimum ASCII Delete Sum for Two Strings</li>
+</ol>
+</blockquote>
+</li>
+<li>115 Distinct Subsequences Total</li>
+<li>5 Longest Palindromic Substring</li>
+<li>1143 Longest Common Subsequence<blockquote>
+<ol start="516">
+<li>Longest Palindromic Subsequence</li>
+</ol>
+</blockquote>
+</li>
+<li>Longest Common Substring</li>
+</ul>
+<h2 id="Data-Structure-Design-6"><a href="#Data-Structure-Design-6" class="headerlink" title="Data Structure Design [6]"></a>Data Structure Design [6]</h2><ul>
+<li>*146 LRU Cache</li>
+<li>380 Insert Delete GetRandom O(1)</li>
+<li>*381 Insert Delete GetRandom O(1) - Duplicates allowed</li>
+<li>Insert Delete GetMostFrequent O(1)</li>
+<li>379 Design Phone Directory (Premium)</li>
+<li>*355 Design Twitter</li>
+</ul>
+<h2 id="Bit-Manipulation-12"><a href="#Bit-Manipulation-12" class="headerlink" title="Bit Manipulation [12]"></a>Bit Manipulation [12]</h2><ul>
+<li>136 Single Number</li>
+<li>*137 Single Number II<blockquote>
+<ol start="260">
+<li>Single Number III</li>
+</ol>
+</blockquote>
+</li>
+<li><a target="_blank" rel="noopener" href="https://app.codility.com/programmers/lessons/1-iterations/binary_gap/">Maximum Binary Gap</a></li>
+<li>191 Number of 1 Bits</li>
+<li>190 Reverse Bits</li>
+<li>*187 Repeated DNA Sequences</li>
+<li>201 Bitwise AND of Numbers Range</li>
+<li>*371 Sum of Two Integers</li>
+<li>338 Counting Bits</li>
+<li>*318 Maximum Product of Word Lengths</li>
+<li>*89 Gray Code</li>
+<li>*393 UTF-8 Validation</li>
+</ul>
+<h2 id="Graph-6"><a href="#Graph-6" class="headerlink" title="Graph [6]"></a>Graph [6]</h2><h4 id="topological-sort"><a href="#topological-sort" class="headerlink" title="topological sort"></a>topological sort</h4><ul>
+<li>*207 Course Schedule</li>
+<li>*210 Course Schedule II</li>
+<li>*310 Minimum Height Trees</li>
+</ul>
+<h4 id="BFS-x2F-DFS"><a href="#BFS-x2F-DFS" class="headerlink" title="BFS&#x2F;DFS"></a>BFS&#x2F;DFS</h4><ul>
+<li><ol start="26">
+<li>Graph Valid Tree (Premium)</li>
+</ol>
+</li>
+<li>133 Clone Graph</li>
+<li>*332 Reconstruct Itinerary</li>
+</ul>
+<h2 id="Math-x2F-Numbers"><a href="#Math-x2F-Numbers" class="headerlink" title="Math&#x2F;Numbers"></a>Math&#x2F;Numbers</h2><h4 id="power"><a href="#power" class="headerlink" title="power"></a>power</h4><ul>
+<li>50 Pow(x,n)</li>
+<li>231 Power of Two</li>
+<li>326 Power of Three</li>
+<li>342 Power of Four</li>
+<li>*372 Super Pow</li>
+</ul>
+<h4 id="x2F"><a href="#x2F" class="headerlink" title="&#x2F;%"></a>&#x2F;%</h4><ul>
+<li><p>7 Reverse Integer</p>
+</li>
+<li><p>9 Palindrome Number</p>
+</li>
+<li><p>*400 Nth Digit</p>
+</li>
+<li><p>*166 Fraction to Recurring Decimal</p>
+</li>
+<li><p>171 Excel Sheet Column Number</p>
+</li>
+<li><p>168 Excel Sheet Column Title</p>
+</li>
+<li><p>*172 Factorial Trailing Zeroes</p>
+</li>
+<li><p>202 Happy Number</p>
+</li>
+<li><p>204 Count Primes</p>
+</li>
+<li><p>*66 Plus One</p>
+</li>
+<li><p>29 Divide Two Integers</p>
+</li>
+<li><p>43 Multiply Strings</p>
+</li>
+<li><p>*149 Max Points on a Line</p>
+</li>
+<li><p>*343 Integer Break</p>
+</li>
+<li><p>258 Add Digits</p>
+</li>
+<li><p>*368 Largest Divisible Subset</p>
+</li>
+<li><p>357 Count Numbers with Unique Digits</p>
+</li>
+<li><p>*787 Rotated Digits</p>
+</li>
+<li><p>*402 Remove K Digits</p>
+</li>
+</ul>
+<h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><ul>
+<li>*179 Largest Number</li>
+<li>120 Triangle</li>
+<li>*8 String to Integer</li>
+<li>28 Implement strStr()</li>
+<li>6 ZigZag Conversion</li>
+<li>67 Add Binary</li>
+<li>58 Length of Last Word</li>
+<li>299 Bulls and Cows</li>
+<li>*71 Simplify Path</li>
+<li>*165 Compare Version Numbers</li>
+<li>118 Pascal’s Triangle</li>
+<li>119 Pascal’s Triangle II</li>
+<li>38 Count and Say</li>
+<li>*224 Basic Calculator</li>
+<li>*227 Basic Calculator II</li>
+<li>*223 Rectangle Area</li>
+<li>162 Find Peak Element</li>
+<li>*273 Integer to English Words</li>
+<li>68 Text Justification</li>
+<li>134 Gas Station</li>
+<li>*335 Self Crossing</li>
+<li>*330 Patching Array</li>
+<li>292 Nim Game</li>
+<li>319 Bulb Switcher</li>
+<li>276 Paint Fence (Premium)</li>
+<li>339 Nested List Weight Sum (Premium)</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2023/02/12/Blind-Curated-75/" rel="next" title="Blind-Curated-75">
+                <i class="fa fa-chevron-left"></i> Blind-Curated-75
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2023/02/12/HackerRank/interview-preparation-kit/Sorting/" rel="prev" title="Sorting">
+                Sorting <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives">
+              
+                  <span class="site-state-item-count">617</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/a920604a" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:a920604a@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yu.an.1800" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/yuan3509" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+           <!-- 添加近期文章 -->
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <!-- modify icon to fire by szw -->
+                <i class="fa fa-history fa-" aria-hidden="true"></i>
+                近期文章
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2593_FindScoreofanArrayAfterMarkingAllElements/" title="2593. Find Score of an Array After Marking All Elements" target="_blank">2593. Find Score of an Array After Marking All Elements</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2592_MaximizeGreatnessofanArray/" title="2592. Maximize Greatness of an Array" target="_blank">2592. Maximize Greatness of an Array</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2587_RearrangeArraytoMaximizePrefixScore/" title="2587. Rearrange Array to Maximize Prefix Score" target="_blank">2587. Rearrange Array to Maximize Prefix Score</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2586_CounttheNumberofVowelStringsinRange/" title="2586. Count the Number of Vowel Strings in Range" target="_blank">2586. Count the Number of Vowel Strings in Range</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2596_CheckKnightTourConfiguration/" title="2596. Check Knight Tour Configuration" target="_blank">2596. Check Knight Tour Configuration</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-x2F-String-112"><span class="nav-number">1.</span> <span class="nav-text">Array&#x2F;String [112]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Simple-Pointers-39"><span class="nav-number">1.0.1.</span> <span class="nav-text">Simple Pointers [39]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search-14"><span class="nav-number">1.0.2.</span> <span class="nav-text">Binary Search [14]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap-5"><span class="nav-number">1.0.3.</span> <span class="nav-text">HashMap [5]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sum-subarray-related-problems-3"><span class="nav-number">1.0.4.</span> <span class="nav-text">Sum subarray related problems [3]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap%E2%80%93Tracking-6"><span class="nav-number">1.0.5.</span> <span class="nav-text">HashMap–Tracking [6]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet-1"><span class="nav-number">1.0.6.</span> <span class="nav-text">HashSet [1]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Caching-4"><span class="nav-number">1.0.7.</span> <span class="nav-text">Caching [4]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS-2"><span class="nav-number">1.0.8.</span> <span class="nav-text">BFS [2]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Heap-8"><span class="nav-number">1.0.9.</span> <span class="nav-text">Heap [8]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeSet-6"><span class="nav-number">1.0.10.</span> <span class="nav-text">TreeSet [6]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stream-deque-x2F-caching-x2F-heap-x2F-treeset-6"><span class="nav-number">1.0.11.</span> <span class="nav-text">Stream (deque&#x2F;caching&#x2F;heap&#x2F;treeset) [6]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-6"><span class="nav-number">1.0.12.</span> <span class="nav-text">Sort [6]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tracking-index-using-an-array-4"><span class="nav-number">1.0.13.</span> <span class="nav-text">tracking index using an array [4]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rotate-2"><span class="nav-number">1.0.14.</span> <span class="nav-text">Rotate [2]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Finding-a-Number-3"><span class="nav-number">1.0.15.</span> <span class="nav-text">Finding a Number [3]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-index-to-add-elements-to-a-list-1"><span class="nav-number">1.0.16.</span> <span class="nav-text">using index to add elements to a list [1]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterate-within-a-boundary-if-the-boundary-is-fixed-2"><span class="nav-number">1.0.17.</span> <span class="nav-text">Iterate within a boundary if the boundary is fixed [2]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-26"><span class="nav-number">2.</span> <span class="nav-text">Matrix [26]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sorted-matrix-3"><span class="nav-number">2.0.1.</span> <span class="nav-text">sorted matrix [3]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#queue-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">queue [1]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#union-find-disjoint-set-3"><span class="nav-number">2.0.3.</span> <span class="nav-text">union-find (disjoint set) [3]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS-8"><span class="nav-number">2.0.4.</span> <span class="nav-text">DFS [8]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">BFS [1]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Others-9"><span class="nav-number">2.0.6.</span> <span class="nav-text">Others [9]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matrix-multiplication-1"><span class="nav-number">2.0.7.</span> <span class="nav-text">matrix multiplication [1]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linked-List-22"><span class="nav-number">3.</span> <span class="nav-text">Linked List [22]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-47"><span class="nav-number">4.</span> <span class="nav-text">Tree [47]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#travel-6"><span class="nav-number">4.0.1.</span> <span class="nav-text">travel [6]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dfs-x2F-bfs-37"><span class="nav-number">4.0.2.</span> <span class="nav-text">dfs&#x2F;bfs [37]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trie-2"><span class="nav-number">4.0.3.</span> <span class="nav-text">Trie [2]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Segment-Tree-amp-Binary-Index-Tree-2"><span class="nav-number">4.0.4.</span> <span class="nav-text">Segment Tree &amp; Binary Index Tree [2]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-18"><span class="nav-number">5.</span> <span class="nav-text">Stack [18]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-and-Queue-data-structure-implementation-get-familiar-with-stack-and-queue-4"><span class="nav-number">5.0.1.</span> <span class="nav-text">Stack and Queue data structure implementation (get familiar with stack and queue) [4]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-5"><span class="nav-number">5.0.2.</span> <span class="nav-text">Stack [5]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack%E2%80%93Largest-Rectangle-2"><span class="nav-number">5.0.3.</span> <span class="nav-text">Stack–Largest Rectangle [2]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack%E2%80%93Nested-Object-7"><span class="nav-number">5.0.4.</span> <span class="nav-text">Stack–Nested Object [7]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS-28"><span class="nav-number">6.</span> <span class="nav-text">DFS [28]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Programming-31"><span class="nav-number">7.</span> <span class="nav-text">Dynamic Programming [31]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DP%E2%80%932D"><span class="nav-number">7.0.1.</span> <span class="nav-text">DP–2D</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structure-Design-6"><span class="nav-number">8.</span> <span class="nav-text">Data Structure Design [6]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Manipulation-12"><span class="nav-number">9.</span> <span class="nav-text">Bit Manipulation [12]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-6"><span class="nav-number">10.</span> <span class="nav-text">Graph [6]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#topological-sort"><span class="nav-number">10.0.1.</span> <span class="nav-text">topological sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS-x2F-DFS"><span class="nav-number">10.0.2.</span> <span class="nav-text">BFS&#x2F;DFS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-x2F-Numbers"><span class="nav-number">11.</span> <span class="nav-text">Math&#x2F;Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#power"><span class="nav-number">11.0.1.</span> <span class="nav-text">power</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#x2F"><span class="nav-number">11.0.2.</span> <span class="nav-text">&#x2F;%</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other"><span class="nav-number">11.0.3.</span> <span class="nav-text">Other</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2022 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YU-AN, Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

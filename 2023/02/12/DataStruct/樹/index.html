@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Binary Tree題目 226 Invert Binary Tree (Easy)  114 Flatten Binary Tree to Linked List (Medium)  116 Populating Next Right Pointers in Each Node (Medium)  654 Maximum Binary Tree (Medium)   Construct Bin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="樹">
+<meta property="og:url" content="https://a920604a.github.io/blog/2023/02/12/DataStruct/%E6%A8%B9/index.html">
+<meta property="og:site_name" content="YuAn">
+<meta property="og:description" content="Binary Tree題目 226 Invert Binary Tree (Easy)  114 Flatten Binary Tree to Linked List (Medium)  116 Populating Next Right Pointers in Each Node (Medium)  654 Maximum Binary Tree (Medium)   Construct Bin">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-02-12T23:56:43.489Z">
+<meta property="article:modified_time" content="2023-02-12T23:56:43.489Z">
+<meta property="article:author" content="YU-AN, Chen">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a920604a.github.io/blog/2023/02/12/DataStruct/樹/"/>
+
+
+
+
+
+  <title>樹 | YuAn</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuAn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/home/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-目錄">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            目錄
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="https://a920604a.github.io/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://a920604a.github.io/blog/blog/2023/02/12/DataStruct/%E6%A8%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuAn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">樹</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2023-02-12T23:56:43+00:00">
+                2023-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CS/Data-Structure/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Binary-Tree"><a href="#Binary-Tree" class="headerlink" title="Binary Tree"></a>Binary Tree</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><ul>
+<li><p>226 Invert Binary Tree (Easy)</p>
+</li>
+<li><p>114 Flatten Binary Tree to Linked List (Medium)</p>
+</li>
+<li><p>116 Populating Next Right Pointers in Each Node (Medium)</p>
+</li>
+<li><p>654 Maximum Binary Tree (Medium)</p>
+</li>
+</ul>
+<p>Construct Binary Tree from</p>
+<ul>
+<li><p>105 Construct Binary Tree from Preorder and Inorder Traversal (Medium)</p>
+</li>
+<li><p>106 Construct Binary Tree from Inorder and Postorder Traversal (Medium)</p>
+</li>
+<li><p>889 Construct Binary Tree from Preorder and Postorder Traversal (Medium)</p>
+</li>
+<li><p>652 Find Duplicate Subtrees (Medium)</p>
+</li>
+<li><p>*297 Serialize and Deserialize Binary Tree (Hard)</p>
+</li>
+<li><p>236 Lowest Common Ancestor of a Binary Tree (Medium)</p>
+</li>
+<li><p>1373 Maximum Sum BST in Binary Tree (Hard)</p>
+</li>
+<li><p>104 Maximum Depth of Binary Tree (Easy)</p>
+</li>
+<li><p>543 Diameter of Binary Tree (Easy)</p>
+</li>
+</ul>
+<p>traverse</p>
+<ul>
+<li><p>94 Binary Tree Inorder Traversal (Easy)</p>
+</li>
+<li><p>102 Binary Tree Level Order Traversal (Medium)</p>
+</li>
+<li><p>107 Binary Tree Level Order Traversal II (Medium)</p>
+</li>
+<li><p>103 Binary Tree Zigzag Level Order Traversal (Medium)</p>
+</li>
+<li><p>144 Binary Tree Preorder Traversal (Easy)</p>
+</li>
+<li><p>145 Binary Tree Postorder Traversal (Easy)</p>
+<blockquote>
+<p>Morris Traversal <code>O(1)</code> space <code>O(n) time</code></p>
+</blockquote>
+</li>
+<li><p>100 Same Tree (Easy) </p>
+</li>
+<li><p>104 Maximum Depth of Binary Tree (Easy) </p>
+</li>
+<li><p>111 Minimum Depth of Binary Tree (Easy) </p>
+</li>
+<li><p>222 Count Complete Tree Nodes (Medium)</p>
+</li>
+<li><p>501 Find Mode in Binary Search Tree (Easy)</p>
+</li>
+</ul>
+<p>N-ary Tree</p>
+<ul>
+<li><p>559 Maximum Depth of N-ary Tree (Easy)</p>
+</li>
+<li><p>589 N-ary Tree Preorder Traversal (Easy)</p>
+</li>
+<li><p>590 N-ary Tree Postorder Traversal (Easy)</p>
+</li>
+<li><p>429 N-ary Tree Level Order Traversal</p>
+</li>
+<li><p>965 Univalued Binary Tree (Easy)</p>
+</li>
+<li><p>341 Flatten Nested List Iterator (Medium)</p>
+</li>
+</ul>
+<p>Path Sum</p>
+<ul>
+<li>112 Path Sum (Easy)</li>
+<li>113 Path Sum II (Medium)</li>
+<li>*437 Path Sum III (Medium)</li>
+<li>129 Sum Root to Leaf Numbers (Medium)</li>
+<li>*124 Binary Tree Maximum Path Sum (Hard)</li>
+<li>687 Longest Univalue Path</li>
+</ul>
+<p>[補充]</p>
+<ul>
+<li>430 Flatten a Multilevel Doubly Linked List (Medium)</li>
+<li>117 Populating Next Right Pointers in Each Node II (Medium)</li>
+<li>637 Average of Levels in Binary Tree</li>
+<li>110 Balanced Binary Tree</li>
+<li>814 Binary Tree Pruning</li>
+<li>617 Merge Two Binary Trees (Easy)</li>
+<li>117 Populating Next Right Pointers in Each Node II (Medium)</li>
+</ul>
+<h3 id="觀念"><a href="#觀念" class="headerlink" title="觀念"></a>觀念</h3><p><strong>快速排序是二元樹的前序遍歷，合併排序是二元樹的後序遍歷。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快速排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">QuickSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> pivot = <span class="built_in">Partition</span>(nums, l, r);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, l, pivot - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">QuickSort</span>(nums, pivot + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 合併排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, l, mid);</span><br><span class="line">        <span class="built_in">MergeSort</span>(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">        <span class="built_in">Merge</span>(nums, l, mid, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>寫有關於樹的演算法，或是說寫有關於遞迴演算法，關鍵一直都是必須搞清楚明確函數的定義是什麼，相信這個定義，不要跳入遞迴細節。</p>
+<h3 id="遍歷樹-框架"><a href="#遍歷樹-框架" class="headerlink" title="遍歷樹 框架"></a>遍歷樹 框架</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 二元樹遍歷框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前序遍歷 TODO</span></span><br><span class="line">    <span class="built_in">traverse</span>(root.left)</span><br><span class="line">    <span class="comment">// 中序遍歷 TODO</span></span><br><span class="line">    <span class="built_in">traverse</span>(root.right)</span><br><span class="line">    <span class="comment">// 後序遍歷 TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h2><p>Binary Search Tree  BST 中序遍歷是有序的</p>
+<h3 id="BST-框架"><a href="#BST-框架" class="headerlink" title="BST 框架"></a>BST 框架</h3><h3 id="題目-1"><a href="#題目-1" class="headerlink" title="題目"></a>題目</h3><ul>
+<li>230 Kth Smallest Element in a BST (Medium)</li>
+<li>538 Convert BST to Greater Tree (Medium)</li>
+<li>1038 Binary Search Tree to Greater Sum Tree (Medium)</li>
+</ul>
+<p>operation</p>
+<ul>
+<li><p>450 Delete Node in a BST (Medium)</p>
+</li>
+<li><p>701 Insert into a Binary Search Tree (Medium)</p>
+</li>
+<li><p>700 Search in a Binary Search Tree (Easy)</p>
+</li>
+<li><p>98 Validate Binary Search Tree (Medium)</p>
+</li>
+<li><p>96 Unique Binary Search Trees (Medium)</p>
+</li>
+<li><p>95 Unique Binary Search Trees II (Medium)</p>
+</li>
+<li><p>1373 Maximum Sum BST in Binary Tree (Hard)</p>
+</li>
+<li><p>501 Find Mode in Binary Search Tree (Easy)</p>
+</li>
+<li><p>530 Minimum Absolute Difference in BST (Easy)</p>
+</li>
+<li><p>783 Minimum Distance Between BST Nodes (Easy)</p>
+</li>
+<li><p>235 Lowest Common Ancestor of a Binary Search Tree (Easy)</p>
+</li>
+</ul>
+<h3 id="觀念-1"><a href="#觀念-1" class="headerlink" title="觀念"></a>觀念</h3><p>判斷 BST 的合法性</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">isValidBST</span>(root, null, null);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 限定以 root 为根的子树节点必须满足 max.val &gt; root.val &gt; min.val */</span></span><br><span class="line"><span class="function">boolean <span class="title">isValidBST</span><span class="params">(TreeNode root, TreeNode min, TreeNode max)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// base case</span></span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 若 root.val 不符合 max 和 min 的限制，说明不是合法 BST</span></span><br><span class="line">    <span class="keyword">if</span> (min != null &amp;&amp; root.val &lt;= min.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (max != null &amp;&amp; root.val &gt;= max.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">// 限定左子树的最大值是 root.val，右子树的最小值是 root.val</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">isValidBST</span>(root.left, min, root) </span><br><span class="line">        &amp;&amp; <span class="built_in">isValidBST</span>(root.right, root, max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>搜尋一個數</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// option 1 brute force</span></span><br><span class="line"><span class="function">boolean <span class="title">isInBST</span><span class="params">(TreeNode root, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (root.val == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 当前节点没找到就递归地去左右子树寻找</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">isInBST</span>(root.left, target)</span><br><span class="line">        || <span class="built_in">isInBST</span>(root.right, target);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// option 2 binary search 真正BST精神 </span></span><br><span class="line"><span class="function">boolean <span class="title">isInBST</span><span class="params">(TreeNode root, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (root.val == target)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (root.val &lt; target) </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">isInBST</span>(root.right, target);</span><br><span class="line">    <span class="keyword">if</span> (root.val &gt; target)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">isInBST</span>(root.left, target);</span><br><span class="line">    <span class="comment">// root 该做的事做完了，顺带把框架也完成了，妙</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  抽象出來</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BST</span><span class="params">(TreeNode root, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root.val == target)</span><br><span class="line">        <span class="comment">// 找到目标，做点什么</span></span><br><span class="line">    <span class="keyword">if</span> (root.val &lt; target) </span><br><span class="line">        <span class="built_in">BST</span>(root.right, target);</span><br><span class="line">    <span class="keyword">if</span> (root.val &gt; target)</span><br><span class="line">        <span class="built_in">BST</span>(root.left, target);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>插入一個數，涉及到“改”，就要返回樹的結構</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">TreeNode <span class="title">insertIntoBST</span><span class="params">(TreeNode root, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 找到空位置插入新节点</span></span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">TreeNode</span>(val);</span><br><span class="line">    <span class="comment">// if (root.val == val)</span></span><br><span class="line">    <span class="comment">//     BST 中一般不会插入已存在元素</span></span><br><span class="line">    <span class="keyword">if</span> (root.val &lt; val) </span><br><span class="line">        root.right = <span class="built_in">insertIntoBST</span>(root.right, val);</span><br><span class="line">    <span class="keyword">if</span> (root.val &gt; val) </span><br><span class="line">        root.left = <span class="built_in">insertIntoBST</span>(root.left, val);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>刪除一個數，先“查“再”改“。找到後判斷是否有子節點，及是否破壞結構</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象 框架</span></span><br><span class="line"><span class="function">TreeNode <span class="title">deleteNode</span><span class="params">(TreeNode root, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root.val == key) &#123;</span><br><span class="line">        <span class="comment">// 找到啦，进行删除</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.val &gt; key) &#123;</span><br><span class="line">        <span class="comment">// 去左子树找</span></span><br><span class="line">        root.left = <span class="built_in">deleteNode</span>(root.left, key);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.val &lt; key) &#123;</span><br><span class="line">        <span class="comment">// 去右子树找</span></span><br><span class="line">        root.right = <span class="built_in">deleteNode</span>(root.right, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode <span class="title">deleteNode</span><span class="params">(TreeNode root, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span> null;</span><br><span class="line">    <span class="keyword">if</span> (root.val == key) &#123;</span><br><span class="line">        <span class="comment">// 这两个 if 把情况 1 和 2 都正确处理了</span></span><br><span class="line">        <span class="keyword">if</span> (root.left == null) <span class="keyword">return</span> root.right;</span><br><span class="line">        <span class="keyword">if</span> (root.right == null) <span class="keyword">return</span> root.left;</span><br><span class="line">        <span class="comment">// 处理情况 3</span></span><br><span class="line">        TreeNode minNode = <span class="built_in">getMin</span>(root.right);</span><br><span class="line">        root.val = minNode.val;</span><br><span class="line">        root.right = <span class="built_in">deleteNode</span>(root.right, minNode.val);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.val &gt; key) &#123;</span><br><span class="line">        root.left = <span class="built_in">deleteNode</span>(root.left, key);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.val &lt; key) &#123;</span><br><span class="line">        root.right = <span class="built_in">deleteNode</span>(root.right, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode <span class="title">getMin</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// BST 最左边的就是最小的</span></span><br><span class="line">    <span class="keyword">while</span> (node.left != null) node = node.left;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>建造最大二元樹</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">TreeNode <span class="title">constructMaximumBinaryTree</span><span class="params">(<span class="type">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums is empty) <span class="keyword">return</span> null;</span><br><span class="line">    <span class="comment">// 找到数组中的最大值</span></span><br><span class="line">    <span class="type">int</span> maxVal = Integer.MIN_VALUE;</span><br><span class="line">    <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt; maxVal) &#123;</span><br><span class="line">            maxVal = nums[i];</span><br><span class="line">            index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TreeNode root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(maxVal);</span><br><span class="line">    <span class="comment">// 递归调用构造左右子树</span></span><br><span class="line">    root.left = <span class="built_in">constructMaximumBinaryTree</span>(nums[<span class="number">0.</span>.index<span class="number">-1</span>]);</span><br><span class="line">    root.right = <span class="built_in">constructMaximumBinaryTree</span>(nums[index+<span class="number">1.</span>.nums.length<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不同的二元搜尋樹，求樹的數量、列出每棵樹</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 主函数 */</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">numTrees</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算闭区间 [1, n] 组成的 BST 个数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">count</span>(<span class="number">1</span>, n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 计算闭区间 [lo, hi] 组成的 BST 个数 */</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// base case</span></span><br><span class="line">    <span class="keyword">if</span> (lo &gt; hi) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = lo; i &lt;= hi; i++) &#123;</span><br><span class="line">        <span class="comment">// i 的值作为根节点 root</span></span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">count</span>(lo, i - <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">count</span>(i + <span class="number">1</span>, hi);</span><br><span class="line">        <span class="comment">// 左右子树的组合数乘积是 BST 的总数</span></span><br><span class="line">        res += left * right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 备忘录</span></span><br><span class="line"><span class="type">int</span>[][] memo;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">numTrees</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 备忘录的值初始化为 0</span></span><br><span class="line">    memo = <span class="keyword">new</span> <span class="type">int</span>[n + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">count</span>(<span class="number">1</span>, n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lo &gt; hi) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 查备忘录</span></span><br><span class="line">    <span class="keyword">if</span> (memo[lo][hi] != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> memo[lo][hi];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> mid = lo; mid &lt;= hi; mid++) &#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">count</span>(lo, mid - <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">count</span>(mid + <span class="number">1</span>, hi);</span><br><span class="line">        res += left * right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将结果存入备忘录</span></span><br><span class="line">    memo[lo][hi] = res;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 主函数 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">generateTrees</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="comment">// 构造闭区间 [1, n] 组成的 BST </span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">build</span>(<span class="number">1</span>, n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 构造闭区间 [lo, hi] 组成的 BST */</span></span><br><span class="line"><span class="function">List&lt;TreeNode&gt; <span class="title">build</span><span class="params">(<span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">    List&lt;TreeNode&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="comment">// base case</span></span><br><span class="line">    <span class="keyword">if</span> (lo &gt; hi) &#123;</span><br><span class="line">        res.<span class="built_in">add</span>(null);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、穷举 root 节点的所有可能。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = lo; i &lt;= hi; i++) &#123;</span><br><span class="line">        <span class="comment">// 2、递归构造出左右子树的所有合法 BST。</span></span><br><span class="line">        List&lt;TreeNode&gt; leftTree = <span class="built_in">build</span>(lo, i - <span class="number">1</span>);</span><br><span class="line">        List&lt;TreeNode&gt; rightTree = <span class="built_in">build</span>(i + <span class="number">1</span>, hi);</span><br><span class="line">        <span class="comment">// 3、给 root 节点穷举所有左右子树的组合。</span></span><br><span class="line">        <span class="keyword">for</span> (TreeNode left : leftTree) &#123;</span><br><span class="line">            <span class="keyword">for</span> (TreeNode right : rightTree) &#123;</span><br><span class="line">                <span class="comment">// i 作为根节点 root 的值</span></span><br><span class="line">                TreeNode root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(i);</span><br><span class="line">                root.left = left;</span><br><span class="line">                root.right = right;</span><br><span class="line">                res.<span class="built_in">add</span>(root);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Graph 圖，用adjacent linked list 、adjacent matrix 存儲</p>
+<p><strong>遍歷圖的框架</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 多叉树遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == null) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (TreeNode child : root.children)</span><br><span class="line">        <span class="built_in">traverse</span>(child);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有環的圖</span></span><br><span class="line">Graph graph;</span><br><span class="line">boolean[] visited;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 图遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(Graph graph, <span class="type">int</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (visited[s]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 经过节点 s</span></span><br><span class="line">    visited[s] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode neighbor : graph.<span class="built_in">neighbors</span>(s))</span><br><span class="line">        <span class="built_in">traverse</span>(neighbor);</span><br><span class="line">    <span class="comment">// 离开节点 s</span></span><br><span class="line">    visited[s] = <span class="literal">false</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>圖的所有路徑</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记录所有路径</span></span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="built_in">allPathsSourceTarget</span>(<span class="type">int</span>[][] graph) &#123;</span><br><span class="line">    LinkedList&lt;Integer&gt; path = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="built_in">traverse</span>(graph, <span class="number">0</span>, path);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 图的遍历框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span>[][] graph, <span class="type">int</span> s, LinkedList&lt;Integer&gt; path)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加节点 s 到路径</span></span><br><span class="line">    path.<span class="built_in">addLast</span>(s);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = graph.length;</span><br><span class="line">    <span class="keyword">if</span> (s == n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 到达终点</span></span><br><span class="line">        res.<span class="built_in">add</span>(<span class="keyword">new</span> LinkedList&lt;&gt;(path));</span><br><span class="line">        path.<span class="built_in">removeLast</span>();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 递归每个相邻节点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v : graph[s]) &#123;</span><br><span class="line">        <span class="built_in">traverse</span>(graph, v, path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从路径移出节点 s</span></span><br><span class="line">    path.<span class="built_in">removeLast</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>二元搜尋數子樹的最大鍵值總和</p>
+<ol>
+<li>確認子樹合法性(BST左小右大)</li>
+<li>確認把自己加入是否還合法，比較左子樹最大值和柚子樹最小值</li>
+<li>左右子樹之和</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2023/02/12/DataStruct/%E7%A7%BB%E5%8B%95%E7%AA%97%E5%8F%A3/" rel="next" title="Sliding Window">
+                <i class="fa fa-chevron-left"></i> Sliding Window
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2023/02/12/DataStruct/%E5%BB%A3%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B%EF%BC%86%E6%B7%B1%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B/" rel="prev" title="廣度優先搜尋&深度優先搜尋">
+                廣度優先搜尋&深度優先搜尋 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives">
+              
+                  <span class="site-state-item-count">617</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/a920604a" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:a920604a@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yu.an.1800" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/yuan3509" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+           <!-- 添加近期文章 -->
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <!-- modify icon to fire by szw -->
+                <i class="fa fa-history fa-" aria-hidden="true"></i>
+                近期文章
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2593_FindScoreofanArrayAfterMarkingAllElements/" title="2593. Find Score of an Array After Marking All Elements" target="_blank">2593. Find Score of an Array After Marking All Elements</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2592_MaximizeGreatnessofanArray/" title="2592. Maximize Greatness of an Array" target="_blank">2592. Maximize Greatness of an Array</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2587_RearrangeArraytoMaximizePrefixScore/" title="2587. Rearrange Array to Maximize Prefix Score" target="_blank">2587. Rearrange Array to Maximize Prefix Score</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2586_CounttheNumberofVowelStringsinRange/" title="2586. Count the Number of Vowel Strings in Range" target="_blank">2586. Count the Number of Vowel Strings in Range</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog/2023/03/19/leetcode/2596_CheckKnightTourConfiguration/" title="2596. Check Knight Tour Configuration" target="_blank">2596. Check Knight Tour Configuration</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Tree"><span class="nav-number">1.</span> <span class="nav-text">Binary Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%80%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E6%AD%B7%E6%A8%B9-%E6%A1%86%E6%9E%B6"><span class="nav-number">1.3.</span> <span class="nav-text">遍歷樹 框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">2.</span> <span class="nav-text">Binary Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BST-%E6%A1%86%E6%9E%B6"><span class="nav-number">2.1.</span> <span class="nav-text">BST 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE-1"><span class="nav-number">2.2.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%80%E5%BF%B5-1"><span class="nav-number">2.3.</span> <span class="nav-text">觀念</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2022 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YU-AN, Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
