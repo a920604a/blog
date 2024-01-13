@@ -1,3 +1,4 @@
+https://a920604a.github.io/blog/2023/02/12/Blind-Curated-75/
 https://a920604a.github.io/blog/2023/12/21/leetcode/752_OpentheLock/
 https://a920604a.github.io/blog/2023/12/21/leetcode/724_FindPivotIndex/
 https://a920604a.github.io/blog/2023/12/21/leetcode/867_TransposeMatrix/
@@ -621,7 +622,6 @@ https://a920604a.github.io/blog/2023/02/12/codility/MaxSliceSum/
 https://a920604a.github.io/blog/2023/02/12/HackerRank/interview-preparation-kit/DictionariesandHashmaps/
 https://a920604a.github.io/blog/2023/02/12/HackerRank/interview-preparation-kit/Sorting/
 https://a920604a.github.io/blog/2023/02/12/Algorithm-Problem-Classification/
-https://a920604a.github.io/blog/2023/02/12/Blind-Curated-75/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/Dijkstra/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/FloodFill/
 https://a920604a.github.io/blog/2023/02/12/DataStruct/Graph/
