@@ -1,3 +1,5 @@
+https://a920604a.github.io/blog/2024/01/28/leetcode/1074_NumberofSubmatricesThatSumtoTarget/
+https://a920604a.github.io/blog/2024/01/28/leetcode/3019_NumberofChangingKeys/
 https://a920604a.github.io/blog/2023/02/12/Blind-Curated-75/
 https://a920604a.github.io/blog/2023/12/21/leetcode/752_OpentheLock/
 https://a920604a.github.io/blog/2023/12/21/leetcode/724_FindPivotIndex/
