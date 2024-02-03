@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="stack," />
+  <meta name="keywords" content="sorting,hash table," />
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="problemssolution1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:        vector&lt;string&gt; removeAnagrams(vector&lt;string&gt;&amp; words) &amp;#123;        int n &#x3D;words.siz">
+<meta name="description" content="problemsolution1234567891011121314151617181920class Solution &amp;#123;public:    vector&lt;string&gt; removeAnagrams(vector&lt;string&gt;&amp; words) &amp;#123;        vector&lt;string&gt; ret;        ret.pu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2273. Find Resultant Array After Removing Anagrams">
 <meta property="og:url" content="https://a920604a.github.io/blog/2023/02/12/leetcode/2273_FindResultantArrayAfterRemovingAnagrams/index.html">
 <meta property="og:site_name" content="YuAn">
-<meta property="og:description" content="problemssolution1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:        vector&lt;string&gt; removeAnagrams(vector&lt;string&gt;&amp; words) &amp;#123;        int n &#x3D;words.siz">
+<meta property="og:description" content="problemsolution1234567891011121314151617181920class Solution &amp;#123;public:    vector&lt;string&gt; removeAnagrams(vector&lt;string&gt;&amp; words) &amp;#123;        vector&lt;string&gt; ret;        ret.pu">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-02-12T23:56:43.513Z">
-<meta property="article:modified_time" content="2023-02-12T23:56:43.513Z">
+<meta property="article:modified_time" content="2024-02-02T23:35:56.132Z">
 <meta property="article:author" content="YU-AN, Chen">
-<meta property="article:tag" content="stack">
+<meta property="article:tag" content="sorting">
+<meta property="article:tag" content="hash table">
 <meta name="twitter:card" content="summary">
 
 
@@ -391,10 +392,11 @@
       
 
       
-        <h2 id="problems"><a href="#problems" class="headerlink" title="problems"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/">problems</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">removeAnagrams</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n =words.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">stack&lt;<span class="type">int</span>&gt; <span class="title">sta</span><span class="params">(&#123;<span class="number">0</span>&#125;)</span></span>;</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            string temp = words[i];</span><br><span class="line">            <span class="built_in">sort</span>(temp.<span class="built_in">begin</span>(), temp.<span class="built_in">end</span>());</span><br><span class="line">            <span class="keyword">if</span>(!sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                string a = words[sta.<span class="built_in">top</span>()];</span><br><span class="line">                <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">                <span class="keyword">if</span>(a==temp) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sta.<span class="built_in">push</span>(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> i = sta.<span class="built_in">top</span>();</span><br><span class="line">            ret.<span class="built_in">push_back</span>(words[i]);</span><br><span class="line">            sta.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ret.<span class="built_in">begin</span>(), ret.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/description/">problem</a></h2><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">removeAnagrams</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        ret.<span class="built_in">push_back</span>(words[<span class="number">0</span>]);</span><br><span class="line">        <span class="type">int</span> n = words.<span class="built_in">size</span>();</span><br><span class="line">        string last = words[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">sort</span>(last.<span class="built_in">begin</span>(), last.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n ;++i) &#123;</span><br><span class="line">            string w = words[i];</span><br><span class="line">            <span class="built_in">sort</span>(w.<span class="built_in">begin</span>(), w.<span class="built_in">end</span>());</span><br><span class="line">            <span class="keyword">if</span>(last == w) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(words[i]);</span><br><span class="line">                last = w;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">removeAnagrams</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n =words.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">stack&lt;<span class="type">int</span>&gt; <span class="title">sta</span><span class="params">(&#123;<span class="number">0</span>&#125;)</span></span>;</span><br><span class="line">        vector&lt;string&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">            string temp = words[i];</span><br><span class="line">            <span class="built_in">sort</span>(temp.<span class="built_in">begin</span>(), temp.<span class="built_in">end</span>());</span><br><span class="line">            <span class="keyword">if</span>(!sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                string a = words[sta.<span class="built_in">top</span>()];</span><br><span class="line">                <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">                <span class="keyword">if</span>(a==temp) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sta.<span class="built_in">push</span>(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!sta.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> i = sta.<span class="built_in">top</span>();</span><br><span class="line">            ret.<span class="built_in">push_back</span>(words[i]);</span><br><span class="line">            sta.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ret.<span class="built_in">begin</span>(), ret.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><ul>
-<li>time complexity <code>O(n)</code></li>
+<li>time complexity <code>O(n*mlogm)</code></li>
 <li>space complexity <code>O(n)</code></li>
 </ul>
 
@@ -414,7 +416,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/stack/" rel="tag"># stack</a>
+            <a href="/blog/tags/sorting/" rel="tag"># sorting</a>
+          
+            <a href="/blog/tags/hash-table/" rel="tag"># hash table</a>
           
         </div>
       
@@ -512,7 +516,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">638</span>
+                  <span class="site-state-item-count">639</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -585,6 +589,10 @@
                 
                 
                   <li>
+                    <a href="/blog/2024/02/03/leetcode/2570_MergeTwo2DArraysbySummingValues/" title="2570. Merge Two 2D Arrays by Summing Values" target="_blank">2570. Merge Two 2D Arrays by Summing Values</a>
+                  </li>
+                
+                  <li>
                     <a href="/blog/2024/01/28/leetcode/1074_NumberofSubmatricesThatSumtoTarget/" title="1074. Number of Submatrices That Sum to Target" target="_blank">1074. Number of Submatrices That Sum to Target</a>
                   </li>
                 
@@ -598,10 +606,6 @@
                 
                   <li>
                     <a href="/blog/2023/12/21/leetcode/867_TransposeMatrix/" title="867. Transpose Matrix" target="_blank">867. Transpose Matrix</a>
-                  </li>
-                
-                  <li>
-                    <a href="/blog/2023/12/21/leetcode/345_ReverseVowelsofaString/" title="345. Reverse Vowels of a String" target="_blank">345. Reverse Vowels of a String</a>
                   </li>
                 
               </ul>
@@ -628,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problems"><span class="nav-number">1.</span> <span class="nav-text">problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text">analysis</span></a></li></ol></div>
             
 
           </div>
