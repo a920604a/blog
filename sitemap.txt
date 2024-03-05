@@ -1,3 +1,6 @@
+https://a920604a.github.io/blog/2024/03/05/leetcode/1750_MinimumLengthofStringAfterDeletingSimilarEnds/
+https://a920604a.github.io/blog/2024/03/05/leetcode/2864_MaximumOddBinaryNumber/
+https://a920604a.github.io/blog/2024/03/05/leetcode/948_BagofTokens/
 https://a920604a.github.io/blog/2024/02/03/leetcode/2570_MergeTwo2DArraysbySummingValues/
 https://a920604a.github.io/blog/2023/02/12/leetcode/2273_FindResultantArrayAfterRemovingAnagrams/
 https://a920604a.github.io/blog/2024/01/28/leetcode/1074_NumberofSubmatricesThatSumtoTarget/
